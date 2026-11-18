@@ -765,6 +765,16 @@ html[data-theme="dark"] .gt-m-mag{background:radial-gradient(90% 90% at 50% 40%,
 html[data-theme="dark"] .gt-m-cb{background:radial-gradient(90% 80% at 50% 30%,#1D2638,#111723)}
 html[data-theme="dark"] .gt-m-bill{background:linear-gradient(#232838,#161A26)}
 html[data-theme="dark"] .gt-tag{color:#A4ABBE}
+
+/* v47 figma selection on graphic tiles */
+.gt-mw{position:relative;display:block;flex:1;min-height:0}
+.gt-mw>.gt-m{height:100%}
+.gt:hover .gt-m{box-shadow:0 34px 50px -30px rgba(20,35,110,.5)!important;transform:none}
+.gt:hover .cv-sel,.gt:focus-visible .cv-sel{opacity:1}
+.gt:hover .cv-sel{border-color:#2638FF!important}.gt:hover .cv-sel b{border-color:#2638FF!important}.gt:hover .cv-sel em{background:#2638FF!important}
+.gt.pc-sel .cv-sel{opacity:1;border-color:#FF5A36}.gt.pc-sel .cv-sel b{border-color:#FF5A36}.gt.pc-sel .cv-sel em{background:#FF5A36}
+.gt .cv-sel{z-index:4}
+.gt:focus-visible{outline:none}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -1006,11 +1016,11 @@ class Component extends DCLogic {
     if (pc && !reduce) {
       let selC = null;
       const hop = () => { if (document.hidden || this.state.view !== 'canvas') return;
-        const cards = Array.from(world.querySelectorAll('.cv-c')); if (!cards.length) return;
+        const cards = Array.from(world.querySelectorAll('.cv-c,.gt')); if (!cards.length) return;
         const vw = vp.clientWidth, vh = vp.clientHeight;
         const vis = cards.filter(c => { const r = c.getBoundingClientRect(); return r.right > 40 && r.left < vw - 40 && r.bottom > 120 && r.top < vh - 120; });
         const pool = vis.length ? vis : cards; const c = pool[Math.floor(Math.random() * pool.length)];
-        const r = this.fRect(c, world); const m = c.querySelector('.cv-mw') || c;
+        const r = this.fRect(c, world); const m = c.querySelector('.cv-mw,.gt-mw') || c;
         if (selC) selC.classList.remove('pc-sel');
         pc.style.transform = 'translate(' + (r.x + m.offsetWidth * (.55 + Math.random() * .3)) + 'px,' + (r.y + m.offsetHeight * (.45 + Math.random() * .35)) + 'px)';
         clearTimeout(this._pcS); this._pcS = setTimeout(() => { selC = c; c.classList.add('pc-sel'); }, 1900);
@@ -1038,7 +1048,7 @@ class Component extends DCLogic {
       else if (t.t === 'soc') m = '<span class="gt-soc" data-cyc="' + t.sl.length + '">' + t.sl.map((s, k) => '<img class="' + (k ? '' : 'on') + '" src="' + e(s) + '" alt="" loading="lazy" draggable="false">').join('') + '<span class="gt-car" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="15" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10" fill="none" stroke="#fff" stroke-width="2"/></svg></span><span class="gt-dots">' + t.sl.map((s, k) => '<i class="' + (k ? '' : 'on') + '"></i>').join('') + '</span></span>';
       else if (t.t === 'book' || t.t === 'mag') m = '<span class="gt-open gt-' + t.t + '" data-cyc="' + t.sp.length + '">' + t.sp.map((p, k) => '<span class="gt-spr ' + (k ? '' : 'on') + '"><span class="gt-pg gt-pl"><img src="' + e(p[0]) + '" alt="" loading="lazy" draggable="false"></span><span class="gt-pg gt-pr"><img src="' + e(p[1]) + '" alt="" loading="lazy" draggable="false"></span></span>').join('') + '<span class="gt-gutter" aria-hidden="true"></span></span><span class="gt-read">Open &amp; turn the pages →</span>';
       else if (t.t === 'cb') m = '<span class="gt-cb"><span class="gt-cbk"><img src="' + e(t.cover) + '" alt="' + e(t.title) + ' cover" loading="lazy" draggable="false"><i class="gt-spine"></i></span><i class="gt-pages"></i></span><span class="gt-read">Open book →</span>';
-      return '<button type="button" class="gt gt-t-' + t.t + '" style="' + st + '" ' + act + ' aria-label="Open ' + e(t.title) + '"><span class="gt-m gt-m-' + t.t + '">' + m + '</span>' + cap(t) + '</button>';
+      return '<button type="button" class="gt gt-t-' + t.t + '" style="' + st + '" ' + act + ' aria-label="Open ' + e(t.title) + '"><span class="gt-mw"><span class="gt-m gt-m-' + t.t + '">' + m + '</span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>' + e(t.title) + '</em></span></span>' + cap(t) + '</button>';
     }).join('');
     gc.innerHTML = html;
     if (this._cycT) clearInterval(this._cycT);
