@@ -512,6 +512,78 @@ html[data-theme="dark"] .ins-layer b{color:#F3F5FA}
 html[data-theme="dark"] .ins-tag,html[data-theme="dark"] .ins-pos{background:rgba(255,255,255,.06);color:#A4ABBE}
 html[data-theme="dark"] .ins-x{color:#A4ABBE}html[data-theme="dark"] .ins-x:hover{background:rgba(255,255,255,.07);color:#FFF}
 html[data-theme="dark"] .ins-b{background:#FFF;color:#07080D}html[data-theme="dark"] .ins-b:hover{background:#7D93FF;color:#07080D}
+
+/* ===== v44 featured print projects ===== */
+.pp{display:flex;flex-direction:column;gap:70px}
+.pp-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.pp-h{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:start;margin-bottom:26px}
+.pp-n{grid-row:span 2;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;background:#0B0D14;color:#FFF;font:500 14px 'Geist Mono',monospace}
+.pp-h h3{margin:0;font-size:34px;line-height:1.1;font-weight:500;letter-spacing:-.035em;color:#0B0D14}
+.pp-h p{margin:8px 0 0;max-width:62ch;font-size:17px;line-height:1.5;color:#5E6372}
+.pp-chips{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pp-chips span{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:99px;background:#F1F3F8;font:500 12px 'Geist Mono',monospace;color:#3A3F4F}
+.pp-hint{margin:16px 0 0;font:500 12px 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:#9AA0B0}
+/* micron */
+.mic{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:12px;padding:44px 34px 30px;border-radius:24px;background:radial-gradient(120% 90% at 50% 0%,#1A1D2B,#07080D 70%);perspective:1400px}
+.mic-l{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;padding:0;border:0;background:none;cursor:zoom-in;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.mic-in{position:relative;display:block;width:100%;aspect-ratio:9.5/16;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.mic-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 18px 30px -14px rgba(0,0,0,.9)}
+.mic-bk{transform:rotateY(180deg)}
+.mic-l:hover{transform:translateY(-10px) scale(1.06);z-index:2}
+.mic-l:hover .mic-in{transform:rotateY(180deg)}
+.mic-l::after{content:"";position:absolute;left:10%;right:10%;bottom:22px;height:18px;border-radius:50%;background:var(--g);filter:blur(16px);opacity:.35;transition:opacity .4s}
+.mic-l:hover::after{opacity:.85}
+.mic-n{position:relative;z-index:1;font:500 11px/1.2 'Geist Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:#C9CEDB;text-align:center}
+/* detail craft */
+.dc{position:relative;display:block;width:100%;padding:0;border:0;border-radius:18px;overflow:hidden;background:#FFF;box-shadow:0 0 0 1px rgba(11,13,20,.08),0 40px 70px -40px rgba(11,13,20,.45);cursor:zoom-in}
+.dc img{display:block;width:100%;height:auto;transition:scale 1s cubic-bezier(.16,1,.3,1)}
+.dc:hover img{scale:1.02}
+.dc-dim{position:absolute;left:16px;right:16px;bottom:12px;display:flex;align-items:center;justify-content:center;font:500 11px 'Geist Mono',monospace;color:#5E6372}
+.dc-dim i{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,#9AA0B0 0 1px,transparent 1px calc(100% - 1px),#9AA0B0 calc(100% - 1px)),linear-gradient(#C9CEDB,#C9CEDB) 0 50%/100% 1px no-repeat;z-index:-1}
+.dc-dim{background:transparent}
+.dc-dim::before{content:"";position:absolute;inset:-4px 40%;background:#FFF;border-radius:99px;z-index:-1}
+/* book */
+.bk{display:flex;flex-direction:column;align-items:center;gap:16px;padding:30px;border-radius:24px;background:linear-gradient(160deg,#FFF3DE,#FDE7C6)}
+.bk-sp{position:relative;display:grid;grid-template-columns:1fr 1fr;width:100%;box-shadow:0 30px 50px -26px rgba(80,40,0,.5);border-radius:6px}
+.bk-pg{aspect-ratio:1;background:#FFF8EC;overflow:hidden}
+.bk-l{border-radius:6px 0 0 6px}.bk-r{border-radius:0 6px 6px 0}
+.bk-pg img{display:block;width:100%;height:100%;object-fit:cover;animation:bkin .5s cubic-bezier(.22,1,.36,1)}
+@keyframes bkin{from{opacity:0;transform:translateX(10px)}}
+.bk-sp-sh{position:absolute;left:50%;top:0;bottom:0;width:60px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(0,0,0,.18) 45%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.18) 55%,transparent);pointer-events:none}
+.bk-nav{display:flex;align-items:center;gap:16px;font:500 13px 'Geist Mono',monospace;color:#8A5A00}
+.bk-b{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:50%;background:#0B0D14;color:#FFF;cursor:pointer;transition:background .25s,scale .2s}
+.bk-b:hover{background:#FF8A1F}.bk-b:active{scale:.9}
+/* colouring compare */
+.cb{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cb-c{margin:0}
+.cb-f{position:relative;aspect-ratio:612/792;border-radius:14px;overflow:hidden;background:#FFF;box-shadow:0 0 0 1px rgba(11,13,20,.08),0 26px 44px -30px rgba(11,13,20,.5);--p:50%}
+.cb-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cb-k{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.cb-line{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#FFF;box-shadow:0 0 0 1px rgba(11,13,20,.15);pointer-events:none}
+.cb-line i{position:absolute;top:50%;left:50%;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#FFF;color:#0B0D14;font-style:normal;font-size:16px;box-shadow:0 6px 16px -4px rgba(11,13,20,.4)}
+.cb-f input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.cb-c figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:12px 2px 0}
+.cb-c figcaption b{font-size:15px;font-weight:500}
+.cb-c figcaption span{font:500 11px 'Geist Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:#9AA0B0}
+.cb-covers{grid-column:span 2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cb-covers button{padding:0;border:0;background:none;border-radius:10px;overflow:hidden;cursor:zoom-in;box-shadow:0 0 0 1px rgba(11,13,20,.08);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.cb-covers button:hover{transform:translateY(-6px) rotate(-2deg)}
+.cb-covers img{display:block;width:100%;aspect-ratio:612/792;object-fit:cover}
+/* nlsiu fan */
+.nl{position:relative;height:660px;border-radius:24px;background:radial-gradient(90% 80% at 50% 100%,#1E3A2E,#0F2219 70%);overflow:hidden}
+.nl-p{position:absolute;left:50%;top:60px;width:330px;aspect-ratio:596/842;margin-left:-165px;padding:0;border:0;background:#F4EFE3;border-radius:6px;overflow:hidden;cursor:zoom-in;box-shadow:0 26px 40px -20px rgba(0,0,0,.7);transform-origin:50% 150%;transform:rotate(calc(var(--k) * 2.2deg));transition:transform .9s cubic-bezier(.22,1,.36,1),box-shadow .4s;z-index:var(--i)}
+.nl-p img{display:block;width:100%;height:100%;object-fit:cover}
+.nl:hover .nl-p{transform:translateX(calc(var(--k) * 72px)) rotate(calc(var(--k) * 1.4deg)) translateY(calc(var(--k) * var(--k) * 1.6px))}
+.nl .nl-p:hover{transform:translateX(calc(var(--k) * 72px)) translateY(-40px) rotate(0) scale(1.08);z-index:40;box-shadow:0 40px 60px -20px rgba(0,0,0,.9)}
+/* dark */
+html[data-theme="dark"] .pp-h h3,html[data-theme="dark"] .cb-c figcaption b{color:#F3F5FA}
+html[data-theme="dark"] .pp-h p{color:#A4ABBE}
+html[data-theme="dark"] .pp-n{background:#FFF;color:#07080D}
+html[data-theme="dark"] .pp-chips span{background:rgba(255,255,255,.07);color:#C9CEDB}
+html[data-theme="dark"] .bk{background:linear-gradient(160deg,#2A2116,#1D1810)}
+html[data-theme="dark"] .bk-nav{color:#F2C879}
+html[data-theme="dark"] .bk-b{background:#FFF;color:#07080D}
+html[data-theme="dark"] .dc-dim::before{background:#FFF}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -538,6 +610,24 @@ html[data-theme="dark"] .ins-b{background:#FFF;color:#07080D}html[data-theme="da
 <p>Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
 <div class="cv-hint"><span class="cv-kbd">Drag</span> to explore <span class="cv-dot"></span> <span class="cv-kbd">Scroll</span> to pan <span class="cv-dot"></span> <span class="cv-kbd">Ctrl + Scroll</span> to zoom</div>
 </header>
+<section class="cv-fr cv-fr-p" id="print" data-frame="print"><div class="cv-fl"><span><i>#</i>Featured print projects</span><span>05 projects · {{nP}} artboards</span></div><div class="cv-fb pp">
+<article class="pp-b"><div class="pp-h"><span class="pp-n">01</span><div><h3>Micron — label system</h3><p>Packaging for an 11-product auto detailing range. One system, a colour per product.</p></div><div class="pp-chips"><span>11 SKUs</span><span>Front + back</span><span>9.5 × 16 cm</span><span>Print-ready · 3 mm bleed</span></div></div>
+<div class="mic" data-nodrag><sc-for list="{{mic}}" as="l" hint-placeholder-count="11"><button type="button" class="mic-l" style="--g:{{l.glow}}" onClick="{{l.open}}" aria-label="Open {{l.name}} label"><span class="mic-in"><img class="mic-f" src="{{l.f}}" alt="{{l.name}} label front" loading="lazy" draggable="false"><img class="mic-bk" src="{{l.b}}" alt="{{l.name}} label back" loading="lazy" draggable="false"></span><span class="mic-n">{{l.name}}</span></button></sc-for></div>
+<p class="pp-hint">Hover a label to flip it · click to open</p></article>
+<article class="pp-b"><div class="pp-h"><span class="pp-n">02</span><div><h3>Detail Craft — shop board</h3><p>A large-format storefront board for a premium auto detailing studio.</p></div><div class="pp-chips"><span>36 × 120 in</span><span>Vector artwork</span><span>Large format</span></div></div>
+<button type="button" class="dc" onClick="{{dcOpen}}" aria-label="Open Detail Craft board"><img src="../assets/print/detail.webp" alt="Detail Craft premium auto detailing shop board" loading="lazy" draggable="false"><span class="dc-dim"><i></i>120 in</span></button></article>
+<div class="pp-row">
+<article class="pp-b"><div class="pp-h"><span class="pp-n">03</span><div><h3>Tiko Finds His Roar</h3><p>A children’s picture book about a little tiger who finds his voice. Written by me.</p></div><div class="pp-chips"><span>Picture book</span><span>44 pages</span><span>Story + layout</span></div></div>
+<div class="bk" data-nodrag><div class="bk-sp"><div class="bk-pg bk-l"><sc-if value="{{tk.l}}" hint-placeholder-val="{{ true }}"><img src="{{tk.l}}" alt="" draggable="false"></sc-if></div><div class="bk-pg bk-r"><img src="{{tk.r}}" alt="Tiko Finds His Roar page" draggable="false"></div><span class="bk-sp-sh" aria-hidden="true"></span></div>
+<div class="bk-nav"><button type="button" class="bk-b" onClick="{{tkPrev}}" aria-label="Previous spread"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span>{{tk.label}}</span><button type="button" class="bk-b" onClick="{{tkNext}}" aria-label="Next spread"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></article>
+<article class="pp-b"><div class="pp-h"><span class="pp-n">04</span><div><h3>Wonder Books — colouring books</h3><p>Two activity books for kids: jungle and sea animals, with fact boxes and checklists.</p></div><div class="pp-chips"><span>2 books</span><span>50+ pages each</span><span>Letter + A4</span></div></div>
+<div class="cb"><sc-for list="{{cmp}}" as="c" hint-placeholder-count="2"><figure class="cb-c" data-nodrag><div class="cb-f" style="--p:{{c.p}}%"><img class="cb-o" src="{{c.o}}" alt="{{c.name}} line art page" draggable="false"><img class="cb-k" src="{{c.k}}" alt="{{c.name}} coloured page" draggable="false"><span class="cb-line" aria-hidden="true"><i>⇆</i></span><input type="range" min="0" max="100" value="50" data-cmp="{{c.id}}" aria-label="Compare coloured and line art: {{c.name}}"></div><figcaption><b>{{c.name}}</b><span>Drag to colour it in</span></figcaption></figure></sc-for>
+<div class="cb-covers"><sc-for list="{{covers}}" as="v" hint-placeholder-count="4"><button type="button" onClick="{{v.open}}" aria-label="Open {{v.name}}"><img src="{{v.src}}" alt="{{v.name}}" loading="lazy" draggable="false"></button></sc-for></div></div></article>
+</div>
+<article class="pp-b"><div class="pp-h"><span class="pp-n">05</span><div><h3>NLSIU — prospectus</h3><p>A 14-page prospectus for the National Law School of India University: editorial grid, deep green and cream palette.</p></div><div class="pp-chips"><span>14 pages</span><span>A4 editorial</span><span>Prospectus</span></div></div>
+<div class="nl" data-nodrag><sc-for list="{{nil}}" as="n" hint-placeholder-count="14"><button type="button" class="nl-p" style="--i:{{n.i}};--k:{{n.k}}" onClick="{{n.open}}" aria-label="Open prospectus page {{n.num}}"><img src="{{n.src}}" alt="NLSIU prospectus page {{n.num}}" loading="lazy" draggable="false"></button></sc-for></div>
+<p class="pp-hint">Hover to fan the pages · click a page to read it</p></article>
+</div></section>
 <section class="cv-fr cv-fr-g" id="graphic" data-frame="graphic"><div class="cv-fl"><span><i>#</i>Graphic design</span><span>{{nG}} pieces</span></div><div class="cv-fb"><div class="cv-mas"><sc-for list="{{gItems}}" as="g" hint-placeholder-count="12"><button type="button" class="cv-c" onClick="{{g.open}}" aria-label="Open {{g.title}}"><span class="cv-mw"><span class="cv-m">
 <sc-if value="{{g.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{g.src}}" poster="{{g.poster}}" muted="" loop="" playsinline="" preload="none"></video><span class="cv-rec"><i></i>{{g.badge}}</span></sc-if>
 <sc-if value="{{g.isImg}}" hint-placeholder-val="{{ true }}"><img src="{{g.src}}" alt="{{g.title}}" loading="lazy" draggable="false"></sc-if>
@@ -586,7 +676,7 @@ html[data-theme="dark"] .ins-b{background:#FFF;color:#07080D}html[data-theme="da
 <div class="tb-seg" role="group" aria-label="View"><button type="button" class="tb-v" onClick="{{toCanvas}}" aria-pressed="{{isCanvas}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Canvas</button><button type="button" class="tb-v" onClick="{{toIndex}}" aria-pressed="{{isIndex}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Index</button></div>
 <div class="tb-cv">
 <span class="tb-sep"></span>
-<button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
+<button type="button" class="tb-j" data-go="print">Print</button><button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
 <span class="tb-sep"></span>
 <button type="button" class="tb-i" data-act="zout" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="tb-z" data-zl>100%</span><button type="button" class="tb-i" data-act="zin" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><button type="button" class="tb-i" data-act="fit" aria-label="Fit everything"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
@@ -624,7 +714,7 @@ html[data-theme="dark"] .ins-b{background:#FFF;color:#07080D}html[data-theme="da
 class Component extends DCLogic {
   constructor(p){
     super(p);
-    this.state = { light: -1, view: (typeof window !== 'undefined' && window.innerWidth < 820) ? 'index' : 'canvas', ic: 'all' };
+    this.state = { tk: 0, cmpA: 50, cmpB: 50, light: -1, view: (typeof window !== 'undefined' && window.innerWidth < 820) ? 'index' : 'canvas', ic: 'all' };
     this.toCanvas = () => { if (this.state.view !== 'canvas') this.setState({ view: 'canvas' }, () => this.cvRefit && this.cvRefit()); };
     this.toIndex = () => { if (this.state.view !== 'index') { this.setState({ view: 'index' }); window.scrollTo(0, 0); } };
     this.LS = () => this.state.view === 'index' ? this.ixList() : this.ALL;
@@ -654,7 +744,7 @@ class Component extends DCLogic {
   }
   gCat(tag){ const t = tag.toLowerCase(); if (t.startsWith('poster')) return 'poster'; if (t.startsWith('figma')) return 'web'; if (t.startsWith('photoshop')) return 'print'; return 'editorial'; }
   gList(){ const gf = this.state.gf; return this.G.filter(g => gf === 'all' || this.gCat(g[2]) === gf); }
-  ixList(){ const c = this.state.ic; return (this.ALL || []).filter(it => c === 'all' || it.cat === c); }
+  ixList(){ const c = this.state.ic; return (this.ALL || []).filter(it => !it.noIx && (c === 'all' || it.cat === c)); }
   startCanvas(){
     const vp = this.root.querySelector('[data-vp]'), world = this.root.querySelector('[data-world]'); if (!vp || !world) return;
     const zl = this.root.querySelector('[data-zl]'), mini = this.root.querySelector('[data-mini]'), miniW = this.root.querySelector('[data-miniw]'), miniV = this.root.querySelector('[data-miniv]'), tip = this.root.querySelector('[data-tip]');
@@ -699,7 +789,7 @@ class Component extends DCLogic {
     // drag + pinch
     const pts = new Map(); let drag = null, moved = false, pinch = null, last = [];
     vp.addEventListener('pointerdown', (e) => {
-      if (e.button > 0 || e.target.closest('.cv-mini,.cv-next')) return;
+      if (e.button > 0 || e.target.closest('.cv-mini,.cv-next,[data-nodrag] input,.bk-b')) return;
       stopAnim(); cancelAnimationFrame(raf); vx = vy = 0;
       pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), z, cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 }; drag = null; return; }
@@ -771,6 +861,7 @@ class Component extends DCLogic {
   }
   lbDims(){ const m = this.root && this.root.querySelector('[data-lbm]'), d = this.root && this.root.querySelector('[data-dim]'); if (!m || !d) return; const set = () => { const w = m.naturalWidth || m.videoWidth, h = m.naturalHeight || m.videoHeight; d.textContent = w ? w + ' × ' + h : '—'; }; m.onload = set; m.onloadedmetadata = set; set(); }
   fRect(f, world){ let x = 0, y = 0, n = f; while (n && n !== world) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return { x, y, w: f.offsetWidth, h: f.offsetHeight }; }
+  startCmp(){ if (this._cmpB) return; this._cmpB = true; this.root.addEventListener('input', (e) => { const t = e.target; if (!t.dataset || !t.dataset.cmp) return; const f = t.closest('.cb-f'); if (f) f.style.setProperty('--p', t.value + '%'); this.state['cmp' + t.dataset.cmp] = +t.value; }); }
   startIndex(){
     const ix = this.root.querySelector('[data-ix]'), pv = this.root.querySelector('[data-pv]'), pvi = this.root.querySelector('[data-pvi]'); if (!ix || !pv) return;
     let tx = 0, ty = 0, cx = 0, cy = 0, on = false, raf = 0;
@@ -838,7 +929,7 @@ class Component extends DCLogic {
     this.startTheme();
     if (!this.root) return;
     this.startTransitions(); document.documentElement.classList.toggle('cv-lock', this.state.view === 'canvas');
-    requestAnimationFrame(() => { this.startCanvas(); this.startIndex(); });
+    requestAnimationFrame(() => { this.startCanvas(); this.startIndex(); this.startCmp(); });
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if ('IntersectionObserver' in window) {
       this.io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); } }), { threshold: 0.08 });
@@ -876,20 +967,42 @@ class Component extends DCLogic {
       { src: '../assets/site/v_woodlands.mp4', poster: '../assets/site/v_woodlands_poster.jpg', title: 'Woodlands 2', tag: 'Unity · 2D platformer', cat: 'game', catL: 'Game', tool: 'Unity', isVid: true, isImg: false, badge: 'Gameplay', prev: '../assets/site/v_woodlands_poster.jpg', shots: ['../assets/explorations/gm_wood1.webp','../assets/explorations/gm_wood2.webp'] },
       { src: '../assets/site/v_bongo.mp4', poster: '../assets/site/v_bongo_poster.jpg', title: 'Bongo Bash', tag: 'Unity · Pong-style game', cat: 'game', catL: 'Game', tool: 'Unity', isVid: true, isImg: false, badge: 'Gameplay', prev: '../assets/site/v_bongo_poster.jpg', shots: ['../assets/explorations/gm_bongo.webp'] }
     ];
-    this.ALL = GI.concat(SI, MI, GM);
+    const P = '../assets/print/';
+    const MN = [['01_apc','APC','#39E36B'],['02_degreaser','Degreaser','#FF8A1F'],['03_hard_water_remover','Hard Water Remover','#24D3FF'],['04_glass_cleaner','Glass Cleaner','#3B9BFF'],['05_ipa','IPA','#8B5CFF'],['06_shampoo','Shampoo','#FF3FA6'],['07_tar_remover','Tar Remover','#FF3B3B'],['08_engine_dressing','Engine Dressing','#FFC21F'],['09_tire_gel','Tire Gel','#A8F02E'],['10_fibre_dressing','Fibre Dressing','#2FE0B5'],['11_perfume','Perfume','#C35CFF']];
+    const PRI = [];
+    const mk = (src, title, tag, tool) => { const it = { src, poster: '', title, tag, cat: 'print', catL: 'Print', tool, isVid: false, isImg: true, prev: src }; PRI.push(it); return it; };
+    const micI = MN.map(m => ({ m, f: mk(P + 'mic_' + m[0] + '_f.webp', 'Micron ' + m[1] + ' · front', 'Packaging · Label front', 'Print design'), b: mk(P + 'mic_' + m[0] + '_b.webp', 'Micron ' + m[1] + ' · back', 'Packaging · Label back', 'Print design') }));
+    micI.forEach(x => { x.b.noIx = true; });
+    const dcI = mk(P + 'detail.webp', 'Detail Craft shop board', 'Large format · 36 × 120 in', 'Vector');
+    const TP = [1,4,5,9,10,14,15,20,21,27,28,35,36]; const tkI = {}; TP.forEach(n => { tkI[n] = mk(P + 'tiko_' + n + '.webp', 'Tiko Finds His Roar · ' + (n === 1 ? 'cover' : 'page ' + n), 'Picture book · Story + layout', 'Book design'); });
+    const cvI = [mk(P + 'jun_1.webp', 'Jungle Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(P + 'jun_9.webp', 'Jungle Colouring Book · Bengal Tiger', 'Book design · Activity page', 'Book design'), mk(P + 'sea_1.webp', 'Sea Animals Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(P + 'sea_10.webp', 'Sea Animals Colouring Book · Dolphin', 'Book design · Activity page', 'Book design'), mk(P + 'jun_52.webp', 'Jungle Colouring Book · back cover', 'Book design · Back cover', 'Book design'), mk(P + 'sea_50.webp', 'Sea Animals Colouring Book · back cover', 'Book design · Back cover', 'Book design')];
+    Object.keys(tkI).forEach(n => { if (![1,4,20,35].includes(+n)) tkI[n].noIx = true; });
+    const nlI = []; for (let n = 1; n <= 14; n++) nlI.push(mk(P + 'nil_' + n + '.webp', 'NLSIU prospectus · page ' + n, 'Editorial · Prospectus', 'Editorial design'));
+    nlI.forEach((n, k) => { if (![0,3,8,13].includes(k)) n.noIx = true; });
+    this.ALL = PRI.concat(GI, SI, MI, GM);
+    const SPR = [[null,1],[4,5],[9,10],[14,15],[20,21],[27,28],[35,36]];
+    const tki = Math.max(0, Math.min(SPR.length - 1, this.state.tk)); const sp = SPR[tki];
     const openAt = (it) => () => { const L = this.LS(); const k = L.indexOf(it); this.setState({ light: k < 0 ? 0 : k }); };
     const wrap = (arr) => arr.map(it => ({ ...it, open: openAt(it) }));
     const ic = this.state.ic, IX = this.ixList();
-    const icDefs = [['all','All',this.ALL.length],['graphic','Graphic',GI.length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
+    const icDefs = [['all','All',this.ALL.filter(i => !i.noIx).length],['print','Print',PRI.filter(i => !i.noIx).length],['graphic','Graphic',GI.length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
     const L = this.state.light, LS = this.LS(), cur = L > -1 && LS[L] ? LS[L] : null;
     return {
       setRoot: this.setRoot,
+      nP: pad(PRI.length),
+      mic: micI.map(x => ({ name: x.m[1], glow: x.m[2], f: x.f.src, b: x.b.src, open: openAt(x.f) })),
+      dcOpen: openAt(dcI),
+      tk: { l: sp[0] ? P + 'tiko_' + sp[0] + '.webp' : '', r: P + 'tiko_' + sp[1] + '.webp', label: tki === 0 ? 'Cover' : 'Spread ' + tki + ' / ' + (SPR.length - 1) },
+      tkPrev: () => this.setState({ tk: (tki + SPR.length - 1) % SPR.length }), tkNext: () => this.setState({ tk: (tki + 1) % SPR.length }),
+      cmp: [{ id: 'A', name: 'Bengal Tiger · Jungle book', o: P + 'jun_10.webp', k: P + 'jun_9.webp', p: this.state.cmpA }, { id: 'B', name: 'Dolphin · Sea animals book', o: P + 'sea_11.webp', k: P + 'sea_10.webp', p: this.state.cmpB }],
+      covers: [cvI[0], cvI[2], cvI[4], cvI[5]].map(c => ({ name: c.title, src: c.src, open: openAt(c) })),
+      nil: nlI.map((n, k) => ({ src: n.src, num: k + 1, i: k, k: (k - 6.5).toFixed(1), open: openAt(n) })),
       view: this.state.view, isCanvas: this.state.view === 'canvas' ? 'true' : 'false', isIndex: this.state.view === 'index' ? 'true' : 'false', toCanvas: this.toCanvas, toIndex: this.toIndex,
-      nAll: this.ALL.length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
+      nAll: this.ALL.filter(i => !i.noIx).length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
       gItems: wrap(GI), sItems: wrap(SI), mItems: wrap(MI), gmItems: wrap(GM),
       ixItems: IX.map((it, k) => ({ ...it, num: pad(k + 1), cat: it.catL, open: openAt(it) })),
       ixFilters: icDefs.map(d => ({ label: d[1], count: d[2], on: ic === d[0] ? 'true' : 'false', pick: () => this.setState({ ic: d[0], light: -1 }) })),
-      lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length, frame: ({graphic:'Graphic design',sim:'Simulations',model:'3D models',game:'Unity games'})[cur.cat], kind: cur.tag.split(' · ').slice(1).join(' · ') || cur.catL, tool: cur.tool, fmt: cur.isVid ? 'Video · MP4' : 'Image', icon: cur.isVid ? '▶' : '#' } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '', frame: '', kind: '', tool: '', fmt: '', icon: '' },
+      lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length, frame: ({print:'Featured print projects',graphic:'Graphic design',sim:'Simulations',model:'3D models',game:'Unity games'})[cur.cat], kind: cur.tag.split(' · ').slice(1).join(' · ') || cur.catL, tool: cur.tool, fmt: cur.isVid ? 'Video · MP4' : 'Image', icon: cur.isVid ? '▶' : '#' } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '', frame: '', kind: '', tool: '', fmt: '', icon: '' },
       prev: this.prev, next: this.next, close: this.close, bgClose: this.bgClose
     };
   }
