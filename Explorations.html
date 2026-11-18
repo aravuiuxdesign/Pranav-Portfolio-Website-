@@ -104,7 +104,6 @@ h1,h2,h3{text-wrap:balance}
 /* mobile fixes */
 html,body{overflow-x:clip}
 
-/* v32 back */@media (max-width:640px){.pg-back{display:none!important}}
 
 /* ===== v34 theme toggle ===== */
 .thm{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:0;border-radius:50%;background:#F1F3F8;color:#0B0D14;cursor:pointer;transition:background .3s,color .3s,transform .4s cubic-bezier(.22,1,.36,1)}
@@ -124,85 +123,258 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:#07080D!importan
 html[data-theme="dark"] .pfroot{background:#07080D!important;color:#E8EBF3!important}
 html[data-theme="dark"] ::selection{background:#3D55FF;color:#FFF}
 
-/* ===== v34 autodark ===== */
-html[data-theme="dark"] a{color:#F3F5FA!important}
-html[data-theme="dark"] .pill-light{background:#1A1E2E!important;color:#F3F5FA!important}
-html[data-theme="dark"] .pill-light:hover{color:#F3F5FA!important}
-html[data-theme="dark"] .card{color:#F3F5FA!important}
-html[data-theme="dark"] .card .f{background:#141724!important}
-html[data-theme="dark"] .meta-row{border-bottom:1px solid rgba(255,255,255,.09)!important}
-html[data-theme="dark"] .hero-info{border-top:1px solid rgba(255,255,255,.09)!important}
-html[data-theme="dark"] .hdr.scrolled{background:rgba(20,23,36,0.82)!important;border-bottom-color:rgba(255,255,255,.09)!important}
-html[data-theme="dark"] .ptx i{background:#0F1119!important}
-/* ===== /v34 autodark ===== */
 
-/* v34 dark tweaks */
-html[data-theme="dark"] header{background:rgba(7,8,13,.82)!important;border-color:rgba(255,255,255,.07)!important}
-html[data-theme="dark"] header *{color:#E8EBF3}
-html[data-theme="dark"] .lpx{fill:#FFF!important}
 
-html[data-theme="dark"] .pfroot p{color:#A4ABBE}
+/* ===== v40 Explorations redesign ===== */
+.xroot{--ink:#0B0D14;--mut:#5E6372;--line:#E7EBF2;--soft:#F5F7FB;--card:#FFFFFF;--acc:#2638FF;--gx:clamp(20px,5vw,112px);overflow-x:clip}
+.xw{max-width:1440px;margin:0 auto;padding-left:var(--gx);padding-right:var(--gx)}
+.it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--acc);letter-spacing:-.01em}
+.xroot a:hover{color:inherit}
+/* nav */
+.xn-wrap{position:fixed;top:16px;left:0;right:0;z-index:80;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
+.xn{pointer-events:auto;display:flex;align-items:center;gap:6px;height:60px;padding:0 8px 0 20px;border-radius:999px;background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(227,231,240,.9);box-shadow:0 20px 50px -28px rgba(30,45,120,.35)}
+.xn-logo{display:flex;align-items:center;gap:12px;margin-right:18px;color:var(--ink)}
+.xn-logo svg{fill:var(--ink)}
+.xn-sep{width:1px;height:20px;background:var(--line)}
+.xn-name{font-size:16px;font-weight:500}
+.xn-links{display:flex;gap:2px;margin-right:6px}
+.xn-links a{padding:9px 14px;border-radius:99px;font-size:15px;color:#3A3F4F;transition:background .25s,color .25s}
+.xn-links a:hover{background:#F1F3F8;color:var(--ink)}
+.xn-links a.on{background:var(--ink);color:#FFF}
+.xn .thm{margin-right:6px}
+.xn-cta{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 6px 0 20px;border-radius:99px;background:var(--acc);color:#FFF!important;font-size:15px;font-weight:500;box-shadow:0 12px 26px -12px rgba(38,56,255,.6);transition:transform .3s,box-shadow .3s}
+.xn-cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px -12px rgba(38,56,255,.7)}
+.xn-arc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#FFF;color:var(--acc);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.xn-cta:hover .xn-arc,.xbtn:hover .xn-arc{transform:translateX(3px) rotate(-45deg)}
+/* hero */
+.xh{position:relative;padding:clamp(130px,15vh,170px) 0 clamp(48px,6vw,80px);overflow:hidden}
+.xh-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(38,56,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(38,56,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 30%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 50% 30%,#000 10%,transparent 75%);pointer-events:none}
+.xh-glow{position:absolute;left:50%;top:-10%;width:min(1200px,110vw);height:620px;transform:translateX(-50%);filter:blur(80px);opacity:.5;pointer-events:none}
+.xh-glow span{position:absolute;border-radius:50%;animation:xglow 18s ease-in-out infinite alternate}
+.xh-glow span:nth-child(1){left:10%;top:20%;width:40%;height:60%;background:#9AAEFF}
+.xh-glow span:nth-child(2){right:8%;top:10%;width:38%;height:62%;background:#C4B3FF;animation-delay:-6s}
+.xh-glow span:nth-child(3){left:38%;top:40%;width:30%;height:50%;background:#A6E8FF;animation-delay:-11s}
+@keyframes xglow{50%{transform:translate(4%,-5%) scale(1.07)}100%{transform:translate(-4%,4%) scale(.96)}}
+.xh-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.xh-crumb{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)!important;margin-bottom:26px;transition:color .25s}
+.xh-crumb span{opacity:.5}.xh-crumb b{font-weight:500;color:var(--ink)}
+.xh-crumb:hover{color:var(--acc)!important}
+.xh-crumb svg{transition:transform .3s}.xh-crumb:hover svg{transform:translateX(-3px)}
+.xeb{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px 0 4px;border-radius:99px;background:rgba(255,255,255,.8);border:1px solid var(--line);font:500 11.5px/1 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.xeb b{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:99px;background:var(--acc);color:#FFF;font-weight:500;font-size:10.5px}
+.xh-t{margin:20px 0 0;font-size:clamp(56px,9vw,148px);line-height:.92;letter-spacing:-.055em;font-weight:500;color:var(--ink)}
+.xh-t .it{font-size:1.08em;font-weight:400}
+.xh-p{margin:24px auto 0;max-width:54ch;font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:var(--mut)}
+.xh-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(820px,100%);margin-top:clamp(32px,4vw,52px)}
+.xst{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.75);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);text-align:left;color:var(--ink)!important;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .4s,border-color .3s}
+.xst:hover{transform:translateY(-4px);border-color:rgba(38,56,255,.3);box-shadow:0 24px 40px -26px rgba(38,56,255,.5)}
+.xst b{font-size:clamp(28px,2.6vw,40px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.xst span{font:500 11px/1.2 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+/* sticky tabs */
+.xtabs-wrap{position:sticky;top:88px;z-index:60;display:flex;justify-content:center;padding:0 16px;margin-top:-6px;pointer-events:none;transition:top .3s}
+.xtabs{pointer-events:auto;position:relative;display:flex;gap:2px;padding:5px;border-radius:99px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 14px 34px -22px rgba(30,45,120,.4)}
+.xtab{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:99px;font-size:14.5px;font-weight:500;color:#3A3F4F!important;transition:color .3s;white-space:nowrap}
+.xtab i{font-style:normal;font:500 11px/1 'Geist Mono',monospace;padding:3px 6px;border-radius:99px;background:#EEF1F8;color:var(--mut);transition:background .3s,color .3s}
+.xtab:hover{color:var(--ink)!important}
+.xtab.on{color:#FFF!important}
+.xtab.on i{background:rgba(255,255,255,.18);color:#FFF}
+.xtab-ind{position:absolute;left:0;top:5px;bottom:5px;border-radius:99px;background:var(--ink);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),opacity .3s}
+/* sections */
+.xs{padding:clamp(72px,8vw,128px) 0}
+.xs-tint{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.xs-h{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(28px,3vw,40px)}
+.xs-h h2{margin:18px 0 0;font-size:clamp(40px,4.6vw,76px);line-height:1;letter-spacing:-.045em;font-weight:500;color:var(--ink)}
+.xs-r p{margin:0;max-width:44ch;color:var(--mut);font-size:16px;line-height:1.55}
+.xchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.xchips span{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:99px;background:var(--card);border:1px solid var(--line);font-size:12.5px;color:#3A3F4F}
+.xf{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(24px,2.6vw,36px)}
+.xf-b{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);font:500 14px 'Geist',sans-serif;color:#3A3F4F;cursor:pointer;transition:background .3s,color .3s,border-color .3s,scale .2s}
+.xf-b i{font-style:normal;font:500 11px 'Geist Mono',monospace;color:var(--mut)}
+.xf-b:hover{border-color:#C9D2EC;color:var(--ink)}
+.xf-b:active{scale:.96}
+.xf-b[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#FFF}
+.xf-b[aria-pressed="true"] i{color:rgba(255,255,255,.6)}
+/* graphic masonry */
+.xmas{columns:4 260px;column-gap:20px}
+.xc{display:block;width:100%;margin:0 0 26px;padding:0;border:0;background:none;text-align:left;font:inherit;color:var(--ink);cursor:zoom-in;break-inside:avoid}
+.xc-f{position:relative;display:block;overflow:hidden;border-radius:18px;background:var(--soft);box-shadow:0 0 0 1px rgba(11,13,20,.05);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.xc-f img{width:100%;height:auto;transition:scale 1s cubic-bezier(.16,1,.3,1)}
+.xc:hover .xc-f{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(38,56,255,.18),0 30px 50px -30px rgba(20,35,110,.45)}
+.xc:hover .xc-f img{scale:1.04}
+.xc-zoom{position:absolute;right:12px;top:12px;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);box-shadow:0 8px 18px -8px rgba(0,0,0,.4);opacity:0;transform:scale(.7);transition:opacity .3s,transform .4s cubic-bezier(.34,1.56,.64,1)}
+.xc:hover .xc-zoom,.xc:focus-visible .xc-zoom{opacity:1;transform:none}
+.xc-m{display:flex;flex-direction:column;gap:4px;padding:14px 4px 0}
+.xc-m b{font-size:16px;font-weight:500;letter-spacing:-.01em;line-height:1.3}
+.xc-m span{font:500 11px/1.3 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+/* 3D grid */
+.x3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+.x3c{margin:0}
+.x3f{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#E9EDF5;box-shadow:0 0 0 1px rgba(11,13,20,.05);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.x3c:hover .x3f{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(38,56,255,.18),0 30px 50px -30px rgba(20,35,110,.45)}
+.x3f video,.x3f img{width:100%;height:100%;object-fit:cover;transition:scale 1s cubic-bezier(.16,1,.3,1)}
+.x3c:hover .x3f img,.x3c:hover .x3f video{scale:1.04}
+.x3open{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.x3b{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:7px;height:26px;padding:0 10px;border-radius:99px;background:rgba(11,13,20,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#FFF;font:500 10.5px/1 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;pointer-events:none}
+.x3b i{width:6px;height:6px;border-radius:50%;background:#FF4D5E;animation:xrec 1.6s ease-in-out infinite}
+@keyframes xrec{50%{opacity:.3}}
+.x3b-m{background:rgba(255,255,255,.88);color:var(--ink)}
+.x3c figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px 0}
+.x3c figcaption b{font-size:16px;font-weight:500;letter-spacing:-.01em}
+.x3c figcaption span{flex:none;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+/* games */
+.xg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.xgc{padding:14px;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 60px -48px rgba(20,35,110,.4);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.xgc:hover{transform:translateY(-4px);box-shadow:0 40px 70px -40px rgba(20,35,110,.45)}
+.xgv{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#0B0D14}
+.xgv video{width:100%;height:100%;object-fit:cover}
+.xgt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.xgt img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px}
+.xgt-1{grid-template-columns:1fr}.xgt-1 img{aspect-ratio:32/9}
+.xgm{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:20px 8px 8px}
+.xgm h3{margin:0;font-size:clamp(26px,2.2vw,34px);font-weight:500;letter-spacing:-.035em;color:var(--ink)}
+.xgm p{margin:4px 0 0;font:500 11.5px/1 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.xgm .xchips{margin:0;justify-content:flex-end}
+/* CTA */
+.xcta-wrap{padding-bottom:clamp(40px,5vw,72px)}
+.xcta{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;padding:clamp(36px,5vw,72px);border-radius:32px;background:#0B0D14;color:#FFF}
+.xcta-glow{position:absolute;right:-10%;top:-60%;width:60%;height:180%;background:radial-gradient(closest-side,rgba(38,56,255,.55),transparent);filter:blur(30px);pointer-events:none}
+.xcta>*{position:relative}
+.xcta h2{margin:18px 0 0;max-width:16ch;font-size:clamp(34px,4.2vw,64px);line-height:1.02;letter-spacing:-.045em;font-weight:500;color:#FFF}
+.xcta h2 .it{color:#8EA2FF}
+.xeb-d{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#FFF}
+.xcta-b{display:flex;flex-wrap:wrap;gap:10px}
+.xbtn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 22px;border-radius:99px;font-size:15.5px;font-weight:500;transition:transform .3s,background .3s,scale .2s}
+.xbtn:active{scale:.96}
+.xbtn-w{background:#FFF;color:#0B0D14!important;padding-right:8px}
+.xbtn-w .xn-arc{background:var(--acc);color:#FFF}
+.xbtn-o{border:1px solid rgba(255,255,255,.2);color:#FFF!important}
+.xbtn-o:hover{background:rgba(255,255,255,.08)}
+/* lightbox */
+.xlb{position:fixed;inset:0;z-index:250;display:flex;align-items:center;justify-content:center;gap:16px;padding:clamp(16px,4vw,56px);background:rgba(8,9,14,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);animation:xfade .3s ease}
+@keyframes xfade{from{opacity:0}}
+.xlb-f{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:min(1100px,100%);animation:xpop .4s cubic-bezier(.22,1,.36,1)}
+@keyframes xpop{from{opacity:0;transform:scale(.96)}}
+.xlb-f img{max-width:100%;max-height:78vh;border-radius:14px;object-fit:contain;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.xlb-f figcaption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:10px;color:#FFF;text-align:center}
+.xlb-f b{font-size:17px;font-weight:500}
+.xlb-f span{font:500 11px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#A7ADC0}
+.xlb-f em{font:500 11px 'Geist Mono',monospace;font-style:normal;color:#A7ADC0;padding:3px 8px;border-radius:99px;background:rgba(255,255,255,.08)}
+.xlb-n,.xlb-x{display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#FFF;cursor:pointer;transition:background .25s,scale .2s}
+.xlb-n:hover,.xlb-x:hover{background:rgba(255,255,255,.2)}
+.xlb-n:active,.xlb-x:active{scale:.92}
+.xlb-x{position:absolute;right:20px;top:20px}
+/* responsive */
+@media (max-width:1100px){.x3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.xn-links,.xn-sep,.xn-name{display:none}.xn-logo{margin-right:auto}.xn{gap:8px;padding-left:18px}.xs-h{grid-template-columns:1fr}.xg{grid-template-columns:1fr}.xh-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .xn{height:56px}.xn-cta{height:42px;font-size:14px;padding-left:16px}.xn-arc{width:30px;height:30px}
+  .xh{padding-top:110px}.xh-t{font-size:clamp(50px,15vw,72px)}
+  .xtabs{max-width:100%;overflow-x:auto;scrollbar-width:none}.xtabs::-webkit-scrollbar{display:none}.xtab{height:38px;padding:0 12px;font-size:13.5px}
+  .xtabs-wrap{top:80px}
+  .xmas{columns:2;column-gap:12px}.xc{margin-bottom:18px}.xc-f{border-radius:14px}.xc-m b{font-size:14px}.xc-m span{font-size:10px}
+  .x3{grid-template-columns:1fr;gap:22px}
+  .xgm{flex-direction:column;align-items:flex-start}.xgm .xchips{justify-content:flex-start}
+  .xlb-n{position:absolute;bottom:20px;width:44px;height:44px}.xlb-p{left:calc(50% - 54px)}.xlb-nx{right:calc(50% - 54px)}
+  .xlb-f img{max-height:70vh}
+}
+@media (prefers-reduced-motion:reduce){.xh-glow span,.x3b i{animation:none}}
+@media (max-width:640px){.xf{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:calc(-1*var(--gx));margin-right:calc(-1*var(--gx));padding:0 var(--gx)}.xf::-webkit-scrollbar{display:none}.xf-b{flex:none}.xtab i{display:none}.xtab{padding:0 14px}}
+/* dark */
+html[data-theme="dark"] .xroot{--ink:#F3F5FA;--mut:#9AA1B5;--line:rgba(255,255,255,.08);--soft:#0D0F17;--card:#11131C;--acc:#7D93FF;background:#07080D!important;color:#E8EBF3!important}
+html[data-theme="dark"] .xn{background:rgba(16,18,27,.72);border-color:rgba(255,255,255,.08);box-shadow:0 20px 50px -24px rgba(0,0,0,.8)}
+html[data-theme="dark"] .xn-links a{color:#C9CEDB}html[data-theme="dark"] .xn-links a:hover{background:rgba(255,255,255,.07);color:#FFF}
+html[data-theme="dark"] .xn-links a.on{background:#FFF;color:#07080D}
+html[data-theme="dark"] .xn-cta{background:#3D55FF}html[data-theme="dark"] .xn-arc{color:#3D55FF}
+html[data-theme="dark"] .xh-grid{background-image:linear-gradient(rgba(140,160,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(140,160,255,.07) 1px,transparent 1px)}
+html[data-theme="dark"] .xh-glow{opacity:.35}
+html[data-theme="dark"] .xh-glow span:nth-child(1){background:#2E46FF}html[data-theme="dark"] .xh-glow span:nth-child(2){background:#6B3DFF}html[data-theme="dark"] .xh-glow span:nth-child(3){background:#0EA5E9}
+html[data-theme="dark"] .xeb,html[data-theme="dark"] .xst,html[data-theme="dark"] .xtabs{background:rgba(18,20,30,.75)}
+html[data-theme="dark"] .xeb b{background:#3D55FF}
+html[data-theme="dark"] .xtab{color:#C9CEDB!important}html[data-theme="dark"] .xtab i{background:rgba(255,255,255,.07)}
+html[data-theme="dark"] .xtab.on{color:#07080D!important}html[data-theme="dark"] .xtab.on i{background:rgba(7,8,13,.12);color:#07080D}
+html[data-theme="dark"] .xf-b{color:#C9CEDB}html[data-theme="dark"] .xf-b[aria-pressed="true"]{background:#FFF;color:#07080D;border-color:#FFF}html[data-theme="dark"] .xf-b[aria-pressed="true"] i{color:rgba(7,8,13,.5)}
+html[data-theme="dark"] .xchips span{color:#C9CEDB}
+html[data-theme="dark"] .xc-f,html[data-theme="dark"] .x3f{box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+html[data-theme="dark"] .x3f{background:#141724}
+html[data-theme="dark"] .x3b-m{background:rgba(20,23,36,.85);color:#F3F5FA}
+html[data-theme="dark"] .xc-zoom{background:rgba(20,23,36,.9);color:#FFF}
+html[data-theme="dark"] .xcta{background:#11131C;border:1px solid rgba(255,255,255,.08)}
+html[data-theme="dark"] .xn-logo svg{fill:#FFF}
 </style>
 </helmet>
-<div class="pfroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #000000; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
-<button type="button" class="thm thm-fx" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
-<a href="index.html" class="pg-back" aria-label="Back to home"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a>
+<div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
 
 <div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Explorations</span></div></div></div>
 
-<header style="position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px)">
-<nav aria-label="Explorations" class="ex-nav" style="max-width: 1600px; margin: 0 auto; padding: 18px clamp(20px, 3.4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
-<a href="index.html" style="font-size: 24px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase">Pranav<span style="color: #2D5BFF">.</span>G</a>
-<div style="display: flex; flex-wrap: wrap; gap: 8px">
-<a href="#graphic" class="pill pill-light">Graphic</a><a href="#three-d" class="pill pill-light">3D</a><a href="#games" class="pill pill-light">Games</a>
-</div>
-</nav>
-</header>
+<header class="xn-wrap"><div class="xn">
+<a href="index.html" class="xn-logo" aria-label="Home"><svg class="lpx" width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="#0B0D14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4" style="animation-delay:0.000s"/><rect x="3.4" y="0.0" width="3.4" height="3.4" style="animation-delay:0.035s"/><rect x="6.8" y="0.0" width="3.4" height="3.4" style="animation-delay:0.070s"/><rect x="0.0" y="3.4" width="3.4" height="3.4" style="animation-delay:0.105s"/><rect x="10.2" y="3.4" width="3.4" height="3.4" style="animation-delay:0.140s"/><rect x="0.0" y="6.8" width="3.4" height="3.4" style="animation-delay:0.175s"/><rect x="10.2" y="6.8" width="3.4" height="3.4" style="animation-delay:0.210s"/><rect x="0.0" y="10.2" width="3.4" height="3.4" style="animation-delay:0.245s"/><rect x="3.4" y="10.2" width="3.4" height="3.4" style="animation-delay:0.280s"/><rect x="6.8" y="10.2" width="3.4" height="3.4" style="animation-delay:0.315s"/><rect x="0.0" y="13.6" width="3.4" height="3.4" style="animation-delay:0.350s"/><rect x="0.0" y="17.0" width="3.4" height="3.4" style="animation-delay:0.385s"/></svg><span class="xn-sep" aria-hidden="true"></span><span class="xn-name">Portfolio</span></a>
+<nav class="xn-links" aria-label="Primary"><a href="index.html">Work</a><a href="About.html">About</a><a href="#top" class="on" aria-current="page">Explorations</a></nav>
+<button type="button" class="thm" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
+<a href="https://wa.me/918459347942" class="xn-cta">Let’s talk <span class="xn-arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+</div></header>
 
-<section style="max-width: 1600px; margin: 0 auto; padding: clamp(64px, 8vw, 140px) clamp(20px, 3.4vw, 48px) clamp(40px, 5vw, 80px)">
-<h1 style="margin: 0; font-size: clamp(38px, 12.2vw, 210px); line-height: 0.88; letter-spacing: -0.055em; font-weight: 400">EXPLORATIONS</h1>
-<div style="margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-end">
-<p style="margin: 0; max-width: 620px; font-size: clamp(18px, 1.5vw, 22px); color: #151A2B">Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
-<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase">{{counts}}</p>
+<main id="top">
+<section class="xh">
+<div class="xh-grid" aria-hidden="true"></div><div class="xh-glow" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="xw xh-in">
+<a href="index.html" class="xh-crumb"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Home <span>/</span> <b>Explorations</b></a>
+<span class="xeb rv"><b>✦</b>Beyond UI</span>
+<h1 class="xh-t rv">The <span class="it">playground.</span></h1>
+<p class="xh-p rv">Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
+<div class="xh-stats rv">
+<a href="#graphic" class="xst"><b>{{nG}}</b><span>Graphic pieces</span></a>
+<a href="#three-d" class="xst"><b>{{nM}}</b><span>3D models</span></a>
+<a href="#three-d" class="xst"><b>{{nS}}</b><span>Simulations</span></a>
+<a href="#games" class="xst"><b>02</b><span>Unity games</span></a>
+</div>
 </div>
 </section>
 
+<div class="xtabs-wrap"><nav class="xtabs" aria-label="Jump to section" data-xtabs><span class="xtab-ind" data-xind aria-hidden="true"></span>
+<a href="#graphic" class="xtab" data-sec="graphic">Graphic design <i>{{nG}}</i></a>
+<a href="#three-d" class="xtab" data-sec="three-d">3D &amp; motion <i>{{n3}}</i></a>
+<a href="#games" class="xtab" data-sec="games">Games <i>02</i></a>
+</nav></div>
+
 <!-- GRAPHIC -->
-<section id="graphic" style="max-width: 1600px; margin: 0 auto; padding: clamp(48px, 6vw, 96px) clamp(20px, 3.4vw, 48px)">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
-<h2 style="margin: 0; font-size: clamp(44px, 5.6vw, 92px); letter-spacing: -0.04em; line-height: 1; font-weight: 400">Graphic Design</h2>
-<p style="margin: 0; max-width: 300px; font-size: 12px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.02em">Editorial layouts, posters, menus and web concepts. InDesign, Photoshop, Figma, Canva.</p>
+<section id="graphic" class="xs" data-xsec>
+<div class="xw">
+<div class="xs-h">
+<div><span class="xeb"><b>01</b>Graphic design</span><h2 class="rv">Editorial, posters <span class="it">&amp; web.</span></h2></div>
+<div class="xs-r"><p>Magazine spreads, campaign posters, menus and web concepts with a clear point of view.</p><div class="xchips"><span>InDesign</span><span>Photoshop</span><span>Figma</span><span>Canva</span></div></div>
 </div>
-<div class="mas">
+<div class="xf" role="group" aria-label="Filter graphic work">
+<sc-for list="{{gfilters}}" as="f" hint-placeholder-count="5"><button type="button" class="xf-b" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}} <i>{{f.count}}</i></button></sc-for>
+</div>
+<div class="xmas">
 <sc-for list="{{graphic}}" as="g" hint-placeholder-count="12">
-<button type="button" class="card rv" onClick="{{g.open}}" aria-label="Enlarge {{g.title}}">
-<div class="f"><img src="{{g.src}}" alt="{{g.title}}" loading="lazy" style="height: auto"></div>
-<span style="display: block; margin-top: 10px; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase">{{g.tag}}</span>
-<span style="display: block; font-size: 19px; letter-spacing: -0.02em">{{g.title}}</span>
+<button type="button" class="xc rv" onClick="{{g.open}}" aria-label="Open {{g.title}}">
+<span class="xc-f"><img src="{{g.src}}" alt="{{g.title}}" loading="lazy"><span class="xc-zoom" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+<span class="xc-m"><b>{{g.title}}</b><span>{{g.tag}}</span></span>
 </button>
 </sc-for>
+</div>
 </div>
 </section>
 
 <!-- 3D -->
-<section id="three-d" style="background: #0B0D14; color: #FFFFFF">
-<div style="max-width: 1600px; margin: 0 auto; padding: clamp(72px, 8vw, 140px) clamp(20px, 3.4vw, 48px)">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px">
-<h2 style="margin: 0; font-size: clamp(44px, 5.6vw, 92px); letter-spacing: -0.04em; line-height: 1; font-weight: 400">3D Modelling<br>&amp; Animation</h2>
-<div role="group" aria-label="Filter 3D work" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{filters}}" as="f" hint-placeholder-count="3">
-<button type="button" onClick="{{f.pick}}" aria-pressed="{{f.on}}" class="pill" style="background: {{f.bg}}; color: {{f.fg}}; border: 1px solid #3A3D4C">{{f.label}} <span style="opacity: 0.6">{{f.count}}</span></button>
-</sc-for>
+<section id="three-d" class="xs xs-tint" data-xsec>
+<div class="xw">
+<div class="xs-h">
+<div><span class="xeb"><b>02</b>3D &amp; motion</span><h2 class="rv">Modelling, texturing <span class="it">&amp; simulation.</span></h2></div>
+<div class="xs-r"><p>Models, texture painting and physics simulations, from cups and characters to honey, fire and the sea.</p><div class="xchips"><span>Blender</span><span>Autodesk Maya</span></div></div>
 </div>
+<div class="xf" role="group" aria-label="Filter 3D work">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="3"><button type="button" class="xf-b" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}} <i>{{f.count}}</i></button></sc-for>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 32px 16px">
+<div class="x3">
 <sc-for list="{{shown}}" as="w" hint-placeholder-count="9">
-<figure style="margin: 0">
-<div style="position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #1A1B22">
-<sc-if value="{{w.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{w.src}}" poster="{{w.poster}}" muted="" loop="" playsinline="" preload="none" style="width: 100%; height: 100%; object-fit: cover"></video><span style="position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 5px 11px; border-radius: 999px; background: rgba(0,0,0,0.55); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase"><span class="dot" style="background: #F5263B"></span>Playing</span></sc-if>
-<sc-if value="{{w.isImg}}" hint-placeholder-val="{{ true }}"><img src="{{w.src}}" alt="{{w.title}}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover"></sc-if>
+<figure class="x3c rv">
+<div class="x3f">
+<sc-if value="{{w.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{w.src}}" poster="{{w.poster}}" muted="" loop="" playsinline="" preload="none"></video><span class="x3b"><i></i>Simulation</span></sc-if>
+<sc-if value="{{w.isImg}}" hint-placeholder-val="{{ true }}"><button type="button" class="x3open" onClick="{{w.open}}" aria-label="Open {{w.title}}"><img src="{{w.src}}" alt="{{w.title}}" loading="lazy"></button><span class="x3b x3b-m">Model</span></sc-if>
 </div>
-<figcaption style="margin-top: 12px; display: flex; justify-content: space-between; gap: 12px"><span style="font-size: 19px; letter-spacing: -0.02em">{{w.title}}</span><span style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #A7A9BA; align-self: center">{{w.tool}}</span></figcaption>
+<figcaption><b>{{w.title}}</b><span>{{w.tool}}</span></figcaption>
 </figure>
 </sc-for>
 </div>
@@ -210,48 +382,45 @@ html[data-theme="dark"] .pfroot p{color:#A4ABBE}
 </section>
 
 <!-- GAMES -->
-<section id="games" style="max-width: 1600px; margin: 0 auto; padding: clamp(72px, 8vw, 140px) clamp(20px, 3.4vw, 48px)">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
-<h2 style="margin: 0; font-size: clamp(44px, 5.6vw, 92px); letter-spacing: -0.04em; line-height: 1; font-weight: 400">Unity Game Design</h2>
-<p style="margin: 0; max-width: 300px; font-size: 12px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.02em">2D games in Unity, exploring mechanics, level design and interaction.</p>
+<section id="games" class="xs" data-xsec>
+<div class="xw">
+<div class="xs-h">
+<div><span class="xeb"><b>03</b>Unity games</span><h2 class="rv">Mechanics, levels <span class="it">&amp; play.</span></h2></div>
+<div class="xs-r"><p>2D games built in Unity, exploring mechanics, level design and interaction.</p><div class="xchips"><span>Unity</span><span>C#</span></div></div>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 40px 16px">
-<article>
-<div style="aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000"><video data-auto src="assets/site/v_woodlands.mp4" poster="assets/site/v_woodlands_poster.jpg" muted="" loop="" playsinline="" preload="none" style="width: 100%; height: 100%; object-fit: cover"></video></div>
-<div style="margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px"><img src="assets/explorations/gm_wood1.webp" alt="Woodlands 2 level screenshot" loading="lazy" style="border-radius: 10px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%"><img src="assets/explorations/gm_wood2.webp" alt="Woodlands 2 forest platforming screenshot" loading="lazy" style="border-radius: 10px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%"></div>
-<p style="margin: 18px 0 0; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase">Unity · 2D platformer</p>
-<h3 style="margin: 2px 0 0; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.03em; font-weight: 400">Woodlands 2</h3>
+<div class="xg">
+<article class="xgc rv">
+<div class="xgv"><video data-auto src="assets/site/v_woodlands.mp4" poster="assets/site/v_woodlands_poster.jpg" muted="" loop="" playsinline="" preload="none"></video><span class="x3b"><i></i>Gameplay</span></div>
+<div class="xgt"><img src="assets/explorations/gm_wood1.webp" alt="Woodlands 2 level screenshot" loading="lazy"><img src="assets/explorations/gm_wood2.webp" alt="Woodlands 2 forest platforming screenshot" loading="lazy"></div>
+<div class="xgm"><div><h3>Woodlands 2</h3><p>2D platformer</p></div><div class="xchips"><span>Unity</span><span>Level design</span></div></div>
 </article>
-<article>
-<div style="aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000"><video data-auto src="assets/site/v_bongo.mp4" poster="assets/site/v_bongo_poster.jpg" muted="" loop="" playsinline="" preload="none" style="width: 100%; height: 100%; object-fit: cover"></video></div>
-<div style="margin-top: 14px"><img src="assets/explorations/gm_bongo.webp" alt="Bongo Bash title screen" loading="lazy" style="border-radius: 10px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%"></div>
-<p style="margin: 18px 0 0; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase">Unity · Pong-style game</p>
-<h3 style="margin: 2px 0 0; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.03em; font-weight: 400">Bongo Bash</h3>
+<article class="xgc rv">
+<div class="xgv"><video data-auto src="assets/site/v_bongo.mp4" poster="assets/site/v_bongo_poster.jpg" muted="" loop="" playsinline="" preload="none"></video><span class="x3b"><i></i>Gameplay</span></div>
+<div class="xgt xgt-1"><img src="assets/explorations/gm_bongo.webp" alt="Bongo Bash title screen" loading="lazy"></div>
+<div class="xgm"><div><h3>Bongo Bash</h3><p>Pong-style game</p></div><div class="xchips"><span>Unity</span><span>Game mechanics</span></div></div>
 </article>
+</div>
 </div>
 </section>
 
-<section style="max-width: 1600px; margin: 0 auto; padding: 0 clamp(20px, 3.4vw, 48px) 48px">
-<div style="border-radius: 16px; background: #FFFFFF; padding: clamp(36px, 5vw, 80px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
-<h2 style="margin: 0; max-width: 820px; font-size: clamp(36px, 4.6vw, 72px); line-height: 1; letter-spacing: -0.04em; font-weight: 400">See how this thinking shows up in product work.</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a href="index.html" class="pill pill-dark" style="height: 56px; padding: 0 26px"><span class="dot"></span> View case studies</a>
-<a href="https://wa.me/918459347942" class="pill pill-light" style="height: 56px; padding: 0 26px">Get in touch</a>
-</div>
+<section class="xw xcta-wrap">
+<div class="xcta rv">
+<div class="xcta-glow" aria-hidden="true"></div>
+<div><span class="xeb xeb-d"><b>→</b>Next</span><h2>See how this thinking shows up in <span class="it">product work.</span></h2></div>
+<div class="xcta-b"><a href="index.html" class="xbtn xbtn-w">View case studies <span class="xn-arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a href="https://wa.me/918459347942" class="xbtn xbtn-o"><span class="dot" style="background:#3DDC84"></span> Get in touch</a></div>
 </div>
 </section>
+</main>
 
 <sc-if value="{{lightOpen}}" hint-placeholder-val="{{ false }}">
-<div role="dialog" aria-modal="true" aria-label="{{light.title}}" style="position: fixed; inset: 0; z-index: 250; background: rgba(14,15,21,0.94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: clamp(16px, 4vw, 56px)">
-<img src="{{light.src}}" alt="{{light.title}}" style="max-width: 100%; max-height: 80vh; border-radius: 10px; object-fit: contain">
-<p style="margin: 0; color: #FFFFFF; font-size: 18px">{{light.title}} <span style="color: #A7A9BA; font-size: 13px">· {{light.tag}}</span></p>
-<div style="display: flex; gap: 8px">
-<button type="button" class="pill pill-light" onClick="{{prev}}">← Prev</button>
-<button type="button" class="pill pill-light" onClick="{{next}}">Next →</button>
-<button type="button" class="pill pill-dark" onClick="{{close}}">Close ✕</button>
-</div>
+<div class="xlb" role="dialog" aria-modal="true" aria-label="{{light.title}}" onClick="{{bgClose}}">
+<button type="button" class="xlb-x" onClick="{{close}}" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+<button type="button" class="xlb-n xlb-p" onClick="{{prev}}" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<figure class="xlb-f"><img src="{{light.src}}" alt="{{light.title}}"><figcaption><b>{{light.title}}</b><span>{{light.tag}}</span><em>{{light.pos}}</em></figcaption></figure>
+<button type="button" class="xlb-n xlb-nx" onClick="{{next}}" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
 </sc-if>
+
 
 </div>
 </template>
@@ -259,11 +428,13 @@ html[data-theme="dark"] .pfroot p{color:#A4ABBE}
 class Component extends DCLogic {
   constructor(p){
     super(p);
-    this.state = { f: 'all', light: -1 };
+    this.state = { f: 'all', gf: 'all', light: -1, lset: 'g' };
+    this.LS = () => this.state.lset === 'g' ? this.gList() : this.mList;
+    this.bgClose = (e) => { if (e && e.target === e.currentTarget) this.close(); };
     this.setRoot = (el) => { this.root = el; };
-    this.close = () => this.setState({ light: -1 });
-    this.prev = () => this.setState({ light: (this.state.light + this.G.length - 1) % this.G.length });
-    this.next = () => this.setState({ light: (this.state.light + 1) % this.G.length });
+    this.close = (e) => { if (e) e.stopPropagation(); this.setState({ light: -1 }); };
+    this.prev = (e) => { if (e) e.stopPropagation(); const n = this.LS().length; this.setState({ light: (this.state.light + n - 1) % n }); };
+    this.next = (e) => { if (e) e.stopPropagation(); const n = this.LS().length; this.setState({ light: (this.state.light + 1) % n }); };
     this.G = [
       ['assets/explorations/g_wild.webp','Wilderness: every leaf tells its story','InDesign · Magazine spread'],
       ['assets/site/paw_p3.webp','Pawssible turns one','Poster · Pawssible foundation'],
@@ -282,6 +453,17 @@ class Component extends DCLogic {
       ['assets/site/paw_p2.webp','Free dog licence registration drive','Poster · Pawssible foundation'],
       ['assets/site/paw_p4.webp','Free pet licence drive','Poster · Pawssible foundation']
     ];
+  }
+  gCat(tag){ const t = tag.toLowerCase(); if (t.startsWith('poster')) return 'poster'; if (t.startsWith('figma')) return 'web'; if (t.startsWith('photoshop')) return 'print'; return 'editorial'; }
+  gList(){ const gf = this.state.gf; return this.G.filter(g => gf === 'all' || this.gCat(g[2]) === gf); }
+  startTabs(){
+    const tabs = this.root.querySelector('[data-xtabs]'), ind = this.root.querySelector('[data-xind]'); if (!tabs || !ind) return;
+    const links = Array.from(tabs.querySelectorAll('.xtab'));
+    const place = (a) => { if (!a) { ind.style.opacity = 0; links.forEach(l => l.classList.remove('on')); return; } ind.style.opacity = 1; ind.style.width = a.offsetWidth + 'px'; ind.style.transform = 'translateX(' + a.offsetLeft + 'px)'; links.forEach(l => l.classList.toggle('on', l === a)); };
+    const tick = () => { const vh = window.innerHeight; let cur = null; links.forEach(l => { const sec = this.root.querySelector('#' + l.dataset.sec); if (!sec) return; const r = sec.getBoundingClientRect(); if (r.top < vh * 0.45 && r.bottom > vh * 0.3) cur = l; }); if (cur !== this._curTab) { this._curTab = cur; place(cur); } this._tabR = requestAnimationFrame(tick); };
+    tick(); window.addEventListener('resize', () => place(this._curTab));
+    this._key = (e) => { if (this.state.light < 0) return; if (e.key === 'Escape') this.close(); else if (e.key === 'ArrowRight') this.next(); else if (e.key === 'ArrowLeft') this.prev(); };
+    window.addEventListener('keydown', this._key);
   }
   startTransitions(){
     if (!this.root) return;
@@ -338,7 +520,7 @@ class Component extends DCLogic {
   componentDidMount(){
     this.startTheme();
     if (!this.root) return;
-    this.startTransitions();
+    this.startTransitions(); this.startTabs();
     this.jumpSec = () => { let sec = null; try { sec = sessionStorage.getItem('pf_expl'); if (sec) sessionStorage.removeItem('pf_expl'); } catch (err) {}
       if (!sec || !this.root) return; const el = this.root.querySelector('#' + sec); if (!el) return;
       let stop = false; const cancel = () => { stop = true; }; setTimeout(() => ['wheel','touchstart','keydown','mousedown'].forEach(ev => window.addEventListener(ev, cancel, { once: true, passive: true })), 300);
@@ -357,7 +539,7 @@ class Component extends DCLogic {
   }
   componentDidUpdate(){ this.observeVids(); if (this.root && this.io) this.root.querySelectorAll('.rv:not(.in)').forEach(el => this.io.observe(el)); }
   observeVids(){ if (!this.root || !this.vio) return; this.root.querySelectorAll('video[data-auto]').forEach(v => { if (!v.dataset.obs) { v.dataset.obs = '1'; v.muted = true; this.vio.observe(v); } }); }
-  componentWillUnmount(){ clearInterval(this._jumpT); [this.io, this.vio].forEach(o => o && o.disconnect()); }
+  componentWillUnmount(){ clearInterval(this._jumpT); cancelAnimationFrame(this._tabR); window.removeEventListener('keydown', this._key); [this.io, this.vio].forEach(o => o && o.disconnect()); }
   renderVals(){
     const M = (src, title, tool) => ({ src, title, tool, kind: 'model', isVid: false, isImg: true });
     const S = (src, poster, title) => ({ src, poster, title, tool: 'Blender', kind: 'sim', isVid: true, isImg: false });
@@ -380,13 +562,21 @@ class Component extends DCLogic {
     const shown = f === 'all' ? all : all.filter(w => w.kind === f);
     const defs = [['all','All',all.length],['sim','Animation & simulation',sims.length],['model','Models',models.length]];
     const L = this.state.light;
+    this.mList = models.map(mm => [mm.src, mm.title, mm.tool === '[Confirm software]' ? '3D model' : mm.tool + ' · 3D model']);
+    const gl = this.gList();
+    const gdefs = [['all','All'],['editorial','Editorial'],['poster','Posters'],['web','Web'],['print','Menu']].map(d => [d[0], d[1], d[0] === 'all' ? this.G.length : this.G.filter(g => this.gCat(g[2]) === d[0]).length]).filter(d => d[2] > 0);
+    const LS = this.LS(); const cur = L > -1 && LS[L] ? LS[L] : null;
+    let mi = 0;
+    const shownX = shown.map(w => { if (w.kind === 'model') { const idx = models.indexOf(models.find(mm => mm.src === w.src)); return { ...w, tool: w.tool === '[Confirm software]' ? '3D' : w.tool, open: () => this.setState({ lset: 'm', light: idx }) }; } return { ...w, open: () => {} }; });
     return {
-      setRoot: this.setRoot, shown,
+      setRoot: this.setRoot, shown: shownX,
+      nG: String(this.G.length).padStart(2, '0'), nM: String(models.length).padStart(2, '0'), nS: String(sims.length).padStart(2, '0'), n3: String(all.length).padStart(2, '0'),
       counts: this.G.length + ' graphic pieces · ' + models.length + ' models · ' + sims.length + ' simulations · 2 games',
-      filters: defs.map(d => ({ label: d[1], count: d[2], on: f === d[0], bg: f === d[0] ? '#FFFFFF' : 'transparent', fg: f === d[0] ? '#000000' : '#FFFFFF', pick: () => this.setState({ f: d[0] }) })),
-      graphic: this.G.map((g, i) => ({ src: g[0], title: g[1], tag: g[2], open: () => this.setState({ light: i }) })),
-      lightOpen: L > -1, light: L > -1 ? { src: this.G[L][0], title: this.G[L][1], tag: this.G[L][2] } : { src: '', title: '', tag: '' },
-      prev: this.prev, next: this.next, close: this.close
+      filters: defs.map(d => ({ label: d[1], count: d[2], on: f === d[0], pick: () => this.setState({ f: d[0] }) })),
+      gfilters: gdefs.map(d => ({ label: d[1], count: d[2], on: this.state.gf === d[0], pick: () => this.setState({ gf: d[0] }) })),
+      graphic: gl.map((g, i) => ({ src: g[0], title: g[1], tag: g[2], open: () => this.setState({ lset: 'g', light: i }) })),
+      lightOpen: !!cur, light: cur ? { src: cur[0], title: cur[1], tag: cur[2], pos: (L + 1) + ' / ' + LS.length } : { src: '', title: '', tag: '', pos: '' },
+      prev: this.prev, next: this.next, close: this.close, bgClose: this.bgClose
     };
   }
 }
