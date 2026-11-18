@@ -586,6 +586,66 @@ html[data-theme="dark"] .bk{background:linear-gradient(160deg,#2A2116,#1D1810)}
 html[data-theme="dark"] .bk-nav{color:#F2C879}
 html[data-theme="dark"] .bk-b{background:#FFF;color:#07080D}
 html[data-theme="dark"] .dc-dim::before{background:#FFF}
+
+/* ===== v45 graphic section: chapters, IG phones, poster wall ===== */
+.gx-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding-bottom:34px;border-bottom:1px solid #EDF0F5}
+.gx-k{font:500 13px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#2638FF}
+.gx-top h2{margin:12px 0 0;font-size:64px;line-height:1;letter-spacing:-.045em;font-weight:500;color:#0B0D14}
+.gx-top h2 .it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#2638FF}
+.gx-toc{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+.gx-toc span{display:flex;align-items:center;gap:10px;font-size:16px;color:#3A3F4F}
+.gx-toc b,.gx-ch b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#EEF1FF;color:#2638FF;font:600 13px 'Geist Mono',monospace}
+.gx-ch{display:flex;align-items:center;gap:14px;margin:10px 0 -30px}
+.gx-ch span{font-size:26px;font-weight:500;letter-spacing:-.03em;color:#0B0D14}
+.gx-ch i{flex:1;height:1px;background:#E3E7F0}
+.gx-ch em{font:500 12px 'Geist Mono',monospace;font-style:normal;letter-spacing:.05em;text-transform:uppercase;color:#9AA0B0}
+.gx-ch b{background:#0B0D14;color:#FFF}
+/* instagram phones */
+.igs{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;padding:46px 40px;border-radius:26px;background:radial-gradient(80% 90% at 50% 0%,#FCE7F3 0%,#EEF1FF 55%,#F5F7FB 100%)}
+.ig{margin:0;display:flex;flex-direction:column;align-items:center}
+.ig-ph{width:100%;max-width:360px;padding:12px 10px 16px;border-radius:38px;background:#FFF;box-shadow:0 0 0 8px #0B0D14,0 0 0 9px #2A2E3B,0 40px 70px -30px rgba(11,13,20,.55)}
+.ig-top{display:flex;align-items:center;gap:10px;padding:8px 6px 10px}
+.ig-av{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0B0D14;color:#FFF;font:600 10px 'Geist',sans-serif;box-shadow:0 0 0 2px #FFF,0 0 0 4px #E1306C}
+.ig-nm{display:flex;flex-direction:column;line-height:1.2}
+.ig-nm b{font-size:13px;font-weight:600;color:#0B0D14}
+.ig-nm small{font-size:11px;color:#7A8094}
+.ig-more{margin-left:auto;color:#0B0D14;font-size:12px;letter-spacing:1px}
+.ig-vp{position:relative;overflow:hidden;background:#F1F3F8}
+.ig-tr{display:flex;height:100%;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.ig-s{flex:0 0 100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.ig-s img{display:block;width:100%;height:100%;object-fit:cover}
+.ig-cnt{position:absolute;right:10px;top:10px;padding:4px 9px;border-radius:99px;background:rgba(11,13,20,.7);color:#FFF;font:500 11px 'Geist',sans-serif}
+.ig-a{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;margin-top:-15px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#0B0D14;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);opacity:0;transition:opacity .25s,scale .2s}
+.ig-al{left:10px}.ig-ar{right:10px}
+.ig-ph:hover .ig-a{opacity:1}.ig-a:active{scale:.9}
+.ig-act{display:flex;align-items:center;gap:14px;padding:12px 6px 6px;font-size:17px;color:#0B0D14}
+.ig-dots{display:flex;gap:4px;margin:0 auto}
+.ig-dots i{width:6px;height:6px;border-radius:50%;background:#CDD2DE;transition:background .3s,transform .3s}
+.ig-dots i.on{background:#2638FF;transform:scale(1.2)}
+.ig-sv{margin-left:0}
+.ig-cap{margin:4px 6px 0;font-size:12.5px;line-height:1.45;color:#3A3F4F}
+.ig-cap b{color:#0B0D14}
+.ig figcaption{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:26px;text-align:center}
+.ig figcaption b{font-size:18px;font-weight:500;letter-spacing:-.02em;color:#0B0D14}
+.ig figcaption span{font:500 11.5px 'Geist Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:#7A8094}
+/* poster wall */
+.pw{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:start}
+.pw-c{display:block;padding:0;border:0;background:none;text-align:left;font:inherit;cursor:zoom-in}
+.pw-c:first-child{grid-row:span 2}
+.pw-f{display:block;overflow:hidden;border-radius:12px;background:#EEF1F7;box-shadow:0 0 0 1px rgba(11,13,20,.06),0 24px 40px -28px rgba(11,13,20,.5);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.pw-f img{display:block;width:100%;height:auto}
+.pw-c:hover .pw-f{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 0 0 1px rgba(38,56,255,.2),0 34px 50px -26px rgba(11,13,20,.55)}
+.pp .cv-mas{margin-top:0}
+html[data-theme="dark"] .gx-top{border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .gx-top h2,html[data-theme="dark"] .gx-ch span,html[data-theme="dark"] .ig figcaption b{color:#F3F5FA}
+html[data-theme="dark"] .gx-top h2 .it,html[data-theme="dark"] .gx-k{color:#7D93FF}
+html[data-theme="dark"] .gx-toc span{color:#C9CEDB}
+html[data-theme="dark"] .gx-toc b{background:rgba(125,147,255,.15);color:#9DB0FF}
+html[data-theme="dark"] .gx-ch b{background:#FFF;color:#07080D}
+html[data-theme="dark"] .gx-ch i{background:rgba(255,255,255,.1)}
+html[data-theme="dark"] .igs{background:radial-gradient(80% 90% at 50% 0%,#2A1630 0%,#151A33 55%,#0D0F17 100%)}
+html[data-theme="dark"] .ig-ph{box-shadow:0 0 0 8px #2A2E3B,0 0 0 9px #3A3F52,0 40px 70px -30px rgba(0,0,0,.9)}
+html[data-theme="dark"] .pw-f{box-shadow:0 0 0 1px rgba(255,255,255,.06)}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -612,7 +672,9 @@ html[data-theme="dark"] .dc-dim::before{background:#FFF}
 <p>Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
 <div class="cv-hint"><span class="cv-kbd">Drag</span> to explore <span class="cv-dot"></span> <span class="cv-kbd">Scroll</span> to pan <span class="cv-dot"></span> <span class="cv-kbd">Ctrl + Scroll</span> to zoom</div>
 </header>
-<section class="cv-fr cv-fr-p" id="print" data-frame="print"><div class="cv-fl"><span><i>#</i>Featured print projects</span><span>05 projects · {{nP}} artboards</span></div><div class="cv-fb pp">
+<section class="cv-fr cv-fr-p" id="graphic" data-frame="graphic"><div class="cv-fl"><span><i>#</i>Graphic design</span><span>{{nGraph}} artboards · 4 chapters</span></div><div class="cv-fb pp">
+<header class="gx-top"><div><span class="gx-k">Graphic design</span><h2>Packaging, books, social <span class="it">&amp; print.</span></h2></div><nav class="gx-toc" aria-label="Chapters"><span><b>A</b>Featured projects</span><span><b>B</b>Social media</span><span><b>C</b>Posters &amp; campaigns</span><span><b>D</b>Editorial &amp; web</span></nav></header>
+<div class="gx-ch"><b>A</b><span>Featured projects</span><i></i><em>05 projects</em></div>
 <article class="pp-b"><div class="pp-h"><span class="pp-n">01</span><div><h3>Micron — label system</h3><p>Packaging for an 11-product auto detailing range. One system, a colour per product.</p></div><div class="pp-chips"><span>11 SKUs</span><span>Front + back</span><span>9.5 × 16 cm</span><span>Print-ready · 3 mm bleed</span></div></div>
 <div class="mic" data-nodrag><sc-for list="{{mic}}" as="l" hint-placeholder-count="11"><button type="button" class="mic-l" style="--g:{{l.glow}}" onClick="{{l.open}}" aria-label="Open {{l.name}} label"><span class="mic-in"><img class="mic-f" src="{{l.f}}" alt="{{l.name}} label front" loading="lazy" draggable="false"><img class="mic-bk" src="{{l.b}}" alt="{{l.name}} label back" loading="lazy" draggable="false"></span><span class="mic-n">{{l.name}}</span></button></sc-for></div>
 <p class="pp-hint">Hover a label to flip it · click to open</p></article>
@@ -629,11 +691,22 @@ html[data-theme="dark"] .dc-dim::before{background:#FFF}
 <article class="pp-b"><div class="pp-h"><span class="pp-n">05</span><div><h3>NLSIU — prospectus</h3><p>A 14-page prospectus for the National Law School of India University: editorial grid, deep green and cream palette.</p></div><div class="pp-chips"><span>14 pages</span><span>A4 editorial</span><span>Prospectus</span></div></div>
 <div class="nl" data-nodrag><sc-for list="{{nil}}" as="n" hint-placeholder-count="14"><button type="button" class="nl-p" style="--i:{{n.i}};--k:{{n.k}}" onClick="{{n.open}}" aria-label="Open prospectus page {{n.num}}"><img src="{{n.src}}" alt="NLSIU prospectus page {{n.num}}" loading="lazy" draggable="false"></button></sc-for></div>
 <p class="pp-hint">Hover to fan the pages · click a page to read it</p></article>
-</div></section>
-<section class="cv-fr cv-fr-g" id="graphic" data-frame="graphic"><div class="cv-fl"><span><i>#</i>Graphic design</span><span>{{nG}} pieces</span></div><div class="cv-fb"><div class="cv-mas"><sc-for list="{{gItems}}" as="g" hint-placeholder-count="12"><button type="button" class="cv-c" onClick="{{g.open}}" aria-label="Open {{g.title}}"><span class="cv-mw"><span class="cv-m">
+<div class="gx-ch"><b>B</b><span>Social media</span><i></i><em>3 campaigns · swipe the phones</em></div>
+<div class="igs"><sc-for list="{{ig}}" as="g" hint-placeholder-count="3"><figure class="ig" data-nodrag><div class="ig-ph"><div class="ig-top"><span class="ig-av">{{g.ini}}</span><span class="ig-nm"><b>{{g.handle}}</b><small>{{g.loc}}</small></span><span class="ig-more">•••</span></div>
+<div class="ig-vp" style="aspect-ratio:{{g.ratio}}"><div class="ig-tr" style="transform:translateX(-{{g.pos}}00%)"><sc-for list="{{g.slides}}" as="sl" hint-placeholder-count="3"><button type="button" class="ig-s" onClick="{{sl.open}}" aria-label="Open {{sl.title}}"><img src="{{sl.src}}" alt="{{sl.title}}" loading="lazy" draggable="false"></button></sc-for></div>
+<span class="ig-cnt">{{g.count}}</span><button type="button" class="ig-a ig-al" onClick="{{g.prev}}" aria-label="Previous slide"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="ig-a ig-ar" onClick="{{g.next}}" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+<div class="ig-act"><span>♡</span><span>💬</span><span>➤</span><span class="ig-dots"><sc-for list="{{g.dots}}" as="d" hint-placeholder-count="3"><i class="{{d.c}}"></i></sc-for></span><span class="ig-sv">🔖</span></div>
+<p class="ig-cap"><b>{{g.handle}}</b> {{g.cap}}</p></div>
+<figcaption><b>{{g.title}}</b><span>{{g.meta}}</span></figcaption></figure></sc-for></div>
+<div class="gx-ch"><b>C</b><span>Posters &amp; campaigns</span><i></i><em>{{nPost}} posters</em></div>
+<div class="pw"><sc-for list="{{posters}}" as="g" hint-placeholder-count="8"><button type="button" class="pw-c" onClick="{{g.open}}" aria-label="Open {{g.title}}"><span class="pw-f"><img src="{{g.src}}" alt="{{g.title}}" loading="lazy" draggable="false"></span><span class="cv-cap"><b>{{g.title}}</b><span>{{g.tag}}</span></span></button></sc-for></div>
+<div class="gx-ch"><b>D</b><span>Editorial, menus &amp; web</span><i></i><em>{{nEd}} pieces</em></div>
+<div class="cv-mas"><sc-for list="{{gItems}}" as="g" hint-placeholder-count="12"><button type="button" class="cv-c" onClick="{{g.open}}" aria-label="Open {{g.title}}"><span class="cv-mw"><span class="cv-m">
 <sc-if value="{{g.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{g.src}}" poster="{{g.poster}}" muted="" loop="" playsinline="" preload="none"></video><span class="cv-rec"><i></i>{{g.badge}}</span></sc-if>
 <sc-if value="{{g.isImg}}" hint-placeholder-val="{{ true }}"><img src="{{g.src}}" alt="{{g.title}}" loading="lazy" draggable="false"></sc-if>
-</span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>{{g.title}}</em></span></span><span class="cv-cap"><b>{{g.title}}</b><span>{{g.tag}}</span></span></button></sc-for></div></div></section>
+</span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>{{g.title}}</em></span></span><span class="cv-cap"><b>{{g.title}}</b><span>{{g.tag}}</span></span></button></sc-for></div>
+</div></section>
+
 </div>
 <div class="cv-col cv-col-2">
 <section class="cv-fr cv-fr-s" id="three-d" data-frame="three-d"><div class="cv-fl"><span><i>#</i>Simulations</span><span>{{nS}} clips</span></div><div class="cv-fb"><div class="cv-g3"><sc-for list="{{sItems}}" as="v" hint-placeholder-count="9"><button type="button" class="cv-c" onClick="{{v.open}}" aria-label="Open {{v.title}}"><span class="cv-mw"><span class="cv-m">
@@ -678,7 +751,7 @@ html[data-theme="dark"] .dc-dim::before{background:#FFF}
 <div class="tb-seg" role="group" aria-label="View"><button type="button" class="tb-v" onClick="{{toCanvas}}" aria-pressed="{{isCanvas}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Canvas</button><button type="button" class="tb-v" onClick="{{toIndex}}" aria-pressed="{{isIndex}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Index</button></div>
 <div class="tb-cv">
 <span class="tb-sep"></span>
-<button type="button" class="tb-j" data-go="print">Print</button><button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
+<button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
 <span class="tb-sep"></span>
 <button type="button" class="tb-i" data-act="zout" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="tb-z" data-zl>100%</span><button type="button" class="tb-i" data-act="zin" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><button type="button" class="tb-i" data-act="fit" aria-label="Fit everything"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
@@ -716,7 +789,7 @@ html[data-theme="dark"] .dc-dim::before{background:#FFF}
 class Component extends DCLogic {
   constructor(p){
     super(p);
-    this.state = { tk: 0, cmpA: 50, cmpB: 50, light: -1, view: (typeof window !== 'undefined' && window.innerWidth < 820) ? 'index' : 'canvas', ic: 'all' };
+    this.state = { ig0: 0, ig1: 0, ig2: 0, tk: 0, cmpA: 50, cmpB: 50, light: -1, view: (typeof window !== 'undefined' && window.innerWidth < 820) ? 'index' : 'canvas', ic: 'all' };
     this.toCanvas = () => { if (this.state.view !== 'canvas') this.setState({ view: 'canvas' }, () => this.cvRefit && this.cvRefit()); };
     this.toIndex = () => { if (this.state.view !== 'index') { this.setState({ view: 'index' }); window.scrollTo(0, 0); } };
     this.LS = () => this.state.view === 'index' ? this.ixList() : this.ALL;
@@ -972,7 +1045,7 @@ class Component extends DCLogic {
     const PI = (n) => 'assets/print/' + n;
     const MN = [['01_apc','APC','#39E36B'],['02_degreaser','Degreaser','#FF8A1F'],['03_hard_water_remover','Hard Water Remover','#24D3FF'],['04_glass_cleaner','Glass Cleaner','#3B9BFF'],['05_ipa','IPA','#8B5CFF'],['06_shampoo','Shampoo','#FF3FA6'],['07_tar_remover','Tar Remover','#FF3B3B'],['08_engine_dressing','Engine Dressing','#FFC21F'],['09_tire_gel','Tire Gel','#A8F02E'],['10_fibre_dressing','Fibre Dressing','#2FE0B5'],['11_perfume','Perfume','#C35CFF']];
     const PRI = [];
-    const mk = (src, title, tag, tool) => { const it = { src, poster: '', title, tag, cat: 'print', catL: 'Print', tool, isVid: false, isImg: true, prev: src }; PRI.push(it); return it; };
+    const mk = (src, title, tag, tool) => { const it = { src, poster: '', title, tag, cat: 'graphic', catL: 'Graphic', tool, isVid: false, isImg: true, prev: src }; PRI.push(it); return it; };
     const micI = MN.map(m => ({ m, f: mk(PI('mic_' + m[0] + '_f.webp'), 'Micron ' + m[1] + ' · front', 'Packaging · Label front', 'Print design'), b: mk(PI('mic_' + m[0] + '_b.webp'), 'Micron ' + m[1] + ' · back', 'Packaging · Label back', 'Print design') }));
     micI.forEach(x => { x.b.noIx = true; });
     const dcI = mk(PI('detail.webp'), 'Detail Craft shop board', 'Large format · 36 × 120 in', 'Vector');
@@ -981,17 +1054,28 @@ class Component extends DCLogic {
     Object.keys(tkI).forEach(n => { if (![1,4,20,35].includes(+n)) tkI[n].noIx = true; });
     const nlI = []; for (let n = 1; n <= 14; n++) nlI.push(mk(PI('nil_' + n + '.webp'), 'NLSIU prospectus · page ' + n, 'Editorial · Prospectus', 'Editorial design'));
     nlI.forEach((n, k) => { if (![0,3,8,13].includes(k)) n.noIx = true; });
+    const SOC = [
+      { title: 'Sangeet Night carousel', meta: 'Eco Weddings & Decor · Instagram carousel', handle: 'eco.weddings', ini: 'eco', loc: 'Sangeet Night', ratio: '4/5', cap: 'Step by step, song by song ✨ #SangeetNight', files: ['sang_1','sang_2','sang_3'], tag: 'Social · Wedding carousel' },
+      { title: 'Living room tips carousel', meta: 'Furniture brand · Instagram carousel', handle: 'furnitureking', ini: 'FK', loc: 'Interior tips', ratio: '4/5', cap: '5 things that make a living room look expensive. Save this for later.', files: ['int_1','int_2','int_3','int_4','int_5','int_6'], tag: 'Social · Interior carousel' },
+      { title: 'Admission Open posts', meta: 'Rosewood Academy · Instagram posts', handle: 'rosewood.academy', ini: 'RA', loc: 'Pune', ratio: '1/1', cap: 'Admissions open for 2026–27. Nursery to Grade 10.', files: ['adm_1','adm_2'], tag: 'Social · School campaign' }
+    ].map(c => ({ ...c, items: c.files.map((f, k) => mk(PI(f + '.webp'), c.title + ' · ' + (k + 1) + '/' + c.files.length, c.tag, 'Social design')) }));
+    SOC.forEach(c => c.items.forEach((it, k) => { if (k) it.noIx = true; }));
+    const schoolP = mk(PI('school_poster.webp'), 'School admission campaign poster', 'Poster · School campaign', 'Print design');
+    const isPoster = (g) => /^poster/i.test(g.tag);
+    const POST = [schoolP].concat(GI.filter(isPoster)), ED = GI.filter(g => !isPoster(g));
     this.ALL = PRI.concat(GI, SI, MI, GM);
     const SPR = [[null,1],[4,5],[9,10],[14,15],[20,21],[27,28],[35,36]];
     const tki = Math.max(0, Math.min(SPR.length - 1, this.state.tk)); const sp = SPR[tki];
     const openAt = (it) => () => { const L = this.LS(); const k = L.indexOf(it); this.setState({ light: k < 0 ? 0 : k }); };
     const wrap = (arr) => arr.map(it => ({ ...it, open: openAt(it) }));
     const ic = this.state.ic, IX = this.ixList();
-    const icDefs = [['all','All',this.ALL.filter(i => !i.noIx).length],['print','Print',PRI.filter(i => !i.noIx).length],['graphic','Graphic',GI.length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
+    const icDefs = [['all','All',this.ALL.filter(i => !i.noIx).length],['graphic','Graphic',this.ALL.filter(i => !i.noIx && i.cat === 'graphic').length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
     const L = this.state.light, LS = this.LS(), cur = L > -1 && LS[L] ? LS[L] : null;
     return {
       setRoot: this.setRoot,
-      nP: pad(PRI.length),
+      nP: pad(PRI.length), nGraph: PRI.length + GI.length, nPost: pad(POST.length), nEd: pad(ED.length),
+      ig: SOC.map((c, ci) => { const n = c.items.length, pos = Math.min(this.state['ig' + ci] || 0, n - 1); return { ...c, pos, count: (pos + 1) + '/' + n, slides: c.items.map(it => ({ src: it.src, title: it.title, open: openAt(it) })), dots: c.items.map((it, k) => ({ c: k === pos ? 'on' : '' })), prev: () => this.setState({ ['ig' + ci]: (pos + n - 1) % n }), next: () => this.setState({ ['ig' + ci]: (pos + 1) % n }) }; }),
+      posters: POST.map(g => ({ ...g, open: openAt(g) })),
       mic: micI.map(x => ({ name: x.m[1], glow: x.m[2], f: x.f.src, b: x.b.src, open: openAt(x.f) })),
       dcOpen: openAt(dcI),
       tk: { l: sp[0] ? PI('tiko_' + sp[0] + '.webp') : '', r: PI('tiko_' + sp[1] + '.webp'), label: tki === 0 ? 'Cover' : 'Spread ' + tki + ' / ' + (SPR.length - 1) },
@@ -1001,10 +1085,10 @@ class Component extends DCLogic {
       nil: nlI.map((n, k) => ({ src: n.src, num: k + 1, i: k, k: (k - 6.5).toFixed(1), open: openAt(n) })),
       view: this.state.view, isCanvas: this.state.view === 'canvas' ? 'true' : 'false', isIndex: this.state.view === 'index' ? 'true' : 'false', toCanvas: this.toCanvas, toIndex: this.toIndex,
       nAll: this.ALL.filter(i => !i.noIx).length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
-      gItems: wrap(GI), sItems: wrap(SI), mItems: wrap(MI), gmItems: wrap(GM),
+      gItems: wrap(GI.filter(g => !/^poster/i.test(g.tag))), sItems: wrap(SI), mItems: wrap(MI), gmItems: wrap(GM),
       ixItems: IX.map((it, k) => ({ ...it, num: pad(k + 1), cat: it.catL, open: openAt(it) })),
       ixFilters: icDefs.map(d => ({ label: d[1], count: d[2], on: ic === d[0] ? 'true' : 'false', pick: () => this.setState({ ic: d[0], light: -1 }) })),
-      lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length, frame: ({print:'Featured print projects',graphic:'Graphic design',sim:'Simulations',model:'3D models',game:'Unity games'})[cur.cat], kind: cur.tag.split(' · ').slice(1).join(' · ') || cur.catL, tool: cur.tool, fmt: cur.isVid ? 'Video · MP4' : 'Image', icon: cur.isVid ? '▶' : '#' } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '', frame: '', kind: '', tool: '', fmt: '', icon: '' },
+      lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length, frame: ({graphic:'Graphic design',sim:'Simulations',model:'3D models',game:'Unity games'})[cur.cat], kind: cur.tag.split(' · ').slice(1).join(' · ') || cur.catL, tool: cur.tool, fmt: cur.isVid ? 'Video · MP4' : 'Image', icon: cur.isVid ? '▶' : '#' } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '', frame: '', kind: '', tool: '', fmt: '', icon: '' },
       prev: this.prev, next: this.next, close: this.close, bgClose: this.bgClose
     };
   }
