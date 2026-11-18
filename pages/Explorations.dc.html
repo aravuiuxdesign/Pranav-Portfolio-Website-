@@ -967,17 +967,17 @@ class Component extends DCLogic {
       { src: '../assets/site/v_woodlands.mp4', poster: '../assets/site/v_woodlands_poster.jpg', title: 'Woodlands 2', tag: 'Unity · 2D platformer', cat: 'game', catL: 'Game', tool: 'Unity', isVid: true, isImg: false, badge: 'Gameplay', prev: '../assets/site/v_woodlands_poster.jpg', shots: ['../assets/explorations/gm_wood1.webp','../assets/explorations/gm_wood2.webp'] },
       { src: '../assets/site/v_bongo.mp4', poster: '../assets/site/v_bongo_poster.jpg', title: 'Bongo Bash', tag: 'Unity · Pong-style game', cat: 'game', catL: 'Game', tool: 'Unity', isVid: true, isImg: false, badge: 'Gameplay', prev: '../assets/site/v_bongo_poster.jpg', shots: ['../assets/explorations/gm_bongo.webp'] }
     ];
-    const P = '../assets/print/';
+    const PI = (n) => '../assets/print/' + n;
     const MN = [['01_apc','APC','#39E36B'],['02_degreaser','Degreaser','#FF8A1F'],['03_hard_water_remover','Hard Water Remover','#24D3FF'],['04_glass_cleaner','Glass Cleaner','#3B9BFF'],['05_ipa','IPA','#8B5CFF'],['06_shampoo','Shampoo','#FF3FA6'],['07_tar_remover','Tar Remover','#FF3B3B'],['08_engine_dressing','Engine Dressing','#FFC21F'],['09_tire_gel','Tire Gel','#A8F02E'],['10_fibre_dressing','Fibre Dressing','#2FE0B5'],['11_perfume','Perfume','#C35CFF']];
     const PRI = [];
     const mk = (src, title, tag, tool) => { const it = { src, poster: '', title, tag, cat: 'print', catL: 'Print', tool, isVid: false, isImg: true, prev: src }; PRI.push(it); return it; };
-    const micI = MN.map(m => ({ m, f: mk(P + 'mic_' + m[0] + '_f.webp', 'Micron ' + m[1] + ' · front', 'Packaging · Label front', 'Print design'), b: mk(P + 'mic_' + m[0] + '_b.webp', 'Micron ' + m[1] + ' · back', 'Packaging · Label back', 'Print design') }));
+    const micI = MN.map(m => ({ m, f: mk(PI('mic_' + m[0] + '_f.webp'), 'Micron ' + m[1] + ' · front', 'Packaging · Label front', 'Print design'), b: mk(PI('mic_' + m[0] + '_b.webp'), 'Micron ' + m[1] + ' · back', 'Packaging · Label back', 'Print design') }));
     micI.forEach(x => { x.b.noIx = true; });
-    const dcI = mk(P + 'detail.webp', 'Detail Craft shop board', 'Large format · 36 × 120 in', 'Vector');
-    const TP = [1,4,5,9,10,14,15,20,21,27,28,35,36]; const tkI = {}; TP.forEach(n => { tkI[n] = mk(P + 'tiko_' + n + '.webp', 'Tiko Finds His Roar · ' + (n === 1 ? 'cover' : 'page ' + n), 'Picture book · Story + layout', 'Book design'); });
-    const cvI = [mk(P + 'jun_1.webp', 'Jungle Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(P + 'jun_9.webp', 'Jungle Colouring Book · Bengal Tiger', 'Book design · Activity page', 'Book design'), mk(P + 'sea_1.webp', 'Sea Animals Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(P + 'sea_10.webp', 'Sea Animals Colouring Book · Dolphin', 'Book design · Activity page', 'Book design'), mk(P + 'jun_52.webp', 'Jungle Colouring Book · back cover', 'Book design · Back cover', 'Book design'), mk(P + 'sea_50.webp', 'Sea Animals Colouring Book · back cover', 'Book design · Back cover', 'Book design')];
+    const dcI = mk(PI('detail.webp'), 'Detail Craft shop board', 'Large format · 36 × 120 in', 'Vector');
+    const TP = [1,4,5,9,10,14,15,20,21,27,28,35,36]; const tkI = {}; TP.forEach(n => { tkI[n] = mk(PI('tiko_' + n + '.webp'), 'Tiko Finds His Roar · ' + (n === 1 ? 'cover' : 'page ' + n), 'Picture book · Story + layout', 'Book design'); });
+    const cvI = [mk(PI('jun_1.webp'), 'Jungle Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(PI('jun_9.webp'), 'Jungle Colouring Book · Bengal Tiger', 'Book design · Activity page', 'Book design'), mk(PI('sea_1.webp'), 'Sea Animals Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(PI('sea_10.webp'), 'Sea Animals Colouring Book · Dolphin', 'Book design · Activity page', 'Book design'), mk(PI('jun_52.webp'), 'Jungle Colouring Book · back cover', 'Book design · Back cover', 'Book design'), mk(PI('sea_50.webp'), 'Sea Animals Colouring Book · back cover', 'Book design · Back cover', 'Book design')];
     Object.keys(tkI).forEach(n => { if (![1,4,20,35].includes(+n)) tkI[n].noIx = true; });
-    const nlI = []; for (let n = 1; n <= 14; n++) nlI.push(mk(P + 'nil_' + n + '.webp', 'NLSIU prospectus · page ' + n, 'Editorial · Prospectus', 'Editorial design'));
+    const nlI = []; for (let n = 1; n <= 14; n++) nlI.push(mk(PI('nil_' + n + '.webp'), 'NLSIU prospectus · page ' + n, 'Editorial · Prospectus', 'Editorial design'));
     nlI.forEach((n, k) => { if (![0,3,8,13].includes(k)) n.noIx = true; });
     this.ALL = PRI.concat(GI, SI, MI, GM);
     const SPR = [[null,1],[4,5],[9,10],[14,15],[20,21],[27,28],[35,36]];
@@ -992,9 +992,9 @@ class Component extends DCLogic {
       nP: pad(PRI.length),
       mic: micI.map(x => ({ name: x.m[1], glow: x.m[2], f: x.f.src, b: x.b.src, open: openAt(x.f) })),
       dcOpen: openAt(dcI),
-      tk: { l: sp[0] ? P + 'tiko_' + sp[0] + '.webp' : '', r: P + 'tiko_' + sp[1] + '.webp', label: tki === 0 ? 'Cover' : 'Spread ' + tki + ' / ' + (SPR.length - 1) },
+      tk: { l: sp[0] ? PI('tiko_' + sp[0] + '.webp') : '', r: PI('tiko_' + sp[1] + '.webp'), label: tki === 0 ? 'Cover' : 'Spread ' + tki + ' / ' + (SPR.length - 1) },
       tkPrev: () => this.setState({ tk: (tki + SPR.length - 1) % SPR.length }), tkNext: () => this.setState({ tk: (tki + 1) % SPR.length }),
-      cmp: [{ id: 'A', name: 'Bengal Tiger · Jungle book', o: P + 'jun_10.webp', k: P + 'jun_9.webp', p: this.state.cmpA }, { id: 'B', name: 'Dolphin · Sea animals book', o: P + 'sea_11.webp', k: P + 'sea_10.webp', p: this.state.cmpB }],
+      cmp: [{ id: 'A', name: 'Bengal Tiger · Jungle book', o: PI('jun_10.webp'), k: PI('jun_9.webp'), p: this.state.cmpA }, { id: 'B', name: 'Dolphin · Sea animals book', o: PI('sea_11.webp'), k: PI('sea_10.webp'), p: this.state.cmpB }],
       covers: [cvI[0], cvI[2], cvI[4], cvI[5]].map(c => ({ name: c.title, src: c.src, open: openAt(c) })),
       nil: nlI.map((n, k) => ({ src: n.src, num: k + 1, i: k, k: (k - 6.5).toFixed(1), open: openAt(n) })),
       view: this.state.view, isCanvas: this.state.view === 'canvas' ? 'true' : 'false', isIndex: this.state.view === 'index' ? 'true' : 'false', toCanvas: this.toCanvas, toIndex: this.toIndex,
