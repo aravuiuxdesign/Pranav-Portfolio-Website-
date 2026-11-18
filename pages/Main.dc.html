@@ -899,6 +899,10 @@ body{background:#ECEEF3!important}
 @media (max-width:380px){.hbadge .hb-s{display:none}}
 
 .st-card video{display:none!important}
+[data-philo]>svg,#statement>svg{z-index:0!important}
+[data-philo-in]{z-index:1}
+@media (max-width:1199px){[data-philo]>svg{display:none!important}}
+#statement h2,#statement .st-copy,#statement .st-card{z-index:2!important}
 /* ===== v33 hero redesign ===== */
 #top>.hx-grid,#top>.hx-orb{position:absolute!important;z-index:0!important}
 #top .dotgrid{display:none!important}
@@ -1344,7 +1348,7 @@ html[data-theme="dark"] #capabilities .bento .bx,html[data-theme="dark"] #capabi
 <!-- PHILOSOPHY -->
 <section data-philo data-tubesec2 onMouseMove="{{tiltDev}}" onMouseLeave="{{untiltDev}}" aria-labelledby="ph-h" style="position: relative; padding: clamp(120px, 10vw, 220px) clamp(20px, 6vw, 140px) clamp(96px, 11vw, 200px); perspective: 1600px">
 <svg viewBox="0 0 1600 1500" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible">
-<path data-tube2 d="M-80 560 C200 540 420 600 560 640 C760 700 980 560 1260 590 C1480 615 1560 790 1700 860" pathLength="1" fill="none" stroke="#8FB0FF" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"/>
+<path data-tube2 d="M1720 250 C1480 290 1260 400 1160 560 C1060 720 900 760 870 920 C840 1080 1000 1230 1280 1300 C1460 1345 1600 1330 1720 1300" pathLength="1" fill="none" stroke="#8FB0FF" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"/>
 </svg>
 <div data-philo-in style="position: relative; transform-origin: 50% 0%; will-change: transform">
 <p class="rv" style="position: relative; margin: 0 0 26px"><span class="eyebrow"><b>06</b>Approach</span></p>
