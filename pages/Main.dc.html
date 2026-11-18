@@ -1209,6 +1209,8 @@ html[data-theme="dark"] .hx-sw p{color:#8B92A7!important}
   #top .stage{margin-top:0!important}
 }
 @media (min-width:900px) and (max-width:1280px){.hx-sw{bottom:calc(50% + 90px)}.hx-cp{top:calc(50% + 40px)!important}}
+
+.tg-l{display:inline-block}.tg-l.pop{animation:accpop .45s cubic-bezier(.34,1.56,.64,1)}
 </style>
 </helmet>
 
@@ -1272,7 +1274,7 @@ html[data-theme="dark"] .hx-sw p{color:#8B92A7!important}
 </div>
 <div class="hcenter">
 <div class="hx-card hx-sw no-acc"><small>Colour styles</small><div class="row"><button type="button" class="sw" data-acc-set="0" aria-pressed="false" aria-label="Blue accent" style="background:#2638FF"><span>Blue</span></button><button type="button" class="sw" data-acc-set="50" aria-pressed="false" aria-label="Violet accent" style="background:#8A2BE2"><span>Violet</span></button><button type="button" class="sw" data-acc-set="140" aria-pressed="false" aria-label="Coral accent" style="background:#F2542D"><span>Coral</span></button><button type="button" class="sw" data-acc-set="245" aria-pressed="false" aria-label="Green accent" style="background:#16A34A"><span>Green</span></button></div><p>Click to restyle</p></div>
-<div class="hx-card hx-cp"><span class="hx-try" aria-hidden="true"><i></i>Try me</span><small aria-hidden="true">Component</small><div class="tg"><span>Dark mode</span><button type="button" class="tgl" data-theme-toggle aria-pressed="false" aria-label="Dark mode"><i></i></button></div><label class="acc-row"><span class="acc-l">Accent</span><span class="acc-n" data-acc-name>Blue</span></label><input class="acc" data-acc type="range" min="0" max="359" step="1" value="0" aria-label="Accent colour"></div>
+<div class="hx-card hx-cp"><span class="hx-try" aria-hidden="true"><i></i>Try me</span><small aria-hidden="true">Component</small><div class="tg"><span class="tg-l" data-theme-label>Light mode</span><button type="button" class="tgl" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"><i></i></button></div><label class="acc-row"><span class="acc-l">Accent</span><span class="acc-n" data-acc-name>Blue</span></label><input class="acc" data-acc type="range" min="0" max="359" step="1" value="0" aria-label="Accent colour"></div>
 <a href="About.dc.html" class="hbadge rv"><img src="../assets/site/portrait.webp" alt=""><span><b>Pranav Gadekar</b><span class="hb-s"> · <span class="hb-l">UI/UX &amp; </span>Product Designer</span></span><span class="hb-go"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <h1 class="h-hero2 rv">
 <span class="ln"><span>I design interfaces</span></span>
@@ -1619,6 +1621,7 @@ class Component extends DCLogic {
     const apply = (dark, anim) => {
       if (anim) { de.classList.add('thm-anim'); clearTimeout(this.thmT); this.thmT = setTimeout(() => de.classList.remove('thm-anim'), 700); }
       de.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.querySelectorAll('[data-theme-label]').forEach(l => { if (l.textContent !== (dark ? 'Dark mode' : 'Light mode')) { l.textContent = dark ? 'Dark mode' : 'Light mode'; if (anim) { l.classList.remove('pop'); void l.offsetWidth; l.classList.add('pop'); } } });
       const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', dark ? '#07080D' : '#FFFFFF');
       document.querySelectorAll('[data-theme-toggle]').forEach(b => { b.setAttribute('aria-pressed', dark ? 'true' : 'false'); if (b.classList.contains('thm')) b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); });
     };
