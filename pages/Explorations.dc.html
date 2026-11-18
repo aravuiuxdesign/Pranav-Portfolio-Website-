@@ -98,6 +98,9 @@ h1,h2,h3{text-wrap:balance}
 .ptn{position:absolute;right:clamp(20px,3.4vw,48px);bottom:28px;color:#FFF;font:500 12px 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase}
 .pt.out .pt-b{animation-duration:.75s!important;animation-delay:0s!important}
 .pt.arr .pt-b{animation-delay:.55s!important}
+
+/* mobile fixes */
+html,body{overflow-x:clip}
 </style>
 </helmet>
 <div ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #000000; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -115,7 +118,7 @@ h1,h2,h3{text-wrap:balance}
 </header>
 
 <section style="max-width: 1600px; margin: 0 auto; padding: clamp(64px, 8vw, 140px) clamp(20px, 3.4vw, 48px) clamp(40px, 5vw, 80px)">
-<h1 style="margin: 0; font-size: clamp(64px, 12vw, 210px); line-height: 0.88; letter-spacing: -0.055em; font-weight: 400">EXPLORATIONS</h1>
+<h1 style="margin: 0; font-size: clamp(38px, 12.2vw, 210px); line-height: 0.88; letter-spacing: -0.055em; font-weight: 400">EXPLORATIONS</h1>
 <div style="margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-end">
 <p style="margin: 0; max-width: 620px; font-size: clamp(18px, 1.5vw, 22px); color: #151A2B">Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
 <p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase">{{counts}}</p>

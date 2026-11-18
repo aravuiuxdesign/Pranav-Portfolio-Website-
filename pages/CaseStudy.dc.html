@@ -935,6 +935,10 @@
 .ptn{position:absolute;right:clamp(20px,3.4vw,48px);bottom:28px;color:#FFF;font:500 12px 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase}
 .pt.out .pt-b{animation-duration:.75s!important;animation-delay:0s!important}
 .pt.arr .pt-b{animation-delay:.55s!important}
+
+/* mobile fixes */
+html,body{overflow-x:clip}
+@media (max-width:640px){.cs-count{display:none!important}.cs-nl,.cs-cta{white-space:nowrap}.c-bigmk{display:none!important}}
 </style>
 </helmet>
 <div ref="{{setRoot}}" class="cs" style="--ac: {{p.accent}}; --tint: {{p.tint}}; --dk: {{p.dark}}; --acl: {{p.acLight}}">
