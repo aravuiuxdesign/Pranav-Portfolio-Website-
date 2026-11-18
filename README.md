@@ -4,10 +4,23 @@ Source for my UI/UX and product design portfolio: a clean white, Lusion-inspired
 
 **Live:** https://claude.ai/artifact/6Y6NJ6si53RupGkyPMLp59
 
+## Deploy
+
+The site is plain static files: **`index.html` at the repo root** plus the other pages, `dc-lite.js` and `assets/`. There's no build step.
+
+- **Vercel:** import the repo and keep the defaults: Framework Preset *Other*, no build command, output directory = repo root.
+- **GitHub Pages / Netlify / any static host:** serve the repo root.
+- **Locally:** `python3 -m http.server` in the repo root, then open http://localhost:8000.
+
+After editing anything in `pages/`, regenerate the deployable files with `python3 build/build.py` and commit the result.
+
 ## What's inside
 
 ```
-pages/            The site, one file per page (exactly what is live)
+index.html, *.html  Deployable site (generated from pages/ by build/build.py)
+dc-lite.js          Small runtime that renders the pages in any browser
+build/              build.py and the runtime source
+pages/            Source pages, one per page, as made in the design canvas
   Main.dc.html        Home: hero carousel, work grid, capabilities, toolkit, approach, contact, footer
   About.dc.html       About me, "at a glance" bento
   Explorations.dc.html  Graphic design, 3D and games
@@ -26,11 +39,9 @@ source/
 
 ## How the pages work
 
-The pages are **Design Component** files (`.dc.html`) made in a Claude design canvas. They rely on a runtime
-(`support.js`) that the canvas provides, so opening them straight from disk shows only the raw markup, not the finished site.
-The live link above is the working version.
-
-In this repo every asset path points to a file under `assets/`, so all the media is here and nothing depends on private links.
+The source pages are **Design Component** files (`.dc.html`) made in a Claude design canvas. `build/build.py` turns each one
+into a normal HTML page and `dc-lite.js` renders it in any browser: templates, loops, conditionals, state and the shared case-study
+component. Every asset path points to a file under `assets/`, so nothing depends on private links.
 
 ## Projects
 
