@@ -349,10 +349,84 @@ h1 .it,.h-cta .it,h2 .it{font-size:1.07em;line-height:.8}
   .pg-back{display:none!important}
   .strip{padding-left:20px!important;padding-right:20px!important;scroll-padding-left:20px}
 }
+
+/* ===== v34 theme toggle ===== */
+.thm{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:0;border-radius:50%;background:#F1F3F8;color:#0B0D14;cursor:pointer;transition:background .3s,color .3s,transform .4s cubic-bezier(.22,1,.36,1)}
+.thm:hover{background:#E5E9F3;transform:rotate(-12deg)}
+.thm svg{position:absolute;transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1)}
+.thm .ic-sun{opacity:0;transform:rotate(-60deg) scale(.6)}
+html[data-theme="dark"] .thm .ic-sun{opacity:1;transform:none}
+html[data-theme="dark"] .thm .ic-moon{opacity:0;transform:rotate(60deg) scale(.6)}
+.thm:focus-visible{outline:2px solid #2D5BFF;outline-offset:3px}
+.thm-fx{position:fixed;top:16px;right:16px;z-index:120;width:46px;height:46px;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 10px 30px -12px rgba(15,23,42,.3),inset 0 0 0 1px #E6E9F1}
+html[data-theme="dark"] .thm{background:rgba(255,255,255,.08);color:#FFF}
+html[data-theme="dark"] .thm:hover{background:rgba(255,255,255,.14)}
+html[data-theme="dark"] .thm-fx{background:rgba(18,20,30,.8);box-shadow:0 10px 30px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.1)}
+html.thm-anim,html.thm-anim body,html.thm-anim *:not(video):not(canvas){transition:background-color .55s ease,color .45s ease,border-color .45s ease,box-shadow .45s ease!important}
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="dark"],html[data-theme="dark"] body{background:#07080D!important}
+html[data-theme="dark"] .pfroot{background:#07080D!important;color:#E8EBF3!important}
+html[data-theme="dark"] ::selection{background:#3D55FF;color:#FFF}
+
+/* ===== v34 autodark ===== */
+html[data-theme="dark"] a{color:#F3F5FA!important}
+html[data-theme="dark"] .pill-light{background:#1A1E2E!important;color:#F3F5FA!important}
+html[data-theme="dark"] .pill-white{background:#0F1119!important;color:#F3F5FA!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)!important}
+html[data-theme="dark"] .wk{color:#F3F5FA!important}
+html[data-theme="dark"] .wk .frame{background:#141724!important}
+html[data-theme="dark"] .acc:hover{background:#141724!important}
+html[data-theme="dark"] .meta-row{border-bottom:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .hero-info{border-top:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .hdr.scrolled{background:rgba(20,23,36,0.82)!important;border-bottom-color:rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .navpill{background:rgba(20,23,36,0.78)!important;border:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .navlinks{border-left:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .nl{color:#F3F5FA!important}
+html[data-theme="dark"] .nl:hover{background:#1A1E2E!important}
+html[data-theme="dark"] .mmenu{background:#0F1119!important;border:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .chip{background:#0F1119!important;border:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .band-b{background:#1A1E2E!important}
+html[data-theme="dark"] .worksec{background:#141724!important}
+html[data-theme="dark"] .eyebrow{background:#0F1119!important;border:1px solid rgba(255,255,255,.09)!important;color:#F3F5FA!important}
+html[data-theme="dark"] .eyebrow b{background:#1A1E2E!important}
+html[data-theme="dark"] .pill .arc{background:#0F1119!important}
+html[data-theme="dark"] .navpill{background:linear-gradient(rgba(20,23,36,0.86),rgba(20,23,36,0.86)) padding-box,linear-gradient(120deg,#BFD0FF,#0F1119 45%,#CFC6FF) border-box!important;box-shadow:0 18px 50px -18px rgba(30,63,224,.38),0 2px 6px rgba(11,13,20,.05),inset 0 1px 0 rgba(255,255,255,.08)!important}
+html[data-theme="dark"] .hdr.compact .navpill{box-shadow:0 26px 60px -20px rgba(30,63,224,.5),0 2px 8px rgba(11,13,20,.06),inset 0 1px 0 rgba(255,255,255,.08)!important}
+html[data-theme="dark"] .mk-dot{border:2.5px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .brand-txt b{color:#F3F5FA!important}
+html[data-theme="dark"] .brand-txt small{color:#A9B0C2!important}
+html[data-theme="dark"] .navlinks{border:1px solid rgba(255,255,255,.09)!important;border-left:1px solid rgba(255,255,255,.09)!important;background:#141724!important}
+html[data-theme="dark"] .nl{color:#A9B0C2!important}
+html[data-theme="dark"] .nl:hover{color:#F3F5FA!important}
+html[data-theme="dark"] .nl.act{color:#F3F5FA!important}
+html[data-theme="dark"] .nind{background:#0F1119!important;box-shadow:0 3px 10px rgba(11,13,20,.08),0 0 0 1px rgba(255,255,255,.08)!important}
+html[data-theme="dark"] .nclock{color:#A9B0C2!important}
+html[data-theme="dark"] .shine{background:linear-gradient(100deg,transparent,rgba(20,23,36,0.50),transparent)!important}
+html[data-theme="dark"] .h-hero2 .hl::after{background:linear-gradient(90deg,#1A1E2E,#DCE6FF 50%,#E6DEFF)!important}
+html[data-theme="dark"] .hbadge img{box-shadow:0 0 0 2px rgba(255,255,255,.08),0 0 0 4px #5B82FF!important}
+html[data-theme="dark"] .fc{background:linear-gradient(150deg,#0F1119 0%,#1A1E2E 100%)!important}
+html[data-theme="dark"] .band-b{background:linear-gradient(90deg,#1A1E2E,#1A1E2E 50%,#1A1E2E)!important}
+html[data-theme="dark"] .wk .num{background:linear-gradient(135deg,#141724,#1A1E2E 60%,#1A1E2E)!important}
+html[data-theme="dark"] .lname{color:#F3F5FA!important}
+html[data-theme="dark"] .gl-c{background:#0F1119!important}
+html[data-theme="dark"] .gl-hero::after{background:repeating-linear-gradient(90deg,rgba(255,255,255,0.006) 0 1px,transparent 1px 56px),repeating-linear-gradient(0deg,rgba(255,255,255,0.006) 0 1px,transparent 1px 56px)!important}
+html[data-theme="dark"] .gl-status{background:rgba(255,255,255,0.012)!important}
+html[data-theme="dark"] .gl-meta div{border-top:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .gl-chips span{background:#141724!important}
+html[data-theme="dark"] .gl-look p{color:#A9B0C2!important}
+html[data-theme="dark"] .gl-str li{border-bottom:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .ag-p{color:#F3F5FA!important}
+html[data-theme="dark"] .ag-p:hover{background:#141724!important;color:#F3F5FA!important}
+html[data-theme="dark"] .ag-pi{background:#1A1E2E!important}
+html[data-theme="dark"] .ptx i{background:#0F1119!important}
+/* ===== /v34 autodark ===== */
+
+/* v34 dark tweaks */
+html[data-theme="dark"] .lpx,html[data-theme="dark"] .logo svg{fill:#FFF!important}
+html[data-theme="dark"] .lsep{background:rgba(255,255,255,.18)!important}
 </style>
 </helmet>
 
-<div ref="{{setRoot}}" onMouseMove="{{move}}" style="position: relative; width: 100%; background: #FFFFFF; color: #000000; font-family: 'Geist', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.5; overflow-x: hidden">
+<div class="pfroot" ref="{{setRoot}}" onMouseMove="{{move}}" style="position: relative; width: 100%; background: #FFFFFF; color: #000000; font-family: 'Geist', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.5; overflow-x: hidden">
 
 <!-- PRELOADER -->
 <div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>About</span></div></div></div>
@@ -384,7 +458,7 @@ h1 .it,.h-cta .it,h2 .it{font-size:1.07em;line-height:.8}
 <a href="Explorations.html" class="nl" data-nav="explorations">Explorations</a>
 <a href="#contact" class="nl" data-nav="contact">Contact</a>
 </nav>
-<a href="#contact" class="pill ncta lg-only">Let’s talk <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<button type="button" class="thm" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button><a href="#contact" class="pill ncta lg-only">Let’s talk <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <button type="button" class="pill nmenu sm-only" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-controls="site-menu"><span class="hb" aria-hidden="true"></span>{{menuLabel}}</button>
 </div>
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
@@ -580,7 +654,27 @@ class Component extends DCLogic {
     this.closeReel = () => this.setState({ reelOpen: false });
     this.reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
+  startTheme(){
+    const de = document.documentElement;
+    let saved = null; try { saved = localStorage.getItem('pf_theme'); } catch (e) {}
+    const apply = (dark, anim) => {
+      if (anim) { de.classList.add('thm-anim'); clearTimeout(this.thmT); this.thmT = setTimeout(() => de.classList.remove('thm-anim'), 700); }
+      de.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.querySelectorAll('[data-theme-toggle]').forEach(b => { b.setAttribute('aria-pressed', dark ? 'true' : 'false'); b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); });
+    };
+    apply(saved === 'dark', false);
+    if (this.thmBound) return; this.thmBound = true;
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest && e.target.closest('[data-theme-toggle]'); if (!b) return;
+      e.preventDefault();
+      const dark = de.getAttribute('data-theme') !== 'dark';
+      try { localStorage.setItem('pf_theme', dark ? 'dark' : 'light'); } catch (er) {}
+      apply(dark, true);
+    });
+  }
+
   componentDidMount(){
+    this.startTheme();
     this.q = (s) => this.root ? this.root.querySelector(s) : null;
     this.runPreloader(); this.startField(); this.startShapes(); this.startReveal(); this.startMagnet(); this.startScroll(); this.startStrip(); this.startVideos(); this.startTransitions(); this.startClock(); this.startNav(); this.startMorph();
   }

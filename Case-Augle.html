@@ -262,9 +262,69 @@ h1,h2,h3{text-wrap:balance}
 .pt.arr .pt-b{animation-delay:.55s!important}
 
 /* v32 back */@media (max-width:640px){.pg-back{display:none!important}}
+
+/* ===== v34 theme toggle ===== */
+.thm{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:0;border-radius:50%;background:#F1F3F8;color:#0B0D14;cursor:pointer;transition:background .3s,color .3s,transform .4s cubic-bezier(.22,1,.36,1)}
+.thm:hover{background:#E5E9F3;transform:rotate(-12deg)}
+.thm svg{position:absolute;transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1)}
+.thm .ic-sun{opacity:0;transform:rotate(-60deg) scale(.6)}
+html[data-theme="dark"] .thm .ic-sun{opacity:1;transform:none}
+html[data-theme="dark"] .thm .ic-moon{opacity:0;transform:rotate(60deg) scale(.6)}
+.thm:focus-visible{outline:2px solid #2D5BFF;outline-offset:3px}
+.thm-fx{position:fixed;bottom:20px;right:20px;z-index:120;width:46px;height:46px;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 10px 30px -12px rgba(15,23,42,.3),inset 0 0 0 1px #E6E9F1}
+html[data-theme="dark"] .thm{background:rgba(255,255,255,.08);color:#FFF}
+html[data-theme="dark"] .thm:hover{background:rgba(255,255,255,.14)}
+html[data-theme="dark"] .thm-fx{background:rgba(18,20,30,.8);box-shadow:0 10px 30px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.1)}
+html.thm-anim,html.thm-anim body,html.thm-anim *:not(video):not(canvas){transition:background-color .55s ease,color .45s ease,border-color .45s ease,box-shadow .45s ease!important}
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="dark"],html[data-theme="dark"] body{background:#07080D!important}
+html[data-theme="dark"] .pfroot{background:#07080D!important;color:#E8EBF3!important}
+html[data-theme="dark"] ::selection{background:#3D55FF;color:#FFF}
+
+/* ===== v34 autodark ===== */
+html[data-theme="dark"] a{color:#F3F5FA!important}
+html[data-theme="dark"] .pill-light{background:#1A1E2E!important;color:#F3F5FA!important}
+html[data-theme="dark"] .pill-light:hover{color:#F3F5FA!important}
+html[data-theme="dark"] .card{color:#F3F5FA!important}
+html[data-theme="dark"] .card .f{background:#141724!important}
+html[data-theme="dark"] .meta-row{border-bottom:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .hero-info{border-top:1px solid rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .hdr.scrolled{background:rgba(20,23,36,0.82)!important;border-bottom-color:rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .ag .pill-k{background:#0F1119!important}
+html[data-theme="dark"] .ag p{color:#A9B0C2!important}
+html[data-theme="dark"] .ag .nums{background:#0F1119!important}
+html[data-theme="dark"] .ag .cd{background:#0F1119!important}
+html[data-theme="dark"] .ag .cd li{color:#A9B0C2!important}
+html[data-theme="dark"] .ag .reel .tag{background:rgba(20,23,36,0.92)!important}
+html[data-theme="dark"] .ag .loop div{background:#0F1119!important}
+html[data-theme="dark"] .ag .chips span{background:#0F1119!important}
+html[data-theme="dark"] .ag .evo .blank{background:repeating-linear-gradient(135deg,var(--soft) 0 12px,#0F1119 12px 24px)!important;border:1px dashed rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .ag .clock{background:#0F1119!important}
+html[data-theme="dark"] .ag .clock i{background:#141724!important}
+html[data-theme="dark"] .ag .map div{background:#0F1119!important}
+html[data-theme="dark"] .ag .tbl td{color:#A9B0C2!important}
+html[data-theme="dark"] .ag .tblw{background:#0F1119!important}
+html[data-theme="dark"] .ag .st.i{background:#141724!important}
+html[data-theme="dark"] .ag .st.n{background:#141724!important}
+html[data-theme="dark"] .ag .note{background:#0F1119!important;border:1px dashed rgba(255,255,255,.09)!important}
+html[data-theme="dark"] .ag .nextp i{background:#0F1119!important}
+html[data-theme="dark"] .ag .toc a{background:#0F1119!important}
+html[data-theme="dark"] .ag .live-tag{background:#0F1119!important}
+html[data-theme="dark"] .ag .live-btn i{background:#0F1119!important}
+html[data-theme="dark"] .ag .heroimg-cta{background:rgba(20,23,36,0.94)!important}
+html[data-theme="dark"] .ag-hdr{background:rgba(20,23,36,0.86)!important}
+html[data-theme="dark"] .ag-hdr span{color:#A9B0C2!important}
+html[data-theme="dark"] .ptx i{background:#0F1119!important}
+/* ===== /v34 autodark ===== */
+
+/* v34 dark tweaks */
+html[data-theme="dark"] .ag{--soft:#0F1119;--mut:#A4ABBE;--line:rgba(255,255,255,.09);--ink:#F3F5FA;--bt:rgba(61,85,255,.18)}
+html[data-theme="dark"] .ag .nextp{background:#FFFFFF!important;color:#07080D!important}
+html[data-theme="dark"] .ag .lpx,html[data-theme="dark"] .lpx{fill:#FFF!important}
 </style>
 </helmet>
-<div ref="{{setRoot}}" class="ag" style="width: 100%; background: #FFFFFF; color: #0B1530; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
+<div ref="{{setRoot}}" class="pfroot ag" style="width: 100%; background: #FFFFFF; color: #0B1530; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
+<button type="button" class="thm thm-fx" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
 <a href="index.html" class="pg-back" aria-label="Back to the Augle project on the home page"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a>
 <a href="index.html" class="ag-hdr pg-back-home"><span style="color:#0B1530;font-size:15px">Pranav<span style="color:#2D5BFF;font-size:15px">.</span>G</span><span>/ Augle AI</span></a>
 <div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Augle AI</span></div></div></div>
@@ -478,7 +538,27 @@ class Component extends DCLogic {
       setTimeout(() => { a.dataset.go = '1'; a.click(); setTimeout(() => { delete a.dataset.go; pt.classList.remove('out'); }, 1500); }, 920);
     }, true);
   }
+  startTheme(){
+    const de = document.documentElement;
+    let saved = null; try { saved = localStorage.getItem('pf_theme'); } catch (e) {}
+    const apply = (dark, anim) => {
+      if (anim) { de.classList.add('thm-anim'); clearTimeout(this.thmT); this.thmT = setTimeout(() => de.classList.remove('thm-anim'), 700); }
+      de.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.querySelectorAll('[data-theme-toggle]').forEach(b => { b.setAttribute('aria-pressed', dark ? 'true' : 'false'); b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); });
+    };
+    apply(saved === 'dark', false);
+    if (this.thmBound) return; this.thmBound = true;
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest && e.target.closest('[data-theme-toggle]'); if (!b) return;
+      e.preventDefault();
+      const dark = de.getAttribute('data-theme') !== 'dark';
+      try { localStorage.setItem('pf_theme', dark ? 'dark' : 'light'); } catch (er) {}
+      apply(dark, true);
+    });
+  }
+
   componentDidMount(){
+    this.startTheme();
     if (!this.root) return;
     this.startTransitions();
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
