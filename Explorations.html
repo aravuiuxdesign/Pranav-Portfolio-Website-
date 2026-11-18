@@ -777,6 +777,23 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 .gt.pc-sel .cv-sel{opacity:1;border-color:#FF5A36}.gt.pc-sel .cv-sel b{border-color:#FF5A36}.gt.pc-sel .cv-sel em{background:#FF5A36}
 .gt .cv-sel{z-index:4}
 .gt:focus-visible{outline:none}
+
+/* v48 storefront mockup for Detail Craft */
+.gt-m-bill{background:#15171E}
+.sf{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#2A2D36 0%,#1E2028 58%,#121318 100%)}
+.sf::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 46px),repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 24px);pointer-events:none}
+.sf-board{position:absolute;left:7%;right:7%;top:16%;aspect-ratio:120/36;background:#FFF;border-radius:4px;box-shadow:0 0 0 5px #3A3D46,0 0 0 6px #50535C,0 26px 34px -14px rgba(0,0,0,.85);overflow:hidden;z-index:2}
+.sf-board img{display:block;width:100%;height:100%;object-fit:contain;background:#FFF}
+.sf-board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 35%,transparent 70%,rgba(0,0,0,.08));pointer-events:none}
+.sf-lamps{position:absolute;left:7%;right:7%;top:5%;height:12%;display:flex;justify-content:space-around;z-index:3}
+.sf-lamps i{position:relative;width:26px;height:8px;border-radius:0 0 8px 8px;background:#4A4D57;box-shadow:0 1px 0 #6A6D77}
+.sf-lamps i::before{content:"";position:absolute;left:50%;top:-14%;width:2px;height:70%;margin-left:-1px;background:#4A4D57;transform:translateY(-100%)}
+.sf-lamps i::after{content:"";position:absolute;left:50%;top:100%;width:150px;height:120px;transform:translateX(-50%);background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(255,236,190,.38),transparent 70%);pointer-events:none}
+.sf-front{position:absolute;left:7%;right:7%;top:58%;bottom:9%;display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:6px;z-index:1}
+.sf-front i{border-radius:2px;background:linear-gradient(160deg,rgba(150,180,220,.22),rgba(40,50,70,.5) 60%,rgba(20,25,35,.7));box-shadow:inset 0 0 0 2px #2E313A}
+.sf-front i:nth-child(2){background:repeating-linear-gradient(0deg,#3A3D46 0 3px,#30333B 3px 7px);box-shadow:inset 0 0 0 2px #2E313A}
+.sf-floor{position:absolute;left:0;right:0;bottom:0;height:9%;background:linear-gradient(#2B2E37,#191A20)}
+.gt:hover .sf-board{transform:translateY(-2px);transition:transform .5s cubic-bezier(.22,1,.36,1)}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -1045,7 +1062,7 @@ class Component extends DCLogic {
       const act = t.pv ? 'data-pv="' + t.pv + '"' : 'data-oi="' + t.oi + '"';
       let m = '';
       if (t.t === 'img') m = '<img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false">';
-      else if (t.t === 'bill') m = '<span class="gt-bill"><img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false"></span><span class="gt-tag">36 × 120 in</span>';
+      else if (t.t === 'bill') m = '<span class="sf"><span class="sf-lamps" aria-hidden="true"><i></i><i></i><i></i></span><span class="sf-board"><img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false"></span><span class="sf-front" aria-hidden="true"><i></i><i></i><i></i></span><span class="sf-floor" aria-hidden="true"></span></span>';
       else if (t.t === 'mic') m = '<span class="gt-mic" data-cyc="' + t.fr.length + '">' + t.fr.map((s, k) => '<img class="' + (k ? '' : 'on') + '" src="' + e(s) + '" alt="Micron ' + e(t.nm[k]) + ' label" loading="lazy" draggable="false" data-nm="' + e(t.nm[k]) + '" data-gl="' + t.gl[k] + '">').join('') + '<span class="gt-chip" data-chip>' + e(t.nm[0]) + '</span><span class="gt-count">11 labels</span></span>';
       else if (t.t === 'soc') m = '<span class="gt-soc" data-cyc="' + t.sl.length + '">' + t.sl.map((s, k) => '<img class="' + (k ? '' : 'on') + '" src="' + e(s) + '" alt="" loading="lazy" draggable="false">').join('') + '<span class="gt-car" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="15" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10" fill="none" stroke="#fff" stroke-width="2"/></svg></span><span class="gt-dots">' + t.sl.map((s, k) => '<i class="' + (k ? '' : 'on') + '"></i>').join('') + '</span></span>';
       else if (t.t === 'book' || t.t === 'mag') m = '<span class="gt-open gt-' + t.t + '" data-cyc="' + t.sp.length + '">' + t.sp.map((p, k) => '<span class="gt-spr ' + (k ? '' : 'on') + '"><span class="gt-pg gt-pl"><img src="' + e(p[0]) + '" alt="" loading="lazy" draggable="false"></span><span class="gt-pg gt-pr"><img src="' + e(p[1]) + '" alt="" loading="lazy" draggable="false"></span></span>').join('') + '<span class="gt-gutter" aria-hidden="true"></span></span><span class="gt-read">Open &amp; turn the pages →</span>';
@@ -1276,13 +1293,12 @@ class Component extends DCLogic {
     T.push({ t: 'book', c: 2, ar: .6, pv: 'tiko', title: 'Tiko Finds His Roar', meta: 'Hardcover picture book · tap to read', sp: spp('tiko_', [[4,5],[9,10],[20,21],[27,28],[35,36]]), cover: PI('tiko_1.webp') });
     T.push({ t: 'soc', c: 1, ar: 1.25, pv: 'soc0', title: SOC[0].title, meta: SOC[0].meta, sl: SOC[0].items.map(x => x.src) });
     T.push({ t: 'cb', c: 1, ar: 1.42, pv: 'jungle', title: 'Jungle Colouring Book', meta: 'Activity book · tap to read', cover: PI('jun_1.webp') });
-    T.push({ t: 'bill', c: 4, ar: .34, oi: idx(dcI), title: 'Detail Craft — shop board', meta: 'Large format · 36 × 120 in', src: dcI.src });
     T.push({ t: 'mag', c: 2, ar: .62, pv: 'nlsiu', title: 'NLSIU — prospectus', meta: 'Printed brochure · tap to read', sp: spp('nil_', [[2,3],[4,5],[6,7],[10,11],[12,13]]) });
     T.push({ t: 'soc', c: 1, ar: 1.25, pv: 'soc1', title: SOC[1].title, meta: SOC[1].meta, sl: SOC[1].items.map(x => x.src) });
     T.push({ t: 'cb', c: 1, ar: 1.42, pv: 'sea', title: 'Sea Animals Coloring Book', meta: 'Activity book · tap to read', cover: PI('sea_1.webp') });
     T.push({ t: 'img', c: 1, oi: idx(schoolP), title: schoolP.title, meta: 'Poster · School campaign', src: schoolP.src, ar: ar(schoolP.src) });
     T.push({ t: 'soc', c: 1, ar: 1, pv: 'soc2', title: SOC[2].title, meta: SOC[2].meta, sl: SOC[2].items.map(x => x.src) });
-    GI.forEach(g => T.push({ t: 'img', c: 1, oi: idx(g), title: g.title, meta: g.tag, src: g.src, ar: ar(g.src) }));
+    GI.forEach((g, gi) => { T.push({ t: 'img', c: 1, oi: idx(g), title: g.title, meta: g.tag, src: g.src, ar: ar(g.src) }); if (gi === GI.length - 5) T.push({ t: 'bill', c: 2, ar: .62, oi: idx(dcI), title: 'Detail Craft — shop board', meta: 'Large format signage · 36 × 120 in', src: dcI.src }); });
     this.GT = T;
     const SPR = [[null,1],[4,5],[9,10],[14,15],[20,21],[27,28],[35,36]];
     const tki = Math.max(0, Math.min(SPR.length - 1, this.state.tk)); const sp = SPR[tki];
