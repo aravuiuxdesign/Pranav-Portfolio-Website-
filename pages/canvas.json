@@ -1,0 +1,143 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-15T17:02:00Z"
+ },
+ "title": "Pranav Gadekar \u2014 Portfolio",
+ "launch": {
+  "view": "focused",
+  "file": "Main.dc.html"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 8600,
+   "title": "Home",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Explorations.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 6400,
+   "title": "Creative explorations",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-Hotel.dc.html": {
+   "x": 0,
+   "y": 10200,
+   "w": 1440,
+   "h": 22300,
+   "title": "Case study \u2014 Q100 Room Inspection App",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-Ainaa.dc.html": {
+   "x": 1520,
+   "y": 10200,
+   "w": 1440,
+   "h": 7000,
+   "title": "Case study \u2014 Ainaa",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-StudyPal.dc.html": {
+   "x": 3040,
+   "y": 10200,
+   "w": 1440,
+   "h": 7800,
+   "title": "Case study \u2014 StudyPal",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-Parallel.dc.html": {
+   "x": 4560,
+   "y": 10200,
+   "w": 1440,
+   "h": 7200,
+   "title": "Case study \u2014 Parallel",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-NomNom.dc.html": {
+   "x": 6080,
+   "y": 10200,
+   "w": 1440,
+   "h": 7200,
+   "title": "Case study \u2014 Nom Nom",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-Pawssible.dc.html": {
+   "x": 7600,
+   "y": 10200,
+   "w": 1440,
+   "h": 6400,
+   "title": "Case study \u2014 Pawssible",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "CaseStudy.dc.html": {
+   "x": 9120,
+   "y": 10200,
+   "w": 1440,
+   "h": 7800,
+   "title": "Case study template (shared component)",
+   "expand": "fill"
+  },
+  "About.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 5600,
+   "title": "About",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Case-Augle.dc.html": {
+   "x": 0,
+   "y": 18600,
+   "w": 1440,
+   "h": 13200,
+   "title": "Case study \u2014 Augle AI",
+   "expand": "fill",
+   "is_interactive": true
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Explorations.dc.html",
+  "About.dc.html",
+  "Case-Augle.dc.html",
+  "Case-Hotel.dc.html",
+  "Case-Ainaa.dc.html",
+  "Case-StudyPal.dc.html",
+  "Case-Parallel.dc.html",
+  "Case-NomNom.dc.html",
+  "Case-Pawssible.dc.html",
+  "CaseStudy.dc.html"
+ ],
+ "notes": {
+  "site": {
+   "x": 0,
+   "y": -320,
+   "text": "Pranav Gadekar \u2014 Portfolio",
+   "kind": "title1",
+   "maxW": 4480
+  },
+  "cases": {
+   "x": 0,
+   "y": 9900,
+   "text": "Case studies",
+   "kind": "title1",
+   "maxW": 10560
+  }
+ },
+ "designSystems": []
+}
