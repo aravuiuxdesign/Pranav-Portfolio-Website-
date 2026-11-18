@@ -423,6 +423,106 @@ html[data-theme="dark"] .ptx i{background:#0F1119!important}
 /* v34 dark tweaks */
 html[data-theme="dark"] .lpx,html[data-theme="dark"] .logo svg{fill:#FFF!important}
 html[data-theme="dark"] .lsep{background:rgba(255,255,255,.18)!important}
+
+/* ===== v43 About: personality sections ===== */
+.ab-s{padding:clamp(80px,9vw,150px) 0}
+.ab-tint{background:#F5F7FB;border-top:1px solid #E7EBF2;border-bottom:1px solid #E7EBF2}
+.ab-w{max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,112px)}
+.ab-h{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(32px,3.6vw,52px)}
+.ab-h h2,.qf-l h2{margin:18px 0 0;font-size:clamp(40px,5vw,84px);line-height:1;letter-spacing:-.045em;font-weight:500;color:#0B0D14}
+.ab-s .it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#2638FF;letter-spacing:-.01em}
+.ab-h>p,.qf-l>p{margin:0;max-width:40ch;font-size:16.5px;line-height:1.55;color:#5E6372}
+.ab-ph{display:inline-flex;align-items:center;padding:2px 9px;border-radius:7px;background:#FFF7E6;border:1px dashed #E3B45A;color:#8A5A00;font:500 12px/1.5 'Geist Mono',monospace;letter-spacing:.02em}
+/* value flip cards */
+.vf-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.vf{position:relative;display:block;height:clamp(320px,26vw,380px);padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;cursor:pointer;perspective:1200px}
+.vf-in{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.vf:hover .vf-in,.vf:focus-visible .vf-in,.vf[aria-pressed="true"] .vf-in{transform:rotateY(180deg)}
+.vf-f,.vf-b{position:absolute;inset:0;display:flex;flex-direction:column;padding:26px;border-radius:24px;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.vf-f{background:#FFF;border:1px solid #E7EBF2;box-shadow:0 30px 60px -48px rgba(20,35,110,.45)}
+.vf-top{display:flex;justify-content:space-between;align-items:center}
+.vf-n{font:500 12px 'Geist Mono',monospace;color:#9AA0B0}
+.vf-ic{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#EEF1FF;color:#2638FF}
+.vf-f b{margin-top:auto;font-size:clamp(22px,1.8vw,28px);font-weight:500;letter-spacing:-.03em;line-height:1.1;color:#0B0D14}
+.vf-p{margin-top:12px;font-size:15px;line-height:1.5;color:#5E6372}
+.vf-hint{margin-top:18px;font:500 11px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#9AA0B0}
+.vf-b{transform:rotateY(180deg);background:#2638FF;color:#FFF;box-shadow:0 30px 60px -30px rgba(38,56,255,.6)}
+.vf-b small{font:500 11px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.vf-bp{margin-top:16px;font-size:17px;line-height:1.45}
+.vf-b .ab-ph{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);color:#FFF}
+.vf-l{display:inline-flex;align-items:center;gap:8px;margin-top:auto;align-self:flex-start;height:44px;padding:0 18px;border-radius:99px;background:#FFF;color:#0B0D14!important;font-size:14.5px;font-weight:500}
+/* journey */
+.jr{position:relative;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;padding:58px clamp(20px,5vw,112px) 10px;scrollbar-width:none;cursor:grab;-webkit-user-select:none;user-select:none}
+.jr::-webkit-scrollbar{display:none}
+.jr.drag{cursor:grabbing;scroll-snap-type:none}
+.jr-line{position:absolute;left:0;top:38px;height:2px;width:calc(6 * 320px + 5 * 18px + 2 * clamp(20px,5vw,112px));background:repeating-linear-gradient(90deg,#C9D2EC 0 8px,transparent 8px 14px)}
+.jr-c{position:relative;flex:0 0 320px;padding:46px 24px 26px;border-radius:22px;background:#FFF;border:1px solid #E7EBF2;scroll-snap-align:start;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.jr-c:hover{transform:translateY(-6px);box-shadow:0 30px 50px -34px rgba(20,35,110,.5)}
+.jr-y{position:absolute;left:24px;top:-46px;font:500 13px 'Geist Mono',monospace;color:#2638FF}
+.jr-dot{position:absolute;left:22px;top:-26px;width:14px;height:14px;border-radius:50%;background:#FFF;box-shadow:0 0 0 3px #2638FF}
+.jr-c:last-child .jr-dot{background:#2638FF;box-shadow:0 0 0 3px #2638FF,0 0 0 9px rgba(38,56,255,.18)}
+.jr-c b{display:block;font-size:22px;font-weight:500;letter-spacing:-.025em;color:#0B0D14}
+.jr-c p{margin:10px 0 0;font-size:15px;line-height:1.5;color:#5E6372}
+/* off the clock */
+.ot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ot{position:relative;overflow:hidden;padding:28px;border-radius:24px;background:#FFF;border:1px solid #E7EBF2;min-height:220px;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.ot::before{content:"";position:absolute;right:-30%;top:-40%;width:70%;height:90%;border-radius:50%;background:radial-gradient(closest-side,var(--hb),transparent);opacity:.35;transition:opacity .5s,transform .8s cubic-bezier(.22,1,.36,1)}
+.ot:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 34px 60px -40px rgba(20,35,110,.5)}
+.ot:hover::before{opacity:.7;transform:scale(1.25)}
+.ot-ic{position:relative;display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:16px;background:var(--hbs);color:var(--hbi);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.ot:hover .ot-ic{transform:rotate(-10deg) scale(1.08)}
+.ot b{position:relative;margin-top:auto;font-size:22px;font-weight:500;letter-spacing:-.025em;color:#0B0D14}
+.ot p{position:relative;margin:8px 0 0;font-size:15px;line-height:1.5;color:#5E6372}
+.ot-b{--hb:#7F95FF;--hbs:#EEF1FF;--hbi:#2638FF}.ot-g{--hb:#4ADE80;--hbs:#E8FBEF;--hbi:#15803D}.ot-v{--hb:#B794FF;--hbs:#F3EDFF;--hbi:#6D28D9}
+.ot-o{--hb:#FFB36B;--hbs:#FFF3E6;--hbi:#C2410C}.ot-p{--hb:#FF8FB1;--hbs:#FFEDF3;--hbi:#BE185D}.ot-c{--hb:#5EE0E6;--hbs:#E6FAFB;--hbi:#0E7490}
+/* quotes */
+.qt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.qt{position:relative;margin:0;display:flex;flex-direction:column;gap:24px;padding:30px;border-radius:24px;background:#FFF;border:1px solid #E7EBF2}
+.qt-m{font-family:'Instrument Serif',serif;font-size:90px;line-height:.6;color:#2638FF;height:40px}
+.qt blockquote{margin:0;font-size:18px;line-height:1.5;color:#0B0D14}
+.qt figcaption{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid #EDF0F5}
+.qt-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#C7D2FF,#E9DDFF)}
+.qt figcaption b{display:block;font-weight:500}
+.qt figcaption small{display:block;margin-top:4px;font:500 11px 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:#7A8094}
+/* quick facts */
+.qf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,90px);align-items:center}
+.qf-l>p{margin-top:20px}
+.qf-b{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.qf-note{margin-top:14px}
+.qf-card{border-radius:26px;background:#FFF;border:1px solid #E7EBF2;box-shadow:0 40px 80px -56px rgba(20,35,110,.5);overflow:hidden}
+.qf-ch{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #EDF0F5;font-weight:600;font-size:15px}
+.qf-st{display:inline-flex;align-items:center;gap:8px;padding:5px 11px;border-radius:99px;background:#E8FBEF;color:#15803D;font:500 12px 'Geist',sans-serif}
+.qf-st i{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:qfp 1.8s ease-out infinite}
+@keyframes qfp{100%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.qf-g{display:grid;grid-template-columns:1fr 1fr;margin:0}
+.qf-g>div{padding:18px 22px;border-bottom:1px solid #EDF0F5}
+.qf-g>div:nth-child(odd){border-right:1px solid #EDF0F5}
+.qf-g>div:nth-last-child(-n+2){border-bottom:0}
+.qf-g dt{font:500 11px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#7A8094}
+.qf-g dd{margin:7px 0 0;font-size:16px;font-weight:500;color:#0B0D14}
+/* responsive */
+@media (max-width:1100px){.vf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.ab-h,.qf{grid-template-columns:1fr}.ot-grid,.qt-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.vf-grid,.ot-grid,.qt-grid{grid-template-columns:1fr}.vf{height:300px}.jr-c{flex-basis:270px}.qf-g{grid-template-columns:1fr}.qf-g>div:nth-child(odd){border-right:0}.qf-g>div:nth-last-child(2){border-bottom:1px solid #EDF0F5}.ot{min-height:180px}}
+@media (prefers-reduced-motion:reduce){.vf-in{transition:none}.qf-st i{animation:none}}
+/* dark */
+html[data-theme="dark"] .ab-tint{background:#0D0F17;border-color:rgba(255,255,255,.07)}
+html[data-theme="dark"] .ab-h h2,html[data-theme="dark"] .qf-l h2,html[data-theme="dark"] .vf-f b,html[data-theme="dark"] .jr-c b,html[data-theme="dark"] .ot b,html[data-theme="dark"] .qt blockquote,html[data-theme="dark"] .qf-g dd,html[data-theme="dark"] .qf-ch{color:#F3F5FA}
+html[data-theme="dark"] .ab-s .it{color:#7D93FF}
+html[data-theme="dark"] .ab-h>p,html[data-theme="dark"] .qf-l>p,html[data-theme="dark"] .vf-p,html[data-theme="dark"] .jr-c p,html[data-theme="dark"] .ot p{color:#A4ABBE}
+html[data-theme="dark"] .vf-f,html[data-theme="dark"] .jr-c,html[data-theme="dark"] .ot,html[data-theme="dark"] .qt,html[data-theme="dark"] .qf-card{background:#11131C;border-color:rgba(255,255,255,.08);box-shadow:none}
+html[data-theme="dark"] .vf-ic{background:rgba(125,147,255,.14);color:#9DB0FF}
+html[data-theme="dark"] .vf-b{background:#3D55FF}
+html[data-theme="dark"] .jr-line{background:repeating-linear-gradient(90deg,#2C3248 0 8px,transparent 8px 14px)}
+html[data-theme="dark"] .jr-dot{background:#11131C;box-shadow:0 0 0 3px #7D93FF}html[data-theme="dark"] .jr-y{color:#9DB0FF}
+html[data-theme="dark"] .ot-ic{background:rgba(255,255,255,.06)}
+html[data-theme="dark"] .qt figcaption,html[data-theme="dark"] .qf-ch,html[data-theme="dark"] .qf-g>div{border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .ab-ph{background:rgba(227,180,90,.12);border-color:rgba(227,180,90,.5);color:#F2C879}
+html[data-theme="dark"] .qf-st{background:rgba(34,197,94,.14);color:#4ADE80}
+
+html[data-theme="dark"] .vf-l{color:#0B0D14!important}
+html[data-theme="dark"] [aria-label="Design process steps"] button:not([aria-pressed]){background:#141724!important;color:#C9CEDB!important}
+html[data-theme="dark"] [aria-label="Design process steps"] button[aria-pressed]{background:#FFF!important;color:#07080D!important}
 </style>
 </helmet>
 
@@ -547,6 +647,32 @@ html[data-theme="dark"] .lsep{background:rgba(255,255,255,.18)!important}
 <div class="gl-foot rv"><a href="index.html#work" class="pill pill-dark mag">See all case studies <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a href="https://www.linkedin.com/in/pranav-gadekar-693583292" target="_blank" rel="noopener" class="pill pill-light mag">LinkedIn <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a href="#contact" class="pill pill-light mag">Get in touch <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 </section>
 
+
+<!-- VALUES -->
+<section class="ab-s" aria-labelledby="val-h">
+<div class="ab-w">
+<div class="ab-h"><div><span class="eyebrow"><b>✦</b>What I value</span><h2 id="val-h" class="rv">The way I <span class="it">think &amp; work.</span></h2></div><p class="rv">Four principles I bring to every team. Flip a card to see one in practice.</p></div>
+<div class="vf-grid"><button type="button" class="vf rv" data-flip aria-pressed="false" aria-label="Research before pixels: show an example"><span class="vf-in">
+<span class="vf-f"><span class="vf-top"><span class="vf-n">01</span><span class="vf-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><b>Research before pixels</b><span class="vf-p">I start by understanding people and the problem, then move to flows and high-fidelity screens.</span><span class="vf-hint">Hover or tap to flip</span></span>
+<span class="vf-b"><small>In practice</small><span class="vf-bp"><span class="ab-ph">Add: one real moment from a project where you did this</span></span><a class="vf-l" href="Case-Augle.html">See it in Augle AI <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></span>
+</span></button><button type="button" class="vf rv" data-flip aria-pressed="false" aria-label="Prototype it for real: show an example"><span class="vf-in">
+<span class="vf-f"><span class="vf-top"><span class="vf-n">02</span><span class="vf-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><b>Prototype it for real</b><span class="vf-p">I prototype in Figma and build front-ends with AI, so what I design is what ships.</span><span class="vf-hint">Hover or tap to flip</span></span>
+<span class="vf-b"><small>In practice</small><span class="vf-bp"><span class="ab-ph">Add: one real moment from a project where you did this</span></span><a class="vf-l" href="Case-NomNom.html">See it in Nom Nom <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></span>
+</span></button><button type="button" class="vf rv" data-flip aria-pressed="false" aria-label="Honest, clear work: show an example"><span class="vf-in">
+<span class="vf-f"><span class="vf-top"><span class="vf-n">03</span><span class="vf-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><b>Honest, clear work</b><span class="vf-p">I keep case studies clear and honest about what was tested and what is still a hypothesis.</span><span class="vf-hint">Hover or tap to flip</span></span>
+<span class="vf-b"><small>In practice</small><span class="vf-bp"><span class="ab-ph">Add: one real moment from a project where you did this</span></span><a class="vf-l" href="Case-Augle.html">See it in Augle AI <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></span>
+</span></button><button type="button" class="vf rv" data-flip aria-pressed="false" aria-label="Always curious: show an example"><span class="vf-in">
+<span class="vf-f"><span class="vf-top"><span class="vf-n">04</span><span class="vf-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><b>Always curious</b><span class="vf-p">From interfaces to 3D worlds and games, I keep exploring new tools and disciplines.</span><span class="vf-hint">Hover or tap to flip</span></span>
+<span class="vf-b"><small>In practice</small><span class="vf-bp"><span class="ab-ph">Add: one real moment from a project where you did this</span></span><a class="vf-l" href="Explorations.html">See it in Explorations <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></span>
+</span></button></div>
+</div>
+</section>
+
+<!-- JOURNEY -->
+<section class="ab-s ab-tint" aria-labelledby="jr-h">
+<div class="ab-w"><div class="ab-h"><div><span class="eyebrow"><b>↗</b>My journey</span><h2 id="jr-h" class="rv">From imagining <span class="it">to shipping.</span></h2></div><p class="rv">Drag sideways to move through the timeline.</p></div></div>
+<div class="jr" data-jr tabindex="0" aria-label="Timeline, scroll sideways"><div class="jr-line" aria-hidden="true"></div><article class="jr-c"><span class="jr-y">20XX</span><span class="jr-dot" aria-hidden="true"></span><b>Started exploring design</b><p><span class="ab-ph">Add: where it began</span></p></article><article class="jr-c"><span class="jr-y">20XX</span><span class="jr-dot" aria-hidden="true"></span><b>Education</b><p><span class="ab-ph">Add: your college and degree</span></p></article><article class="jr-c"><span class="jr-y">20XX</span><span class="jr-dot" aria-hidden="true"></span><b>First real project</b><p><span class="ab-ph">Add: client, course or competition</span></p></article><article class="jr-c"><span class="jr-y">20XX</span><span class="jr-dot" aria-hidden="true"></span><b>Internship / freelance</b><p><span class="ab-ph">Add: company and your role</span></p></article><article class="jr-c"><span class="jr-y">20XX</span><span class="jr-dot" aria-hidden="true"></span><b>Going deeper</b><p>3D, Unity and AI-assisted builds</p></article><article class="jr-c"><span class="jr-y">Now</span><span class="jr-dot" aria-hidden="true"></span><b>Open to full-time roles</b><p>UI/UX · Product design</p></article></div>
+</section>
 <!-- PROCESS -->
 <section aria-labelledby="proc-h" style="max-width: 1600px; margin: 0 auto; padding: clamp(40px, 5vw, 80px) clamp(20px, 3.4vw, 48px) clamp(96px, 11vw, 180px)">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px">
@@ -568,6 +694,32 @@ html[data-theme="dark"] .lsep{background:rgba(255,255,255,.18)!important}
 </div>
 </section>
 
+
+<!-- OFF THE CLOCK -->
+<section class="ab-s" aria-labelledby="off-h">
+<div class="ab-w">
+<div class="ab-h"><div><span class="eyebrow"><b>☺</b>Off the clock</span><h2 id="off-h" class="rv">The real me, <span class="it">beyond the screen.</span></h2></div><p class="rv">What keeps me curious and recharged when I’m not designing.</p></div>
+<div class="ot-grid"><article class="ot ot-b rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Building little 3D worlds</b><p>Modelling, texturing and simulating in Blender and Maya.</p></article><article class="ot ot-g rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01M17 6H7a5 5 0 0 0-5 5v1a5 5 0 0 0 9 3h2a5 5 0 0 0 9-3v-1a5 5 0 0 0-5-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Making games</b><p>Designing mechanics and levels in Unity.</p></article><article class="ot ot-v rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3M5 8h14a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-7a2 2 0 0 1 2-2zM9 13h.01M15 13h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Playing with AI tools</b><p>Automations and vibe-coding front-ends.</p></article><article class="ot ot-o rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Music</b><p><span class="ab-ph">Add: what you listen to</span></p></article><article class="ot ot-p rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Sport / games</b><p><span class="ab-ph">Add: what you play or follow</span></p></article><article class="ot ot-c rv"><span class="ot-ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Travel &amp; food</b><p><span class="ab-ph">Add: places or food you love</span></p></article></div>
+</div>
+</section>
+
+<!-- QUOTES -->
+<section class="ab-s ab-tint" aria-labelledby="qt-h">
+<div class="ab-w">
+<div class="ab-h"><div><span class="eyebrow"><b>”</b>What people say</span><h2 id="qt-h" class="rv">Working with <span class="it">Pranav.</span></h2></div><p class="rv">Words from people I’ve learned from and built with.</p></div>
+<div class="qt-grid"><figure class="qt rv"><span class="qt-m" aria-hidden="true">“</span><blockquote><span class="ab-ph">Add: a short real quote from a teacher or mentor</span></blockquote><figcaption><span class="qt-av" aria-hidden="true"></span><span><b><span class="ab-ph">Add: Name</span></b><small>Teacher or mentor</small></span></figcaption></figure><figure class="qt rv"><span class="qt-m" aria-hidden="true">“</span><blockquote><span class="ab-ph">Add: a short real quote from a teammate</span></blockquote><figcaption><span class="qt-av" aria-hidden="true"></span><span><b><span class="ab-ph">Add: Name</span></b><small>Teammate</small></span></figcaption></figure><figure class="qt rv"><span class="qt-m" aria-hidden="true">“</span><blockquote><span class="ab-ph">Add: a short real quote from a client or manager</span></blockquote><figcaption><span class="qt-av" aria-hidden="true"></span><span><b><span class="ab-ph">Add: Name</span></b><small>Client or manager</small></span></figcaption></figure></div>
+</div>
+</section>
+
+<!-- QUICK FACTS -->
+<section class="ab-s" aria-labelledby="qf-h">
+<div class="ab-w qf">
+<div class="qf-l"><span class="eyebrow"><b>i</b>Quick facts</span><h2 id="qf-h" class="rv">The <span class="it">spec sheet.</span></h2><p class="rv">Everything a hiring team usually asks first, in one place.</p>
+<div class="qf-b"><a href="#" class="pill pill-dark mag qf-cv" aria-disabled="true">Download résumé <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a href="#contact" class="pill pill-light mag">Get in touch <span class="arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+<span class="ab-ph qf-note">Add: link to your résumé PDF</span></div>
+<div class="qf-card rv"><div class="qf-ch"><span>Pranav Gadekar</span><span class="qf-st"><i></i>Available</span></div><dl class="qf-g"><div><dt>Based in</dt><dd>India</dd></div><div><dt>Status</dt><dd>Open to full-time roles</dd></div><div><dt>Focus</dt><dd>UI/UX · Product · Interaction</dd></div><div><dt>Daily tools</dt><dd>Figma, Framer, Blender, Claude</dd></div><div><dt>Education</dt><dd><span class="ab-ph">Add: degree, college, year</span></dd></div><div><dt>Languages</dt><dd><span class="ab-ph">Add: languages you speak</span></dd></div><div><dt>Work setup</dt><dd><span class="ab-ph">Add: relocation / remote / hybrid</span></dd></div><div><dt>Available from</dt><dd><span class="ab-ph">Add: start date</span></dd></div></dl></div>
+</div>
+</section>
 <!-- EXPLORATIONS STRIP -->
 <section aria-labelledby="ex-h" style="padding: clamp(64px, 7vw, 120px) 0">
 <div style="max-width: 1600px; margin: 0 auto; padding: 0 clamp(20px, 3.4vw, 48px) 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
@@ -673,8 +825,18 @@ class Component extends DCLogic {
     });
   }
 
+  startAbout(){
+    if (!this.root || this._abB) return; this._abB = true;
+    this.root.addEventListener('click', (e) => { const f = e.target.closest && e.target.closest('[data-flip]'); if (!f || e.target.closest('a')) return; f.setAttribute('aria-pressed', f.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+    const jr = this.root.querySelector('[data-jr]'); if (!jr) return;
+    let d = null, moved = false;
+    jr.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; d = { x: e.clientX, s: jr.scrollLeft }; moved = false; });
+    window.addEventListener('pointermove', (e) => { if (!d) return; const dx = e.clientX - d.x; if (Math.abs(dx) > 4) { moved = true; jr.classList.add('drag'); } jr.scrollLeft = d.s - dx; });
+    window.addEventListener('pointerup', () => { if (d) { d = null; jr.classList.remove('drag'); } });
+    jr.addEventListener('wheel', (e) => { if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && jr.scrollWidth > jr.clientWidth) { const max = jr.scrollWidth - jr.clientWidth; if ((e.deltaY > 0 && jr.scrollLeft < max - 2) || (e.deltaY < 0 && jr.scrollLeft > 2)) { e.preventDefault(); jr.scrollLeft += e.deltaY; } } }, { passive: false });
+  }
   componentDidMount(){
-    this.startTheme();
+    this.startTheme(); setTimeout(() => this.startAbout(), 50);
     this.q = (s) => this.root ? this.root.querySelector(s) : null;
     this.runPreloader(); this.startField(); this.startShapes(); this.startReveal(); this.startMagnet(); this.startScroll(); this.startStrip(); this.startVideos(); this.startTransitions(); this.startClock(); this.startNav(); this.startMorph();
   }
