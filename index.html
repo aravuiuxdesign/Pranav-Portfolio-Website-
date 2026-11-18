@@ -899,6 +899,67 @@ body{background:#ECEEF3!important}
   #contact .pill{height:52px!important}
 }
 @media (max-width:380px){.hbadge .hb-s{display:none}}
+
+/* ===== v33 hero redesign ===== */
+#top>.hx-grid,#top>.hx-orb{position:absolute!important;z-index:0!important}
+#top .dotgrid{display:none!important}
+.hx-grid{position:absolute;left:0;right:0;top:0;height:min(1000px,120vh);pointer-events:none;z-index:0;background-image:linear-gradient(rgba(38,56,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(38,56,255,.07) 1px,transparent 1px);background-size:72px 72px;background-position:center -1px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%)}
+.hx-orb{position:absolute;left:50%;top:clamp(220px,22vw,380px);width:min(1100px,90vw);aspect-ratio:2/1;transform:translate(-50%,-50%);pointer-events:none;z-index:0;filter:blur(70px);opacity:.55}
+.hx-orb i{position:absolute;border-radius:50%;animation:hxo 18s ease-in-out infinite alternate}
+.hx-orb i:nth-child(1){left:8%;top:18%;width:46%;height:72%;background:#8EA6FF}
+.hx-orb i:nth-child(2){right:6%;top:6%;width:42%;height:70%;background:#B8A8FF;animation-delay:-6s}
+.hx-orb i:nth-child(3){left:34%;top:42%;width:36%;height:60%;background:#9BE4FF;animation-delay:-11s}
+@keyframes hxo{0%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-6%) scale(1.08)}100%{transform:translate(-5%,4%) scale(.95)}}
+#top .hcenter{position:relative}
+#top .h-hero2 .hl::after{display:none!important}
+.hx-sel{position:absolute;left:-.06em;right:-.1em;top:.12em;bottom:.02em;border:1.5px solid #2638FF;border-radius:2px;pointer-events:none;opacity:0;transform:scale(.94);transition:opacity .5s ease 1s,transform .8s cubic-bezier(.22,1,.36,1) 1s;font-style:normal}
+.h-hero2.in .hx-sel{opacity:1;transform:none}
+.hx-sel b{position:absolute;width:9px;height:9px;background:#FFF;border:1.5px solid #2638FF;border-radius:2px}
+.hx-sel b:nth-child(1){left:-5px;top:-5px}.hx-sel b:nth-child(2){right:-5px;top:-5px}.hx-sel b:nth-child(3){left:-5px;bottom:-5px}.hx-sel b:nth-child(4){right:-5px;bottom:-5px}
+.hx-sel em{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%);white-space:nowrap;padding:4px 8px;border-radius:5px;background:#2638FF;color:#FFF;-webkit-text-fill-color:#FFF;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.02em}
+.hx-cur{position:absolute;right:-.42em;bottom:-.2em;display:flex;align-items:flex-start;gap:2px;pointer-events:none;opacity:0;transition:opacity .5s ease 1.5s;animation:hxc 6s ease-in-out 2s infinite;font-style:normal}
+.h-hero2.in .hx-cur{opacity:1}
+.hx-cur svg{width:22px;height:22px;filter:drop-shadow(0 4px 8px rgba(11,13,20,.25))}
+.hx-cur span{margin-top:16px;padding:5px 10px;border-radius:999px 999px 999px 4px;background:#0B0D14;color:#FFF;-webkit-text-fill-color:#FFF;font:500 13px/1 'Geist',system-ui,sans-serif;letter-spacing:0;box-shadow:0 8px 20px -6px rgba(11,13,20,.4)}
+@keyframes hxc{0%,100%{transform:translate(0,0)}35%{transform:translate(-6px,-5px)}70%{transform:translate(5px,2px)}}
+#top .hsub{margin-top:clamp(40px,3.4vw,56px)}
+.hx-card{position:absolute;z-index:2;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #E6EAF4;box-shadow:0 30px 60px -30px rgba(30,45,120,.35),0 2px 6px rgba(15,23,42,.04);text-align:left;pointer-events:none;animation:hxf 9s ease-in-out infinite alternate}
+.hx-card small{display:block;font:500 10.5px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#7A8094}
+.hx-sw{left:clamp(-20px,1vw,40px);top:clamp(20px,2.6vw,60px);transform:rotate(-7deg);--r:-7deg}
+.hx-sw .row{display:flex;gap:8px;margin-top:12px}
+.hx-sw .row i{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(11,13,20,.08)}
+.hx-sw p{margin:10px 0 0;font:500 12px/1 'Geist Mono',monospace;color:#0B0D14}
+.hx-cp{right:clamp(-20px,1vw,40px);top:clamp(0px,1.2vw,30px);transform:rotate(6deg);--r:6deg;width:190px;animation-delay:-4s}
+.hx-cp .tg{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:13.5px;color:#0B0D14}
+.hx-cp .tg i{position:relative;width:34px;height:20px;border-radius:99px;background:#2638FF}
+.hx-cp .tg i::after{content:"";position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#FFF;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.hx-cp .sl{position:relative;height:4px;margin-top:16px;border-radius:9px;background:#E4E8F4}
+.hx-cp .sl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:62%;border-radius:9px;background:#2638FF}
+.hx-cp .sl::after{content:"";position:absolute;left:62%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#FFF;box-shadow:0 0 0 2px #2638FF}
+.hx-cp .gp{display:flex;justify-content:space-between;margin-top:12px;font:500 11.5px/1 'Geist Mono',monospace;color:#7A8094}
+@keyframes hxf{0%{translate:0 0}100%{translate:0 -14px}}
+.hx-tools{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,2.6vw,40px)}
+.hx-tools .mono{margin-right:6px;color:#7A8094}
+.hx-tools i{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:#FFF;border:1px solid #E8EBF3;box-shadow:0 8px 18px -12px rgba(30,45,120,.35);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.hx-tools i:hover{transform:translateY(-3px)}
+.hx-tools svg{width:20px;height:20px}
+@media (max-width:1180px){.hx-card{display:none}}
+#top .h-hero2 .ln{animation:hxov 0s linear 1.6s forwards}
+@keyframes hxov{to{overflow:visible}}
+@media (max-width:640px){
+  .hx-orb{top:300px;width:130vw;aspect-ratio:1/1.1;opacity:.5;filter:blur(50px)}
+  .hx-grid{background-size:44px 44px}
+  .hx-sel b{width:7px;height:7px}.hx-sel b:nth-child(1),.hx-sel b:nth-child(3){left:-4px}.hx-sel b:nth-child(2),.hx-sel b:nth-child(4){right:-4px}
+  .hx-sel b:nth-child(1),.hx-sel b:nth-child(2){top:-4px}.hx-sel b:nth-child(3),.hx-sel b:nth-child(4){bottom:-4px}
+  .hx-sel em{display:none}
+  .hx-cur{right:-1.05em;bottom:-.26em}
+  #top .hsub{margin-top:34px!important}
+  .hx-cur svg{width:16px;height:16px}
+  .hx-cur span{margin-top:12px;font-size:11px;padding:4px 8px}
+  .hx-tools{gap:7px}.hx-tools .mono{width:100%;margin:0 0 4px}
+  .hx-tools i{width:34px;height:34px;border-radius:10px}.hx-tools svg{width:18px;height:18px}
+}
+@media (prefers-reduced-motion:reduce){.hx-orb i,.hx-card,.hx-cur{animation:none}}
 </style>
 </helmet>
 
@@ -953,6 +1014,7 @@ body{background:#ECEEF3!important}
 <section id="top" style="position: relative; padding: 112px clamp(20px, 6vw, 140px) 0">
 <div class="aura" aria-hidden="true"><i style="width:52vw;height:52vw;left:50%;top:-14%;margin-left:-26vw;background:#9DB8FF"></i><i style="width:34vw;height:34vw;left:-10%;top:30%;background:#A8E6FF;animation-delay:-7s"></i><i style="width:30vw;height:30vw;right:-8%;top:36%;background:#CBBFFF;animation-delay:-12s"></i></div>
 <div class="dotgrid" aria-hidden="true"></div>
+<div class="hx-grid" aria-hidden="true"></div><div class="hx-orb" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="meta-row fade-in">
 <span class="mono">Portfolio ©2026</span>
 <span class="mono lg-only">UI/UX &amp; Product Design</span>
@@ -960,16 +1022,19 @@ body{background:#ECEEF3!important}
 <span class="mono"><span class="dot" style="display: inline-block; background: #3DDC84; margin-right: 8px; vertical-align: middle"></span>{{availability}}</span>
 </div>
 <div class="hcenter">
+<div class="hx-card hx-sw" aria-hidden="true"><small>Colour styles</small><div class="row"><i style="background:#2638FF"></i><i style="background:#0B0D14"></i><i style="background:#E4E8FF"></i><i style="background:#3DDC84"></i></div><p>Primary / 600</p></div>
+<div class="hx-card hx-cp" aria-hidden="true"><small>Component</small><div class="tg">Interactive<i></i></div><div class="sl"></div><div class="gp"><span>Gap</span><span>24</span></div></div>
 <a href="About.html" class="hbadge rv"><img src="assets/site/portrait.webp" alt=""><span><b>Pranav Gadekar</b><span class="hb-s"> · <span class="hb-l">UI/UX &amp; </span>Product Designer</span></span><span class="hb-go"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <h1 class="h-hero2 rv">
 <span class="ln"><span>I design interfaces</span></span>
-<span class="ln"><span style="transition-delay: .1s">people <span class="it hl">love</span> to use.</span></span>
+<span class="ln"><span style="transition-delay: .1s">people <span class="it hl">love<i class="hx-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>Frame · Interaction</em></i><i class="hx-cur" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2.5l15 8.2-6.6 1.6-3 6.2z" fill="#0B0D14" stroke="#FFF" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Pranav</span></i></span> to use.</span></span>
 </h1>
 <p class="hsub rv">UI/UX &amp; product designer. I research, design and ship interactive products, from Figma prototypes to AI-assisted front-end and real-time 3D.</p>
 <div class="hcta rv">
 <a href="#work" class="pill pill-blue mag" style="height: 54px; padding: 0 26px">View my work <span class="arc dn"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <a href="https://wa.me/918459347942" class="pill pill-white mag" style="height: 54px; padding: 0 26px"><span class="dot" style="background: #3DDC84"></span> Let’s talk</a>
 </div>
+<div class="hx-tools rv" aria-label="Tools I use daily"><span class="mono">Daily tools</span><i title="Figma"><svg viewBox="0 0 24 24"><use href="#tk-figma"/></svg></i><i title="Framer"><svg viewBox="0 0 24 24"><use href="#tk-framer"/></svg></i><i title="Photoshop"><svg viewBox="0 0 24 24"><use href="#tk-adobephotoshop"/></svg></i><i title="Blender"><svg viewBox="0 0 24 24"><use href="#tk-blender"/></svg></i><i title="Unity"><svg viewBox="0 0 24 24"><use href="#tk-unity"/></svg></i><i title="Three.js"><svg viewBox="0 0 24 24"><use href="#tk-threedotjs"/></svg></i><i title="Claude"><svg viewBox="0 0 24 24"><use href="#tk-claude"/></svg></i></div>
 </div>
 <div class="stage" data-stage>
 <div class="fan" data-fan><a href="Case-StudyPal.html" class="fc fc-paw" aria-label="StudyPal case study"><img src="assets/site/sp_laptop.webp" alt="" loading="eager"><span class="fct"><i></i>StudyPal<em>EdTech</em></span></a><a href="Case-NomNom.html" class="fc fc-ain" aria-label="Nom Nom case study"><img src="assets/nomnom/nn_phone.webp" alt="" loading="eager"><span class="fct"><i></i>Nom Nom<em>Brand + app</em></span></a><a href="Case-Augle.html" class="fc fc-sp fc-lap" aria-label="Augle AI case study"><img src="assets/augle/ag_lap_fan.jpg" alt="" loading="eager"><span class="fct"><i></i>Augle AI<em>3D web experience</em></span></a><a href="Case-Parallel.html" class="fc fc-hot" aria-label="Parallel case study"><img src="assets/site/par_phone2.webp" alt="" loading="eager"><span class="fct"><i></i>Parallel<em>Social concept</em></span></a><a href="Case-Hotel.html" class="fc fc-nn" aria-label="Q100 Room Inspection App case study"><img src="assets/q100/q100_cover.jpg" alt="" loading="eager"><span class="fct"><i></i>Q100<em>Hospitality app</em></span></a></div>
