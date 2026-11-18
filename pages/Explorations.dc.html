@@ -467,6 +467,11 @@ html[data-theme="dark"] .ix-th,html[data-theme="dark"] .ix-pv img{background:#18
 .cv-mini{width:132px!important}
 .ix-row{grid-template-columns:56px minmax(0,1fr) 200px 170px 40px}
 @media (max-width:820px){.ix-row{grid-template-columns:30px 64px minmax(0,1fr) 28px}}
+
+.tb-v[aria-pressed="true"]{background:#FFF;color:#2638FF;box-shadow:0 2px 10px -3px rgba(38,56,255,.35),0 0 0 1px rgba(38,56,255,.18)}
+.tb-v[aria-pressed="true"] svg{color:#2638FF}
+html[data-theme="dark"] .tb-v[aria-pressed="true"]{background:rgba(125,147,255,.16);color:#9DB0FF;box-shadow:0 0 0 1px rgba(125,147,255,.3)}
+html[data-theme="dark"] .tb-v[aria-pressed="true"] svg{color:#9DB0FF}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
@@ -810,11 +815,11 @@ class Component extends DCLogic {
     const L = this.state.light, LS = this.LS(), cur = L > -1 && LS[L] ? LS[L] : null;
     return {
       setRoot: this.setRoot,
-      view: this.state.view, isCanvas: this.state.view === 'canvas', isIndex: this.state.view === 'index', toCanvas: this.toCanvas, toIndex: this.toIndex,
+      view: this.state.view, isCanvas: this.state.view === 'canvas' ? 'true' : 'false', isIndex: this.state.view === 'index' ? 'true' : 'false', toCanvas: this.toCanvas, toIndex: this.toIndex,
       nAll: this.ALL.length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
       gItems: wrap(GI), sItems: wrap(SI), mItems: wrap(MI), gmItems: wrap(GM),
       ixItems: IX.map((it, k) => ({ ...it, num: pad(k + 1), cat: it.catL, open: openAt(it) })),
-      ixFilters: icDefs.map(d => ({ label: d[1], count: d[2], on: ic === d[0], pick: () => this.setState({ ic: d[0], light: -1 }) })),
+      ixFilters: icDefs.map(d => ({ label: d[1], count: d[2], on: ic === d[0] ? 'true' : 'false', pick: () => this.setState({ ic: d[0], light: -1 }) })),
       lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '' },
       prev: this.prev, next: this.next, close: this.close, bgClose: this.bgClose
     };
