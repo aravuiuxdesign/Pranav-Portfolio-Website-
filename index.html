@@ -903,12 +903,12 @@ body{background:#ECEEF3!important}
 /* ===== v33 hero redesign ===== */
 #top>.hx-grid,#top>.hx-orb{position:absolute!important;z-index:0!important}
 #top .dotgrid{display:none!important}
-.hx-grid{position:absolute;left:0;right:0;top:0;height:min(1000px,120vh);pointer-events:none;z-index:0;background-image:linear-gradient(rgba(38,56,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(38,56,255,.07) 1px,transparent 1px);background-size:72px 72px;background-position:center -1px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%)}
+.hx-grid{position:absolute;left:0;right:0;top:0;height:100%;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(38,56,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(38,56,255,.07) 1px,transparent 1px);background-size:72px 72px;background-position:center -1px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 15%,transparent 75%)}
 .hx-orb{position:absolute;left:50%;top:clamp(220px,22vw,380px);width:min(1100px,90vw);aspect-ratio:2/1;transform:translate(-50%,-50%);pointer-events:none;z-index:0;filter:blur(70px);opacity:.55}
-.hx-orb i{position:absolute;border-radius:50%;animation:hxo 18s ease-in-out infinite alternate}
-.hx-orb i:nth-child(1){left:8%;top:18%;width:46%;height:72%;background:#8EA6FF}
-.hx-orb i:nth-child(2){right:6%;top:6%;width:42%;height:70%;background:#B8A8FF;animation-delay:-6s}
-.hx-orb i:nth-child(3){left:34%;top:42%;width:36%;height:60%;background:#9BE4FF;animation-delay:-11s}
+.hx-orb span{position:absolute;border-radius:50%;animation:hxo 18s ease-in-out infinite alternate}
+.hx-orb span:nth-child(1){left:8%;top:18%;width:46%;height:72%;background:#8EA6FF}
+.hx-orb span:nth-child(2){right:6%;top:6%;width:42%;height:70%;background:#B8A8FF;animation-delay:-6s}
+.hx-orb span:nth-child(3){left:34%;top:42%;width:36%;height:60%;background:#9BE4FF;animation-delay:-11s}
 @keyframes hxo{0%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-6%) scale(1.08)}100%{transform:translate(-5%,4%) scale(.95)}}
 #top .hcenter{position:relative}
 #top .h-hero2 .hl::after{display:none!important}
@@ -916,7 +916,7 @@ body{background:#ECEEF3!important}
 .h-hero2.in .hx-sel{opacity:1;transform:none}
 .hx-sel b{position:absolute;width:9px;height:9px;background:#FFF;border:1.5px solid #2638FF;border-radius:2px}
 .hx-sel b:nth-child(1){left:-5px;top:-5px}.hx-sel b:nth-child(2){right:-5px;top:-5px}.hx-sel b:nth-child(3){left:-5px;bottom:-5px}.hx-sel b:nth-child(4){right:-5px;bottom:-5px}
-.hx-sel em{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%);white-space:nowrap;padding:4px 8px;border-radius:5px;background:#2638FF;color:#FFF;-webkit-text-fill-color:#FFF;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.02em}
+.hx-sel em{position:absolute;left:-1px;top:calc(100% + 10px);white-space:nowrap;padding:4px 8px;border-radius:5px;background:#2638FF;color:#FFF;-webkit-text-fill-color:#FFF;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.02em}
 .hx-cur{position:absolute;right:-.42em;bottom:-.2em;display:flex;align-items:flex-start;gap:2px;pointer-events:none;opacity:0;transition:opacity .5s ease 1.5s;animation:hxc 6s ease-in-out 2s infinite;font-style:normal}
 .h-hero2.in .hx-cur{opacity:1}
 .hx-cur svg{width:22px;height:22px;filter:drop-shadow(0 4px 8px rgba(11,13,20,.25))}
@@ -943,7 +943,8 @@ body{background:#ECEEF3!important}
 .hx-tools i{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:#FFF;border:1px solid #E8EBF3;box-shadow:0 8px 18px -12px rgba(30,45,120,.35);transition:transform .4s cubic-bezier(.22,1,.36,1)}
 .hx-tools i:hover{transform:translateY(-3px)}
 .hx-tools svg{width:20px;height:20px}
-@media (max-width:1180px){.hx-card{display:none}}
+@media (max-width:1280px){.hx-card{scale:.84;transform-origin:top center}.hx-sw{top:44px!important}.hx-cp{top:30px!important}}
+@media (max-width:900px){.hx-card{display:none}}
 #top .h-hero2 .ln{animation:hxov 0s linear 1.6s forwards}
 @keyframes hxov{to{overflow:visible}}
 @media (max-width:640px){
@@ -959,7 +960,7 @@ body{background:#ECEEF3!important}
   .hx-tools{gap:7px}.hx-tools .mono{width:100%;margin:0 0 4px}
   .hx-tools i{width:34px;height:34px;border-radius:10px}.hx-tools svg{width:18px;height:18px}
 }
-@media (prefers-reduced-motion:reduce){.hx-orb i,.hx-card,.hx-cur{animation:none}}
+@media (prefers-reduced-motion:reduce){.hx-orb span,.hx-card,.hx-cur{animation:none}}
 </style>
 </helmet>
 
@@ -1012,9 +1013,8 @@ body{background:#ECEEF3!important}
 
 <!-- HERO -->
 <section id="top" style="position: relative; padding: 112px clamp(20px, 6vw, 140px) 0">
-<div class="aura" aria-hidden="true"><i style="width:52vw;height:52vw;left:50%;top:-14%;margin-left:-26vw;background:#9DB8FF"></i><i style="width:34vw;height:34vw;left:-10%;top:30%;background:#A8E6FF;animation-delay:-7s"></i><i style="width:30vw;height:30vw;right:-8%;top:36%;background:#CBBFFF;animation-delay:-12s"></i></div>
+<div class="aura" aria-hidden="true"><i style="width:52vw;height:52vw;left:50%;top:-14%;margin-left:-26vw;background:#9DB8FF"></i><i style="width:34vw;height:34vw;left:-10%;top:30%;background:#A8E6FF;animation-delay:-7s"></i><i style="width:30vw;height:30vw;right:-8%;top:36%;background:#CBBFFF;animation-delay:-12s"></i><div class="hx-grid" style="position:absolute"></div><div class="hx-orb" style="position:absolute"><span></span><span></span><span></span></div></div>
 <div class="dotgrid" aria-hidden="true"></div>
-<div class="hx-grid" aria-hidden="true"></div><div class="hx-orb" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="meta-row fade-in">
 <span class="mono">Portfolio ©2026</span>
 <span class="mono lg-only">UI/UX &amp; Product Design</span>
