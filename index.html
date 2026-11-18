@@ -976,7 +976,9 @@ html[data-theme="dark"] .thm .ic-sun{opacity:1;transform:none}
 html[data-theme="dark"] .thm .ic-moon{opacity:0;transform:rotate(60deg) scale(.6)}
 .thm:focus-visible,.tgl:focus-visible{outline:2px solid #2D5BFF;outline-offset:3px}
 .hx-cp{pointer-events:auto!important}
-.hx-cp .tg i{display:none}
+.hx-cp .tg>i{display:none}
+.hx-cp .tg .tgl i{display:block!important;position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#FFF!important;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.hx-cp .tg .tgl i::after{display:none}
 .tgl{position:relative;width:38px;height:22px;padding:0;border:0;border-radius:99px;background:#D3D8E6;cursor:pointer;transition:background .35s}
 .tgl i{position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#FFF;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .45s cubic-bezier(.22,1,.36,1)}
 .tgl[aria-pressed="true"]{background:#2638FF}
@@ -1109,6 +1111,21 @@ html[data-theme="dark"] .vis-fade{background:linear-gradient(180deg,rgba(15,17,2
 @media (max-width:640px){html[data-theme="dark"] .cap-vis{-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%);mask-image:linear-gradient(180deg,#000 60%,transparent 100%)}}
 
 html[data-theme="dark"] #capabilities .bento .bx,html[data-theme="dark"] #capabilities .bento article.bx{border-color:rgba(255,255,255,.08)!important}
+
+/* ===== v35 accent slider ===== */
+.hx-cp .acc-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font:500 11.5px/1 'Geist Mono',monospace;letter-spacing:.04em;color:#7A8094;text-transform:uppercase}
+.hx-cp .acc-n{color:#2638FF;text-transform:none;letter-spacing:0;font:500 13px/1 'Geist',sans-serif}
+.acc{-webkit-appearance:none;appearance:none;display:block;width:100%;height:22px;margin:8px 0 0;background:transparent;cursor:pointer;touch-action:none}
+.acc:focus{outline:none}
+.acc::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,#2D5BFF,#5B3DFF 7%,#8B3DFF 14%,#D13DD9 24%,#FF3D8B 32%,#FF5A3D 39%,#FFA63D 47%,#B5E03D 57%,#3DD96B 68%,#3DD9C2 80%,#3DB8FF 90%,#2D5BFF);box-shadow:inset 0 0 0 1px rgba(11,13,20,.06)}
+.acc::-moz-range-track{height:8px;border-radius:99px;background:linear-gradient(90deg,#2D5BFF,#5B3DFF 7%,#8B3DFF 14%,#D13DD9 24%,#FF3D8B 32%,#FF5A3D 39%,#FFA63D 47%,#B5E03D 57%,#3DD96B 68%,#3DD9C2 80%,#3DB8FF 90%,#2D5BFF)}
+.acc::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-6px;border-radius:50%;background:#FFF;border:0;box-shadow:0 0 0 3px #2638FF,0 4px 10px rgba(11,13,20,.3);transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.acc::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFF;border:0;box-shadow:0 0 0 3px #2638FF,0 4px 10px rgba(11,13,20,.3)}
+.acc:hover::-webkit-slider-thumb,.acc:active::-webkit-slider-thumb{transform:scale(1.15)}
+.acc:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #2638FF,0 0 0 7px rgba(38,56,255,.25)}
+html[data-theme="dark"] .hx-cp .acc-row{color:#8B92A7}
+html[data-theme="dark"] .hx-cp .acc-n{color:#7D93FF}
+html[data-theme="dark"] .acc::-webkit-slider-thumb{background:#07080D;box-shadow:0 0 0 3px #7D93FF,0 4px 10px rgba(0,0,0,.6)}
 </style>
 </helmet>
 
@@ -1172,7 +1189,7 @@ html[data-theme="dark"] #capabilities .bento .bx,html[data-theme="dark"] #capabi
 </div>
 <div class="hcenter">
 <div class="hx-card hx-sw" aria-hidden="true"><small>Colour styles</small><div class="row"><i style="background:#2638FF"></i><i style="background:#0B0D14"></i><i style="background:#E4E8FF"></i><i style="background:#3DDC84"></i></div><p>Primary / 600</p></div>
-<div class="hx-card hx-cp"><small aria-hidden="true">Component</small><div class="tg"><span>Dark mode</span><button type="button" class="tgl" data-theme-toggle aria-pressed="false" aria-label="Dark mode"><i></i></button></div><div class="sl"></div><div class="gp"><span>Gap</span><span>24</span></div></div>
+<div class="hx-card hx-cp"><small aria-hidden="true">Component</small><div class="tg"><span>Dark mode</span><button type="button" class="tgl" data-theme-toggle aria-pressed="false" aria-label="Dark mode"><i></i></button></div><label class="acc-row"><span class="acc-l">Accent</span><span class="acc-n" data-acc-name>Blue</span></label><input class="acc" data-acc type="range" min="0" max="359" step="1" value="0" aria-label="Accent colour"></div>
 <a href="About.html" class="hbadge rv"><img src="assets/site/portrait.webp" alt=""><span><b>Pranav Gadekar</b><span class="hb-s"> · <span class="hb-l">UI/UX &amp; </span>Product Designer</span></span><span class="hb-go"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <h1 class="h-hero2 rv">
 <span class="ln"><span>I design interfaces</span></span>
@@ -1448,7 +1465,59 @@ class Component extends DCLogic {
   componentDidMount(){
     setTimeout(() => this.startFootMq && this.startFootMq(), 400);
     this.q = (s) => this.root ? this.root.querySelector(s) : null;
-    this.runPreloader(); this.startFluid(); this.startField(); this.startShapes(); this.startReveal(); this.startMagnet(); this.startScroll(); this.startStrip(); this.startVideos(); this.startTransitions(); this.startMorph(); this.startSmooth(); this.startClock(); this.startNav(); this.startStage(); this.startReturn(); this.startTheme();
+    this.runPreloader(); this.startFluid(); this.startField(); this.startShapes(); this.startReveal(); this.startMagnet(); this.startScroll(); this.startStrip(); this.startVideos(); this.startTransitions(); this.startMorph(); this.startSmooth(); this.startClock(); this.startNav(); this.startStage(); this.startReturn(); this.startTheme(); setTimeout(() => this.startAccent(), 60);
+  }
+
+  startAccent(){
+    if (this.accBound) return; this.accBound = true;
+    const parse = (c) => {
+      c = c.trim();
+      if (c[0] === '#') { let h = c.slice(1); if (h.length === 3 || h.length === 4) h = h.split('').map(x => x + x).join(''); return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16), h.length === 8 ? parseInt(h.slice(6,8),16) / 255 : 1]; }
+      const n = c.match(/[\d.]+/g).map(Number); return [n[0], n[1], n[2], n.length > 3 ? n[3] : 1];
+    };
+    const toHsl = (r, g, b) => { r /= 255; g /= 255; b /= 255; const mx = Math.max(r,g,b), mn = Math.min(r,g,b); let h = 0, s = 0; const l = (mx + mn) / 2; if (mx !== mn) { const d = mx - mn; s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h *= 60; } return [h, s, l]; };
+    const fromHsl = (h, s, l) => { h = ((h % 360) + 360) % 360 / 360; const q = l < .5 ? l * (1 + s) : l + s - l * s, p = 2 * l - q; const f = (t) => { t = (t + 1) % 1; return t < 1/6 ? p + (q - p) * 6 * t : t < .5 ? q : t < 2/3 ? p + (q - p) * (2/3 - t) * 6 : p; }; return [f(h + 1/3), f(h), f(h - 1/3)].map(v => Math.round(v * 255)); };
+    const RX = /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)/g;
+    const isBrand = (c) => { try { const [r,g,b] = parse(c); const [h,s,l] = toHsl(r,g,b); return h >= 212 && h <= 252 && s >= .45 && l > .12 && l < .92; } catch (e) { return false; } };
+    const lum = (r,g,b) => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126*f(r) + .7152*f(g) + .0722*f(b); };
+    const cache = {};
+    const shift = (c, d) => { const key = c + '|' + d; if (cache[key]) return cache[key]; const [r,g,b,a] = parse(c); const [h,s,l] = toHsl(r,g,b); const target = lum(r,g,b); let lo = 0, hi = 1, rgb = fromHsl(h + d, s, l); for (let k = 0; k < 18; k++) { const m = (lo + hi) / 2; const t = fromHsl(h + d, s, m); if (lum(t[0],t[1],t[2]) < target) lo = m; else hi = m; rgb = t; } const [R,G,B] = rgb; return (cache[key] = a < 1 ? `rgba(${R},${G},${B},${+a.toFixed(3)})` : `rgb(${R},${G},${B})`); };
+    const items = []; const win = new Map();
+    const walk = (rules, media) => { for (const r of rules) {
+      if (r.cssRules && r.media) { walk(r.cssRules, (media ? media + ' and ' : '') + r.media.mediaText); continue; }
+      if (!r.style || !r.selectorText) continue;
+      if (/\.tool|\.tk-|\.lg\b|\.hx-tools|symbol|#tk-/.test(r.selectorText)) continue;
+      for (let i = 0; i < r.style.length; i++) { const prop = r.style[i]; const val = r.style.getPropertyValue(prop); const pri = r.style.getPropertyPriority(prop); const key = media + '|' + r.selectorText + '|' + prop; const prev = win.get(key); if (!prev || pri || !prev.pri) win.set(key, { sel: r.selectorText, prop, val, pri, media }); }
+    } };
+    for (const sh of document.styleSheets) { if (sh.ownerNode && sh.ownerNode.id === 'pf-acc') continue; try { walk(sh.cssRules, ''); } catch (e) {} }
+    win.forEach(o => { const m = o.val.match(RX); if (m && m.some(isBrand)) items.push(o); });
+    const inl = []; document.querySelectorAll('[style]').forEach(el => { const v = el.getAttribute('style'); const m = v.match(RX); if (m && m.some(isBrand)) inl.push({ el, v }); });
+    document.querySelectorAll('svg [fill],svg [stroke]').forEach(el => { if (el.closest('symbol') || el.closest('.no-acc')) return; ['fill','stroke'].forEach(a => { const v = el.getAttribute(a); if (v && isBrand(v)) inl.push({ el, attr: a, v }); }); });
+    let st = document.getElementById('pf-acc'); if (!st) { st = document.createElement('style'); st.id = 'pf-acc'; document.head.appendChild(st); }
+    const NAMES = [[0,'Blue'],[25,'Indigo'],[50,'Violet'],[85,'Magenta'],[115,'Rose'],[140,'Coral'],[170,'Amber'],[205,'Lime'],[245,'Green'],[290,'Teal'],[320,'Cyan'],[345,'Sky'],[360,'Blue']];
+    const nameOf = (d) => { let n = 'Blue'; for (const [k, v] of NAMES) if (d >= k - 12) n = v; return n; };
+    const apply = (d) => {
+      d = Math.round(d) % 360;
+      if (!d) { st.textContent = ''; inl.forEach(o => o.attr ? o.el.setAttribute(o.attr, o.v) : o.el.setAttribute('style', o.v)); }
+      else {
+        const out = []; const byMedia = {};
+        items.forEach(o => { const v = o.val.replace(RX, c => isBrand(c) ? shift(c, d) : c); const line = `${o.sel}{${o.prop}:${v}${o.pri ? ' !important' : ''}}`; if (o.media) (byMedia[o.media] = byMedia[o.media] || []).push(line); else out.push(line); });
+        Object.keys(byMedia).forEach(m => out.push(`@media ${m}{${byMedia[m].join('')}}`));
+        st.textContent = out.join('\n');
+        inl.forEach(o => { const v = o.v.replace(RX, c => isBrand(c) ? shift(c, d) : c); o.attr ? o.el.setAttribute(o.attr, v) : o.el.setAttribute('style', v); });
+      }
+      document.documentElement.style.setProperty('--acc-shift', d + 'deg');
+      document.querySelectorAll('[data-acc]').forEach(inp => { if (+inp.value !== d) inp.value = d; inp.setAttribute('aria-valuetext', nameOf(d)); });
+      document.querySelectorAll('[data-acc-name]').forEach(n => n.textContent = nameOf(d));
+    };
+    let saved = 0; try { saved = +(localStorage.getItem('pf_accent') || 0); } catch (e) {}
+    apply(saved || 0);
+    let raf = 0, pend = 0;
+    document.addEventListener('input', (e) => {
+      const inp = e.target.closest && e.target.closest('[data-acc]'); if (!inp) return;
+      pend = +inp.value; if (raf) return;
+      raf = requestAnimationFrame(() => { raf = 0; apply(pend); try { localStorage.setItem('pf_accent', String(pend)); } catch (er) {} });
+    });
   }
 
   startTheme(){
