@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Creative explorations — Pranav Gadekar</title>
+<title>Projects — Pranav Gadekar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
 <script src="dc-lite.js"></script>
@@ -778,31 +778,83 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 .gt .cv-sel{z-index:4}
 .gt:focus-visible{outline:none}
 
-/* v48 storefront mockup for Detail Craft */
-.gt-m-bill{background:#15171E}
-.sf{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#2A2D36 0%,#1E2028 58%,#121318 100%)}
-.sf::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 46px),repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 24px);pointer-events:none}
-.sf-board{position:absolute;left:7%;right:7%;top:16%;aspect-ratio:120/36;background:#FFF;border-radius:4px;box-shadow:0 0 0 5px #3A3D46,0 0 0 6px #50535C,0 26px 34px -14px rgba(0,0,0,.85);overflow:hidden;z-index:2}
-.sf-board img{display:block;width:100%;height:100%;object-fit:contain;background:#FFF}
-.sf-board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 35%,transparent 70%,rgba(0,0,0,.08));pointer-events:none}
-.sf-lamps{position:absolute;left:7%;right:7%;top:5%;height:12%;display:flex;justify-content:space-around;z-index:3}
-.sf-lamps i{position:relative;width:26px;height:8px;border-radius:0 0 8px 8px;background:#4A4D57;box-shadow:0 1px 0 #6A6D77}
-.sf-lamps i::before{content:"";position:absolute;left:50%;top:-14%;width:2px;height:70%;margin-left:-1px;background:#4A4D57;transform:translateY(-100%)}
-.sf-lamps i::after{content:"";position:absolute;left:50%;top:100%;width:150px;height:120px;transform:translateX(-50%);background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(255,236,190,.38),transparent 70%);pointer-events:none}
-.sf-front{position:absolute;left:7%;right:7%;top:58%;bottom:9%;display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:6px;z-index:1}
-.sf-front i{border-radius:2px;background:linear-gradient(160deg,rgba(150,180,220,.22),rgba(40,50,70,.5) 60%,rgba(20,25,35,.7));box-shadow:inset 0 0 0 2px #2E313A}
-.sf-front i:nth-child(2){background:repeating-linear-gradient(0deg,#3A3D46 0 3px,#30333B 3px 7px);box-shadow:inset 0 0 0 2px #2E313A}
-.sf-floor{position:absolute;left:0;right:0;bottom:0;height:9%;background:linear-gradient(#2B2E37,#191A20)}
-.gt:hover .sf-board{transform:translateY(-2px);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+/* v49 print fidelity: never crop pages */
+.gt-open{right:auto;bottom:auto}
+.gt-pg{background:#FFF}
+.gt-pg img,.gt-cbk img{object-fit:contain;background:#FFF}
+.lf img{object-fit:contain;background:#FFF}
+.gt-cb{right:auto;bottom:auto}
+.gt-soft::before{display:none}
+.gt-soft .gt-spr{filter:drop-shadow(0 22px 20px rgba(70,40,0,.35))}
+.gt-m-mag:has(.gt-one){background:radial-gradient(90% 90% at 50% 40%,#FBF7F4,#E9DFD6)}
+.gt-one .gt-spr{filter:drop-shadow(0 22px 22px rgba(40,25,15,.4))}
+.gt-one::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:5px;background:repeating-linear-gradient(90deg,#FFF 0 2px,#E4E0DB 2px 3px);border-radius:0 0 3px 3px;transform:perspective(600px) rotateX(30deg);transform-origin:top;opacity:.9}
+/* encyclopedia */
+.gt-m-ency{background:radial-gradient(95% 90% at 50% 35%,#F6EEE2,#E2D3BE)}
+.gt-enc{position:absolute;transform:perspective(1400px) rotateX(10deg);transform-origin:50% 100%}
+.gt-enc-cov{position:absolute;inset:-5% -3.2% -8.5%;border-radius:6px;background:linear-gradient(180deg,#244534,#16301F);box-shadow:inset 0 0 0 2px rgba(214,178,94,.55),inset 0 0 0 5px #1B3626,inset 0 0 0 6px rgba(214,178,94,.35),0 34px 40px -22px rgba(40,25,5,.75)}
+.gt-enc-stk{position:absolute;left:1%;right:1%;bottom:-5.5%;height:5.5%;background:repeating-linear-gradient(0deg,#FBF8F1 0 1px,#DCD4C4 1px 2px);border-radius:0 0 4px 4px;box-shadow:0 2px 0 #CFC5B2}
+.gt-enc .gt-pg{position:absolute;top:0;bottom:0;width:50%;overflow:hidden}
+.gt-enc .gt-pl{left:0;border-radius:3px 0 0 3px;transform:perspective(1100px) rotateY(5deg);transform-origin:right center}
+.gt-enc .gt-pr{right:0;border-radius:0 3px 3px 0;transform:perspective(1100px) rotateY(-5deg);transform-origin:left center}
+.gt-enc .gt-pg img{position:absolute;top:0;height:100%;width:200%;max-width:none;object-fit:fill}
+.gt-enc .gt-pl img{left:0}.gt-enc .gt-pr img{left:-100%}
+.gt-enc .gt-pl::after{background:linear-gradient(90deg,transparent 78%,rgba(0,0,0,.25) 97%,rgba(0,0,0,.45))}
+.gt-enc .gt-pr::after{background:linear-gradient(270deg,transparent 78%,rgba(0,0,0,.2) 97%,rgba(0,0,0,.4))}
+.gt-enc .gt-gutter{background:rgba(0,0,0,.5)}
+.gt:hover .gt-enc{transform:perspective(1400px) rotateX(4deg) scale(1.02);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+/* Detail Craft board on a light wall */
+.gt-m-board{background:#ECEEF2}
+.bd{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#F5F6F8 0%,#E9EBF0 72%,#DCDFE6 72.4%,#E4E6EB 100%)}
+.bd::before{content:"";position:absolute;inset:0 0 28% 0;background:repeating-linear-gradient(0deg,rgba(11,13,20,.025) 0 1px,transparent 1px 22px);pointer-events:none}
+.bd-light{position:absolute;left:10%;right:10%;top:0;height:60%;background:radial-gradient(60% 70% at 50% 0%,rgba(255,255,255,.95),transparent 70%)}
+.bd-b{position:absolute;left:8%;right:8%;top:20%;aspect-ratio:120/36;background:#FFF;border-radius:3px;box-shadow:0 0 0 1px rgba(11,13,20,.1),0 2px 0 rgba(11,13,20,.06),0 26px 30px -18px rgba(20,30,60,.45);overflow:visible}
+.bd-b img{display:block;width:100%;height:100%;object-fit:contain;border-radius:3px}
+.bd-bolt{position:absolute;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF,#B9BEC9 60%,#8D93A0);box-shadow:0 1px 1px rgba(0,0,0,.25)}
+.bd-bolt:nth-of-type(1){left:1.2%;top:5%}.bd-bolt:nth-of-type(2){right:1.2%;top:5%}.bd-bolt:nth-of-type(3){left:1.2%;bottom:5%}.bd-bolt:nth-of-type(4){right:1.2%;bottom:5%}
+.bd-floor{position:absolute;left:0;right:0;bottom:0;height:27.6%;background:linear-gradient(180deg,rgba(0,0,0,.06),transparent 30%)}
+.bd-dim{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);font:500 11.5px 'Geist Mono',monospace;letter-spacing:.06em;color:#7A8094}
+.gt:hover .bd-b{transform:translateY(-3px);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+html[data-theme="dark"] .gt-m-board{background:#1A1D28}
+html[data-theme="dark"] .bd{background:linear-gradient(180deg,#232736 0%,#1C2030 72%,#151824 72.4%,#181B27 100%)}
+html[data-theme="dark"] .bd::before{background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 22px)}
+html[data-theme="dark"] .bd-light{background:radial-gradient(60% 70% at 50% 0%,rgba(255,255,255,.1),transparent 70%)}
+html[data-theme="dark"] .bd-dim{color:#8B92A7}
+html[data-theme="dark"] .gt-m-ency{background:radial-gradient(95% 90% at 50% 35%,#2E281F,#1A1611)}
+html[data-theme="dark"] .gt-m-mag:has(.gt-one){background:radial-gradient(90% 90% at 50% 40%,#2C2622,#181412)}
+/* UI/UX case studies frame */
+.ux-cap .ux-go{color:#FFF}.ux-cap .ux-d{color:#4A5062;font-size:16px}
+html[data-theme="dark"] .ux-cap .ux-go{color:#07080D}html[data-theme="dark"] .cv-ux:hover .ux-cap .ux-go{color:#FFF}html[data-theme="dark"] .ux-cap .ux-d{color:#A4ABBE}
+.cv-ux-g{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 28px}
+.cv-ux{cursor:pointer;text-decoration:none}
+.cv-ux.ux-wide{grid-column:span 2}
+.cv-ux .cv-m{aspect-ratio:16/10;background:#F1F3F8}
+.cv-ux.ux-wide .cv-m{aspect-ratio:21/9}
+.cv-ux .cv-m img{width:100%;height:100%;object-fit:cover}
+.ux-n{position:absolute;left:16px;top:16px;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.92);font:500 12px 'Geist Mono',monospace;color:#0B0D14;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ux-cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;align-items:start}
+.ux-t{display:flex;flex-direction:column;gap:6px}
+.ux-cap>span.ux-t,.ux-cap>span.ux-d,.ux-cap>span.ux-go{font-family:'Geist',system-ui,sans-serif;text-transform:none;letter-spacing:normal}
+.ux-cap .ux-t b{font-size:24px;letter-spacing:-.02em;color:#0B0D14}
+.ux-cap .ux-t span{font:500 12px/1.3 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:#7A8094}
+html[data-theme="dark"] .ux-cap .ux-t b{color:#F3F5FA}
+.ux-d{grid-column:1;font-size:16px;line-height:1.45;color:#4A5062;max-width:52ch}
+.ux-go{grid-column:2;grid-row:1/span 2;align-self:center;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:99px;background:#0B0D14;color:#FFF;font-size:14px;font-weight:500;white-space:nowrap;transition:background .25s,gap .25s}
+.cv-ux:hover .ux-go{background:#2638FF;gap:12px}
+html[data-theme="dark"] .cv-ux .cv-m{background:#181B27}
+html[data-theme="dark"] .ux-d{color:#A4ABBE}
+html[data-theme="dark"] .ux-go{background:#FFF;color:#07080D}
+html[data-theme="dark"] .cv-ux:hover .ux-go{background:#2638FF;color:#FFF}
+html[data-theme="dark"] .ux-n{background:rgba(7,8,13,.8);color:#FFF}
 </style>
 </helmet>
 <div class="pfroot xroot" ref="{{setRoot}}" style="width: 100%; background: #FFFFFF; color: #0B0D14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
 
-<div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Explorations</span></div></div></div>
+<div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Projects</span></div></div></div>
 
 <header class="xn-wrap"><div class="xn">
 <a href="index.html" class="xn-logo" aria-label="Home"><svg class="lpx" width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="#0B0D14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4" style="animation-delay:0.000s"/><rect x="3.4" y="0.0" width="3.4" height="3.4" style="animation-delay:0.035s"/><rect x="6.8" y="0.0" width="3.4" height="3.4" style="animation-delay:0.070s"/><rect x="0.0" y="3.4" width="3.4" height="3.4" style="animation-delay:0.105s"/><rect x="10.2" y="3.4" width="3.4" height="3.4" style="animation-delay:0.140s"/><rect x="0.0" y="6.8" width="3.4" height="3.4" style="animation-delay:0.175s"/><rect x="10.2" y="6.8" width="3.4" height="3.4" style="animation-delay:0.210s"/><rect x="0.0" y="10.2" width="3.4" height="3.4" style="animation-delay:0.245s"/><rect x="3.4" y="10.2" width="3.4" height="3.4" style="animation-delay:0.280s"/><rect x="6.8" y="10.2" width="3.4" height="3.4" style="animation-delay:0.315s"/><rect x="0.0" y="13.6" width="3.4" height="3.4" style="animation-delay:0.350s"/><rect x="0.0" y="17.0" width="3.4" height="3.4" style="animation-delay:0.385s"/></svg><span class="xn-sep" aria-hidden="true"></span><span class="xn-name">Portfolio</span></a>
-<nav class="xn-links" aria-label="Primary"><a href="index.html">Work</a><a href="About.html">About</a><a href="#top" class="on" aria-current="page">Explorations</a></nav>
+<nav class="xn-links" aria-label="Primary"><a href="index.html">Work</a><a href="#top" class="on" aria-current="page">Projects</a><a href="About.html">About</a></nav>
 <button type="button" class="thm" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
 <a href="https://wa.me/918459347942" class="xn-cta">Let’s talk <span class="xn-arc"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div></header>
@@ -810,20 +862,21 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 <main id="top" class="xv xv-{{view}}">
 
 <!-- CANVAS VIEW -->
-<div class="cv" data-vp aria-label="Explorations canvas. Drag to pan, scroll or pinch to zoom.">
+<div class="cv" data-vp aria-label="Projects canvas. Drag to pan, scroll or pinch to zoom.">
 <div class="cv-world" data-world>
 <div class="cv-pc" data-pc aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2.5l15 8.2-6.6 1.6-3 6.2z" fill="#FF5A36" stroke="#FFF" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Pranav</span></div>
 <div class="cv-col">
 <header class="cv-title" id="intro" data-frame="intro">
-<span class="cv-eb"><i></i>Explorations · {{nAll}} works</span>
+<span class="cv-eb"><i></i>Projects · {{nAll}} works</span>
 <h1>The <span class="it">playground.</span></h1>
-<p>Graphic design, 3D and games are where I experiment. They sharpen how I think about form, light, motion and interaction in everything I design.</p>
+<p>UI/UX case studies up front; graphic design, 3D and games around them. The experiments sharpen how I think about form, light, motion and interaction in the product work.</p>
 <div class="cv-hint"><span class="cv-kbd">Drag</span> to explore <span class="cv-dot"></span> <span class="cv-kbd">Scroll</span> to pan <span class="cv-dot"></span> <span class="cv-kbd">Ctrl + Scroll</span> to zoom</div>
 </header>
 <section class="cv-fr cv-fr-g" id="graphic" data-frame="graphic"><div class="cv-fl"><span><i>#</i>Graphic design</span><span>Packaging · books · social · print</span></div><div class="cv-fb"><div class="gc" data-gc></div></div></section>
 
 </div>
 <div class="cv-col cv-col-2">
+<section class="cv-fr cv-fr-ux" id="uiux" data-frame="uiux"><div class="cv-fl"><span><i>#</i>UI/UX case studies</span><span>{{nUX}} projects · click to read</span></div><div class="cv-fb"><div class="cv-ux-g"><sc-for list="{{uxItems}}" as="u" hint-placeholder-count="7"><a class="cv-c cv-ux {{u.cls}}" href="{{u.href}}" aria-label="Read the {{u.title}} case study"><span class="cv-mw"><span class="cv-m"><img src="{{u.img}}" alt="{{u.alt}}" loading="lazy" draggable="false"><span class="ux-n">{{u.num}}</span></span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>{{u.title}}</em></span></span><span class="cv-cap ux-cap"><span class="ux-t"><b>{{u.title}}</b><span>{{u.cat}}</span></span><span class="ux-d">{{u.desc}}</span><span class="ux-go">Read case study <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a></sc-for></div></div></section>
 <section class="cv-fr cv-fr-s" id="three-d" data-frame="three-d"><div class="cv-fl"><span><i>#</i>Simulations</span><span>{{nS}} clips</span></div><div class="cv-fb"><div class="cv-g3"><sc-for list="{{sItems}}" as="v" hint-placeholder-count="9"><button type="button" class="cv-c" onClick="{{v.open}}" aria-label="Open {{v.title}}"><span class="cv-mw"><span class="cv-m">
 <sc-if value="{{v.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{v.src}}" poster="{{v.poster}}" muted="" loop="" playsinline="" preload="none"></video><span class="cv-rec"><i></i>{{v.badge}}</span></sc-if>
 <sc-if value="{{v.isImg}}" hint-placeholder-val="{{ true }}"><img src="{{v.src}}" alt="{{v.title}}" loading="lazy" draggable="false"></sc-if>
@@ -836,7 +889,7 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 <sc-if value="{{w.isVid}}" hint-placeholder-val="{{ false }}"><video data-auto src="{{w.src}}" poster="{{w.poster}}" muted="" loop="" playsinline="" preload="none"></video><span class="cv-rec"><i></i>{{w.badge}}</span></sc-if>
 <sc-if value="{{w.isImg}}" hint-placeholder-val="{{ true }}"><img src="{{w.src}}" alt="{{w.title}}" loading="lazy" draggable="false"></sc-if>
 </span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>{{w.title}}</em></span></span><span class="cv-cap"><b>{{w.title}}</b><span>{{w.tag}}</span></span></button><div class="cv-gmt"><sc-for list="{{w.shots}}" as="sh" hint-placeholder-count="2"><img src="{{sh}}" alt="" loading="lazy" draggable="false"></sc-for></div></div></sc-for></div></div></section>
-<a href="index.html" class="cv-next"><span class="cv-eb cv-eb-d"><i></i>Next</span><b>See how this thinking shows up in <span class="it">product work.</span></b><span class="cv-next-a">View case studies <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<a href="About.html" class="cv-next"><span class="cv-eb cv-eb-d"><i></i>Next</span><b>Meet the person behind <span class="it">the work.</span></b><span class="cv-next-a">About me <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div>
 </div>
 <div class="cv-mini" data-mini aria-hidden="true"><div class="cv-mini-w" data-miniw></div><div class="cv-mini-v" data-miniv></div></div>
@@ -846,7 +899,7 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 <!-- INDEX VIEW -->
 <section class="ix" data-ix>
 <div class="ix-h xw">
-<span class="cv-eb"><i></i>Explorations · {{nAll}} works</span>
+<span class="cv-eb"><i></i>Projects · {{nAll}} works</span>
 <h1>The <span class="it">playground.</span></h1>
 <div class="ix-f" role="group" aria-label="Filter">
 <sc-for list="{{ixFilters}}" as="f" hint-placeholder-count="5"><button type="button" class="ix-fb" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}<sup>{{f.count}}</sup></button></sc-for>
@@ -858,15 +911,15 @@ html[data-theme="dark"] .gt-tag{color:#A4ABBE}
 </sc-for>
 </ol>
 <div class="ix-pv" data-pv aria-hidden="true"><img alt="" data-pvi></div>
-<div class="xw ix-end"><a href="index.html" class="cv-next ix-next"><span class="cv-eb cv-eb-d"><i></i>Next</span><b>See how this thinking shows up in <span class="it">product work.</span></b><span class="cv-next-a">View case studies <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+<div class="xw ix-end"><a href="About.html" class="cv-next ix-next"><span class="cv-eb cv-eb-d"><i></i>Next</span><b>Meet the person behind <span class="it">the work.</span></b><span class="cv-next-a">About me <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 </section>
 
 <!-- TOOLBAR -->
-<div class="tb" role="toolbar" aria-label="Explorations view controls">
+<div class="tb" role="toolbar" aria-label="Projects view controls">
 <div class="tb-seg" role="group" aria-label="View"><button type="button" class="tb-v" onClick="{{toCanvas}}" aria-pressed="{{isCanvas}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Canvas</button><button type="button" class="tb-v" onClick="{{toIndex}}" aria-pressed="{{isIndex}}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Index</button></div>
 <div class="tb-cv">
 <span class="tb-sep"></span>
-<button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
+<button type="button" class="tb-j" data-go="uiux">UI/UX</button><button type="button" class="tb-j" data-go="graphic">Graphic</button><button type="button" class="tb-j" data-go="three-d">Simulations</button><button type="button" class="tb-j" data-go="models">Models</button><button type="button" class="tb-j" data-go="games">Games</button>
 <span class="tb-sep"></span>
 <button type="button" class="tb-i" data-act="zout" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="tb-z" data-zl>100%</span><button type="button" class="tb-i" data-act="zin" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><button type="button" class="tb-i" data-act="fit" aria-label="Fit everything"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
@@ -907,7 +960,7 @@ class Component extends DCLogic {
     this.state = { ig0: 0, ig1: 0, ig2: 0, tk: 0, cmpA: 50, cmpB: 50, light: -1, view: (typeof window !== 'undefined' && window.innerWidth < 820) ? 'index' : 'canvas', ic: 'all' };
     this.toCanvas = () => { if (this.state.view !== 'canvas') this.setState({ view: 'canvas' }, () => this.cvRefit && this.cvRefit()); };
     this.toIndex = () => { if (this.state.view !== 'index') { this.setState({ view: 'index' }); window.scrollTo(0, 0); } };
-    this.LS = () => this.state.view === 'index' ? this.ixList() : this.ALL;
+    this.LS = () => this.state.view === 'index' ? this.ixList().filter(i => !i.href) : this.ALL;
     this.bgClose = (e) => { if (e && e.target === e.currentTarget) this.close(); };
     this.setRoot = (el) => { this.root = el; };
     this.close = (e) => { if (e) e.stopPropagation(); this.setState({ light: -1 }); };
@@ -917,7 +970,7 @@ class Component extends DCLogic {
       ['assets/explorations/g_wild.webp','Wilderness: every leaf tells its story','InDesign · Magazine spread'],
       ['assets/site/paw_p3.webp','Pawssible turns one','Poster · Pawssible foundation'],
       ['assets/explorations/g_mag.webp','Fashion magazine cover','InDesign · Cover'],
-      ['assets/explorations/g_animalia.webp','Kingdom Animalia','InDesign · Nature magazine page'],
+      ['assets/explorations/g_animalia.webp','Kingdom Animalia','InDesign · Animal encyclopedia spread'],
       ['assets/explorations/g_juice.webp','Juiceables landing page','Figma · Web design'],
       ['assets/site/paw_p6.webp','Removal isn’t safety','Poster · Awareness campaign'],
       ['assets/explorations/g_style.webp','Style','InDesign · Fashion editorial'],
@@ -934,7 +987,7 @@ class Component extends DCLogic {
   }
   gCat(tag){ const t = tag.toLowerCase(); if (t.startsWith('poster')) return 'poster'; if (t.startsWith('figma')) return 'web'; if (t.startsWith('photoshop')) return 'print'; return 'editorial'; }
   gList(){ const gf = this.state.gf; return this.G.filter(g => gf === 'all' || this.gCat(g[2]) === gf); }
-  ixList(){ const c = this.state.ic; return (this.ALL || []).filter(it => !it.noIx && (c === 'all' || it.cat === c)); }
+  ixList(){ const c = this.state.ic; const ux = (c === 'all' || c === 'ux') ? (this.UX || []) : []; return ux.concat((this.ALL || []).filter(it => !it.noIx && (c === 'all' || it.cat === c))); }
   startCanvas(){
     const vp = this.root.querySelector('[data-vp]'), world = this.root.querySelector('[data-world]'); if (!vp || !world) return;
     const zl = this.root.querySelector('[data-zl]'), mini = this.root.querySelector('[data-mini]'), miniW = this.root.querySelector('[data-miniw]'), miniV = this.root.querySelector('[data-miniv]'), tip = this.root.querySelector('[data-tip]');
@@ -1060,13 +1113,16 @@ class Component extends DCLogic {
       const W = t.c * COLW + (t.c - 1) * GAP, rows = Math.ceil((W * t.ar + CAP + GAP) / 10);
       const st = 'grid-column:span ' + t.c + ';grid-row:span ' + rows;
       const act = t.pv ? 'data-pv="' + t.pv + '"' : 'data-oi="' + t.oi + '"';
-      let m = '';
+      let m = ''; const H = W * t.ar, pc = (v, of) => (v / of * 100).toFixed(2) + '%';
+      const fitBox = (r2, mw, mh, dy) => { let bw = W * mw, bh = bw * r2; if (bh > H * mh) { bh = H * mh; bw = bh / r2; } return 'left:' + pc((W - bw) / 2, W) + ';width:' + pc(bw, W) + ';top:' + pc((H - bh) / 2 + H * dy, H) + ';height:' + pc(bh, H); };
       if (t.t === 'img') m = '<img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false">';
+      else if (t.t === 'board') m = '<span class="bd"><span class="bd-light" aria-hidden="true"></span><span class="bd-b"><img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false"><i class="bd-bolt"></i><i class="bd-bolt"></i><i class="bd-bolt"></i><i class="bd-bolt"></i></span><span class="bd-floor" aria-hidden="true"></span><span class="bd-dim" aria-hidden="true">120 in × 36 in</span></span>';
+      else if (t.t === 'ency') m = '<span class="gt-enc" style="' + fitBox(t.r, .84, .72, -.04) + '"><i class="gt-enc-cov" aria-hidden="true"></i><i class="gt-enc-stk" aria-hidden="true"></i><span class="gt-pg gt-pl"><img src="' + e(t.src) + '" alt="' + e(t.title) + ' left page" loading="lazy" draggable="false"></span><span class="gt-pg gt-pr"><img src="' + e(t.src) + '" alt="' + e(t.title) + ' right page" loading="lazy" draggable="false"></span><span class="gt-gutter" aria-hidden="true"></span></span><span class="gt-read">Open encyclopedia spread →</span>';
       else if (t.t === 'bill') m = '<span class="sf"><span class="sf-lamps" aria-hidden="true"><i></i><i></i><i></i></span><span class="sf-board"><img src="' + e(t.src) + '" alt="' + e(t.title) + '" loading="lazy" draggable="false"></span><span class="sf-front" aria-hidden="true"><i></i><i></i><i></i></span><span class="sf-floor" aria-hidden="true"></span></span>';
       else if (t.t === 'mic') m = '<span class="gt-mic" data-cyc="' + t.fr.length + '">' + t.fr.map((s, k) => '<img class="' + (k ? '' : 'on') + '" src="' + e(s) + '" alt="Micron ' + e(t.nm[k]) + ' label" loading="lazy" draggable="false" data-nm="' + e(t.nm[k]) + '" data-gl="' + t.gl[k] + '">').join('') + '<span class="gt-chip" data-chip>' + e(t.nm[0]) + '</span><span class="gt-count">11 labels</span></span>';
       else if (t.t === 'soc') m = '<span class="gt-soc" data-cyc="' + t.sl.length + '">' + t.sl.map((s, k) => '<img class="' + (k ? '' : 'on') + '" src="' + e(s) + '" alt="" loading="lazy" draggable="false">').join('') + '<span class="gt-car" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="15" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10" fill="none" stroke="#fff" stroke-width="2"/></svg></span><span class="gt-dots">' + t.sl.map((s, k) => '<i class="' + (k ? '' : 'on') + '"></i>').join('') + '</span></span>';
-      else if (t.t === 'book' || t.t === 'mag') m = '<span class="gt-open gt-' + t.t + '" data-cyc="' + t.sp.length + '">' + t.sp.map((p, k) => '<span class="gt-spr ' + (k ? '' : 'on') + '"><span class="gt-pg gt-pl"><img src="' + e(p[0]) + '" alt="" loading="lazy" draggable="false"></span><span class="gt-pg gt-pr"><img src="' + e(p[1]) + '" alt="" loading="lazy" draggable="false"></span></span>').join('') + '<span class="gt-gutter" aria-hidden="true"></span></span><span class="gt-read">Open &amp; turn the pages →</span>';
-      else if (t.t === 'cb') m = '<span class="gt-cb"><span class="gt-cbk"><img src="' + e(t.cover) + '" alt="' + e(t.title) + ' cover" loading="lazy" draggable="false"><i class="gt-spine"></i></span><i class="gt-pages"></i></span><span class="gt-read">Open book →</span>';
+      else if (t.t === 'book' || t.t === 'mag') m = '<span class="gt-open gt-' + t.t + (t.one ? ' gt-one' : '') + (t.soft ? ' gt-soft' : '') + '" style="' + fitBox(t.r / 2, t.one ? .9 : .84, .72, -.04) + '"' + (t.sp.length > 1 ? ' data-cyc="' + t.sp.length + '"' : '') + '>' + t.sp.map((p, k) => '<span class="gt-spr ' + (k ? '' : 'on') + '"><span class="gt-pg gt-pl"><img src="' + e(p[0]) + '" alt="" loading="lazy" draggable="false"></span><span class="gt-pg gt-pr"><img src="' + e(p[1]) + '" alt="" loading="lazy" draggable="false"></span></span>').join('') + '<span class="gt-gutter" aria-hidden="true"></span></span><span class="gt-read">' + (t.one ? 'View spread →' : 'Open &amp; turn the pages →') + '</span>';
+      else if (t.t === 'cb') m = '<span class="gt-cb" style="' + fitBox(t.r, .62, .8, -.02) + '"><span class="gt-cbk"><img src="' + e(t.cover) + '" alt="' + e(t.title) + ' cover" loading="lazy" draggable="false"><i class="gt-spine"></i></span><i class="gt-pages"></i></span><span class="gt-read">Open book →</span>';
       return '<button type="button" class="gt gt-t-' + t.t + '" style="' + st + '" ' + act + ' aria-label="Open ' + e(t.title) + '"><span class="gt-mw"><span class="gt-m gt-m-' + t.t + '">' + m + '</span><span class="cv-sel" aria-hidden="true"><b></b><b></b><b></b><b></b><em>' + e(t.title) + '</em></span></span>' + cap(t) + '</button>';
     }).join('');
     gc.innerHTML = html;
@@ -1077,7 +1133,7 @@ class Component extends DCLogic {
       gc.querySelectorAll('[data-cyc]').forEach((box) => {
         if (box.closest('.gt:hover') && !box.classList.contains('gt-mic')) return;
         const kids = box.querySelectorAll(':scope > img, :scope > .gt-spr'); const n = kids.length; if (n < 2) return;
-        let i = [...kids].findIndex(k => k.classList.contains('on')); kids[i].classList.remove('on'); i = (i + 1) % n; kids[i].classList.add('on');
+        let i = Math.max(0, [...kids].findIndex(k => k.classList.contains('on'))); kids[i].classList.remove('on'); i = (i + 1) % n; kids[i].classList.add('on');
         const dots = box.querySelectorAll('.gt-dots i'); dots.forEach((d, k) => d.classList.toggle('on', k === i));
         const chip = box.querySelector('[data-chip]'); if (chip && kids[i].dataset.nm) { chip.textContent = kids[i].dataset.nm; box.style.setProperty('--gl', kids[i].dataset.gl); }
       });
@@ -1178,7 +1234,7 @@ class Component extends DCLogic {
     })();
     const q = (s) => this.root.querySelector(s);
     const pt = q('[data-pt]'), lbl = q('[data-ptl]');
-    const L = { 'index': 'Home', 'Main': 'Home', 'About': 'About', 'Explorations': 'Explorations', 'Case-Hotel': 'Hotel Inspection', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
+    const L = { 'index': 'Home', 'Main': 'Home', 'About': 'About', 'Explorations': 'Projects', 'Case-Hotel': 'Hotel Inspection', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
     window.__pgSeen = true;
     this.root.addEventListener('click', (e) => {
       const a = e.target.closest && e.target.closest('a[href$=".html"]');
@@ -1245,6 +1301,16 @@ class Component extends DCLogic {
       S('assets/site/v_boat.mp4','assets/site/v_boat_poster.jpg','Boat in Sea Simulation')
     ];
     const pad = (n) => String(n).padStart(2, '0');
+    const UXS = [
+      ['01','Case-Augle.html','3D web experience','Augle AI — Interactive Factory','A real-time 3D factory that makes industrial automation tangible, with an optional guided tour.','assets/augle/ag_lap_wide.jpg','Augle AI website on a laptop'],
+      ['02','Case-NomNom.html','Brand + app','Nom Nom','A brand identity and ordering app for sweets and snacks, designed as one system.','assets/nomnom/nn_phone.webp','Nom Nom app on a phone'],
+      ['03','Case-Parallel.html','Concept · Social','Parallel','Watch films together in real time with friends and family in other cities.','assets/site/par_phone2.webp','Parallel group watch room on a phone'],
+      ['04','Case-Hotel.html','iOS app · Hospitality','Q100 — Room Inspection App','AI-assisted room inspections for hotel housekeeping staff.','assets/q100/q100_cover.jpg','Q100 app screens on three iPhones'],
+      ['05','Case-StudyPal.html','EdTech','StudyPal','AI tutoring, study scheduling, doubt solving and progress tracking in one place.','assets/site/sp_laptop.webp','StudyPal website on a laptop'],
+      ['06','Case-Ainaa.html','Concept · AI','Ainaa','An AI stylist you chat with like a friend, finding looks from 400+ Indian brands.','assets/site/ainaa_cover.webp','Ainaa AI stylist concept cover'],
+      ['07','Case-Pawssible.html','Website','Pawssible','A foundation website that helps people adopt, volunteer and support its work.','assets/site/paw_laptop.webp','Pawssible website on a laptop']
+    ];
+    this.UX = UXS.map(u => ({ num: u[0], href: u[1], cat: u[2], catL: 'UI/UX', title: u[3], desc: u[4], img: u[5], alt: u[6], src: u[5], prev: u[5], tool: 'Case study', tag: 'UI/UX · ' + u[2] }));
     const fix = (t) => t === '[Confirm software]' ? '3D' : t;
     const GI = this.G.map(g => ({ src: g[0], poster: '', title: g[1], tag: g[2], cat: 'graphic', catL: 'Graphic', tool: g[2].split(' · ')[0], isVid: false, isImg: true, prev: g[0] }));
     const SI = sims.map(v => ({ src: v.src, poster: v.poster, title: v.title, tag: 'Blender · Simulation', cat: 'sim', catL: 'Simulation', tool: 'Blender', isVid: true, isImg: false, badge: 'Simulation', prev: v.poster }));
@@ -1263,6 +1329,7 @@ class Component extends DCLogic {
     const TP = [1,4,5,9,10,14,15,20,21,27,28,35,36]; const tkI = {}; TP.forEach(n => { tkI[n] = mk(PI('tiko_' + n + '.webp'), 'Tiko Finds His Roar · ' + (n === 1 ? 'cover' : 'page ' + n), 'Picture book · Story + layout', 'Book design'); });
     const cvI = [mk(PI('jun_1.webp'), 'Jungle Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(PI('jun_9.webp'), 'Jungle Colouring Book · Bengal Tiger', 'Book design · Activity page', 'Book design'), mk(PI('sea_1.webp'), 'Sea Animals Colouring Book · cover', 'Book design · Cover', 'Book design'), mk(PI('sea_10.webp'), 'Sea Animals Colouring Book · Dolphin', 'Book design · Activity page', 'Book design'), mk(PI('jun_52.webp'), 'Jungle Colouring Book · back cover', 'Book design · Back cover', 'Book design'), mk(PI('sea_50.webp'), 'Sea Animals Colouring Book · back cover', 'Book design · Back cover', 'Book design')];
     Object.keys(tkI).forEach(n => { if (![1,4,20,35].includes(+n)) tkI[n].noIx = true; });
+    const nbI = [mk(PI('jga_1.webp'), 'Jungle Animals Coloring Book · cover', 'Book design · Cover', 'Book design'), mk(PI('frm_1.webp'), 'Farm Animals Coloring Book · cover', 'Book design · Cover', 'Book design')];
     const nlI = []; for (let n = 1; n <= 14; n++) nlI.push(mk(PI('nil_' + n + '.webp'), 'NLSIU prospectus · page ' + n, 'Editorial · Prospectus', 'Editorial design'));
     nlI.forEach((n, k) => { if (![0,3,8,13].includes(k)) n.noIx = true; });
     const SOC = [
@@ -1275,37 +1342,47 @@ class Component extends DCLogic {
     const isPoster = (g) => /^poster/i.test(g.tag);
     const POST = [schoolP].concat(GI.filter(isPoster)), ED = GI.filter(g => !isPoster(g));
     this.ALL = PRI.concat(GI, SI, MI, GM);
-    const ASP = {"m_tent.webp":0.563,"m_cup.webp":0.563,"m_bust.webp":0.563,"paw_p4.webp":1.415,"m_chess.webp":0.563,"m_arcade.webp":0.562,"gm_wood2.webp":0.551,"g_fashion.webp":0.683,"g_wild.webp":1.25,"g_juice.webp":0.711,"paw_p6.webp":1.416,"m_grenade.webp":0.562,"paw_p3.webp":1.416,"paw_p1.webp":1.415,"g_mango.webp":0.711,"g_berry.webp":0.716,"m_char1.webp":0.732,"gm_wood1.webp":0.551,"g_style.webp":0.683,"paw_p5.webp":1.415,"m_cart.webp":0.563,"m_glass.webp":0.563,"gm_bongo.webp":0.559,"g_nature.webp":1.25,"g_mag.webp":1.25,"paw_p2.webp":1.415,"m_texture.webp":0.563,"g_menu.webp":0.625,"m_toon.webp":0.711,"m_char2.webp":0.668,"m_house.webp":0.562,"m_grille.webp":0.563,"g_animalia.webp":0.648,"m_truck.webp":0.844,"tiko_17.webp":1.013,"nil_9.webp":1.414,"school_poster.webp":1.414,"sea_9.webp":1.293,"sea_8.webp":1.293,"tiko_3.webp":1.013,"sang_1.webp":1.25,"mic_10_fibre_dressing_f.webp":1.68,"tiko_8.webp":1.013,"tiko_37.webp":1.013,"nil_4.webp":1.414,"mic_04_glass_cleaner_b.webp":1.68,"sea_18.webp":1.293,"tiko_34.webp":1.013,"tiko_21.webp":1.013,"jun_18.webp":1.293,"tiko_23.webp":1.013,"jun_6.webp":1.293,"jun_11.webp":1.293,"tiko_31.webp":1.013,"sea_19.webp":1.293,"mic_07_tar_remover_b.webp":1.68,"sea_5.webp":1.293,"mic_09_tire_gel_b.webp":1.68,"jun_1.webp":1.293,"tiko_38.webp":1.013,"sea_15.webp":1.293,"tiko_2.webp":1.013,"mic_02_degreaser_f.webp":1.68,"nil_6.webp":1.414,"mic_07_tar_remover_f.webp":1.68,"jun_3.webp":1.293,"nil_14.webp":1.412,"nil_5.webp":1.414,"tiko_24.webp":1.013,"jun_15.webp":1.293,"mic_11_perfume_f.webp":1.68,"sang_2.webp":1.25,"tiko_16.webp":1.013,"tiko_30.webp":1.013,"mic_03_hard_water_remover_b.webp":1.68,"nil_1.webp":1.412,"sea_11.webp":1.293,"jun_7.webp":1.293,"sea_1.webp":1.293,"mic_01_apc_b.webp":1.68,"tiko_41.webp":1.013,"jun_20.webp":1.293,"jun_14.webp":1.293,"tiko_19.webp":1.013,"tiko_5.webp":1.013,"tiko_33.webp":1.013,"mic_08_engine_dressing_f.webp":1.68,"tiko_25.webp":1.013,"int_6.webp":1.25,"jun_52.webp":1.293,"tiko_13.webp":1.013,"jun_17.webp":1.293,"jun_5.webp":1.293,"sea_17.webp":1.293,"tiko_35.webp":1.013,"mic_08_engine_dressing_b.webp":1.68,"tiko_43.webp":1.013,"tiko_40.webp":1.013,"tiko_12.webp":1.013,"tiko_14.webp":1.013,"jun_13.webp":1.293,"sea_4.webp":1.293,"tiko_20.webp":1.013,"tiko_28.webp":1.013,"tiko_27.webp":1.013,"sang_3.webp":1.25,"tiko_15.webp":1.013,"nil_3.webp":1.416,"sea_6.webp":1.293,"mic_05_ipa_f.webp":1.68,"nil_2.webp":1.414,"nil_13.webp":1.414,"sea_16.webp":1.293,"tiko_22.webp":1.013,"jun_12.webp":1.293,"jun_16.webp":1.293,"mic_02_degreaser_b.webp":1.68,"jun_8.webp":1.293,"tiko_7.webp":1.013,"jun_2.webp":1.293,"tiko_4.webp":1.013,"sea_20.webp":1.293,"tiko_10.webp":1.013,"int_1.webp":1.25,"sea_3.webp":1.293,"int_3.webp":1.25,"sea_12.webp":1.293,"sea_14.webp":1.293,"mic_10_fibre_dressing_b.webp":1.68,"nil_8.webp":1.414,"adm_2.webp":1.0,"jun_4.webp":1.293,"tiko_29.webp":1.013,"int_4.webp":1.25,"tiko_18.webp":1.013,"tiko_32.webp":1.013,"nil_12.webp":1.414,"tiko_6.webp":1.013,"nil_11.webp":1.414,"tiko_39.webp":1.013,"mic_06_shampoo_f.webp":1.68,"adm_1.webp":1.0,"tiko_36.webp":1.013,"tiko_44.webp":1.0,"detail.webp":0.3,"jun_19.webp":1.293,"sea_10.webp":1.293,"tiko_11.webp":1.013,"sea_50.webp":1.293,"sea_7.webp":1.293,"tiko_42.webp":1.013,"nil_7.webp":1.414,"mic_05_ipa_b.webp":1.68,"tiko_9.webp":1.013,"int_5.webp":1.25,"sea_2.webp":1.293,"jun_9.webp":1.293,"mic_01_apc_f.webp":1.68,"mic_09_tire_gel_f.webp":1.68,"mic_11_perfume_b.webp":1.68,"int_2.webp":1.25,"mic_06_shampoo_b.webp":1.68,"nil_10.webp":1.414,"sea_13.webp":1.293,"tiko_26.webp":1.013,"mic_04_glass_cleaner_f.webp":1.68,"jun_10.webp":1.293,"tiko_1.webp":1.0,"mic_03_hard_water_remover_f.webp":1.68}; const ar = (src) => ASP[src.split('/').pop().split('?')[0]] || ASP[(src.match(/[\w\-]+\.webp/) || [''])[0]] || 1.3;
+    const ASP = {"m_texture.webp":0.562,"m_cup.webp":0.563,"m_grille.webp":0.562,"gm_wood2.webp":0.551,"m_house.webp":0.562,"gm_bongo.webp":0.559,"g_style.webp":0.683,"g_wild.webp":1.25,"m_char2.webp":0.668,"m_toon.webp":0.711,"m_char1.webp":0.732,"g_fashion.webp":0.683,"m_grenade.webp":0.562,"g_animalia.webp":0.648,"g_mango.webp":0.711,"m_chess.webp":0.562,"g_berry.webp":0.716,"m_bust.webp":0.562,"g_nature.webp":1.25,"m_tent.webp":0.562,"gm_wood1.webp":0.551,"m_truck.webp":0.844,"g_juice.webp":0.711,"m_arcade.webp":0.562,"g_mag.webp":1.25,"g_menu.webp":0.626,"m_glass.webp":0.562,"m_cart.webp":0.562,"jga_13.webp":1.293,"tiko_17.webp":1.014,"nil_9.webp":1.414,"school_poster.webp":1.415,"sea_9.webp":1.293,"sea_8.webp":1.293,"tiko_3.webp":1.014,"sang_1.webp":1.25,"frm_50.webp":1.293,"mic_10_fibre_dressing_f.webp":1.684,"tiko_8.webp":1.014,"tiko_37.webp":1.014,"nil_4.webp":1.414,"mic_04_glass_cleaner_b.webp":1.684,"sea_18.webp":1.293,"tiko_34.webp":1.014,"tiko_21.webp":1.014,"jga_15.webp":1.293,"jun_18.webp":1.293,"tiko_23.webp":1.014,"jun_6.webp":1.293,"jun_11.webp":1.293,"frm_22.webp":1.293,"tiko_31.webp":1.014,"sea_19.webp":1.293,"mic_07_tar_remover_b.webp":1.684,"sea_5.webp":1.293,"mic_09_tire_gel_b.webp":1.684,"jun_1.webp":1.293,"tiko_38.webp":1.014,"frm_1.webp":1.293,"sea_15.webp":1.293,"jga_3.webp":1.293,"tiko_2.webp":1.014,"mic_02_degreaser_f.webp":1.684,"nil_6.webp":1.414,"jga_7.webp":1.293,"frm_16.webp":1.293,"jga_49.webp":1.293,"mic_07_tar_remover_f.webp":1.684,"frm_19.webp":1.293,"jun_3.webp":1.293,"nil_14.webp":1.412,"nil_5.webp":1.414,"jga_17.webp":1.293,"tiko_24.webp":1.014,"jga_16.webp":1.293,"jun_15.webp":1.293,"jga_2.webp":1.293,"frm_8.webp":1.293,"mic_11_perfume_f.webp":1.684,"sang_2.webp":1.25,"tiko_16.webp":1.014,"tiko_30.webp":1.014,"jga_14.webp":1.293,"mic_03_hard_water_remover_b.webp":1.684,"nil_1.webp":1.412,"frm_14.webp":1.293,"sea_11.webp":1.293,"jun_7.webp":1.293,"sea_1.webp":1.293,"mic_01_apc_b.webp":1.684,"frm_10.webp":1.293,"frm_3.webp":1.293,"tiko_41.webp":1.014,"jun_20.webp":1.293,"jun_14.webp":1.293,"tiko_19.webp":1.014,"tiko_5.webp":1.014,"tiko_33.webp":1.014,"mic_08_engine_dressing_f.webp":1.684,"jga_1.webp":1.293,"tiko_25.webp":1.014,"int_6.webp":1.25,"jun_52.webp":1.293,"tiko_13.webp":1.014,"jun_17.webp":1.293,"jun_5.webp":1.293,"sea_17.webp":1.293,"tiko_35.webp":1.014,"mic_08_engine_dressing_b.webp":1.684,"tiko_43.webp":1.014,"tiko_40.webp":1.014,"tiko_12.webp":1.014,"frm_13.webp":1.293,"tiko_14.webp":1.014,"jun_13.webp":1.293,"sea_4.webp":1.293,"jga_11.webp":1.293,"tiko_20.webp":1.014,"tiko_28.webp":1.014,"tiko_27.webp":1.014,"jga_18.webp":1.293,"sang_3.webp":1.25,"tiko_15.webp":1.014,"nil_3.webp":1.417,"sea_6.webp":1.293,"jga_6.webp":1.293,"mic_05_ipa_f.webp":1.684,"nil_2.webp":1.414,"nil_13.webp":1.414,"frm_11.webp":1.293,"sea_16.webp":1.293,"tiko_22.webp":1.014,"jun_12.webp":1.293,"jun_16.webp":1.293,"frm_9.webp":1.293,"mic_02_degreaser_b.webp":1.684,"jun_8.webp":1.293,"frm_18.webp":1.293,"frm_20.webp":1.293,"tiko_7.webp":1.014,"frm_17.webp":1.293,"jun_2.webp":1.293,"jga_8.webp":1.293,"tiko_4.webp":1.014,"jga_19.webp":1.293,"sea_20.webp":1.293,"tiko_10.webp":1.014,"frm_7.webp":1.293,"jga_4.webp":1.293,"frm_49.webp":1.293,"int_1.webp":1.25,"sea_3.webp":1.293,"jga_22.webp":1.293,"int_3.webp":1.25,"frm_6.webp":1.293,"sea_12.webp":1.293,"jga_5.webp":1.293,"frm_12.webp":1.293,"sea_14.webp":1.293,"mic_10_fibre_dressing_b.webp":1.684,"nil_8.webp":1.414,"adm_2.webp":0.999,"frm_15.webp":1.293,"jun_4.webp":1.293,"tiko_29.webp":1.014,"int_4.webp":1.25,"tiko_18.webp":1.014,"tiko_32.webp":1.014,"nil_12.webp":1.414,"jga_10.webp":1.293,"tiko_6.webp":1.014,"nil_11.webp":1.414,"jga_21.webp":1.293,"jga_9.webp":1.293,"tiko_39.webp":1.014,"mic_06_shampoo_f.webp":1.684,"adm_1.webp":0.999,"tiko_36.webp":1.014,"tiko_44.webp":1.0,"detail.webp":0.3,"jun_19.webp":1.293,"sea_10.webp":1.293,"tiko_11.webp":1.014,"sea_50.webp":1.293,"frm_2.webp":1.293,"sea_7.webp":1.293,"tiko_42.webp":1.014,"frm_5.webp":1.293,"jga_12.webp":1.293,"nil_7.webp":1.414,"mic_05_ipa_b.webp":1.684,"tiko_9.webp":1.014,"int_5.webp":1.25,"sea_2.webp":1.293,"jun_9.webp":1.293,"mic_01_apc_f.webp":1.684,"mic_09_tire_gel_f.webp":1.684,"mic_11_perfume_b.webp":1.684,"jga_20.webp":1.293,"int_2.webp":1.25,"jga_50.webp":1.293,"frm_21.webp":1.293,"mic_06_shampoo_b.webp":1.684,"nil_10.webp":1.414,"sea_13.webp":1.293,"tiko_26.webp":1.014,"mic_04_glass_cleaner_f.webp":1.684,"jun_10.webp":1.293,"tiko_1.webp":1.0,"frm_4.webp":1.293,"mic_03_hard_water_remover_f.webp":1.684,"paw_p6.webp":1.416,"paw_p1.webp":1.415,"paw_p4.webp":1.415,"paw_p3.webp":1.416,"paw_p5.webp":1.415,"paw_p2.webp":1.415}; const ar = (src) => ASP[src.split('/').pop().split('?')[0]] || ASP[(src.match(/[\w\-]+\.webp/) || [''])[0]] || 1.3;
     const rng = (a, b) => { const o = []; for (let i = a; i <= b; i++) o.push(i); return o; };
     const pg = (pre, list) => list.map(n => PI(pre + n + '.webp'));
     this.PROJ = {
       micron: { kind: 'pair', title: 'Micron — label system', meta: 'Packaging · 11 SKUs · 9.5 × 16 cm · print-ready', items: micI.map(x => ({ name: x.m[1], glow: x.m[2], f: x.f.src, b: x.b.src })) },
-      tiko: { kind: 'book', hard: true, title: 'Tiko Finds His Roar', meta: 'Children’s picture book · 44 pages · written by me', ratio: 1, pages: pg('tiko_', rng(1, 44)) },
-      jungle: { kind: 'book', title: 'My Big Jungle Animal Colouring Book', meta: 'Wonder Books · activity book · US Letter', ratio: 1.294, pages: pg('jun_', rng(1, 20).concat([52])) },
-      sea: { kind: 'book', title: 'My Big Sea Animals Coloring Book', meta: 'Wonder Books · activity book · US Letter', ratio: 1.294, pages: pg('sea_', rng(1, 20).concat([50])) },
-      nlsiu: { kind: 'mag', title: 'NLSIU — prospectus', meta: 'Editorial · 14 pages · A4', ratio: 1.413, pages: pg('nil_', rng(1, 14)) }
+      tiko: { kind: 'book', hard: true, title: 'Tiko Finds His Roar', meta: 'Children’s picture book · 44 pages · written by me', ratio: ar('tiko_2.webp'), pages: pg('tiko_', rng(1, 44)) },
+      jungle: { kind: 'book', title: 'My Big Jungle Animal Colouring Book', meta: 'Wonder Books · activity book · US Letter', ratio: ar('jun_2.webp'), pages: pg('jun_', rng(1, 20).concat([52])) },
+      sea: { kind: 'book', title: 'My Big Sea Animals Coloring Book', meta: 'Wonder Books · activity book · US Letter', ratio: ar('sea_2.webp'), pages: pg('sea_', rng(1, 20).concat([50])) },
+      nlsiu: { kind: 'mag', title: 'NLSIU — prospectus', meta: 'Editorial · 14 pages · A4', ratio: ar('nil_2.webp'), pages: pg('nil_', rng(1, 14)) },
+      jga: { kind: 'book', title: 'My Big Jungle Animals Coloring Book', meta: 'Wonder Books · activity book · US Letter · 50 pages (preview)', ratio: ar('jga_2.webp'), pages: pg('jga_', rng(1, 22).concat([49, 50])) },
+      frm: { kind: 'book', title: 'My Big Farm Animals Coloring Book', meta: 'Wonder Books · activity book · US Letter · 50 pages (preview)', ratio: ar('frm_2.webp'), pages: pg('frm_', rng(1, 22).concat([49, 50])) }
     };
     SOC.forEach((c, i) => { this.PROJ['soc' + i] = { kind: 'gallery', title: c.title, meta: c.meta, ratio: c.ratio === '1/1' ? 1 : 1.25, pages: c.items.map(x => x.src) }; });
     const spp = (pre, pairs) => pairs.map(p => [PI(pre + p[0] + '.webp'), PI(pre + p[1] + '.webp')]);
     const T = [];
     const idx = (it) => this.ALL.indexOf(it);
     T.push({ t: 'mic', c: 1, ar: 1.55, pv: 'micron', title: 'Micron — label system', meta: 'Packaging · 11 SKUs', fr: micI.map(x => x.f.src), nm: micI.map(x => x.m[1]), gl: micI.map(x => x.m[2]) });
-    T.push({ t: 'book', c: 2, ar: .6, pv: 'tiko', title: 'Tiko Finds His Roar', meta: 'Hardcover picture book · tap to read', sp: spp('tiko_', [[4,5],[9,10],[20,21],[27,28],[35,36]]), cover: PI('tiko_1.webp') });
+    T.push({ t: 'book', c: 2, ar: .6, pv: 'tiko', title: 'Tiko Finds His Roar', meta: 'Hardcover picture book · tap to read', r: ar('tiko_4.webp'), sp: spp('tiko_', [[4,5],[9,10],[20,21],[27,28],[35,36]]), cover: PI('tiko_1.webp') });
     T.push({ t: 'soc', c: 1, ar: 1.25, pv: 'soc0', title: SOC[0].title, meta: SOC[0].meta, sl: SOC[0].items.map(x => x.src) });
-    T.push({ t: 'cb', c: 1, ar: 1.42, pv: 'jungle', title: 'Jungle Colouring Book', meta: 'Activity book · tap to read', cover: PI('jun_1.webp') });
-    T.push({ t: 'mag', c: 2, ar: .62, pv: 'nlsiu', title: 'NLSIU — prospectus', meta: 'Printed brochure · tap to read', sp: spp('nil_', [[2,3],[4,5],[6,7],[10,11],[12,13]]) });
+    T.push({ t: 'cb', c: 1, ar: 1.16, pv: 'jungle', title: 'Jungle Colouring Book', meta: 'Activity book · tap to read', r: ar('jun_1.webp'), cover: PI('jun_1.webp') });
+    T.push({ t: 'mag', c: 2, ar: .66, r: ar('nil_2.webp'), pv: 'nlsiu', title: 'NLSIU — prospectus', meta: 'Printed brochure · tap to read', sp: spp('nil_', [[2,3],[4,5],[6,7],[10,11],[12,13]]) });
     T.push({ t: 'soc', c: 1, ar: 1.25, pv: 'soc1', title: SOC[1].title, meta: SOC[1].meta, sl: SOC[1].items.map(x => x.src) });
-    T.push({ t: 'cb', c: 1, ar: 1.42, pv: 'sea', title: 'Sea Animals Coloring Book', meta: 'Activity book · tap to read', cover: PI('sea_1.webp') });
+    T.push({ t: 'cb', c: 1, ar: 1.16, pv: 'sea', title: 'Sea Animals Coloring Book', meta: 'Activity book · tap to read', r: ar('sea_1.webp'), cover: PI('sea_1.webp') });
+    T.push({ t: 'book', c: 2, ar: .62, pv: 'jga', soft: true, title: 'Jungle Animals Coloring Book', meta: 'Activity book · 50 pages · tap to read', r: ar('jga_10.webp'), sp: spp('jga_', [[8,9],[10,11],[12,13],[16,17],[20,21]]) });
+    T.push({ t: 'cb', c: 1, ar: 1.16, pv: 'frm', title: 'Farm Animals Coloring Book', meta: 'Activity book · 50 pages · tap to read', r: ar('frm_1.webp'), cover: PI('frm_1.webp') });
     T.push({ t: 'img', c: 1, oi: idx(schoolP), title: schoolP.title, meta: 'Poster · School campaign', src: schoolP.src, ar: ar(schoolP.src) });
     T.push({ t: 'soc', c: 1, ar: 1, pv: 'soc2', title: SOC[2].title, meta: SOC[2].meta, sl: SOC[2].items.map(x => x.src) });
-    GI.forEach((g, gi) => { T.push({ t: 'img', c: 1, oi: idx(g), title: g.title, meta: g.tag, src: g.src, ar: ar(g.src) }); if (gi === GI.length - 5) T.push({ t: 'bill', c: 2, ar: .62, oi: idx(dcI), title: 'Detail Craft — shop board', meta: 'Large format signage · 36 × 120 in', src: dcI.src }); });
+    const gBy = (k) => GI.find(g => g.src.indexOf(k) > -1);
+    const gAn = gBy('g_animalia'), gSt = gBy('g_style'), gFa = gBy('g_fashion');
+    const special = { g_animalia: () => T.push({ t: 'ency', c: 2, ar: .72, oi: idx(gAn), title: 'Kingdom Animalia', meta: 'Animal encyclopedia · inside spread', src: gAn.src, r: ar(gAn.src) }),
+      g_style: () => T.push({ t: 'mag', c: 2, ar: .5, oi: idx(gSt), title: 'Style / Up — fashion magazine', meta: 'InDesign · Editorial spread', r: ar(gSt.src) * 1, sp: [[gSt.src, gFa.src]], one: true }), g_fashion: () => {} };
+    GI.forEach((g, gi) => { const k = (g.src.match(/g_(animalia|style|fashion)/) || [])[0];
+      if (k) special[k](); else T.push({ t: 'img', c: 1, oi: idx(g), title: g.title, meta: g.tag, src: g.src, ar: ar(g.src) });
+      if (gi === GI.length - 5) T.push({ t: 'board', c: 2, ar: .46, oi: idx(dcI), title: 'Detail Craft — shop board', meta: 'Large format signage · 36 × 120 in', src: dcI.src }); });
     this.GT = T;
     const SPR = [[null,1],[4,5],[9,10],[14,15],[20,21],[27,28],[35,36]];
     const tki = Math.max(0, Math.min(SPR.length - 1, this.state.tk)); const sp = SPR[tki];
     const openAt = (it) => () => { const L = this.LS(); const k = L.indexOf(it); this.setState({ light: k < 0 ? 0 : k }); };
     const wrap = (arr) => arr.map(it => ({ ...it, open: openAt(it) }));
     const ic = this.state.ic, IX = this.ixList();
-    const icDefs = [['all','All',this.ALL.filter(i => !i.noIx).length],['graphic','Graphic',this.ALL.filter(i => !i.noIx && i.cat === 'graphic').length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
+    const icDefs = [['all','All',this.ALL.filter(i => !i.noIx).length + this.UX.length],['ux','UI/UX',this.UX.length],['graphic','Graphic',this.ALL.filter(i => !i.noIx && i.cat === 'graphic').length],['sim','Simulations',SI.length],['model','3D models',MI.length],['game','Games',GM.length]];
     const L = this.state.light, LS = this.LS(), cur = L > -1 && LS[L] ? LS[L] : null;
     return {
       setRoot: this.setRoot,
@@ -1320,9 +1397,10 @@ class Component extends DCLogic {
       covers: [cvI[0], cvI[2], cvI[4], cvI[5]].map(c => ({ name: c.title, src: c.src, open: openAt(c) })),
       nil: nlI.map((n, k) => ({ src: n.src, num: k + 1, i: k, k: (k - 6.5).toFixed(1), open: openAt(n) })),
       view: this.state.view, isCanvas: this.state.view === 'canvas' ? 'true' : 'false', isIndex: this.state.view === 'index' ? 'true' : 'false', toCanvas: this.toCanvas, toIndex: this.toIndex,
-      nAll: this.ALL.filter(i => !i.noIx).length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
+      nAll: this.ALL.filter(i => !i.noIx).length + this.UX.length, nG: pad(GI.length), nS: pad(SI.length), nM: pad(MI.length),
       gItems: wrap(GI.filter(g => !/^poster/i.test(g.tag))), sItems: wrap(SI), mItems: wrap(MI), gmItems: wrap(GM),
-      ixItems: IX.map((it, k) => ({ ...it, num: pad(k + 1), cat: it.catL, open: openAt(it) })),
+      ixItems: IX.map((it, k) => ({ ...it, num: pad(k + 1), cat: it.catL, open: it.href ? () => { window.location.href = it.href; } : openAt(it) })),
+      uxItems: this.UX.map((u, k) => ({ ...u, cls: k === 0 ? 'ux-wide' : '' })), nUX: pad(this.UX.length),
       ixFilters: icDefs.map(d => ({ label: d[1], count: d[2], on: ic === d[0] ? 'true' : 'false', pick: () => this.setState({ ic: d[0], light: -1 }) })),
       lightOpen: !!cur, light: cur ? { src: cur.src, poster: cur.poster, title: cur.title, tag: cur.tag, isVid: cur.isVid, isImg: cur.isImg, pos: (L + 1) + ' / ' + LS.length, frame: ({graphic:'Graphic design',sim:'Simulations',model:'3D models',game:'Unity games'})[cur.cat], kind: cur.tag.split(' · ').slice(1).join(' · ') || cur.catL, tool: cur.tool, fmt: cur.isVid ? 'Video · MP4' : 'Image', icon: cur.isVid ? '▶' : '#' } : { src: '', poster: '', title: '', tag: '', isVid: false, isImg: false, pos: '', frame: '', kind: '', tool: '', fmt: '', icon: '' },
       prev: this.prev, next: this.next, close: this.close, bgClose: this.bgClose
