@@ -368,5 +368,17 @@
  "1b3ec3f529dbcc5d08aa2bc72d9bc930": "assets/print/tiko_4.webp",
  "40417b268efda5ea84a1d47716e6601f": "assets/print/tiko_5.webp",
  "bf2eaae2fa9ac3610bd409db990db376": "assets/print/nil_2.webp",
- "0aee0cfbea91122403d042835ababae6": "assets/print/nil_3.webp"
+ "0aee0cfbea91122403d042835ababae6": "assets/print/nil_3.webp",
+ "4e22c7335aa3ba807810a1a9d241c9e6": "assets/site/tk3d/figma.webp",
+ "7555ce2780dc3a5bc07afe17da373d14": "assets/site/tk3d/framer.webp",
+ "c64275f111349fd7bdfad089f11cda65": "assets/site/tk3d/claude.webp",
+ "d6c873932157f208a4242c54f0a3c489": "assets/site/tk3d/openai.webp",
+ "7b0b097d96fb9b025e499afe6697f59c": "assets/site/tk3d/github.webp",
+ "7f35f1bc951ec2cc2715e1baa1acf21f": "assets/site/tk3d/unity.webp",
+ "ea049fb59f90b6b3e8b32a82c178e3ec": "assets/site/tk3d/blender.webp",
+ "2cd7d318196dd95938b118081a2bb719": "assets/site/tk3d/adobephotoshop.webp",
+ "0be385279b33e343e471583bca5e511d": "assets/site/tk3d/adobeillustrator.webp",
+ "545f303f1abcdf449fed9ec188420d1e": "assets/site/tk3d/googlegemini.webp",
+ "66e68ee5afc5741f37de837cdc280f67": "assets/site/tk3d/antigravity.webp",
+ "0bf3c518e506aa33ba6dcb0c35e33d27": "assets/site/tk3d/vercel.webp"
 }

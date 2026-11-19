@@ -2056,141 +2056,71 @@ class Component extends DCLogic {
   startShapes(){
     const c = this.shapes; if (!c) return;
     const ctx = c.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
-    // Tool logos (brand glyphs from the page's own icon sprite), with the name shown on hover
-    const CORE = [['figma','Figma'],['framer','Framer'],['unity','Unity'],['claude','Claude'],['openai','Codex · ChatGPT'],['antigravity','Antigravity'],['github','GitHub'],['vercel','Vercel'],['cursor','Cursor'],['blender','Blender'],['adobephotoshop','Photoshop'],['googlegemini','Gemini']];
-    const MORE = [['adobeillustrator','Illustrator'],['adobeindesign','InDesign'],['adobeaftereffects','After Effects'],['adobepremierepro','Premiere Pro'],['adobexd','Adobe XD'],['autodeskmaya','Maya'],['canva','Canva'],['notion','Notion'],['miro','Miro'],['webflow','Webflow'],['rive','Rive'],['lottiefiles','LottieFiles'],['perplexity','Perplexity'],['githubcopilot','GitHub Copilot'],['threedotjs','Three.js'],['react','React'],['tailwindcss','Tailwind CSS'],['visualstudiocode','VS Code'],['n8n','n8n'],['zapier','Zapier'],['make','Make'],['git','Git'],['html5','HTML5'],['css','CSS'],['javascript','JavaScript'],['typescript','TypeScript'],['vite','Vite'],['nodedotjs','Node.js'],['greensock','GSAP']];
-    const DARK = { cursor: 1, github: 1, githubcopilot: 1, notion: 1, openai: 1, threedotjs: 1, unity: 1, vercel: 1, rive: 1, miro: 1 };
-    const logos = {};
-    const svgFor = (id) => {
-      const sym = document.getElementById('tk-' + id); if (!sym) return null;
-      const ser = new XMLSerializer(), root = sym.ownerSVGElement || sym.parentNode;
-      const grads = root ? Array.from(root.querySelectorAll('linearGradient,radialGradient')).map(g => ser.serializeToString(g)).join('') : '';
-      const body = Array.from(sym.childNodes).map(n => ser.serializeToString(n)).join('');
-      return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + (sym.getAttribute('viewBox') || '0 0 24 24') + '" width="512" height="512"><defs>' + grads + '</defs>' + body + '</svg>';
+    // glossy 3D dice and balls with the tools' logos printed on them (pre-rendered sprites)
+    const T = [['figma','Figma','box'],['framer','Framer','ball'],['claude','Claude','box'],['openai','Codex · ChatGPT','box'],['github','GitHub','ball'],['unity','Unity','ball'],['blender','Blender','ball'],['adobephotoshop','Photoshop','box'],['adobeillustrator','Illustrator','box'],['googlegemini','Gemini','ball'],['antigravity','Antigravity','box'],['vercel','Vercel','ball']];
+    const SRC = {
+      figma: 'assets/site/tk3d/figma.webp', framer: 'assets/site/tk3d/framer.webp', claude: 'assets/site/tk3d/claude.webp', openai: 'assets/site/tk3d/openai.webp',
+      github: 'assets/site/tk3d/github.webp', unity: 'assets/site/tk3d/unity.webp', blender: 'assets/site/tk3d/blender.webp', adobephotoshop: 'assets/site/tk3d/adobephotoshop.webp',
+      adobeillustrator: 'assets/site/tk3d/adobeillustrator.webp', googlegemini: 'assets/site/tk3d/googlegemini.webp', antigravity: 'assets/site/tk3d/antigravity.webp', vercel: 'assets/site/tk3d/vercel.webp'
     };
-    const loadLogo = (id) => {
-      if (logos[id]) return logos[id];
-      const L = logos[id] = { img: null, ok: false, wait: [] }; const s = svgFor(id); if (!s) return L;
-      const im = new Image(); im.decoding = 'async';
-      im.onload = () => { let src = im;
-        if (DARK[id]) { const t = document.createElement('canvas'); t.width = t.height = 512; const g = t.getContext('2d'); g.drawImage(im, 0, 0, 512, 512); g.globalCompositeOperation = 'source-in'; g.fillStyle = '#FFFFFF'; g.fillRect(0, 0, 512, 512); src = t; }
-        L.img = src; L.ok = true; L.wait.forEach(f => f()); L.wait = []; };
-      im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s); return L;
-    };
-    // fine grain texture shared by every face
-    const grain = document.createElement('canvas'); grain.width = grain.height = 96;
-    { const g = grain.getContext('2d'), d = g.createImageData(96, 96); for (let i = 0; i < d.data.length; i += 4) { const v = 110 + Math.random() * 145; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } g.putImageData(d, 0, 0); }
-    const rr = (g, x, y, w, h, rad) => { g.beginPath(); g.moveTo(x + rad, y); g.arcTo(x + w, y, x + w, y + h, rad); g.arcTo(x + w, y + h, x, y + h, rad); g.arcTo(x, y + h, x, y, rad); g.arcTo(x, y, x + w, y, rad); g.closePath(); };
-    // object-space face sprite: material, grain, bevel, logo
-    const makeSprite = (b) => {
-      const s = b.k === 'tile' ? b.r * 0.8 : b.r, px = Math.ceil(s * 2 * dpr) + 4, cv = b.spr || document.createElement('canvas'); cv.width = cv.height = px;
-      const g = cv.getContext('2d'); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, px, px); g.translate(px / 2, px / 2); g.scale(dpr, dpr);
-      const dk = b.dark;
-      const path = () => { if (b.k === 'tile') rr(g, -s, -s, s * 2, s * 2, s * 0.46); else { g.beginPath(); g.arc(0, 0, s, 0, 6.2832); } };
-      if (b.k === 'tile') {
-        path(); const fg = g.createLinearGradient(0, -s, 0, s);
-        if (dk) { fg.addColorStop(0, '#30364A'); fg.addColorStop(.55, '#191D2A'); fg.addColorStop(1, '#0C0E16'); } else { fg.addColorStop(0, '#FFFFFF'); fg.addColorStop(.6, '#F4F6FB'); fg.addColorStop(1, '#E2E7F2'); }
-        g.fillStyle = fg; g.fill();
-        g.save(); path(); g.clip(); g.globalAlpha = dk ? .07 : .05; g.globalCompositeOperation = 'multiply'; g.fillStyle = g.createPattern(grain, 'repeat'); g.fillRect(-s, -s, s * 2, s * 2); g.restore();
-        // bevel: bright top-left rim, soft dark bottom rim
-        g.save(); path(); g.clip(); g.lineWidth = Math.max(1.4, s * .07);
-        const bg = g.createLinearGradient(-s, -s, s, s); bg.addColorStop(0, dk ? 'rgba(255,255,255,.35)' : 'rgba(255,255,255,1)'); bg.addColorStop(.5, 'rgba(255,255,255,0)'); bg.addColorStop(1, dk ? 'rgba(0,0,0,.5)' : 'rgba(40,60,120,.16)');
-        g.strokeStyle = bg; path(); g.stroke(); g.restore();
-      }
-      const L = logos[b.id];
-      if (L && L.ok) { const ls = (b.k === 'tile' ? s * 1.06 : s * 1.02); g.save(); if (b.k !== 'tile') g.globalAlpha = .96; g.drawImage(L.img, -ls / 2, -ls / 2, ls, ls); g.restore(); }
-      b.spr = cv; b.ss = s;
-    };
-    const scaleNow = () => Math.max(0.62, Math.min(1.2, W / 1440));
+    const IMG = {}; T.forEach(t => { const im = new Image(); im.decoding = 'async'; im.src = SRC[t[0]]; IMG[t[0]] = im; });
+    const rr = (x, y, w, h, rad) => { ctx.beginPath(); ctx.moveTo(x + rad, y); ctx.arcTo(x + w, y, x + w, y + h, rad); ctx.arcTo(x + w, y + h, x, y + h, rad); ctx.arcTo(x, y + h, x, y, rad); ctx.arcTo(x, y, x + w, y, rad); ctx.closePath(); };
+    const shSpr = document.createElement('canvas'); shSpr.width = shSpr.height = 128;
+    { const g = shSpr.getContext('2d'); const gr = g.createRadialGradient(64,64,0,64,64,64); gr.addColorStop(0,'rgba(15,22,60,0.32)'); gr.addColorStop(0.5,'rgba(15,22,60,0.12)'); gr.addColorStop(1,'rgba(15,22,60,0)'); g.fillStyle = gr; g.fillRect(0,0,128,128); }
     let W = 0, H = 0, B = [], started = false, lmx = -9999, lmy = -9999, grab = null, hov = null;
     const build = () => {
       W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const target = W * H * (W < 700 ? 0.11 : 0.17); let area = 0; B = [];
-      const scale = scaleNow();
-      const pool = CORE.concat(MORE).sort(() => Math.random() - .5), extra = CORE.slice().sort(() => Math.random() - .5);
-      let n = 0;
-      while (area < target && B.length < 90) {
-        const t = n < pool.length ? pool[n] : extra[(n - pool.length) % extra.length]; n++;
-        const r = (36 + Math.random() * 22) * scale;
-        const b = { x: r + Math.random() * (W - 2 * r), y: -r - Math.random() * H * 1.6, vx: (Math.random() - 0.5) * 2, vy: 0, r, a: (Math.random() - .5) * 1.2, va: 0, k: Math.random() < .64 ? 'tile' : 'orb', id: t[0], name: t[1], dark: !!DARK[t[0]], hs: 1 };
-        B.push(b); area += Math.PI * r * r * 0.82;
-        const L = loadLogo(b.id); makeSprite(b); if (!L.ok) L.wait.push(() => makeSprite(b));
-      }
+      const scale = Math.max(0.55, Math.min(1.15, W / 1440)), list = T.slice().sort(() => Math.random() - .5);
+      const n = W < 700 ? 8 : list.length; B = [];
+      for (let i = 0; i < n; i++) { const t = list[i], box = t[2] === 'box';
+        const s = (box ? 168 : 132) * scale * (0.92 + Math.random() * 0.16);   // drawn width
+        B.push({ id: t[0], name: t[1], box, s, r: s * (box ? .45 : .5), x: s / 2 + Math.random() * (W - s), y: -s - Math.random() * H * 1.3, vx: (Math.random() - .5) * 2, vy: 0, a: (Math.random() - .5) * .4, va: 0, hs: 1 }); }
       if (this.reduce) { for (let k = 0; k < 900; k++) stepSim(true); }
     };
-    const shSpr = document.createElement('canvas'); shSpr.width = shSpr.height = 128;
-    { const g = shSpr.getContext('2d'); const gr = g.createRadialGradient(64,64,0,64,64,64); gr.addColorStop(0,'rgba(20,30,80,0.24)'); gr.addColorStop(0.55,'rgba(20,30,80,0.08)'); gr.addColorStop(1,'rgba(20,30,80,0)'); g.fillStyle = gr; g.fillRect(0,0,128,128); }
-    const LX = -0.55, LY = -0.83;
     const draw = (b) => {
-      const s = b.ss * b.hs, r = b.r * b.hs;
-      // contact shadow
-      ctx.drawImage(shSpr, b.x - r * 1.15 + r * .1, b.y - r * .75 + r * .42, r * 2.3, r * 1.5);
-      if (b.k === 'tile') {
-        const depth = r * .2, side = b.dark ? ['#07080D', '#11141E'] : ['#B9C3DA', '#D3DAEA'];
-        for (let i = 4; i >= 1; i--) { ctx.save(); ctx.translate(b.x, b.y + depth * i / 4); ctx.rotate(b.a); rr(ctx, -s, -s, s * 2, s * 2, s * .46); ctx.fillStyle = i > 2 ? side[0] : side[1]; ctx.fill(); ctx.restore(); }
-        ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.a); ctx.drawImage(b.spr, -b.spr.width / 2 / dpr * b.hs, -b.spr.height / 2 / dpr * b.hs, b.spr.width / dpr * b.hs, b.spr.height / dpr * b.hs);
-        // glass sheen, lit from the top-left in screen space
-        const ca = Math.cos(b.a), sa = Math.sin(b.a), lx = LX * ca + LY * sa, ly = -LX * sa + LY * ca;
-        rr(ctx, -s, -s, s * 2, s * 2, s * .46);
-        const gl = ctx.createRadialGradient(lx * s * .7, ly * s * .7, 0, lx * s * .7, ly * s * .7, s * 1.5);
-        gl.addColorStop(0, b.dark ? 'rgba(255,255,255,.22)' : 'rgba(255,255,255,.55)'); gl.addColorStop(.45, 'rgba(255,255,255,0)'); gl.addColorStop(1, b.dark ? 'rgba(0,0,0,.18)' : 'rgba(30,50,110,.07)');
-        ctx.fillStyle = gl; ctx.fill(); ctx.restore();
-      } else {
-        // glossy sphere: screen-space shading, logo decal rotates with the ball
-        const g = ctx.createRadialGradient(b.x + LX * s * .42, b.y + LY * s * .42, s * .05, b.x, b.y, s * 1.04);
-        if (b.dark) { g.addColorStop(0, '#454C63'); g.addColorStop(.5, '#1A1E2B'); g.addColorStop(1, '#07080D'); } else { g.addColorStop(0, '#FFFFFF'); g.addColorStop(.55, '#EEF1F8'); g.addColorStop(1, '#BCC6DD'); }
-        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(b.x, b.y, s, 0, 6.2832); ctx.fill();
-        ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.a); const w2 = b.spr.width / dpr * b.hs * .9; ctx.drawImage(b.spr, -w2 / 2, -w2 / 2, w2, w2); ctx.restore();
-        const sp = ctx.createRadialGradient(b.x + LX * s * .45, b.y + LY * s * .45, 0, b.x + LX * s * .45, b.y + LY * s * .45, s * .7);
-        sp.addColorStop(0, b.dark ? 'rgba(255,255,255,.4)' : 'rgba(255,255,255,.85)'); sp.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.fillStyle = sp; ctx.beginPath(); ctx.arc(b.x, b.y, s, 0, 6.2832); ctx.fill();
-        const rim = ctx.createRadialGradient(b.x, b.y, s * .78, b.x, b.y, s); rim.addColorStop(0, 'rgba(0,0,0,0)'); rim.addColorStop(1, b.dark ? 'rgba(0,0,0,.35)' : 'rgba(40,60,130,.16)');
-        ctx.fillStyle = rim; ctx.beginPath(); ctx.arc(b.x, b.y, s, 0, 6.2832); ctx.fill();
-      }
+      const im = IMG[b.id]; const sc = b.hs, w = b.s * sc;
+      const lift = Math.max(0, Math.min(1, (H - b.r - b.y) / 160));
+      const sw = w * (1.05 - lift * .35), sh = w * .32 * (1 - lift * .4);
+      ctx.globalAlpha = 1 - lift * .55; ctx.drawImage(shSpr, b.x - sw / 2 + w * .04, b.y + b.r * .9 - sh / 2, sw, sh); ctx.globalAlpha = 1;
+      if (!im.complete || !im.naturalWidth) return;
+      const h = w * im.naturalHeight / im.naturalWidth;
+      ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.a); ctx.drawImage(im, -w / 2, -h / 2 - (b.box ? h * .02 : 0), w, h); ctx.restore();
     };
     const label = (b) => {
       const t = b.name; ctx.save(); ctx.font = '500 13px Geist, system-ui, sans-serif'; const w = ctx.measureText(t).width + 22, h = 28;
-      const x = Math.max(6, Math.min(W - w - 6, b.x - w / 2)), y = Math.max(6, b.y - b.r * b.hs - h - 12);
-      ctx.shadowColor = 'rgba(10,20,60,.25)'; ctx.shadowBlur = 14; ctx.shadowOffsetY = 6; rr(ctx, x, y, w, h, 14); ctx.fillStyle = '#0B0D14'; ctx.fill();
+      const x = Math.max(6, Math.min(W - w - 6, b.x - w / 2)), y = Math.max(6, b.y - b.r * b.hs - h - 14);
+      ctx.shadowColor = 'rgba(10,20,60,.25)'; ctx.shadowBlur = 14; ctx.shadowOffsetY = 6; rr(x, y, w, h, 14); ctx.fillStyle = '#0B0D14'; ctx.fill();
       ctx.shadowColor = 'transparent'; ctx.fillStyle = '#FFFFFF'; ctx.textBaseline = 'middle'; ctx.fillText(t, x + 11, y + h / 2 + .5); ctx.restore();
     };
-    const hit = (mx, my) => { let best = null, bd = 1e9; for (const b of B) { const d = Math.hypot(b.x - mx, b.y - my); if (d < b.r * .9 && d < bd) { bd = d; best = b; } } return best; };
+    const hit = (mx, my) => { let best = null, bd = 1e9; for (const b of B) { const d = Math.hypot(b.x - mx, b.y - my); if (d < b.r && d < bd) { bd = d; best = b; } } return best; };
     const stepSim = (quiet) => {
-      const G = 0.42;
-      const rect = c.getBoundingClientRect(), mx = this.gx - rect.left, my = this.gy - rect.top;
+      const G = 0.42, rect = c.getBoundingClientRect(), mx = this.gx - rect.left, my = this.gy - rect.top;
       const mvx = lmx > -9000 ? mx - lmx : 0, mvy = lmy > -9000 ? my - lmy : 0; lmx = mx; lmy = my;
       for (const b of B) {
-        if (b === grab) { b.vx = (mx - b.x) * .35; b.vy = (my - b.y) * .35; b.va *= .9; }
+        if (b === grab) { b.vx = (mx - b.x) * .32; b.vy = (my - b.y) * .32; }
         else {
           b.vy += G;
-          if (!quiet && mx > -9000 && !grab) {
-            const dx = b.x - mx, dy = b.y - my, d = Math.hypot(dx, dy), R = b.r + 70;
-            if (d < R && d > 0.01) { const f = (1 - d / R); b.vx += dx / d * f * 3.2 + mvx * 0.18 * f; b.vy += dy / d * f * 3.2 + mvy * 0.18 * f; b.va += (mvx * 0.004) * f; }
-          }
+          if (!quiet && mx > -9000 && !grab) { const dx = b.x - mx, dy = b.y - my, d = Math.hypot(dx, dy), R = b.r + 80;
+            if (d < R && d > 0.01) { const f = 1 - d / R; b.vx += dx / d * f * 3.4 + mvx * .2 * f; b.vy += dy / d * f * 3.4 + mvy * .2 * f; b.va += mvx * .003 * f; } }
         }
-        b.vx *= 0.992; b.vy *= 0.992; b.va *= 0.96;
-        b.x += b.vx; b.y += b.vy; b.a += b.va + b.vx * 0.004;
-        if (b.y > H - b.r) { b.y = H - b.r; b.vy *= -0.25; b.vx *= 0.9; b.a += (Math.round(b.a / 1.5708) * 1.5708 - b.a) * (b.k === 'tile' ? .04 : 0); }
-        if (b.x < b.r) { b.x = b.r; b.vx *= -0.4; }
-        if (b.x > W - b.r) { b.x = W - b.r; b.vx *= -0.4; }
-        const want = (b === hov || b === grab) ? 1.08 : 1; b.hs += (want - b.hs) * .2;
+        b.vx *= .99; b.vy *= .99;
+        b.va += -b.a * .03; b.va *= .9; b.a = Math.max(-.45, Math.min(.45, b.a + b.va + b.vx * .002));   // stays mostly upright, like a real die settling
+        b.x += b.vx; b.y += b.vy;
+        if (b.y > H - b.r) { b.y = H - b.r; b.vy *= -.3; b.vx *= .88; }
+        if (b.x < b.r) { b.x = b.r; b.vx *= -.45; }
+        if (b.x > W - b.r) { b.x = W - b.r; b.vx *= -.45; }
+        const want = (b === hov || b === grab) ? 1.07 : 1; b.hs += (want - b.hs) * .2;
       }
-      for (let it = 0; it < 3; it++) {
-        for (let i = 0; i < B.length; i++) for (let j = i + 1; j < B.length; j++) {
-          const a = B[i], b = B[j]; const dx = b.x - a.x, dy = b.y - a.y, min = (a.r + b.r) * 0.9, d2 = dx * dx + dy * dy;
-          if (d2 < min * min && d2 > 0.0001) {
-            const d = Math.sqrt(d2), o = (min - d) / 2, nx = dx / d, ny = dy / d;
-            const wa = a === grab ? 0 : 1, wb = b === grab ? 0 : 1, sw = (wa + wb) || 1;
-            a.x -= nx * o * 2 * wa / sw; a.y -= ny * o * 2 * wa / sw; b.x += nx * o * 2 * wb / sw; b.y += ny * o * 2 * wb / sw;
-            const rv = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
-            if (rv < 0) { const imp = rv * 0.6; if (wa) { a.vx += nx * imp; a.vy += ny * imp; } if (wb) { b.vx -= nx * imp; b.vy -= ny * imp; } }
-          }
-        }
+      for (let it = 0; it < 4; it++) for (let i = 0; i < B.length; i++) for (let j = i + 1; j < B.length; j++) {
+        const a = B[i], b = B[j], dx = b.x - a.x, dy = b.y - a.y, min = (a.r + b.r) * .96, d2 = dx * dx + dy * dy;
+        if (d2 < min * min && d2 > .0001) { const d = Math.sqrt(d2), o = min - d, nx = dx / d, ny = dy / d;
+          const wa = a === grab ? 0 : 1, wb = b === grab ? 0 : 1, sw = (wa + wb) || 1;
+          a.x -= nx * o * wa / sw; a.y -= ny * o * wa / sw; b.x += nx * o * wb / sw; b.y += ny * o * wb / sw;
+          const rv = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+          if (rv < 0) { const imp = rv * .55; if (wa) { a.vx += nx * imp; a.vy += ny * imp; a.va -= imp * .004; } if (wb) { b.vx -= nx * imp; b.vy -= ny * imp; b.va += imp * .004; } } }
       }
     };
-    // grab & throw with the mouse (touch keeps the push effect so page scrolling still works)
-    const sec = c.parentElement;
-    const inter = (t) => t && t.closest && t.closest('a,button,input,textarea,select,[role="button"]');
+    const sec = c.parentElement, inter = (t) => t && t.closest && t.closest('a,button,input,textarea,select,[role="button"]');
     const local = (e) => { const r = c.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
     this._shDown = (e) => { if (e.pointerType !== 'mouse' || e.button !== 0 || inter(e.target)) return; const [x, y] = local(e); if (x < 0 || y < 0 || x > W || y > H) return; const b = hit(x, y); if (!b) return; grab = b; e.preventDefault(); if (sec) sec.style.cursor = 'grabbing'; };
     this._shUp = () => { if (!grab) return; grab = null; if (sec) sec.style.cursor = ''; };
@@ -2204,7 +2134,7 @@ class Component extends DCLogic {
       if (visible || this.reduce) {
         if (started && !this.reduce) stepSim(false);
         ctx.clearRect(0, 0, W, H);
-        const order = B.filter(b => b.y > -b.r * 1.5 && b !== grab && b !== hov);
+        const order = B.filter(b => b.y > -b.s && b !== grab && b !== hov).sort((p, q) => p.y - q.y);
         for (const b of order) draw(b);
         if (hov && hov !== grab) draw(hov);
         if (grab) draw(grab);
@@ -2214,6 +2144,7 @@ class Component extends DCLogic {
     };
     tick();
   }
+
 
   startStage(){
     const st = this.q('[data-stage]'), fan = this.q('[data-fan]'); if (!st || !fan) return;
