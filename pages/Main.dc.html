@@ -901,6 +901,25 @@ body{background:#ECEEF3!important}
 .st-card video{display:none!important}
 [data-philo]>svg,#statement>svg{z-index:0!important}
 [data-philo-in]{z-index:1}
+/* Approach: vector pen path with bezier anchors (replaces the thick tube) */
+.pn-hl line{stroke:#2D5BFF;stroke-width:1;opacity:0;transition:opacity .4s}
+.pn-hl line.on{opacity:.55}
+.pn-ov{position:absolute;inset:0;pointer-events:none;z-index:0}
+.pn-a,.pn-h{position:absolute;display:block;transform:translate(-50%,-50%) scale(.4);opacity:0;transition:opacity .35s,transform .45s cubic-bezier(.22,1,.36,1),background .3s}
+.pn-a{width:13px;height:13px;background:#FFF;border:2px solid #2D5BFF;border-radius:2px}
+.pn-h{width:9px;height:9px;background:#FFF;border:1.5px solid #2D5BFF;border-radius:50%}
+.pn-a.on,.pn-h.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.pn-a.sel{background:#2D5BFF;box-shadow:0 0 0 5px rgba(45,91,255,.15)}
+.pn-cur{position:absolute;left:0;top:0;display:flex;align-items:flex-start;gap:2px;opacity:0;transition:opacity .4s;will-change:transform}
+.pn-cur.on{opacity:1}
+.pn-cur svg{filter:drop-shadow(0 4px 8px rgba(11,13,20,.25))}
+.pn-cur span{margin-top:18px;padding:5px 10px;border-radius:999px 999px 999px 4px;background:#2D5BFF;color:#FFF;font:500 12.5px/1 'Geist',system-ui,sans-serif;white-space:nowrap;box-shadow:0 8px 20px -6px rgba(45,91,255,.55)}
+html[data-theme="dark"] .pn-a,html[data-theme="dark"] .pn-h{background:#07080D;border-color:#6E8BFF}
+html[data-theme="dark"] .pn-a.sel{background:#6E8BFF}
+html[data-theme="dark"] .pn-hl line{stroke:#6E8BFF}
+html[data-theme="dark"] [data-tube2]{stroke:#6E8BFF}
+html[data-theme="dark"] .pn-cur path{fill:#FFF;stroke:#07080D}
+@media (max-width:1199px){.pn-ov{display:none}}
 @media (max-width:1199px){[data-philo]>svg{display:none!important}}
 #statement h2,#statement .st-copy,#statement .st-card{z-index:2!important}
 /* ===== v33 hero redesign ===== */
@@ -1468,8 +1487,10 @@ html[data-theme="dark"] .hx-sw p{color:#8B92A7!important}
 <!-- PHILOSOPHY -->
 <section data-philo data-tubesec2 onMouseMove="{{tiltDev}}" onMouseLeave="{{untiltDev}}" aria-labelledby="ph-h" style="position: relative; padding: clamp(120px, 10vw, 220px) clamp(20px, 6vw, 140px) clamp(96px, 11vw, 200px); perspective: 1600px">
 <svg viewBox="0 0 1600 1500" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible">
-<path data-tube2 d="M1720 250 C1480 290 1260 400 1160 560 C1060 720 900 760 870 920 C840 1080 1000 1230 1280 1300 C1460 1345 1600 1330 1720 1300" pathLength="1" fill="none" stroke="#8FB0FF" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"/>
+<g class="pn-hl"><line data-pl="0" x1="1260" y1="400" x2="1160" y2="560" vector-effect="non-scaling-stroke"/><line data-pl="0" x1="1060" y1="720" x2="1160" y2="560" vector-effect="non-scaling-stroke"/><line data-pl="1" x1="900" y1="760" x2="870" y2="920" vector-effect="non-scaling-stroke"/><line data-pl="1" x1="840" y1="1080" x2="870" y2="920" vector-effect="non-scaling-stroke"/><line data-pl="2" x1="1000" y1="1230" x2="1280" y2="1300" vector-effect="non-scaling-stroke"/><line data-pl="2" x1="1460" y1="1345" x2="1280" y2="1300" vector-effect="non-scaling-stroke"/></g>
+<path data-tube2 d="M1720 250 C1480 290 1260 400 1160 560 C1060 720 900 760 870 920 C840 1080 1000 1230 1280 1300 C1460 1345 1600 1330 1720 1300" pathLength="1" fill="none" stroke="#2D5BFF" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"/>
 </svg>
+<div class="pn-ov" data-penov aria-hidden="true"><i class="pn-h" data-ph="0" style="left:78.750%;top:26.667%"></i><i class="pn-h" data-ph="0" style="left:66.250%;top:48.000%"></i><i class="pn-a" data-pa="0" style="left:72.500%;top:37.333%"></i><i class="pn-h" data-ph="1" style="left:56.250%;top:50.667%"></i><i class="pn-h" data-ph="1" style="left:52.500%;top:72.000%"></i><i class="pn-a" data-pa="1" style="left:54.375%;top:61.333%"></i><i class="pn-h" data-ph="2" style="left:62.500%;top:82.000%"></i><i class="pn-h" data-ph="2" style="left:91.250%;top:89.667%"></i><i class="pn-a" data-pa="2" style="left:80.000%;top:86.667%"></i><span class="pn-cur" data-pcur><svg viewBox="0 0 24 24" width="24" height="24"><path d="M5.5 2.8l13 7.1-5.6 1.6-2.7 5.4z" fill="#0B0D14" stroke="#FFF" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Pen · Pranav</span></span></div>
 <div data-philo-in style="position: relative; transform-origin: 50% 0%; will-change: transform">
 <p class="rv" style="position: relative; margin: 0 0 26px"><span class="eyebrow"><b>06</b>Approach</span></p>
 <h2 id="ph-h" class="rv" style="position: relative; z-index: 1; margin: 0; max-width: 1000px; font-size: clamp(44px, 6.4vw, 108px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 400">
@@ -2000,6 +2021,18 @@ class Component extends DCLogic {
     }, { passive: false });
     window.addEventListener('scroll', () => { if (own) { own = false; return; } if (!running) { target = cur = window.scrollY; } });
   }
+  penStep(path, sec, t){
+    if (!this._pen) { const L = path.getTotalLength(), A = [[1160,560],[870,920],[1280,1300]], f = A.map(([ax, ay]) => { let best = 0, bd = 1e9; for (let k = 0; k <= 400; k++) { const q = path.getPointAtLength(L * k / 400), d = (q.x - ax) ** 2 + (q.y - ay) ** 2; if (d < bd) { bd = d; best = k / 400; } } return best; });
+      this._pen = { L, f, cur: sec.querySelector('[data-pcur]'), a: [...sec.querySelectorAll('[data-pa]')], h: [...sec.querySelectorAll('[data-ph]')], l: [...sec.querySelectorAll('[data-pl]')] }; }
+    const P = this._pen; if (!P.cur) return;
+    const tt = Math.max(0, Math.min(1, t)), q = path.getPointAtLength(P.L * tt), w = sec.offsetWidth, h = sec.offsetHeight;
+    P.cur.style.transform = 'translate(' + (q.x / 1600 * w - 5).toFixed(1) + 'px,' + (q.y / 1500 * h - 3).toFixed(1) + 'px)';
+    P.cur.classList.toggle('on', tt > 0.02 && tt < 0.985);
+    let last = -1; P.f.forEach((fv, i) => { if (tt >= fv - 0.004) last = i; });
+    P.a.forEach(el => { const i = +el.dataset.pa; el.classList.toggle('on', i <= last); el.classList.toggle('sel', i === last && tt < 0.985); });
+    P.h.forEach(el => el.classList.toggle('on', +el.dataset.ph === last && tt < 0.985));
+    P.l.forEach(el => el.classList.toggle('on', +el.dataset.pl === last && tt < 0.985));
+  }
   tubeProg(path, r, vh, vbH){
     if (!path._ys) { try { const L = path.getTotalLength(), N = 240; path._ys = []; for (let i = 0; i <= N; i++) path._ys.push(path.getPointAtLength(L * i / N).y); } catch (e) { path._ys = [0, vbH]; } }
     const ys = path._ys, N = ys.length - 1, lim = vh * 0.72;
@@ -2031,7 +2064,7 @@ class Component extends DCLogic {
         this.tp1 = (this.tp1 ?? 0) + (p - (this.tp1 ?? 0)) * 0.12;
         tube.style.strokeDashoffset = this.reduce ? 0 : (1 - this.tp1).toFixed(4);
       }
-      if (tube2 && tsec2) { const r = tsec2.getBoundingClientRect(); const p = this.tubeProg(tube2, r, vh, 1500); this.tp2 = (this.tp2 ?? 0) + (p - (this.tp2 ?? 0)) * 0.12; tube2.style.strokeDashoffset = this.reduce ? 0 : (1 - this.tp2).toFixed(4); }
+      if (tube2 && tsec2) { const r = tsec2.getBoundingClientRect(); const p = this.tubeProg(tube2, r, vh, 1500); this.tp2 = (this.tp2 ?? 0) + (p - (this.tp2 ?? 0)) * 0.12; tube2.style.strokeDashoffset = this.reduce ? 0 : (1 - this.tp2).toFixed(4);  this.penStep(tube2, tsec2, this.reduce ? 1 : this.tp2); }
       if (pin && tsec2 && !this.reduce) { const r = tsec2.getBoundingClientRect(); let e = 1 - Math.max(0, Math.min(1, (r.top - vh * 0.1) / (vh * 0.8))); const ex = Math.max(0, Math.min(1, -r.bottom / vh + 1.25)); pin.style.transform = 'rotateX(' + ((1 - e) * 16 - ex * 10).toFixed(2) + 'deg) scale(' + (0.92 + 0.08 * e).toFixed(3) + ')'; }
       if (dev && !this.reduce) { const r = dev.getBoundingClientRect(); const k = (r.top + r.height / 2 - vh / 2) / vh; dev.style.transform = 'rotateX(' + (k * 18 - this.devTilt.y * 14).toFixed(2) + 'deg) rotateY(' + (this.devTilt.x * 18 - 8).toFixed(2) + 'deg) rotateZ(' + (k * -3).toFixed(2) + 'deg)'; }
       wordsets.forEach(o => { if (this.reduce) return; const r = o.el.getBoundingClientRect(); let p = (vh * 0.9 - r.top) / (r.height + vh * 0.35); p = Math.max(0, Math.min(1, p)); const n = o.ws.length; o.ws.forEach((w, i) => { const v = Math.max(0.14, Math.min(1, (p * (n + 6) - i) / 6)); w.style.opacity = v.toFixed(2); }); });
