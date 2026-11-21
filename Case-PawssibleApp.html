@@ -13,6 +13,7 @@
 <body>
 <template id="dc-tpl">
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
@@ -157,80 +158,436 @@ html[data-theme="dark"] .csn-count{color:#8B92A7}
 @media (max-width:860px){.csn-lg{display:none}}
 @media (max-width:560px){.csn{top:12px}.csn-pt,.csn-lsep{display:none}.csn-logo{padding:0 10px}.csn-back{padding:0 14px 0 12px}.csn-cta{padding:0 16px}}
 /* Pawssible app case study */
-.pa{background:#F7F7F7}
-.pa-wrap{max-width:1440px;background:#F7F7F7}
-.pa-all{background:#F7F7F7;padding:clamp(72px,8vw,140px) clamp(20px,5vw,72px);line-height:1.5}
-.pa-in{max-width:1300px;margin:0 auto}
-.pa-k{display:inline-block;font:500 13px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6A4CFF}
-.pa-all h2{margin:14px 0 0;font-size:clamp(36px,5vw,72px);line-height:1.04;letter-spacing:-.035em;font-weight:500;color:#141414}
-.pa-all h2 .it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#6A4CFF}
-.pa-all p{margin:18px 0 0;max-width:58ch;font-size:18px;color:#5A5A5A}
-.pa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px 18px;margin-top:48px}
+.pw{--v:#5B3FD6;--y:#FFC93C;--co:#F0556A;--mi:#1FA97A;--ink:#1E1A33;--pv:#EDE7FF;--bg:#F7F7F8;--mut:#9C9AA8;--txt:#55536A;--line:#E7E5EE;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Geist',system-ui,sans-serif;line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+.pw *{box-sizing:border-box}
+.pw img{display:block;max-width:100%;height:auto}
+.pw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.pw h2,.pw h3,.pw h4,.pw h5{margin:0;color:var(--ink);font-weight:700;letter-spacing:-.025em}
+.pw p{margin:0;color:var(--txt)}
+.pw-mute{color:var(--mut)}
+.pw-k{display:inline-block;font:600 12px/1 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--v)}
+.pw-sec{max-width:1200px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,4vw,40px) 0}
+.pw-head{margin-bottom:clamp(32px,4vw,48px)}
+.pw-head h2,.pw-needs-list h2,.pw-brand h2,.pw-review h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1}
+.pw-head-row{display:grid;grid-template-columns:1fr minmax(0,420px);gap:24px 48px;align-items:end}
+.pw-head-row p{font-size:16px}
+/* hero */
+.pw-hero{position:relative;min-height:min(86vh,780px);display:flex;align-items:center;justify-content:center;overflow:hidden;color:#FFF}
+.pw-hero-bg{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;object-position:50% 35%}
+.pw-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,8,.25),rgba(20,10,8,.45))}
+.pw-hero-in{position:relative;z-index:1;text-align:center;padding:0 24px}
+.pw-hero-logo{width:clamp(220px,28vw,380px);margin:0 auto}
+.pw-hero-tag{margin-top:18px!important;color:rgba(255,255,255,.92)!important;font-size:clamp(15px,1.3vw,18px)}
+.pw-hero-meta{position:absolute;z-index:1;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);bottom:28px;display:flex;justify-content:space-between;font:600 11px/1 'Geist Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+/* intro */
+.pw-intro{text-align:center}
+.pw-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.pw-chips span{padding:8px 14px;border-radius:99px;background:var(--ink);color:#FFF;font-size:13px;font-weight:600}
+.pw-statement{max-width:860px;margin:0 auto!important;font-size:clamp(26px,3.2vw,42px)!important;line-height:1.25!important;letter-spacing:-.02em;color:var(--ink)!important;font-weight:500}
+.pw-statement b{font-weight:800}
+.pw-statement-s{font-size:clamp(22px,2.5vw,32px)!important;max-width:720px}
+.pw-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:56px auto 0;padding:24px 0 0;border-top:1px solid var(--line);text-align:left}
+.pw-facts dt{font:600 11px/1 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.pw-facts dd{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--ink)}
+/* about */
+.pw-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.pw-photo{position:relative;margin:0;border-radius:24px;overflow:hidden;background:#DDD}
+.pw-photo-tall img:first-child{width:100%;aspect-ratio:4/5;object-fit:cover}
+.pw-photo-logo{position:absolute;left:24px;top:24px;width:120px!important}
+.pw-split-txt{display:grid;grid-template-columns:1fr auto;gap:28px 24px;align-items:center}
+.pw-block{grid-column:1}
+.pw-block h3{font-size:22px;margin-bottom:10px}
+.pw-sticker{grid-column:2;grid-row:1/span 2;width:140px;filter:drop-shadow(0 16px 24px rgba(0,0,0,.12))}
+/* problem */
+.pw-ps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.pw-ps-list{display:grid;gap:20px}
+.pw-ps-item{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:24px;border-radius:20px;background:#FFF;border:1px solid var(--line)}
+.pw-ps-item b{display:block;font-size:17px;margin-bottom:6px}
+.pw-ps-ic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--bg);font-weight:800;color:var(--ink)}
+.pw-ps-ic-v{background:var(--pv);color:var(--v)}
+.pw-sketch{mix-blend-mode:multiply;max-width:520px!important;margin:0 auto}
+/* needs */
+.pw-needs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+.pw-needs-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;min-height:360px;border-radius:24px;background:var(--ink);padding:40px}
+.pw-needs-card img{width:min(260px,70%)}
+.pw-needs-card span{font:500 11px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.pw-needs-list{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.pw-needs-list h2{margin-bottom:12px}
+.pw-feat{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center;padding:18px 20px;border-radius:18px;background:#FFF;border:1px solid var(--line)}
+.pw-feat b{display:block;font-size:16px}
+.pw-feat p{font-size:15px}
+.pw-feat-ic{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--pv);color:var(--v);font-size:18px;font-weight:700}
+/* alternatives */
+.pw-alt{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pw-alt-c{padding:28px;border-radius:20px;background:#FFF;border:1px solid var(--line)}
+.pw-alt-c b{display:block;margin:18px 0 8px;font-size:18px}
+.pw-alt-c p{font-size:15px}
+.pw-alt-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--c);color:#FFF;font-size:20px}
+.pw-alt-ic img{width:30px}
+.pw-alt-on{border:2px solid var(--v);box-shadow:0 18px 40px -24px rgba(91,63,214,.5)}
+.pw-alt-on .pw-alt-ic{background:var(--pv)}
+.pw-tri{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.pw-tri>div{padding:24px 28px;border-radius:20px;background:var(--pv)}
+.pw-tri h4{font-size:17px;margin-bottom:8px;color:var(--v)}
+.pw-tri p{font-size:15px}
+.pw-tri ul{margin:10px 0 0;padding-left:18px;font-size:14px;color:var(--txt)}
+.pw-wide{max-width:1200px;margin:clamp(64px,8vw,112px) auto 0;padding:0 clamp(20px,4vw,40px)}
+.pw-wide img{width:100%;border-radius:24px}
+.pw-wide figcaption,.pw-cap{margin-top:12px;text-align:right;font:500 12px/1.4 'Geist Mono',monospace;color:var(--mut)}
+/* process */
+.pw-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pw-steps li{padding:24px;border-radius:20px;background:#FFF;border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.pw-steps span{font:600 12px 'Geist Mono',monospace;color:var(--v)}
+.pw-steps b{font-size:17px}
+.pw-steps p{font-size:14px}
+/* personas */
+.pw-pers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pw-per{padding:28px;border-radius:24px;background:#FFF;border:1px solid var(--line)}
+.pw-per header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.pw-per header b{display:block;font-size:18px}
+.pw-per header span{font-size:14px;color:var(--mut)}
+.pw-av{display:grid!important;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--c);color:var(--ink)!important;font-weight:800;font-size:20px!important}
+.pw-per>p{font-size:15px}
+.pw-gp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+.pw-gp h5{font:600 11px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.pw-gp ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--ink)}
+.pw-gp li::before{content:"✓";color:var(--mi);font-weight:800;margin-right:8px}
+.pw-gp .pw-pain li::before{content:"•";color:var(--co)}
+/* brand */
+.pw-brand{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center}
+.pw-brand-hero p{margin-top:16px!important}
+.pw-brand-hero .pw-k{margin-bottom:14px}
+.pw-icons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pw-icons figure{margin:0}
+.pw-icon-grid,.pw-icon-sizes{aspect-ratio:1;border-radius:20px;background:#FFF;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:12px}
+.pw-icon-grid{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px;background-position:center}
+.pw-icon-grid img{width:46%}
+.pw-icon-sizes img:nth-child(1){width:28%}.pw-icon-sizes img:nth-child(2){width:19%}.pw-icon-sizes img:nth-child(3){width:12%}
+.pw-icons figcaption{margin-top:10px;font:500 12px 'Geist Mono',monospace;color:var(--mut)}
+/* type & colour */
+.pw-tc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.pw-type{padding:32px;border-radius:24px;background:#141317;color:#FFF}
+.pw-type-top{display:flex;justify-content:space-between;font:600 11px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.pw-type-name{display:block;margin-top:24px;font-size:clamp(36px,4vw,52px);line-height:1;font-weight:800;letter-spacing:-.03em}
+.pw-type-aa{display:block;margin-top:10px;font-size:14px;color:rgba(255,255,255,.55)}
+.pw-type ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px}
+.pw-type li{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.06);font-size:16px}
+.pw-type em{font-style:normal;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+.pw-pal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start}
+.pw-sw{aspect-ratio:1/1.05;border-radius:20px;background:var(--c);color:var(--t);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;border:1px solid rgba(0,0,0,.04)}
+.pw-sw b{font-size:15px;color:var(--t)}
+.pw-sw span{font:500 12px 'Geist Mono',monospace;color:var(--t);opacity:.85}
+.pw-pal p{grid-column:1/-1;font-size:14px;margin-top:4px!important}
+/* posters */
+.pw-posters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px;border-radius:24px;background:#26252B}
+.pw-pos{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;display:flex;align-items:flex-end;padding:24px;background:#000}
+.pw-pos:not(.pw-pos-w)>img:first-child{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover}
+.pw-pos::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.05) 40%,rgba(0,0,0,.6))}
+.pw-pos b{position:relative;z-index:1;color:#FFF;font-size:clamp(20px,2.2vw,30px);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.pw-pos .pw-pos-logo{position:absolute;z-index:1;top:20px;left:20px;width:110px!important}
+.pw-pos-w{background:#FFF;flex-direction:column;justify-content:center;align-items:flex-start}
+.pw-pos-w::after{display:none}
+.pw-pos-w b{color:var(--ink);margin-top:auto}
+.pw-pos-icon{position:relative;width:38%!important;height:auto;margin:auto}
+/* flow */
+.pw-flow{padding:clamp(24px,3vw,40px);border-radius:24px;background:#FFF;border:1px solid var(--line)}
+.pw-flow span{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--ink);text-align:center}
+.pw-flow-entry{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.pw-flow-entry i{width:28px;height:2px;background:var(--line);position:relative}
+.pw-flow-entry i::after{content:"";position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left-color:#C9C6D6}
+.pw-flow-lanes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;padding-top:32px;border-top:1px dashed var(--line)}
+.pw-lane{display:flex;flex-direction:column;gap:10px;position:relative}
+.pw-lane h5{font:600 11px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
+.pw-lane span+span{position:relative}
+.pw-lane span+span::before{content:"";position:absolute;left:50%;top:-11px;width:2px;height:10px;background:var(--line)}
+.pw .pw-n-hub{background:var(--v);border-color:var(--v);color:#FFF}
+.pw-lane-v .pw-n-hub{background:var(--y);border-color:var(--y);color:var(--ink)}
+/* core screens */
+.pw-core-row{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 20px}
+.pw-core-row figure{margin:0}
+.pw-core-row img{width:100%;filter:drop-shadow(0 18px 30px rgba(40,20,100,.14))}
+.pw-core-row figcaption{margin-top:12px;text-align:center;font:600 12px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.pw-appintro{text-align:center}
+.pw-appintro img{width:64px;margin:0 auto 16px}
+.pw-appintro .pw-k{margin-bottom:20px}
+/* walkthrough */
+.pw-walk{max-width:1100px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,40px) 0;display:grid;gap:clamp(56px,7vw,96px)}
+.pw-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:center}
+.pw-row-ph{margin:0;display:flex;justify-content:center;padding:clamp(28px,4vw,48px);border-radius:28px;background:linear-gradient(160deg,#F1EDFF,#E6E0FA)}
+.pw-row-ph img{width:min(300px,100%);filter:drop-shadow(0 28px 40px rgba(50,25,130,.22))}
+.pw-rev .pw-row-ph{order:2}
+.pw-row-txt{max-width:440px}
+.pw-num{display:inline-grid;place-items:center;min-width:44px;height:32px;padding:0 12px;border-radius:99px;background:var(--ink);color:#FFF;font:600 13px 'Geist Mono',monospace;margin-right:10px}
+.pw-row-txt h3{margin:18px 0 12px;font-size:clamp(28px,3vw,40px);line-height:1.08}
+.pw-row-txt p{font-size:17px}
+.pw-tag{display:inline-block;margin-top:24px;padding:12px 18px;border-radius:14px;background:#FFF;border:1px solid var(--line);color:var(--v);font-size:14px;font-weight:600;box-shadow:0 10px 24px -18px rgba(40,20,100,.4)}
+/* review */
+.pw-review{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
+.pw-review .pw-k{margin-bottom:14px}
+.pw-review h2+p{margin-top:16px!important}
+.pw-stats{display:flex;gap:16px;margin-top:28px}
+.pw-stats div{flex:1;padding:20px;border-radius:18px;background:#FFF;border:1px solid var(--line)}
+.pw-stats b{display:block;font-size:40px;line-height:1;font-weight:800;color:var(--v)}
+.pw-stats span{font-size:14px;color:var(--txt)}
+.pw-val{padding:28px;border-radius:24px;background:#FFF;border:1px solid var(--line)}
+.pw-val h4{font-size:18px;margin-bottom:14px}
+.pw-val ul{margin:0;padding-left:20px;display:grid;gap:10px;color:var(--ink);font-size:15px}
+.pw-note{margin-top:16px!important;font-size:13px!important;color:var(--mut)!important}
+.pw-navdemo{margin-top:20px;padding:28px;border-radius:24px;background:#FFF;border:1px solid var(--line);text-align:center}
+.pw-navdemo h4{font-size:16px;margin-bottom:24px}
+.pw-nav{display:flex;justify-content:space-around;align-items:flex-end;max-width:520px;margin:0 auto 20px;padding:14px 8px;border-radius:20px;background:var(--bg)}
+.pw-nav span{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--mut)}
+.pw-nav i{font-style:normal;font-size:20px;line-height:1}
+.pw-nav .on{color:var(--v)}
+.pw-nav-post i{display:grid;place-items:center;width:52px;height:52px;margin-top:-30px;border-radius:50%;background:var(--y);color:var(--ink);font-size:28px;font-weight:700;box-shadow:0 10px 20px -8px rgba(255,170,0,.6)}
+.pw-navdemo p{font-size:14px;max-width:520px;margin:0 auto!important}
+/* all screens */
+.pa-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px 16px}
 .pa-th{all:unset;cursor:zoom-in;display:block;border-radius:14px;overflow:hidden;background:#FFF;box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 28px -18px rgba(40,20,90,.35);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s}
 .pa-th img{display:block;width:100%;height:auto}
 .pa-th:hover{transform:translateY(-4px);box-shadow:0 22px 40px -20px rgba(80,50,200,.45)}
-.pa-th:focus-visible{outline:3px solid #6A4CFF;outline-offset:3px}
+.pa-th:focus-visible{outline:3px solid var(--v);outline-offset:3px}
 .pa-lb{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,40px);background:rgba(12,10,22,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .pa-lb[hidden]{display:none}
 .pa-lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:center;padding:24px 0}
 .pa-lb img{max-height:calc(100vh - 90px);max-width:min(92vw,560px);width:auto;height:auto;border-radius:16px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
 .pa-lb figcaption{font:500 13px 'Geist Mono',monospace;letter-spacing:.06em;color:#C9C3E6}
 .pa-nav,.pa-x{all:unset;cursor:pointer;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);color:#FFF;font-size:30px;line-height:1;transition:background .2s}
-.pa-nav:hover,.pa-x:hover{background:#6A4CFF}
+.pa-nav:hover,.pa-x:hover{background:#5B3FD6}
 .pa-x{position:absolute;top:18px;right:18px;font-size:28px}
-@media (max-width:640px){.pa-grid{grid-template-columns:repeat(3,1fr);gap:12px}.pa-nav{position:absolute;bottom:18px}.pa-prev{left:calc(50% - 64px)}.pa-next{right:calc(50% - 64px)}.pa-lb img{max-height:calc(100vh - 150px)}}
+/* closing */
+.pw-close{margin:clamp(64px,8vw,112px) 0 0;padding:clamp(72px,9vw,128px) 24px;background:#1E1A33;text-align:center}
+.pw-close-logo{width:200px;margin:0 auto 32px}
+.pw-close h2{color:#FFF;font-size:clamp(36px,5vw,64px);line-height:1.05;font-weight:800}
+.pw-close h2 span{color:var(--y)}
+.pw-close p{max-width:560px;margin:24px auto 0!important;color:rgba(255,255,255,.75)!important}
+.pw-close small{display:block;max-width:640px;margin:28px auto 0;font-size:12px;color:rgba(255,255,255,.45);line-height:1.6}
+.pw~.end,.pw .end{background:#F7F7F8}
+@media (max-width:1000px){.pw-steps{grid-template-columns:repeat(3,1fr)}.pw-core-row{grid-template-columns:repeat(3,1fr)}.pa-grid{grid-template-columns:repeat(4,1fr)}.pw-flow-lanes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.pw-head-row,.pw-split,.pw-ps,.pw-needs,.pw-brand,.pw-tc,.pw-review,.pw-pers,.pw-row{grid-template-columns:1fr}.pw-rev .pw-row-ph{order:0}.pw-alt,.pw-tri,.pw-posters{grid-template-columns:1fr}.pw-facts{grid-template-columns:1fr 1fr}.pw-steps{grid-template-columns:1fr 1fr}.pw-core-row{grid-template-columns:repeat(2,1fr)}.pa-grid{grid-template-columns:repeat(3,1fr);gap:12px}.pw-pal{grid-template-columns:repeat(3,1fr)}.pw-sticker{width:96px}.pw-hero-meta span:last-child{display:none}.pa-nav{position:absolute;bottom:18px}.pa-prev{left:calc(50% - 64px)}.pa-next{right:calc(50% - 64px)}.pa-lb img{max-height:calc(100vh - 150px)}}
 </style>
 </helmet>
 <div ref="{{setRoot}}" class="ag" style="width: 100%; background: #FFFFFF; color: #0B1530; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
 <div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Q100</span></div></div></div>
 <header class="csn"><nav class="csn-bar" aria-label="Case study navigation"><a href="index.html" class="csn-back" data-back aria-label="Back to where you were"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a><span class="csn-div" aria-hidden="true"></span><a href="index.html" class="csn-logo" aria-label="Pranav Gadekar portfolio, home"><svg width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4"/><rect x="3.4" y="0.0" width="3.4" height="3.4"/><rect x="6.8" y="0.0" width="3.4" height="3.4"/><rect x="0.0" y="3.4" width="3.4" height="3.4"/><rect x="10.2" y="3.4" width="3.4" height="3.4"/><rect x="0.0" y="6.8" width="3.4" height="3.4"/><rect x="10.2" y="6.8" width="3.4" height="3.4"/><rect x="0.0" y="10.2" width="3.4" height="3.4"/><rect x="3.4" y="10.2" width="3.4" height="3.4"/><rect x="6.8" y="10.2" width="3.4" height="3.4"/><rect x="0.0" y="13.6" width="3.4" height="3.4"/><rect x="0.0" y="17.0" width="3.4" height="3.4"/></svg><span class="csn-lsep" aria-hidden="true"></span><span class="csn-pt">Portfolio</span></a><a href="index.html" class="csn-nl csn-lg" data-back>All work</a><span class="csn-count csn-lg">Case 08 / 08</span><a href="https://wa.me/918459347942" class="csn-cta">Let’s talk</a></nav></header>
-<main class="q pa">
-<h1 class="sr-only">Pawssible — adoption app case study</h1>
-<div class="sr-only"><p>Pawssible is an adoption app that makes discovering pets, posting rescues and finding them homes simple. Adopters browse available pets, send private enquiries and track what happens next; posters share photos and details, and listings are reviewed before going live. The case study covers the problem, adoption alternatives, design process, personas, user flow, screen structure, typography, colours, branding and the full set of 56 screens.</p></div>
-<div class="q-wrap pa-wrap">
-<img class="q-img" src="assets/pawapp/cs_000.webp" width="1440" height="1200" alt="Pawssible adoption app case study cover: a woman holding a cat, with the Pawssible logo" loading="eager" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_001.webp" width="1440" height="1200" alt="Pawssible case study, part 2" loading="eager" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_002.webp" width="1440" height="1200" alt="Pawssible case study, part 3" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_003.webp" width="1440" height="1200" alt="Pawssible case study, part 4" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_004.webp" width="1440" height="1200" alt="Pawssible case study, part 5" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_005.webp" width="1440" height="1200" alt="Pawssible case study, part 6" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_006.webp" width="1440" height="1200" alt="Pawssible case study, part 7" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_007.webp" width="1440" height="1200" alt="Pawssible case study, part 8" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_008.webp" width="1440" height="1200" alt="Pawssible case study, part 9" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_009.webp" width="1440" height="1200" alt="Pawssible case study, part 10" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_010.webp" width="1440" height="1200" alt="Pawssible case study, part 11" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_011.webp" width="1440" height="1200" alt="Pawssible case study, part 12" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_012.webp" width="1440" height="1200" alt="Pawssible case study, part 13" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_013.webp" width="1440" height="1200" alt="Pawssible case study, part 14" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_014.webp" width="1440" height="1200" alt="Pawssible case study, part 15" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_015.webp" width="1440" height="1200" alt="Pawssible case study, part 16" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_016.webp" width="1440" height="1200" alt="Pawssible case study, part 17" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_017.webp" width="1440" height="1200" alt="Pawssible case study, part 18" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_018.webp" width="1440" height="1200" alt="Pawssible case study, part 19" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_019.webp" width="1440" height="1200" alt="Pawssible case study, part 20" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_020.webp" width="1440" height="1200" alt="Pawssible case study, part 21" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_021.webp" width="1440" height="1200" alt="Pawssible case study, part 22" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_022.webp" width="1440" height="1200" alt="Pawssible case study, part 23" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_023.webp" width="1440" height="1200" alt="Pawssible case study, part 24" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_024.webp" width="1440" height="1200" alt="Pawssible case study, part 25" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_025.webp" width="1440" height="1200" alt="Pawssible case study, part 26" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_026.webp" width="1440" height="1200" alt="Pawssible case study, part 27" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_027.webp" width="1440" height="1200" alt="Pawssible case study, part 28" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_028.webp" width="1440" height="1200" alt="Pawssible case study, part 29" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_029.webp" width="1440" height="1200" alt="Pawssible case study, part 30" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_030.webp" width="1440" height="1200" alt="Pawssible case study, part 31" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_031.webp" width="1440" height="1200" alt="Pawssible case study, part 32" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_032.webp" width="1440" height="1200" alt="Pawssible case study, part 33" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_033.webp" width="1440" height="1200" alt="Pawssible case study, part 34" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_034.webp" width="1440" height="1200" alt="Pawssible case study, part 35" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_035.webp" width="1440" height="1200" alt="Pawssible case study, part 36" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_036.webp" width="1440" height="1200" alt="Pawssible case study, part 37" loading="lazy" decoding="async">
-<img class="q-img" src="assets/pawapp/cs_037.webp" width="1440" height="524" alt="Pawssible case study, part 38" loading="lazy" decoding="async">
+<main class="pw">
+<!-- HERO -->
+<section class="pw-hero" aria-label="Pawssible">
+<img class="pw-hero-bg" src="assets/pawapp/p_hero.webp" alt="" width="1800" height="1200" fetchpriority="high">
+<div class="pw-hero-in">
+<h1 class="pw-sr">Pawssible — adoption app case study</h1>
+<img class="pw-hero-logo" src="assets/pawapp/p_logo_w.webp" alt="Pawssible" width="1081" height="271">
+<p class="pw-hero-tag">Every pet deserves a new beginning.</p>
 </div>
-<section class="pa-all" aria-labelledby="pa-all-h"><div class="pa-in"><span class="pa-k">App screens</span><h2 id="pa-all-h">Every screen, <span class="it">full size.</span></h2><p>All 60 frames from the app file, from splash to edge states. Tap any screen to view it in full HD and step through with the arrows.</p><div class="pa-grid"><button type="button" class="pa-th" data-pk="0" aria-label="Open screen 1"><img src="assets/pawapp/scr_01_t.webp" width="360" height="810" alt="Pawssible app screen 1" loading="lazy"></button><button type="button" class="pa-th" data-pk="1" aria-label="Open screen 2"><img src="assets/pawapp/scr_02_t.webp" width="360" height="810" alt="Pawssible app screen 2" loading="lazy"></button><button type="button" class="pa-th" data-pk="2" aria-label="Open screen 3"><img src="assets/pawapp/scr_03_t.webp" width="360" height="810" alt="Pawssible app screen 3" loading="lazy"></button><button type="button" class="pa-th" data-pk="3" aria-label="Open screen 4"><img src="assets/pawapp/scr_04_t.webp" width="360" height="810" alt="Pawssible app screen 4" loading="lazy"></button><button type="button" class="pa-th" data-pk="4" aria-label="Open screen 5"><img src="assets/pawapp/scr_05_t.webp" width="360" height="810" alt="Pawssible app screen 5" loading="lazy"></button><button type="button" class="pa-th" data-pk="5" aria-label="Open screen 6"><img src="assets/pawapp/scr_06_t.webp" width="360" height="810" alt="Pawssible app screen 6" loading="lazy"></button><button type="button" class="pa-th" data-pk="6" aria-label="Open screen 7"><img src="assets/pawapp/scr_07_t.webp" width="360" height="810" alt="Pawssible app screen 7" loading="lazy"></button><button type="button" class="pa-th" data-pk="7" aria-label="Open screen 8"><img src="assets/pawapp/scr_08_t.webp" width="360" height="810" alt="Pawssible app screen 8" loading="lazy"></button><button type="button" class="pa-th" data-pk="8" aria-label="Open screen 9"><img src="assets/pawapp/scr_09_t.webp" width="360" height="810" alt="Pawssible app screen 9" loading="lazy"></button><button type="button" class="pa-th" data-pk="9" aria-label="Open screen 10"><img src="assets/pawapp/scr_10_t.webp" width="360" height="810" alt="Pawssible app screen 10" loading="lazy"></button><button type="button" class="pa-th" data-pk="10" aria-label="Open screen 11"><img src="assets/pawapp/scr_11_t.webp" width="360" height="810" alt="Pawssible app screen 11" loading="lazy"></button><button type="button" class="pa-th" data-pk="11" aria-label="Open screen 12"><img src="assets/pawapp/scr_12_t.webp" width="360" height="810" alt="Pawssible app screen 12" loading="lazy"></button><button type="button" class="pa-th" data-pk="12" aria-label="Open screen 13"><img src="assets/pawapp/scr_13_t.webp" width="360" height="810" alt="Pawssible app screen 13" loading="lazy"></button><button type="button" class="pa-th" data-pk="13" aria-label="Open screen 14"><img src="assets/pawapp/scr_14_t.webp" width="360" height="810" alt="Pawssible app screen 14" loading="lazy"></button><button type="button" class="pa-th" data-pk="14" aria-label="Open screen 15"><img src="assets/pawapp/scr_15_t.webp" width="360" height="810" alt="Pawssible app screen 15" loading="lazy"></button><button type="button" class="pa-th" data-pk="15" aria-label="Open screen 16"><img src="assets/pawapp/scr_16_t.webp" width="360" height="810" alt="Pawssible app screen 16" loading="lazy"></button><button type="button" class="pa-th" data-pk="16" aria-label="Open screen 17"><img src="assets/pawapp/scr_17_t.webp" width="360" height="810" alt="Pawssible app screen 17" loading="lazy"></button><button type="button" class="pa-th" data-pk="17" aria-label="Open screen 18"><img src="assets/pawapp/scr_18_t.webp" width="360" height="810" alt="Pawssible app screen 18" loading="lazy"></button><button type="button" class="pa-th" data-pk="18" aria-label="Open screen 19"><img src="assets/pawapp/scr_19_t.webp" width="360" height="810" alt="Pawssible app screen 19" loading="lazy"></button><button type="button" class="pa-th" data-pk="19" aria-label="Open screen 20"><img src="assets/pawapp/scr_20_t.webp" width="360" height="810" alt="Pawssible app screen 20" loading="lazy"></button><button type="button" class="pa-th" data-pk="20" aria-label="Open screen 21"><img src="assets/pawapp/scr_21_t.webp" width="360" height="810" alt="Pawssible app screen 21" loading="lazy"></button><button type="button" class="pa-th" data-pk="21" aria-label="Open screen 22"><img src="assets/pawapp/scr_22_t.webp" width="360" height="810" alt="Pawssible app screen 22" loading="lazy"></button><button type="button" class="pa-th" data-pk="22" aria-label="Open screen 23"><img src="assets/pawapp/scr_23_t.webp" width="360" height="810" alt="Pawssible app screen 23" loading="lazy"></button><button type="button" class="pa-th" data-pk="23" aria-label="Open screen 24"><img src="assets/pawapp/scr_24_t.webp" width="360" height="810" alt="Pawssible app screen 24" loading="lazy"></button><button type="button" class="pa-th" data-pk="24" aria-label="Open screen 25"><img src="assets/pawapp/scr_25_t.webp" width="360" height="810" alt="Pawssible app screen 25" loading="lazy"></button><button type="button" class="pa-th" data-pk="25" aria-label="Open screen 26"><img src="assets/pawapp/scr_26_t.webp" width="360" height="810" alt="Pawssible app screen 26" loading="lazy"></button><button type="button" class="pa-th" data-pk="26" aria-label="Open screen 27"><img src="assets/pawapp/scr_27_t.webp" width="360" height="810" alt="Pawssible app screen 27" loading="lazy"></button><button type="button" class="pa-th" data-pk="27" aria-label="Open screen 28"><img src="assets/pawapp/scr_28_t.webp" width="360" height="810" alt="Pawssible app screen 28" loading="lazy"></button><button type="button" class="pa-th" data-pk="28" aria-label="Open screen 29"><img src="assets/pawapp/scr_29_t.webp" width="360" height="810" alt="Pawssible app screen 29" loading="lazy"></button><button type="button" class="pa-th" data-pk="29" aria-label="Open screen 30"><img src="assets/pawapp/scr_30_t.webp" width="360" height="810" alt="Pawssible app screen 30" loading="lazy"></button><button type="button" class="pa-th" data-pk="30" aria-label="Open screen 31"><img src="assets/pawapp/scr_31_t.webp" width="360" height="810" alt="Pawssible app screen 31" loading="lazy"></button><button type="button" class="pa-th" data-pk="31" aria-label="Open screen 32"><img src="assets/pawapp/scr_32_t.webp" width="360" height="810" alt="Pawssible app screen 32" loading="lazy"></button><button type="button" class="pa-th" data-pk="32" aria-label="Open screen 33"><img src="assets/pawapp/scr_33_t.webp" width="360" height="810" alt="Pawssible app screen 33" loading="lazy"></button><button type="button" class="pa-th" data-pk="33" aria-label="Open screen 34"><img src="assets/pawapp/scr_34_t.webp" width="360" height="810" alt="Pawssible app screen 34" loading="lazy"></button><button type="button" class="pa-th" data-pk="34" aria-label="Open screen 35"><img src="assets/pawapp/scr_35_t.webp" width="360" height="810" alt="Pawssible app screen 35" loading="lazy"></button><button type="button" class="pa-th" data-pk="35" aria-label="Open screen 36"><img src="assets/pawapp/scr_36_t.webp" width="360" height="810" alt="Pawssible app screen 36" loading="lazy"></button><button type="button" class="pa-th" data-pk="36" aria-label="Open screen 37"><img src="assets/pawapp/scr_37_t.webp" width="360" height="810" alt="Pawssible app screen 37" loading="lazy"></button><button type="button" class="pa-th" data-pk="37" aria-label="Open screen 38"><img src="assets/pawapp/scr_38_t.webp" width="360" height="810" alt="Pawssible app screen 38" loading="lazy"></button><button type="button" class="pa-th" data-pk="38" aria-label="Open screen 39"><img src="assets/pawapp/scr_39_t.webp" width="360" height="810" alt="Pawssible app screen 39" loading="lazy"></button><button type="button" class="pa-th" data-pk="39" aria-label="Open screen 40"><img src="assets/pawapp/scr_40_t.webp" width="360" height="810" alt="Pawssible app screen 40" loading="lazy"></button><button type="button" class="pa-th" data-pk="40" aria-label="Open screen 41"><img src="assets/pawapp/scr_41_t.webp" width="360" height="810" alt="Pawssible app screen 41" loading="lazy"></button><button type="button" class="pa-th" data-pk="41" aria-label="Open screen 42"><img src="assets/pawapp/scr_42_t.webp" width="360" height="810" alt="Pawssible app screen 42" loading="lazy"></button><button type="button" class="pa-th" data-pk="42" aria-label="Open screen 43"><img src="assets/pawapp/scr_43_t.webp" width="360" height="810" alt="Pawssible app screen 43" loading="lazy"></button><button type="button" class="pa-th" data-pk="43" aria-label="Open screen 44"><img src="assets/pawapp/scr_44_t.webp" width="360" height="810" alt="Pawssible app screen 44" loading="lazy"></button><button type="button" class="pa-th" data-pk="44" aria-label="Open screen 45"><img src="assets/pawapp/scr_45_t.webp" width="360" height="810" alt="Pawssible app screen 45" loading="lazy"></button><button type="button" class="pa-th" data-pk="45" aria-label="Open screen 46"><img src="assets/pawapp/scr_46_t.webp" width="360" height="810" alt="Pawssible app screen 46" loading="lazy"></button><button type="button" class="pa-th" data-pk="46" aria-label="Open screen 47"><img src="assets/pawapp/scr_47_t.webp" width="360" height="810" alt="Pawssible app screen 47" loading="lazy"></button><button type="button" class="pa-th" data-pk="47" aria-label="Open screen 48"><img src="assets/pawapp/scr_48_t.webp" width="360" height="810" alt="Pawssible app screen 48" loading="lazy"></button><button type="button" class="pa-th" data-pk="48" aria-label="Open screen 49"><img src="assets/pawapp/scr_49_t.webp" width="360" height="810" alt="Pawssible app screen 49" loading="lazy"></button><button type="button" class="pa-th" data-pk="49" aria-label="Open screen 50"><img src="assets/pawapp/scr_50_t.webp" width="360" height="810" alt="Pawssible app screen 50" loading="lazy"></button><button type="button" class="pa-th" data-pk="50" aria-label="Open screen 51"><img src="assets/pawapp/scr_51_t.webp" width="360" height="810" alt="Pawssible app screen 51" loading="lazy"></button><button type="button" class="pa-th" data-pk="51" aria-label="Open screen 52"><img src="assets/pawapp/scr_52_t.webp" width="360" height="810" alt="Pawssible app screen 52" loading="lazy"></button><button type="button" class="pa-th" data-pk="52" aria-label="Open screen 53"><img src="assets/pawapp/scr_53_t.webp" width="360" height="810" alt="Pawssible app screen 53" loading="lazy"></button><button type="button" class="pa-th" data-pk="53" aria-label="Open screen 54"><img src="assets/pawapp/scr_54_t.webp" width="360" height="810" alt="Pawssible app screen 54" loading="lazy"></button><button type="button" class="pa-th" data-pk="54" aria-label="Open screen 55"><img src="assets/pawapp/scr_55_t.webp" width="360" height="810" alt="Pawssible app screen 55" loading="lazy"></button><button type="button" class="pa-th" data-pk="55" aria-label="Open screen 56"><img src="assets/pawapp/scr_56_t.webp" width="360" height="810" alt="Pawssible app screen 56" loading="lazy"></button><button type="button" class="pa-th" data-pk="56" aria-label="Open screen 57"><img src="assets/pawapp/scr_57_t.webp" width="360" height="810" alt="Pawssible app screen 57" loading="lazy"></button><button type="button" class="pa-th" data-pk="57" aria-label="Open screen 58"><img src="assets/pawapp/scr_58_t.webp" width="360" height="810" alt="Pawssible app screen 58" loading="lazy"></button><button type="button" class="pa-th" data-pk="58" aria-label="Open screen 59"><img src="assets/pawapp/scr_59_t.webp" width="360" height="810" alt="Pawssible app screen 59" loading="lazy"></button><button type="button" class="pa-th" data-pk="59" aria-label="Open screen 60"><img src="assets/pawapp/scr_60_t.webp" width="360" height="810" alt="Pawssible app screen 60" loading="lazy"></button></div></div></section>
+<div class="pw-hero-meta"><span>Adoption app / UX UI concept</span><span>Pawssible</span></div>
+</section>
+
+<!-- INTRO -->
+<section class="pw-sec pw-intro">
+<div class="pw-chips"><span>Discover pets</span><span>Post &amp; connect</span><span>Celebrate adoption</span></div>
+<p class="pw-statement">Pawssible is an <b>adoption app</b> that makes <span class="pw-mute">discovering pets,</span> posting rescues, and finding homes simple.</p>
+<dl class="pw-facts">
+<div><dt>Role</dt><dd>UX/UI designer</dd></div>
+<div><dt>Platform</dt><dd>iOS &amp; Android app</dd></div>
+<div><dt>Scope</dt><dd>Research, flows, UI, design system</dd></div>
+<div><dt>Output</dt><dd>56 designed screens</dd></div>
+</dl>
+</section>
+
+<!-- ABOUT / CHALLENGE -->
+<section class="pw-sec">
+<div class="pw-split">
+<figure class="pw-photo pw-photo-tall"><img src="assets/pawapp/p_cat_shoulder.webp" alt="A white cat resting on its owner's shoulder" width="852" height="1130" loading="lazy"><img class="pw-photo-logo" src="assets/pawapp/p_logo_w.webp" alt="" width="1081" height="271"></figure>
+<div class="pw-split-txt">
+<div class="pw-block"><h3>About the app</h3><p>A mobile app concept for Pawssible. Discover pets, send an enquiry and share a rescue, all in one friendly adoption experience.</p></div>
+<img class="pw-sticker" src="assets/pawapp/p_puppy.webp" alt="Golden retriever puppy" width="372" height="507" loading="lazy">
+<div class="pw-block"><h3>The challenge</h3><p>Adoption posts get buried in a busy WhatsApp group. Details are scattered, and it is hard to see which pets are still waiting for a home.</p></div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="pw-sec">
+<div class="pw-head"><h2>Problem <span class="pw-mute">&amp; Solution</span></h2></div>
+<div class="pw-ps">
+<div class="pw-ps-list">
+<div class="pw-ps-item"><span class="pw-ps-ic">?</span><div><b>Problem</b><p>New messages push pets out of sight. Adopters have to piece together the story and check whether a listing is still current.</p></div></div>
+<div class="pw-ps-item"><span class="pw-ps-ic pw-ps-ic-v">✦</span><div><b>Solution</b><p>One organised adoption experience brings current pet profiles, private enquiries and clear adoption updates together.</p></div></div>
+</div>
+<img class="pw-sketch" src="assets/pawapp/p_sketch.webp" alt="Line illustration of a dog, cat, rabbit and bird together" width="814" height="543" loading="lazy">
+</div>
+</section>
+
+<!-- EVERYTHING AN ADOPTER NEEDS -->
+<section class="pw-sec">
+<div class="pw-needs">
+<div class="pw-needs-card"><img src="assets/pawapp/p_logo_w.webp" alt="Pawssible" width="1081" height="271" loading="lazy"><span>P + paw / reversed presentation mark</span></div>
+<div class="pw-needs-list">
+<h2>Everything an <span class="pw-mute">adopter needs</span></h2>
+<div class="pw-feat"><span class="pw-feat-ic">⌕</span><div><b>Discover pets</b><p>Find available pets through search and filters.</p></div></div>
+<div class="pw-feat"><span class="pw-feat-ic">♡</span><div><b>Post a pet</b><p>Share the photos and details that matter.</p></div></div>
+<div class="pw-feat"><span class="pw-feat-ic">↗</span><div><b>Enquire &amp; connect</b><p>Send an enquiry and track what happens next.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ALTERNATIVES -->
+<section class="pw-sec">
+<div class="pw-head pw-head-row"><h2>Adoption <span class="pw-mute">alternatives</span></h2><p>A design comparison of common ways to find a pet, not a completed competitor research study.</p></div>
+<div class="pw-alt">
+<div class="pw-alt-c"><span class="pw-alt-ic" style="--c:#1FA97A">☏</span><b>Chat groups</b><p>Fast to post, but listings sink under new messages and status is never clear.</p></div>
+<div class="pw-alt-c"><span class="pw-alt-ic" style="--c:#F0556A">▤</span><b>Social posts</b><p>Wide reach, yet details are scattered across comments and shares.</p></div>
+<div class="pw-alt-c pw-alt-on"><span class="pw-alt-ic" style="--c:#5B3FD6"><img src="assets/pawapp/p_icon.webp" alt="" width="342" height="381"></span><b>Pawssible concept</b><p>The concept responds to the gaps in a scattered adoption journey: visibility, current information and a clear next step.</p></div>
+</div>
+<div class="pw-tri">
+<div><h4>Visibility</h4><p>Available pets stay findable instead of disappearing beneath new posts.</p></div>
+<div><h4>Clarity</h4><p>Structured profiles bring photos, needs and adoption status into one place.</p></div>
+<div><h4>Tracking</h4><p>Designed to keep the next step visible.</p><ul><li>Enquiry reference and tracker</li><li>Listing review status</li><li>Adoption confirmation</li><li>Happy Endings archive</li></ul></div>
+</div>
+</section>
+
+<figure class="pw-wide"><img src="assets/pawapp/p_billboard.webp" alt="Concept billboard reading Better Homes, with the Pawssible logo" width="1536" height="1024" loading="lazy"><figcaption>Concept brand mockup · illustrative scene</figcaption></figure>
+
+<!-- PROCESS -->
+<section class="pw-sec">
+<div class="pw-head pw-head-row"><h2>Design <span class="pw-mute">process</span></h2><p>From the WhatsApp problem to a complete screen system, with pet visibility as the guiding aim.</p></div>
+<ol class="pw-steps">
+<li><span>01</span><b>Idea</b><p>Bring buried adoption posts into one maintained place.</p></li>
+<li><span>02</span><b>Understanding</b><p>Identify visibility, trust and handover needs.</p></li>
+<li><span>03</span><b>Structure</b><p>Map six journeys and their decision points.</p></li>
+<li><span>04</span><b>UI design</b><p>Build the screen system and shared patterns.</p></li>
+<li><span>05</span><b>Refinement</b><p>Review alignment, spacing and interface states.</p></li>
+</ol>
+</section>
+
+<!-- PERSONAS -->
+<section class="pw-sec">
+<div class="pw-head pw-head-row"><h2>User <span class="pw-mute">personas</span></h2><p>Illustrative personas to guide design decisions. These are assumptions to validate, not interview findings.</p></div>
+<div class="pw-pers">
+<article class="pw-per"><header><span class="pw-av" style="--c:#FFC93C">A</span><div><b>Aisha, 29</b><span>First-time adopter</span></div></header><p>Browses during short breaks. Wants to know a pet's needs and current availability before enquiring.</p><div class="pw-gp"><div><h5>Goals</h5><ul><li>Find available pets</li><li>Understand care needs</li><li>Track enquiries</li></ul></div><div><h5>Pain points</h5><ul class="pw-pain"><li>Stale listings</li><li>Scattered details</li><li>Unclear next steps</li></ul></div></div></article>
+<article class="pw-per"><header><span class="pw-av" style="--c:#1FA97A">R</span><div><b>Rohan, 41</b><span>Foundation volunteer</span></div></header><p>Posts and reviews pets. Needs a clear way to maintain accurate listings without repeating details in chat.</p><div class="pw-gp"><div><h5>Goals</h5><ul><li>Post a rescued pet</li><li>Review listing quality</li><li>Close an adoption clearly</li></ul></div><div><h5>Needs</h5><ul class="pw-pain"><li>Keep every listing current</li><li>Available → Found a home</li></ul></div></div></article>
+</div>
+</section>
+
+<!-- BRAND -->
+<section class="pw-sec">
+<div class="pw-brand">
+<div class="pw-brand-hero"><span class="pw-k">Branding</span><h2>Keep every pet <span class="pw-mute">in the picture.</span></h2><p>The concept keeps pets visible until their adoption is complete. A soft P with a paw print: a familiar place for a new beginning.</p></div>
+<div class="pw-icons"><figure><div class="pw-icon-grid"><img src="assets/pawapp/p_icon.webp" alt="Pawssible app icon on a presentation grid" width="342" height="381" loading="lazy"></div><figcaption>Icon study · presentation grid</figcaption></figure><figure><div class="pw-icon-sizes"><img src="assets/pawapp/p_icon.webp" alt="" width="342" height="381" loading="lazy"><img src="assets/pawapp/p_icon.webp" alt="" width="342" height="381" loading="lazy"><img src="assets/pawapp/p_icon.webp" alt="" width="342" height="381" loading="lazy"></div><figcaption>App icon sizes</figcaption></figure></div>
+</div>
+</section>
+
+<!-- TYPE & COLOUR -->
+<section class="pw-sec">
+<div class="pw-head pw-head-row"><h2>Typography <span class="pw-mute">&amp; colours</span></h2><p>A friendly app type system and a six-colour palette, presented through a neutral editorial layout.</p></div>
+<div class="pw-tc">
+<div class="pw-type"><div class="pw-type-top"><span>Type system</span><span>App UI</span></div><b class="pw-type-name">Plus Jakarta Sans</b><span class="pw-type-aa">Aa · 400 / 800</span>
+<ul><li><span style="font-weight:400">Regular</span><em>Body</em></li><li><span style="font-weight:500">Medium</span><em>Labels</em></li><li><span style="font-weight:700">Bold</span><em>Titles</em></li><li><span style="font-weight:800">ExtraBold</span><em>Headlines</em></li></ul></div>
+<div class="pw-pal">
+<div class="pw-sw" style="--c:#5B3FD6;--t:#FFF"><b>Violet</b><span>#5B3FD6</span></div>
+<div class="pw-sw" style="--c:#FFC93C;--t:#1E1A33"><b>Yellow</b><span>#FFC93C</span></div>
+<div class="pw-sw" style="--c:#F0556A;--t:#FFF"><b>Coral</b><span>#F0556A</span></div>
+<div class="pw-sw" style="--c:#1FA97A;--t:#FFF"><b>Mint</b><span>#1FA97A</span></div>
+<div class="pw-sw" style="--c:#1E1A33;--t:#FFF"><b>Ink</b><span>#1E1A33</span></div>
+<div class="pw-sw" style="--c:#EDE7FF;--t:#5B3FD6"><b>Pale violet</b><span>#EDE7FF</span></div>
+<p>Violet leads. Yellow celebrates. Coral and mint carry status. Ink grounds the type, with pale violet for quiet surfaces.</p>
+</div>
+</div>
+</section>
+
+<!-- POSTERS -->
+<section class="pw-sec">
+<div class="pw-posters">
+<div class="pw-pos"><img src="assets/pawapp/p_dog_face.webp" alt="" width="1026" height="715" loading="lazy"><img class="pw-pos-logo" src="assets/pawapp/p_logo_w.webp" alt="" width="1081" height="271"><b>Find your<br>new friend.</b></div>
+<div class="pw-pos"><img src="assets/pawapp/p_golden.webp" alt="" width="1165" height="719" loading="lazy"><img class="pw-pos-logo" src="assets/pawapp/p_logo_w.webp" alt="" width="1081" height="271"><b>Make room<br>for love.</b></div>
+<div class="pw-pos pw-pos-w"><img class="pw-pos-icon" src="assets/pawapp/p_icon.webp" alt="" width="342" height="381" loading="lazy"><b>A home.<br>A happy ending.</b></div>
+</div>
+<p class="pw-cap">Concept poster compositions</p>
+</section>
+
+<!-- USER FLOW -->
+<section class="pw-sec">
+<div class="pw-head pw-head-row"><h2>User <span class="pw-mute">flow</span></h2><p>Six core journeys connect discover, enquire, post, adopt, account and proposed volunteer review.</p></div>
+<div class="pw-flow">
+<div class="pw-flow-entry"><span>Splash</span><i></i><span>Onboarding</span><i></i><span>Sign in / guest</span></div>
+<div class="pw-flow-lanes">
+<div class="pw-lane"><h5>Discover &amp; enquire</h5><span class="pw-n-hub">Explore</span><span>Pet details</span><span>Enquiry</span><span>Track enquiry</span></div>
+<div class="pw-lane"><h5>Post &amp; adopt</h5><span class="pw-n-hub">Post a pet</span><span>Listing review</span><span>My listings</span><span>Mark adopted</span></div>
+<div class="pw-lane"><h5>Account</h5><span class="pw-n-hub">Profile</span><span>Saved pets</span><span>Settings</span></div>
+<div class="pw-lane pw-lane-v"><h5>Volunteer (proposed)</h5><span class="pw-n-hub">Volunteer review</span><span>Approve / changes</span></div>
+</div>
+</div>
+</section>
+
+<!-- CORE SCREENS -->
+<section class="pw-sec pw-core">
+<div class="pw-head pw-head-row"><h2>Screen <span class="pw-mute">structure</span></h2><p>The ten core screens from the final UI, together in the app's real colours.</p></div>
+<div class="pw-core-row">
+<figure><img src="assets/pawapp/ph_03.webp" alt="Splash screen" width="1344" height="2930" loading="lazy"><figcaption>Entry</figcaption></figure>
+<figure><img src="assets/pawapp/ph_04.webp" alt="Onboarding screen" width="1344" height="2930" loading="lazy"><figcaption>Onboarding</figcaption></figure>
+<figure><img src="assets/pawapp/ph_08.webp" alt="Explore home feed" width="1344" height="2930" loading="lazy"><figcaption>Explore</figcaption></figure>
+<figure><img src="assets/pawapp/ph_11.webp" alt="Search filters" width="1344" height="2930" loading="lazy"><figcaption>Filters</figcaption></figure>
+<figure><img src="assets/pawapp/ph_16.webp" alt="Pet profile" width="1344" height="2930" loading="lazy"><figcaption>Pet profile</figcaption></figure>
+<figure><img src="assets/pawapp/ph_18.webp" alt="Adoption enquiry form" width="1344" height="2930" loading="lazy"><figcaption>Enquiry</figcaption></figure>
+<figure><img src="assets/pawapp/ph_25.webp" alt="Post a pet photos step" width="1344" height="2930" loading="lazy"><figcaption>Post</figcaption></figure>
+<figure><img src="assets/pawapp/ph_29.webp" alt="Review listing" width="1344" height="2930" loading="lazy"><figcaption>Review</figcaption></figure>
+<figure><img src="assets/pawapp/ph_22.webp" alt="My enquiries" width="1344" height="2930" loading="lazy"><figcaption>Track</figcaption></figure>
+<figure><img src="assets/pawapp/ph_36.webp" alt="Found a home celebration" width="1344" height="2930" loading="lazy"><figcaption>Adopted</figcaption></figure>
+</div>
+</section>
+
+<!-- MOBILE APP INTRO -->
+<section class="pw-sec pw-appintro">
+<img src="assets/pawapp/p_icon.webp" alt="" width="342" height="381" loading="lazy"><span class="pw-k">Mobile app</span>
+<p class="pw-statement pw-statement-s">The interface is designed to be <b>clear and welcoming,</b> making adoption <span class="pw-mute">simple, organised and personal.</span></p>
+</section>
+
+<!-- FEATURE WALKTHROUGH -->
+<section class="pw-walk">
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_04.webp" alt="Get started with Pawssible screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">01</span><span class="pw-k">Onboarding</span><h3>Get started with Pawssible.</h3><p>Discover pets, post a pet, celebrate adoption. Three simple promises before the first profile.</p><span class="pw-tag">Three promises</span></div></article>
+<article class="pw-row pw-rev"><figure class="pw-row-ph"><img src="assets/pawapp/ph_07.webp" alt="A little hello. A clear place to start screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">02</span><span class="pw-k">Sign in / guest</span><h3>A little hello. A clear place to start.</h3><p>Sign in to enquire and post, or continue as a guest. Phone numbers and email stay private to the foundation team.</p><span class="pw-tag">Private by default</span></div></article>
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_08.webp" alt="Everything your pet needs screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">03</span><span class="pw-k">Explore</span><h3>Everything your pet needs.</h3><p>A nearest-first feed with search, species chips and clear availability, designed to keep the right pets visible.</p><span class="pw-tag">Nearest first</span></div></article>
+<article class="pw-row pw-rev"><figure class="pw-row-ph"><img src="assets/pawapp/ph_11.webp" alt="Find the right pet screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">04</span><span class="pw-k">Filters</span><h3>Find the right pet.</h3><p>Age, size, temperament and distance, phrased in everyday language.</p><span class="pw-tag">Species / Age / Gender / Location</span></div></article>
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_16.webp" alt="Know your new friend screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">05</span><span class="pw-k">Pet profile</span><h3>Know your new friend.</h3><p>Photos, story, care information and one clear enquiry action. Public profiles do not display personal phone numbers.</p><span class="pw-tag">One clear action</span></div></article>
+<article class="pw-row pw-rev"><figure class="pw-row-ph"><img src="assets/pawapp/ph_18.webp" alt="Start a conversation screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">06</span><span class="pw-k">Enquiry</span><h3>Start a conversation.</h3><p>A short enquiry form gathers the details needed for the next step.</p><span class="pw-tag">Your details stay private</span></div></article>
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_22.webp" alt="Keep track screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">07</span><span class="pw-k">Enquiries</span><h3>Keep track.</h3><p>References and clear statuses show where each enquiry stands, so the next chapter does not get lost in the chat.</p><span class="pw-tag">Enquiry sent → In review → Next steps</span></div></article>
+<article class="pw-row pw-rev"><figure class="pw-row-ph"><img src="assets/pawapp/ph_25.webp" alt="Share a pet screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">08</span><span class="pw-k">Post a pet</span><h3>Share a pet.</h3><p>Photos, basics, details and review turn a rescue story into a structured listing.</p><span class="pw-tag">Photos / Basics / Details</span></div></article>
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_29.webp" alt="Review before posting screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">09</span><span class="pw-k">Review</span><h3>Review before posting.</h3><p>The full listing can be checked before it is submitted. A volunteer reviews it before it goes live.</p><span class="pw-tag">Ready for one final check</span></div></article>
+<article class="pw-row pw-rev"><figure class="pw-row-ph"><img src="assets/pawapp/ph_43.webp" alt="Volunteer review screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">10</span><span class="pw-k">Volunteer review</span><h3>Volunteer review.</h3><p>A proposed review queue for approving listings or asking for specific changes. Access is granted by the foundation.</p><span class="pw-tag">Approve or request changes</span></div></article>
+<article class="pw-row"><figure class="pw-row-ph"><img src="assets/pawapp/ph_36.webp" alt="Found a home screen" width="1344" height="2930" loading="lazy"></figure><div class="pw-row-txt"><span class="pw-num">11</span><span class="pw-k">Adopted</span><h3>Found a home.</h3><p>Celebrate the adoption, then move the pet to Happy Endings so the feed only shows pets still waiting.</p><span class="pw-tag">Available → Adopted</span></div></article>
+
+</section>
+
+<!-- TABLET + REVIEW -->
+<figure class="pw-wide"><img src="assets/pawapp/p_tablet.webp" alt="Tablet-style overview showing the explore feed, pet profile and enquiries side by side" width="1536" height="1024" loading="lazy"><figcaption>One connected screen system · presentation mockup, not a tablet build</figcaption></figure>
+
+<section class="pw-sec">
+<div class="pw-review">
+<div><span class="pw-k">Design review</span><h2>A clear next step, <span class="pw-mute">without losing the pet's story.</span></h2><p>The concept uses one main action per screen, progress through forms and status feedback after submission.</p>
+<div class="pw-stats"><div><b>6</b><span>Core flows</span></div><div><b>56</b><span>Designed screens</span></div></div></div>
+<div class="pw-val"><h4>What needs validation</h4><ul><li>Can adopters find a suitable pet?</li><li>Is the enquiry form clear?</li><li>Can volunteers keep listings current?</li><li>Does adopted status update reliably?</li></ul><p class="pw-note">Review observations and next validation steps, not user-test findings.</p></div>
+</div>
+<div class="pw-navdemo"><h4>Shared navigation</h4><div class="pw-nav"><span class="on"><i>⌂</i>Explore</span><span><i>♡</i>Saved</span><span class="pw-nav-post"><i>+</i>Post</span><span><i>▢</i>Enquiries</span><span><i>◯</i>Profile</span></div><p>Explore, Saved, Post, Enquiries and Profile. The raised yellow Post action anchors the app navigation.</p></div>
+</section>
+
+<!-- ALL SCREENS -->
+<section class="pw-sec pa-all" aria-labelledby="pa-all-h">
+<div class="pw-head pw-head-row"><h2 id="pa-all-h">All <span class="pw-mute">60 screens</span></h2><p>Every frame from the app file, from splash to edge states. Tap a screen to view it in full HD and step through with the arrows.</p></div>
+<div class="pa-grid"><button type="button" class="pa-th" data-pk="0" aria-label="Open screen 1"><img src="assets/pawapp/scr_01_t.webp" width="540" height="1215" alt="Pawssible app screen 1" loading="lazy"></button><button type="button" class="pa-th" data-pk="1" aria-label="Open screen 2"><img src="assets/pawapp/scr_02_t.webp" width="540" height="1215" alt="Pawssible app screen 2" loading="lazy"></button><button type="button" class="pa-th" data-pk="2" aria-label="Open screen 3"><img src="assets/pawapp/scr_03_t.webp" width="540" height="1215" alt="Pawssible app screen 3" loading="lazy"></button><button type="button" class="pa-th" data-pk="3" aria-label="Open screen 4"><img src="assets/pawapp/scr_04_t.webp" width="540" height="1215" alt="Pawssible app screen 4" loading="lazy"></button><button type="button" class="pa-th" data-pk="4" aria-label="Open screen 5"><img src="assets/pawapp/scr_05_t.webp" width="540" height="1215" alt="Pawssible app screen 5" loading="lazy"></button><button type="button" class="pa-th" data-pk="5" aria-label="Open screen 6"><img src="assets/pawapp/scr_06_t.webp" width="540" height="1215" alt="Pawssible app screen 6" loading="lazy"></button><button type="button" class="pa-th" data-pk="6" aria-label="Open screen 7"><img src="assets/pawapp/scr_07_t.webp" width="540" height="1215" alt="Pawssible app screen 7" loading="lazy"></button><button type="button" class="pa-th" data-pk="7" aria-label="Open screen 8"><img src="assets/pawapp/scr_08_t.webp" width="540" height="1215" alt="Pawssible app screen 8" loading="lazy"></button><button type="button" class="pa-th" data-pk="8" aria-label="Open screen 9"><img src="assets/pawapp/scr_09_t.webp" width="540" height="1215" alt="Pawssible app screen 9" loading="lazy"></button><button type="button" class="pa-th" data-pk="9" aria-label="Open screen 10"><img src="assets/pawapp/scr_10_t.webp" width="540" height="1215" alt="Pawssible app screen 10" loading="lazy"></button><button type="button" class="pa-th" data-pk="10" aria-label="Open screen 11"><img src="assets/pawapp/scr_11_t.webp" width="540" height="1215" alt="Pawssible app screen 11" loading="lazy"></button><button type="button" class="pa-th" data-pk="11" aria-label="Open screen 12"><img src="assets/pawapp/scr_12_t.webp" width="540" height="1215" alt="Pawssible app screen 12" loading="lazy"></button><button type="button" class="pa-th" data-pk="12" aria-label="Open screen 13"><img src="assets/pawapp/scr_13_t.webp" width="540" height="1215" alt="Pawssible app screen 13" loading="lazy"></button><button type="button" class="pa-th" data-pk="13" aria-label="Open screen 14"><img src="assets/pawapp/scr_14_t.webp" width="540" height="1215" alt="Pawssible app screen 14" loading="lazy"></button><button type="button" class="pa-th" data-pk="14" aria-label="Open screen 15"><img src="assets/pawapp/scr_15_t.webp" width="540" height="1215" alt="Pawssible app screen 15" loading="lazy"></button><button type="button" class="pa-th" data-pk="15" aria-label="Open screen 16"><img src="assets/pawapp/scr_16_t.webp" width="540" height="1215" alt="Pawssible app screen 16" loading="lazy"></button><button type="button" class="pa-th" data-pk="16" aria-label="Open screen 17"><img src="assets/pawapp/scr_17_t.webp" width="540" height="1215" alt="Pawssible app screen 17" loading="lazy"></button><button type="button" class="pa-th" data-pk="17" aria-label="Open screen 18"><img src="assets/pawapp/scr_18_t.webp" width="540" height="1215" alt="Pawssible app screen 18" loading="lazy"></button><button type="button" class="pa-th" data-pk="18" aria-label="Open screen 19"><img src="assets/pawapp/scr_19_t.webp" width="540" height="1215" alt="Pawssible app screen 19" loading="lazy"></button><button type="button" class="pa-th" data-pk="19" aria-label="Open screen 20"><img src="assets/pawapp/scr_20_t.webp" width="540" height="1215" alt="Pawssible app screen 20" loading="lazy"></button><button type="button" class="pa-th" data-pk="20" aria-label="Open screen 21"><img src="assets/pawapp/scr_21_t.webp" width="540" height="1215" alt="Pawssible app screen 21" loading="lazy"></button><button type="button" class="pa-th" data-pk="21" aria-label="Open screen 22"><img src="assets/pawapp/scr_22_t.webp" width="540" height="1215" alt="Pawssible app screen 22" loading="lazy"></button><button type="button" class="pa-th" data-pk="22" aria-label="Open screen 23"><img src="assets/pawapp/scr_23_t.webp" width="540" height="1215" alt="Pawssible app screen 23" loading="lazy"></button><button type="button" class="pa-th" data-pk="23" aria-label="Open screen 24"><img src="assets/pawapp/scr_24_t.webp" width="540" height="1215" alt="Pawssible app screen 24" loading="lazy"></button><button type="button" class="pa-th" data-pk="24" aria-label="Open screen 25"><img src="assets/pawapp/scr_25_t.webp" width="540" height="1215" alt="Pawssible app screen 25" loading="lazy"></button><button type="button" class="pa-th" data-pk="25" aria-label="Open screen 26"><img src="assets/pawapp/scr_26_t.webp" width="540" height="1215" alt="Pawssible app screen 26" loading="lazy"></button><button type="button" class="pa-th" data-pk="26" aria-label="Open screen 27"><img src="assets/pawapp/scr_27_t.webp" width="540" height="1215" alt="Pawssible app screen 27" loading="lazy"></button><button type="button" class="pa-th" data-pk="27" aria-label="Open screen 28"><img src="assets/pawapp/scr_28_t.webp" width="540" height="1215" alt="Pawssible app screen 28" loading="lazy"></button><button type="button" class="pa-th" data-pk="28" aria-label="Open screen 29"><img src="assets/pawapp/scr_29_t.webp" width="540" height="1215" alt="Pawssible app screen 29" loading="lazy"></button><button type="button" class="pa-th" data-pk="29" aria-label="Open screen 30"><img src="assets/pawapp/scr_30_t.webp" width="540" height="1215" alt="Pawssible app screen 30" loading="lazy"></button><button type="button" class="pa-th" data-pk="30" aria-label="Open screen 31"><img src="assets/pawapp/scr_31_t.webp" width="540" height="1215" alt="Pawssible app screen 31" loading="lazy"></button><button type="button" class="pa-th" data-pk="31" aria-label="Open screen 32"><img src="assets/pawapp/scr_32_t.webp" width="540" height="1215" alt="Pawssible app screen 32" loading="lazy"></button><button type="button" class="pa-th" data-pk="32" aria-label="Open screen 33"><img src="assets/pawapp/scr_33_t.webp" width="540" height="1215" alt="Pawssible app screen 33" loading="lazy"></button><button type="button" class="pa-th" data-pk="33" aria-label="Open screen 34"><img src="assets/pawapp/scr_34_t.webp" width="540" height="1215" alt="Pawssible app screen 34" loading="lazy"></button><button type="button" class="pa-th" data-pk="34" aria-label="Open screen 35"><img src="assets/pawapp/scr_35_t.webp" width="540" height="1215" alt="Pawssible app screen 35" loading="lazy"></button><button type="button" class="pa-th" data-pk="35" aria-label="Open screen 36"><img src="assets/pawapp/scr_36_t.webp" width="540" height="1215" alt="Pawssible app screen 36" loading="lazy"></button><button type="button" class="pa-th" data-pk="36" aria-label="Open screen 37"><img src="assets/pawapp/scr_37_t.webp" width="540" height="1215" alt="Pawssible app screen 37" loading="lazy"></button><button type="button" class="pa-th" data-pk="37" aria-label="Open screen 38"><img src="assets/pawapp/scr_38_t.webp" width="540" height="1215" alt="Pawssible app screen 38" loading="lazy"></button><button type="button" class="pa-th" data-pk="38" aria-label="Open screen 39"><img src="assets/pawapp/scr_39_t.webp" width="540" height="1215" alt="Pawssible app screen 39" loading="lazy"></button><button type="button" class="pa-th" data-pk="39" aria-label="Open screen 40"><img src="assets/pawapp/scr_40_t.webp" width="540" height="1215" alt="Pawssible app screen 40" loading="lazy"></button><button type="button" class="pa-th" data-pk="40" aria-label="Open screen 41"><img src="assets/pawapp/scr_41_t.webp" width="540" height="1215" alt="Pawssible app screen 41" loading="lazy"></button><button type="button" class="pa-th" data-pk="41" aria-label="Open screen 42"><img src="assets/pawapp/scr_42_t.webp" width="540" height="1215" alt="Pawssible app screen 42" loading="lazy"></button><button type="button" class="pa-th" data-pk="42" aria-label="Open screen 43"><img src="assets/pawapp/scr_43_t.webp" width="540" height="1215" alt="Pawssible app screen 43" loading="lazy"></button><button type="button" class="pa-th" data-pk="43" aria-label="Open screen 44"><img src="assets/pawapp/scr_44_t.webp" width="540" height="1215" alt="Pawssible app screen 44" loading="lazy"></button><button type="button" class="pa-th" data-pk="44" aria-label="Open screen 45"><img src="assets/pawapp/scr_45_t.webp" width="540" height="1215" alt="Pawssible app screen 45" loading="lazy"></button><button type="button" class="pa-th" data-pk="45" aria-label="Open screen 46"><img src="assets/pawapp/scr_46_t.webp" width="540" height="1215" alt="Pawssible app screen 46" loading="lazy"></button><button type="button" class="pa-th" data-pk="46" aria-label="Open screen 47"><img src="assets/pawapp/scr_47_t.webp" width="540" height="1215" alt="Pawssible app screen 47" loading="lazy"></button><button type="button" class="pa-th" data-pk="47" aria-label="Open screen 48"><img src="assets/pawapp/scr_48_t.webp" width="540" height="1215" alt="Pawssible app screen 48" loading="lazy"></button><button type="button" class="pa-th" data-pk="48" aria-label="Open screen 49"><img src="assets/pawapp/scr_49_t.webp" width="540" height="1215" alt="Pawssible app screen 49" loading="lazy"></button><button type="button" class="pa-th" data-pk="49" aria-label="Open screen 50"><img src="assets/pawapp/scr_50_t.webp" width="540" height="1215" alt="Pawssible app screen 50" loading="lazy"></button><button type="button" class="pa-th" data-pk="50" aria-label="Open screen 51"><img src="assets/pawapp/scr_51_t.webp" width="540" height="1215" alt="Pawssible app screen 51" loading="lazy"></button><button type="button" class="pa-th" data-pk="51" aria-label="Open screen 52"><img src="assets/pawapp/scr_52_t.webp" width="540" height="1215" alt="Pawssible app screen 52" loading="lazy"></button><button type="button" class="pa-th" data-pk="52" aria-label="Open screen 53"><img src="assets/pawapp/scr_53_t.webp" width="540" height="1215" alt="Pawssible app screen 53" loading="lazy"></button><button type="button" class="pa-th" data-pk="53" aria-label="Open screen 54"><img src="assets/pawapp/scr_54_t.webp" width="540" height="1215" alt="Pawssible app screen 54" loading="lazy"></button><button type="button" class="pa-th" data-pk="54" aria-label="Open screen 55"><img src="assets/pawapp/scr_55_t.webp" width="540" height="1215" alt="Pawssible app screen 55" loading="lazy"></button><button type="button" class="pa-th" data-pk="55" aria-label="Open screen 56"><img src="assets/pawapp/scr_56_t.webp" width="540" height="1215" alt="Pawssible app screen 56" loading="lazy"></button><button type="button" class="pa-th" data-pk="56" aria-label="Open screen 57"><img src="assets/pawapp/scr_57_t.webp" width="540" height="1215" alt="Pawssible app screen 57" loading="lazy"></button><button type="button" class="pa-th" data-pk="57" aria-label="Open screen 58"><img src="assets/pawapp/scr_58_t.webp" width="540" height="1215" alt="Pawssible app screen 58" loading="lazy"></button><button type="button" class="pa-th" data-pk="58" aria-label="Open screen 59"><img src="assets/pawapp/scr_59_t.webp" width="540" height="1215" alt="Pawssible app screen 59" loading="lazy"></button><button type="button" class="pa-th" data-pk="59" aria-label="Open screen 60"><img src="assets/pawapp/scr_60_t.webp" width="540" height="1215" alt="Pawssible app screen 60" loading="lazy"></button></div>
+</section>
+
+<!-- CLOSING -->
+<section class="pw-close">
+<img class="pw-close-logo" src="assets/pawapp/p_logo_w.webp" alt="Pawssible" width="1081" height="271" loading="lazy">
+<h2>A new home.<br><span>A new beginning.</span></h2>
+<p>Thank you for exploring Pawssible. This case study presents a design concept, not a launched service or measured adoption results.</p>
+<small>Photography: Helena Lopes, Diana and additional contributors / Pexels. Illustrations, persona portraits and mockup scenes are generated. Personas and demo listings are fictional.</small>
+</section>
+
 <div class="pa-lb" data-palb hidden role="dialog" aria-modal="true" aria-label="App screen viewer"><button type="button" class="pa-x" data-pax aria-label="Close">×</button><button type="button" class="pa-nav pa-prev" data-pap aria-label="Previous screen">‹</button><figure><img data-paimg alt=""><figcaption data-pacap></figcaption></figure><button type="button" class="pa-nav pa-next" data-pan aria-label="Next screen">›</button></div>
 <div class="end"><div class="wrap"><span class="k">Next project</span><h2 class="rv">Augle <span class="it">AI</span></h2><a class="nextp" href="Case-Augle.html">View case study <i aria-hidden="true">→</i></a></div></div>
 </main>
+
 </div>
 </template>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":22300}}'>
