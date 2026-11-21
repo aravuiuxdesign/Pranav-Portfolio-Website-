@@ -1855,7 +1855,7 @@ class Component extends DCLogic {
     })();
     const q = (s) => this.root.querySelector(s);
     const pt = q('[data-pt]'), lbl = q('[data-ptl]');
-    const L = { 'Main': 'Home', 'About': 'About', 'Explorations': 'Projects', 'Case-Augle': 'Augle AI', 'Case-Hotel': 'Q100', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
+    const L = { 'Main': 'Home', 'About': 'About', 'Explorations': 'Projects', 'Case-Augle': 'Augle AI', 'Case-Hotel': 'Q100', 'Case-PawssibleApp': 'Pawssible App', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
     
     this.root.addEventListener('click', (e) => {
       const a = e.target.closest && e.target.closest('a[href$=".dc.html"]');
@@ -2372,7 +2372,8 @@ class Component extends DCLogic {
         { num: '04', href: 'Case-Hotel.dc.html', cat: 'iOS app · Hospitality', desc: 'AI-assisted room inspections for hotel housekeeping staff.', title: 'Q100 — Room Inspection App', tags: 'UX Research • UI Design • Design System', img: '../assets/q100/q100_cover.jpg', alt: 'Q100 Room Inspection App case study cover with three iPhone screens' },
         { num: '05', href: 'Case-StudyPal.dc.html', cat: 'EdTech', desc: 'AI tutoring, study scheduling, doubt solving and progress tracking in one place.', title: 'StudyPal', tags: 'EdTech • AI product • App & web design', img: '../assets/site/sp_laptop.webp', alt: 'StudyPal website shown on a laptop' },
         { num: '06', href: 'Case-Ainaa.dc.html', cat: 'Concept · AI', desc: 'An AI stylist you chat with like a friend, finding looks from 400+ Indian brands.', title: 'Ainaa', tags: 'Concept • Fashion tech • AI • UI design', img: '../assets/site/ainaa_cover.webp', alt: 'Ainaa AI stylist concept cover' },
-        { num: '07', href: 'Case-Pawssible.dc.html', cat: 'Website', desc: 'A foundation website that helps people adopt, volunteer and support its work.', title: 'Pawssible', tags: 'Website design • IA • Campaign graphics', img: '../assets/site/paw_laptop.webp', alt: 'Pawssible foundation website on a laptop' }
+        { num: '07', href: 'Case-Pawssible.dc.html', cat: 'Website', desc: 'A foundation website that helps people adopt, volunteer and support its work.', title: 'Pawssible', tags: 'Website design • IA • Campaign graphics', img: '../assets/site/paw_laptop.webp', alt: 'Pawssible foundation website on a laptop' },
+        { num: '08', href: 'Case-PawssibleApp.dc.html', cat: 'Mobile app · Adoption', desc: 'An adoption app for discovering pets, posting rescue appeals and following every enquiry to a happy ending.', title: 'Pawssible — Adoption App', tags: 'UX research • App UI • Design system • 60 screens', img: '../assets/pawapp/cover_1920.webp', alt: 'Pawssible adoption app cover: a woman holding a cat with the Pawssible logo' }
       ],
       strip: [
         I('../assets/explorations/g_mango.webp', 'Mango: juice website', 'Figma · Web design', 'clamp(300px, 34vw, 520px)', '16 / 11'),

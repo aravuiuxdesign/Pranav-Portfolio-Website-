@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pawssible App — Case study — Pranav Gadekar</title>
+<meta name="description" content="UX/UI case study for Pawssible, an adoption app for discovering pets, posting rescues and finding them homes: research, flows, design system and 60 app screens.">
+<meta property="og:title" content="Pawssible — Adoption App · Case Study | Pranav Gadekar">
+<meta property="og:image" content="assets/pawapp/cover_1920.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<script src="dc-lite.js"></script>
+</head>
+<body>
+<template id="dc-tpl">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+a{color:#000;text-decoration:none}a:hover{color:#2D5BFF}
+a:focus-visible,button:focus-visible{outline:2px solid #2D5BFF;outline-offset:3px}
+img,video{display:block;max-width:100%}
+.arrive{position:fixed;inset:0;z-index:300;background:#000;display:flex;align-items:center;justify-content:center;animation:lift 1s cubic-bezier(.76,0,.24,1) .4s forwards;pointer-events:none}
+.arrive-mark{width:14px;height:14px;background:#FFF;box-shadow:14px 0 #FFF,28px 0 #FFF,0 14px #FFF,42px 14px #FFF,0 28px #FFF,42px 28px #FFF,0 42px #FFF,14px 42px #FFF,28px 42px #FFF,0 56px #FFF,0 70px #FFF;transform:translate(-21px,-35px)}
+@keyframes lift{to{transform:translateY(-100%)}}
+.pill{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 20px;border-radius:999px;font:500 13px 'Geist',sans-serif;letter-spacing:.06em;text-transform:uppercase;border:0;cursor:pointer;transition:background .3s,color .3s}
+.pill-dark{background:#151A2B;color:#FFF}.pill-dark:hover{background:#2D5BFF;color:#FFF}
+.pill-light{background:#EEF1F8;color:#000}.pill-light:hover{background:#E3E7F0;color:#000}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.card{display:block;color:#000;cursor:zoom-in;background:none;border:0;padding:0;text-align:left;font:inherit;width:100%}
+.card .f{position:relative;overflow:hidden;border-radius:12px;background:#F5F7FB}
+.card .f img,.card .f video{width:100%;height:100%;object-fit:cover;transition:scale 1.1s cubic-bezier(.16,1,.3,1)}
+.card:hover .f img,.card:hover .f video{scale:1.05}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.mas{columns:3 320px;column-gap:16px}
+.mas>*{break-inside:avoid;margin-bottom:24px}
+@media (prefers-reduced-motion:reduce){.arrive{display:none}.rv{opacity:1;transform:none;transition:none}}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;letter-spacing:.02em;text-transform:uppercase}
+.meta-row{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid #EAECF2}
+.h-hero{font-size:clamp(56px,10.4vw,210px);line-height:.92;letter-spacing:-.055em;font-weight:400}
+.h-cta{font-size:clamp(64px,10vw,190px);line-height:.92;letter-spacing:-.055em;font-weight:400}
+.hero-info{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:32px;margin-top:clamp(32px,3.4vw,64px);padding-top:18px;border-top:1px solid #EAECF2;align-items:start}
+.hdr{transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+.hdr.scrolled{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:#EAECF2}
+.ul{position:relative}.ul::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}.ul:hover::after{transform:scaleX(1);transform-origin:left}
+.fl{display:block;font-size:clamp(16px,1.2vw,20px);line-height:1.8;color:#FFFFFF}
+.wordmark{font-size:clamp(56px,13.2vw,280px);line-height:.85;letter-spacing:-.06em;font-weight:500;white-space:nowrap;margin:clamp(56px,6vw,120px) 0 22px;color:#FFFFFF}
+.fade-in{animation:fadein 1.2s ease .4s both}@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:820px){.hero-info{grid-template-columns:1fr}.hero-info>div{justify-content:flex-start !important}.h-hero .ln{padding-left:0 !important}}
+.pill-blue{background:#2D5BFF;color:#FFF}.pill-blue:hover{background:#1E3FE0;color:#FFF}
+h1,h2,h3{text-wrap:balance}
+.rv{filter:blur(6px);transform:translateY(28px)}.rv.in{filter:none}
+.rv{transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.3s cubic-bezier(.22,1,.36,1),filter 1.1s cubic-bezier(.22,1,.36,1)}
+.ln>span{transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
+.pill{transition:background .35s cubic-bezier(.22,1,.36,1),color .35s,transform .6s cubic-bezier(.22,1,.36,1),box-shadow .35s}
+.pill-dark:hover,.pill-blue:hover{box-shadow:0 10px 30px rgba(45,91,255,.28)}
+::selection{background:#2D5BFF;color:#FFF}
+
+/* ===== page transition v2 ===== */
+.pt{position:fixed;inset:0;z-index:320;pointer-events:none;overflow:hidden}
+.pt-a,.pt-b{position:absolute;inset:0;transform:translateY(112%);will-change:transform}
+.pt-a{background:linear-gradient(135deg,#4F7BFF 0%,#2D5BFF 50%,#5B4BFF 100%)}
+.pt-b{background:#0B0D14;display:flex;align-items:center;justify-content:center}
+.pt-a::before,.pt-b::before,.pt-a::after,.pt-b::after{content:"";position:absolute;left:-15%;right:-15%;height:22vh;border-radius:50%;background:inherit}
+.pt-a::before,.pt-b::before{top:-11vh}
+.pt-a::after,.pt-b::after{bottom:-11vh}
+.pt-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:26px;color:#FFF;opacity:0;transform:translateY(18px)}
+.pt-mark{width:10px;height:10px;background:#FFF;transform:translate(-15px,-25px);box-shadow:10px 0 #FFF,20px 0 #FFF,0 10px #FFF,30px 10px #FFF,0 20px #FFF,30px 20px #FFF,0 30px #FFF,10px 30px #FFF,20px 30px #FFF,0 40px #FFF,0 50px #FFF;margin-bottom:-30px}
+.pt-lbl{font-family:'Geist',system-ui,sans-serif;font-size:clamp(28px,3.2vw,54px);font-weight:400;letter-spacing:-.04em;line-height:1;margin-top:26px}
+.pt.out{pointer-events:auto}
+.pt.out .pt-a{animation:ptIn .8s cubic-bezier(.76,0,.24,1) forwards}
+.pt.out .pt-b{animation:ptIn .8s cubic-bezier(.76,0,.24,1) .1s forwards}
+.pt.out .pt-in{opacity:1;transform:none;transition:opacity .45s ease .5s,transform .7s cubic-bezier(.22,1,.36,1) .5s}
+@keyframes ptIn{from{transform:translateY(112%)}to{transform:translateY(0)}}
+.pt.arr .pt-a,.pt.arr .pt-b{transform:translateY(0)}
+.pt.arr .pt-in{opacity:1;transform:none;animation:ptFade .4s ease .2s forwards}
+.pt.arr .pt-b{animation:ptOut 1s cubic-bezier(.76,0,.24,1) .45s forwards}
+.pt.arr .pt-a{animation:ptOut 1s cubic-bezier(.76,0,.24,1) .58s forwards}
+@keyframes ptOut{to{transform:translateY(-112%)}}
+@keyframes ptFade{to{opacity:0;transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.pt{display:none}}
+
+/* back button */
+.pg-back{position:fixed;top:21px;right:clamp(14px,2vw,28px);z-index:90;display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px 0 16px;border-radius:999px;background:#0B0D14;color:#FFF !important;font:500 14.5px/1 'Geist',system-ui,sans-serif;text-decoration:none;box-shadow:0 14px 34px -14px rgba(11,13,20,.55);transition:transform .45s cubic-bezier(.22,1,.36,1),background .3s}
+.pg-back:hover{transform:translateX(-3px);background:#1E2230}
+.pg-back svg{transition:transform .45s cubic-bezier(.22,1,.36,1)}.pg-back:hover svg{transform:translateX(-3px)}
+@media (max-width:820px){.pg-back{top:auto;bottom:18px;right:16px}}
+.ex-nav{padding-right:150px !important}@media (max-width:820px){.ex-nav{padding-right:clamp(20px,3.4vw,48px) !important}}
+
+
+
+/* ===== q100 case study (image panels) ===== */
+.ag{--ink:#0B0D14;--mut:#5E6372;--line:#E7EBF2;--soft:#F6F8FB;--blue:#2D5BFF;--gx:clamp(20px,5vw,112px)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.q{background:#FFF}
+.q-wrap{max-width:1920px;margin:0 auto;background:#FFF;line-height:0}
+.q-p{display:block;margin:0;padding:0}
+.q-img{display:block;width:100%;height:auto;margin:0;border:0}
+.ag .wrap{max-width:1440px;margin:0 auto;padding:0 var(--gx)}
+.ag .k{font:500 11.5px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.ag .it{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--blue)}
+.ag .end{padding:clamp(80px,9vw,150px) 0;text-align:center;background:var(--soft);border-top:1px solid var(--line);line-height:1.2}
+.ag .end h2{margin:16px auto 0;font-size:clamp(48px,7vw,124px);line-height:1;letter-spacing:-.04em;font-weight:400;color:var(--ink)}
+.ag .nextp{display:inline-flex;align-items:center;gap:12px;margin-top:32px;height:56px;padding:0 10px 0 26px;border-radius:999px;background:var(--ink);color:#FFF !important;font:500 15px 'Geist',sans-serif;text-decoration:none;transition:background .3s}
+.ag .nextp i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#FFF;color:var(--ink);font-style:normal}
+.ag .nextp:hover{background:var(--blue)}
+/* safety: content must show even if reveal never fires */
+.ag .rv{animation:rvsafe .01s linear 1.8s forwards}
+@keyframes rvsafe{to{opacity:1;filter:none;transform:none}}
+.ag-hdr{position:fixed;top:24px;left:clamp(14px,2vw,28px);z-index:80;display:flex;align-items:center;gap:14px;height:46px;padding:0 20px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -14px rgba(11,21,48,.25);font:500 15px 'Geist',sans-serif}
+.ag-hdr span{color:#5B6680;font-size:13px}
+
+/* ===== v26 page transition = preloader style ===== */
+.pt{display:block!important}
+.pt-a{display:none!important}
+.pt-b{background:#000!important}
+.pt-a::before,.pt-b::before,.pt-a::after,.pt-b::after{display:none!important}
+.pt-in{display:none!important}
+.ptx{display:grid;grid-template-columns:repeat(4,22px);grid-auto-rows:22px}
+.ptx i{background:#FFF;opacity:0}
+.pt.out .ptx i,.pt.arr .ptx i{animation:ptpx .4s steps(1) forwards}
+@keyframes ptpx{to{opacity:1}}
+.ptc{position:absolute;left:clamp(20px,3.4vw,48px);bottom:12px;color:#FFF;font:300 clamp(64px,10vw,150px)/1 'Geist',sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.ptn{position:absolute;right:clamp(20px,3.4vw,48px);bottom:28px;color:#FFF;font:500 12px 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.pt.out .pt-b{animation-duration:.75s!important;animation-delay:0s!important}
+.pt.arr .pt-b{animation-delay:.55s!important}
+
+/* v32 back */@media (max-width:640px){.pg-back{display:none!important}}
+/* unified case-study navigation (v50) */
+.csn{position:fixed;top:20px;left:0;right:0;z-index:95;display:flex;justify-content:center;padding:0 14px;pointer-events:none}
+.csn-bar{pointer-events:auto;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid #E6EAF2;box-shadow:0 14px 40px -18px rgba(11,13,20,.35);font-family:'Geist',system-ui,sans-serif;max-width:100%}
+.csn a{text-decoration:none}
+.csn-back{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;background:#0B0D14;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-back svg{transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.csn-back:hover{background:#2D5BFF}.csn-back:hover svg{transform:translateX(-3px)}
+.csn-div{width:1px;height:22px;background:#E1E5EE;margin:0 6px}
+.csn-logo{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 14px 0 10px;color:#0B0D14!important;font-weight:500;font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+.csn-logo svg{fill:currentColor}
+.csn-lsep{width:1px;height:18px;background:#D5DBE8}
+.csn-nl{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font-size:14.5px;font-weight:500;color:#3A4052!important;white-space:nowrap;transition:background .25s}
+.csn-nl:hover{background:#F1F3F8}
+.csn-count{padding:0 10px;font:500 11.5px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#6B7186;white-space:nowrap}
+.csn .thm{position:static!important;margin:0 2px}
+.csn-cta{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#2D5BFF;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-cta:hover{background:#1F47E0}
+html[data-theme="dark"] .csn-bar{background:rgba(20,23,36,.9);border-color:rgba(255,255,255,.09)}
+html[data-theme="dark"] .csn-back{background:#FFF;color:#07080D!important}
+html[data-theme="dark"] .csn-back:hover{background:#2D5BFF;color:#FFF!important}
+html[data-theme="dark"] .csn-div,html[data-theme="dark"] .csn-lsep{background:rgba(255,255,255,.14)}
+html[data-theme="dark"] .csn-logo{color:#F3F5FA!important}
+html[data-theme="dark"] .csn-nl{color:#A9B0C2!important}
+html[data-theme="dark"] .csn-nl:hover{background:#1A1E2C}
+html[data-theme="dark"] .csn-count{color:#8B92A7}
+@media (max-width:860px){.csn-lg{display:none}}
+@media (max-width:560px){.csn{top:12px}.csn-pt,.csn-lsep{display:none}.csn-logo{padding:0 10px}.csn-back{padding:0 14px 0 12px}.csn-cta{padding:0 16px}}
+/* Pawssible app case study */
+.pa{background:#F7F7F7}
+.pa-wrap{max-width:1440px;background:#F7F7F7}
+.pa-all{background:#F7F7F7;padding:clamp(72px,8vw,140px) clamp(20px,5vw,72px);line-height:1.5}
+.pa-in{max-width:1300px;margin:0 auto}
+.pa-k{display:inline-block;font:500 13px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6A4CFF}
+.pa-all h2{margin:14px 0 0;font-size:clamp(36px,5vw,72px);line-height:1.04;letter-spacing:-.035em;font-weight:500;color:#141414}
+.pa-all h2 .it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#6A4CFF}
+.pa-all p{margin:18px 0 0;max-width:58ch;font-size:18px;color:#5A5A5A}
+.pa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px 18px;margin-top:48px}
+.pa-th{all:unset;cursor:zoom-in;display:block;border-radius:14px;overflow:hidden;background:#FFF;box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 28px -18px rgba(40,20,90,.35);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s}
+.pa-th img{display:block;width:100%;height:auto}
+.pa-th:hover{transform:translateY(-4px);box-shadow:0 22px 40px -20px rgba(80,50,200,.45)}
+.pa-th:focus-visible{outline:3px solid #6A4CFF;outline-offset:3px}
+.pa-lb{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,40px);background:rgba(12,10,22,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pa-lb[hidden]{display:none}
+.pa-lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:center;padding:24px 0}
+.pa-lb img{max-height:calc(100vh - 90px);max-width:min(92vw,560px);width:auto;height:auto;border-radius:16px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.pa-lb figcaption{font:500 13px 'Geist Mono',monospace;letter-spacing:.06em;color:#C9C3E6}
+.pa-nav,.pa-x{all:unset;cursor:pointer;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);color:#FFF;font-size:30px;line-height:1;transition:background .2s}
+.pa-nav:hover,.pa-x:hover{background:#6A4CFF}
+.pa-x{position:absolute;top:18px;right:18px;font-size:28px}
+@media (max-width:640px){.pa-grid{grid-template-columns:repeat(3,1fr);gap:12px}.pa-nav{position:absolute;bottom:18px}.pa-prev{left:calc(50% - 64px)}.pa-next{right:calc(50% - 64px)}.pa-lb img{max-height:calc(100vh - 150px)}}
+</style>
+</helmet>
+<div ref="{{setRoot}}" class="ag" style="width: 100%; background: #FFFFFF; color: #0B1530; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
+<div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Q100</span></div></div></div>
+<header class="csn"><nav class="csn-bar" aria-label="Case study navigation"><a href="index.html" class="csn-back" data-back aria-label="Back to where you were"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a><span class="csn-div" aria-hidden="true"></span><a href="index.html" class="csn-logo" aria-label="Pranav Gadekar portfolio, home"><svg width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4"/><rect x="3.4" y="0.0" width="3.4" height="3.4"/><rect x="6.8" y="0.0" width="3.4" height="3.4"/><rect x="0.0" y="3.4" width="3.4" height="3.4"/><rect x="10.2" y="3.4" width="3.4" height="3.4"/><rect x="0.0" y="6.8" width="3.4" height="3.4"/><rect x="10.2" y="6.8" width="3.4" height="3.4"/><rect x="0.0" y="10.2" width="3.4" height="3.4"/><rect x="3.4" y="10.2" width="3.4" height="3.4"/><rect x="6.8" y="10.2" width="3.4" height="3.4"/><rect x="0.0" y="13.6" width="3.4" height="3.4"/><rect x="0.0" y="17.0" width="3.4" height="3.4"/></svg><span class="csn-lsep" aria-hidden="true"></span><span class="csn-pt">Portfolio</span></a><a href="index.html" class="csn-nl csn-lg" data-back>All work</a><span class="csn-count csn-lg">Case 08 / 08</span><a href="https://wa.me/918459347942" class="csn-cta">Let’s talk</a></nav></header>
+<main class="q pa">
+<h1 class="sr-only">Pawssible — adoption app case study</h1>
+<div class="sr-only"><p>Pawssible is an adoption app that makes discovering pets, posting rescues and finding them homes simple. Adopters browse available pets, send private enquiries and track what happens next; posters share photos and details, and listings are reviewed before going live. The case study covers the problem, adoption alternatives, design process, personas, user flow, screen structure, typography, colours, branding and the full set of 56 screens.</p></div>
+<div class="q-wrap pa-wrap">
+<img class="q-img" src="assets/pawapp/cs_000.webp" width="1440" height="1200" alt="Pawssible adoption app case study cover: a woman holding a cat, with the Pawssible logo" loading="eager" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_001.webp" width="1440" height="1200" alt="Pawssible case study, part 2" loading="eager" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_002.webp" width="1440" height="1200" alt="Pawssible case study, part 3" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_003.webp" width="1440" height="1200" alt="Pawssible case study, part 4" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_004.webp" width="1440" height="1200" alt="Pawssible case study, part 5" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_005.webp" width="1440" height="1200" alt="Pawssible case study, part 6" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_006.webp" width="1440" height="1200" alt="Pawssible case study, part 7" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_007.webp" width="1440" height="1200" alt="Pawssible case study, part 8" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_008.webp" width="1440" height="1200" alt="Pawssible case study, part 9" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_009.webp" width="1440" height="1200" alt="Pawssible case study, part 10" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_010.webp" width="1440" height="1200" alt="Pawssible case study, part 11" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_011.webp" width="1440" height="1200" alt="Pawssible case study, part 12" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_012.webp" width="1440" height="1200" alt="Pawssible case study, part 13" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_013.webp" width="1440" height="1200" alt="Pawssible case study, part 14" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_014.webp" width="1440" height="1200" alt="Pawssible case study, part 15" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_015.webp" width="1440" height="1200" alt="Pawssible case study, part 16" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_016.webp" width="1440" height="1200" alt="Pawssible case study, part 17" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_017.webp" width="1440" height="1200" alt="Pawssible case study, part 18" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_018.webp" width="1440" height="1200" alt="Pawssible case study, part 19" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_019.webp" width="1440" height="1200" alt="Pawssible case study, part 20" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_020.webp" width="1440" height="1200" alt="Pawssible case study, part 21" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_021.webp" width="1440" height="1200" alt="Pawssible case study, part 22" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_022.webp" width="1440" height="1200" alt="Pawssible case study, part 23" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_023.webp" width="1440" height="1200" alt="Pawssible case study, part 24" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_024.webp" width="1440" height="1200" alt="Pawssible case study, part 25" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_025.webp" width="1440" height="1200" alt="Pawssible case study, part 26" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_026.webp" width="1440" height="1200" alt="Pawssible case study, part 27" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_027.webp" width="1440" height="1200" alt="Pawssible case study, part 28" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_028.webp" width="1440" height="1200" alt="Pawssible case study, part 29" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_029.webp" width="1440" height="1200" alt="Pawssible case study, part 30" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_030.webp" width="1440" height="1200" alt="Pawssible case study, part 31" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_031.webp" width="1440" height="1200" alt="Pawssible case study, part 32" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_032.webp" width="1440" height="1200" alt="Pawssible case study, part 33" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_033.webp" width="1440" height="1200" alt="Pawssible case study, part 34" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_034.webp" width="1440" height="1200" alt="Pawssible case study, part 35" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_035.webp" width="1440" height="1200" alt="Pawssible case study, part 36" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_036.webp" width="1440" height="1200" alt="Pawssible case study, part 37" loading="lazy" decoding="async">
+<img class="q-img" src="assets/pawapp/cs_037.webp" width="1440" height="524" alt="Pawssible case study, part 38" loading="lazy" decoding="async">
+</div>
+<section class="pa-all" aria-labelledby="pa-all-h"><div class="pa-in"><span class="pa-k">App screens</span><h2 id="pa-all-h">Every screen, <span class="it">full size.</span></h2><p>All 60 frames from the app file, from splash to edge states. Tap any screen to view it in full HD and step through with the arrows.</p><div class="pa-grid"><button type="button" class="pa-th" data-pk="0" aria-label="Open screen 1"><img src="assets/pawapp/scr_01_t.webp" width="360" height="810" alt="Pawssible app screen 1" loading="lazy"></button><button type="button" class="pa-th" data-pk="1" aria-label="Open screen 2"><img src="assets/pawapp/scr_02_t.webp" width="360" height="810" alt="Pawssible app screen 2" loading="lazy"></button><button type="button" class="pa-th" data-pk="2" aria-label="Open screen 3"><img src="assets/pawapp/scr_03_t.webp" width="360" height="810" alt="Pawssible app screen 3" loading="lazy"></button><button type="button" class="pa-th" data-pk="3" aria-label="Open screen 4"><img src="assets/pawapp/scr_04_t.webp" width="360" height="810" alt="Pawssible app screen 4" loading="lazy"></button><button type="button" class="pa-th" data-pk="4" aria-label="Open screen 5"><img src="assets/pawapp/scr_05_t.webp" width="360" height="810" alt="Pawssible app screen 5" loading="lazy"></button><button type="button" class="pa-th" data-pk="5" aria-label="Open screen 6"><img src="assets/pawapp/scr_06_t.webp" width="360" height="810" alt="Pawssible app screen 6" loading="lazy"></button><button type="button" class="pa-th" data-pk="6" aria-label="Open screen 7"><img src="assets/pawapp/scr_07_t.webp" width="360" height="810" alt="Pawssible app screen 7" loading="lazy"></button><button type="button" class="pa-th" data-pk="7" aria-label="Open screen 8"><img src="assets/pawapp/scr_08_t.webp" width="360" height="810" alt="Pawssible app screen 8" loading="lazy"></button><button type="button" class="pa-th" data-pk="8" aria-label="Open screen 9"><img src="assets/pawapp/scr_09_t.webp" width="360" height="810" alt="Pawssible app screen 9" loading="lazy"></button><button type="button" class="pa-th" data-pk="9" aria-label="Open screen 10"><img src="assets/pawapp/scr_10_t.webp" width="360" height="810" alt="Pawssible app screen 10" loading="lazy"></button><button type="button" class="pa-th" data-pk="10" aria-label="Open screen 11"><img src="assets/pawapp/scr_11_t.webp" width="360" height="810" alt="Pawssible app screen 11" loading="lazy"></button><button type="button" class="pa-th" data-pk="11" aria-label="Open screen 12"><img src="assets/pawapp/scr_12_t.webp" width="360" height="810" alt="Pawssible app screen 12" loading="lazy"></button><button type="button" class="pa-th" data-pk="12" aria-label="Open screen 13"><img src="assets/pawapp/scr_13_t.webp" width="360" height="810" alt="Pawssible app screen 13" loading="lazy"></button><button type="button" class="pa-th" data-pk="13" aria-label="Open screen 14"><img src="assets/pawapp/scr_14_t.webp" width="360" height="810" alt="Pawssible app screen 14" loading="lazy"></button><button type="button" class="pa-th" data-pk="14" aria-label="Open screen 15"><img src="assets/pawapp/scr_15_t.webp" width="360" height="810" alt="Pawssible app screen 15" loading="lazy"></button><button type="button" class="pa-th" data-pk="15" aria-label="Open screen 16"><img src="assets/pawapp/scr_16_t.webp" width="360" height="810" alt="Pawssible app screen 16" loading="lazy"></button><button type="button" class="pa-th" data-pk="16" aria-label="Open screen 17"><img src="assets/pawapp/scr_17_t.webp" width="360" height="810" alt="Pawssible app screen 17" loading="lazy"></button><button type="button" class="pa-th" data-pk="17" aria-label="Open screen 18"><img src="assets/pawapp/scr_18_t.webp" width="360" height="810" alt="Pawssible app screen 18" loading="lazy"></button><button type="button" class="pa-th" data-pk="18" aria-label="Open screen 19"><img src="assets/pawapp/scr_19_t.webp" width="360" height="810" alt="Pawssible app screen 19" loading="lazy"></button><button type="button" class="pa-th" data-pk="19" aria-label="Open screen 20"><img src="assets/pawapp/scr_20_t.webp" width="360" height="810" alt="Pawssible app screen 20" loading="lazy"></button><button type="button" class="pa-th" data-pk="20" aria-label="Open screen 21"><img src="assets/pawapp/scr_21_t.webp" width="360" height="810" alt="Pawssible app screen 21" loading="lazy"></button><button type="button" class="pa-th" data-pk="21" aria-label="Open screen 22"><img src="assets/pawapp/scr_22_t.webp" width="360" height="810" alt="Pawssible app screen 22" loading="lazy"></button><button type="button" class="pa-th" data-pk="22" aria-label="Open screen 23"><img src="assets/pawapp/scr_23_t.webp" width="360" height="810" alt="Pawssible app screen 23" loading="lazy"></button><button type="button" class="pa-th" data-pk="23" aria-label="Open screen 24"><img src="assets/pawapp/scr_24_t.webp" width="360" height="810" alt="Pawssible app screen 24" loading="lazy"></button><button type="button" class="pa-th" data-pk="24" aria-label="Open screen 25"><img src="assets/pawapp/scr_25_t.webp" width="360" height="810" alt="Pawssible app screen 25" loading="lazy"></button><button type="button" class="pa-th" data-pk="25" aria-label="Open screen 26"><img src="assets/pawapp/scr_26_t.webp" width="360" height="810" alt="Pawssible app screen 26" loading="lazy"></button><button type="button" class="pa-th" data-pk="26" aria-label="Open screen 27"><img src="assets/pawapp/scr_27_t.webp" width="360" height="810" alt="Pawssible app screen 27" loading="lazy"></button><button type="button" class="pa-th" data-pk="27" aria-label="Open screen 28"><img src="assets/pawapp/scr_28_t.webp" width="360" height="810" alt="Pawssible app screen 28" loading="lazy"></button><button type="button" class="pa-th" data-pk="28" aria-label="Open screen 29"><img src="assets/pawapp/scr_29_t.webp" width="360" height="810" alt="Pawssible app screen 29" loading="lazy"></button><button type="button" class="pa-th" data-pk="29" aria-label="Open screen 30"><img src="assets/pawapp/scr_30_t.webp" width="360" height="810" alt="Pawssible app screen 30" loading="lazy"></button><button type="button" class="pa-th" data-pk="30" aria-label="Open screen 31"><img src="assets/pawapp/scr_31_t.webp" width="360" height="810" alt="Pawssible app screen 31" loading="lazy"></button><button type="button" class="pa-th" data-pk="31" aria-label="Open screen 32"><img src="assets/pawapp/scr_32_t.webp" width="360" height="810" alt="Pawssible app screen 32" loading="lazy"></button><button type="button" class="pa-th" data-pk="32" aria-label="Open screen 33"><img src="assets/pawapp/scr_33_t.webp" width="360" height="810" alt="Pawssible app screen 33" loading="lazy"></button><button type="button" class="pa-th" data-pk="33" aria-label="Open screen 34"><img src="assets/pawapp/scr_34_t.webp" width="360" height="810" alt="Pawssible app screen 34" loading="lazy"></button><button type="button" class="pa-th" data-pk="34" aria-label="Open screen 35"><img src="assets/pawapp/scr_35_t.webp" width="360" height="810" alt="Pawssible app screen 35" loading="lazy"></button><button type="button" class="pa-th" data-pk="35" aria-label="Open screen 36"><img src="assets/pawapp/scr_36_t.webp" width="360" height="810" alt="Pawssible app screen 36" loading="lazy"></button><button type="button" class="pa-th" data-pk="36" aria-label="Open screen 37"><img src="assets/pawapp/scr_37_t.webp" width="360" height="810" alt="Pawssible app screen 37" loading="lazy"></button><button type="button" class="pa-th" data-pk="37" aria-label="Open screen 38"><img src="assets/pawapp/scr_38_t.webp" width="360" height="810" alt="Pawssible app screen 38" loading="lazy"></button><button type="button" class="pa-th" data-pk="38" aria-label="Open screen 39"><img src="assets/pawapp/scr_39_t.webp" width="360" height="810" alt="Pawssible app screen 39" loading="lazy"></button><button type="button" class="pa-th" data-pk="39" aria-label="Open screen 40"><img src="assets/pawapp/scr_40_t.webp" width="360" height="810" alt="Pawssible app screen 40" loading="lazy"></button><button type="button" class="pa-th" data-pk="40" aria-label="Open screen 41"><img src="assets/pawapp/scr_41_t.webp" width="360" height="810" alt="Pawssible app screen 41" loading="lazy"></button><button type="button" class="pa-th" data-pk="41" aria-label="Open screen 42"><img src="assets/pawapp/scr_42_t.webp" width="360" height="810" alt="Pawssible app screen 42" loading="lazy"></button><button type="button" class="pa-th" data-pk="42" aria-label="Open screen 43"><img src="assets/pawapp/scr_43_t.webp" width="360" height="810" alt="Pawssible app screen 43" loading="lazy"></button><button type="button" class="pa-th" data-pk="43" aria-label="Open screen 44"><img src="assets/pawapp/scr_44_t.webp" width="360" height="810" alt="Pawssible app screen 44" loading="lazy"></button><button type="button" class="pa-th" data-pk="44" aria-label="Open screen 45"><img src="assets/pawapp/scr_45_t.webp" width="360" height="810" alt="Pawssible app screen 45" loading="lazy"></button><button type="button" class="pa-th" data-pk="45" aria-label="Open screen 46"><img src="assets/pawapp/scr_46_t.webp" width="360" height="810" alt="Pawssible app screen 46" loading="lazy"></button><button type="button" class="pa-th" data-pk="46" aria-label="Open screen 47"><img src="assets/pawapp/scr_47_t.webp" width="360" height="810" alt="Pawssible app screen 47" loading="lazy"></button><button type="button" class="pa-th" data-pk="47" aria-label="Open screen 48"><img src="assets/pawapp/scr_48_t.webp" width="360" height="810" alt="Pawssible app screen 48" loading="lazy"></button><button type="button" class="pa-th" data-pk="48" aria-label="Open screen 49"><img src="assets/pawapp/scr_49_t.webp" width="360" height="810" alt="Pawssible app screen 49" loading="lazy"></button><button type="button" class="pa-th" data-pk="49" aria-label="Open screen 50"><img src="assets/pawapp/scr_50_t.webp" width="360" height="810" alt="Pawssible app screen 50" loading="lazy"></button><button type="button" class="pa-th" data-pk="50" aria-label="Open screen 51"><img src="assets/pawapp/scr_51_t.webp" width="360" height="810" alt="Pawssible app screen 51" loading="lazy"></button><button type="button" class="pa-th" data-pk="51" aria-label="Open screen 52"><img src="assets/pawapp/scr_52_t.webp" width="360" height="810" alt="Pawssible app screen 52" loading="lazy"></button><button type="button" class="pa-th" data-pk="52" aria-label="Open screen 53"><img src="assets/pawapp/scr_53_t.webp" width="360" height="810" alt="Pawssible app screen 53" loading="lazy"></button><button type="button" class="pa-th" data-pk="53" aria-label="Open screen 54"><img src="assets/pawapp/scr_54_t.webp" width="360" height="810" alt="Pawssible app screen 54" loading="lazy"></button><button type="button" class="pa-th" data-pk="54" aria-label="Open screen 55"><img src="assets/pawapp/scr_55_t.webp" width="360" height="810" alt="Pawssible app screen 55" loading="lazy"></button><button type="button" class="pa-th" data-pk="55" aria-label="Open screen 56"><img src="assets/pawapp/scr_56_t.webp" width="360" height="810" alt="Pawssible app screen 56" loading="lazy"></button><button type="button" class="pa-th" data-pk="56" aria-label="Open screen 57"><img src="assets/pawapp/scr_57_t.webp" width="360" height="810" alt="Pawssible app screen 57" loading="lazy"></button><button type="button" class="pa-th" data-pk="57" aria-label="Open screen 58"><img src="assets/pawapp/scr_58_t.webp" width="360" height="810" alt="Pawssible app screen 58" loading="lazy"></button><button type="button" class="pa-th" data-pk="58" aria-label="Open screen 59"><img src="assets/pawapp/scr_59_t.webp" width="360" height="810" alt="Pawssible app screen 59" loading="lazy"></button><button type="button" class="pa-th" data-pk="59" aria-label="Open screen 60"><img src="assets/pawapp/scr_60_t.webp" width="360" height="810" alt="Pawssible app screen 60" loading="lazy"></button></div></div></section>
+<div class="pa-lb" data-palb hidden role="dialog" aria-modal="true" aria-label="App screen viewer"><button type="button" class="pa-x" data-pax aria-label="Close">×</button><button type="button" class="pa-nav pa-prev" data-pap aria-label="Previous screen">‹</button><figure><img data-paimg alt=""><figcaption data-pacap></figcaption></figure><button type="button" class="pa-nav pa-next" data-pan aria-label="Next screen">›</button></div>
+<div class="end"><div class="wrap"><span class="k">Next project</span><h2 class="rv">Augle <span class="it">AI</span></h2><a class="nextp" href="Case-Augle.html">View case study <i aria-hidden="true">→</i></a></div></div>
+</main>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":22300}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.setRoot = (el) => { this.root = el; }; }
+  startTransitions(){
+    if (!this.root) return;
+    (() => { const pt = this.root.querySelector('[data-pt]'); if (!pt || pt._cnt) return; pt._cnt = 1;
+      const pb = pt.querySelector('.pt-b'); if (!pb) return;
+      const vis = [1,1,1,0, 1,0,0,1, 1,0,0,1, 1,1,1,0, 1,0,0,0, 1,0,0,0];
+      const g = document.createElement('div'); g.className = 'ptx'; let d = 0;
+      vis.forEach(v => { const i = document.createElement('i'); if (v) { i.style.animationDelay = (0.04 + d * 0.045).toFixed(3) + 's'; d++; } else i.style.visibility = 'hidden'; g.appendChild(i); });
+      const c = document.createElement('span'); c.className = 'ptc'; c.textContent = '000';
+      const nm = document.createElement('span'); nm.className = 'ptn'; nm.textContent = 'Loading';
+      pb.appendChild(g); pb.appendChild(c); pb.appendChild(nm);
+      const lb = pt.querySelector('[data-ptl]');
+      const run = (from, to, dur) => { const t0 = performance.now(); const st = (t) => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); c.textContent = String(Math.round(from + (to - from) * e)).padStart(3, '0'); if (k < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); };
+      const restart = () => { g.querySelectorAll('i').forEach(i => { i.style.animation = 'none'; void i.offsetWidth; i.style.animation = ''; }); };
+      const sync = () => { if (lb && lb.textContent) nm.textContent = lb.textContent; if (pt.classList.contains('out')) { restart(); run(0, 100, 880); } else if (pt.classList.contains('arr')) { run(72, 100, 500); } };
+      new MutationObserver(sync).observe(pt, { attributes: true, attributeFilter: ['class'] });
+      sync();
+    })();
+    const q = (s) => this.root.querySelector(s);
+    const pt = q('[data-pt]'), lbl = q('[data-ptl]');
+    const L = { 'index': 'Home', 'Main': 'Home', 'About': 'About', 'Explorations': 'Projects', 'Case-Augle': 'Augle AI', 'Case-Hotel': 'Q100', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
+    window.__pgSeen = true;
+    this.root.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a[href$=".html"]');
+      if (!a) return;
+      if (!pt || a.dataset.go) return;
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      e.preventDefault(); e.stopPropagation();
+      const k = (a.getAttribute('href') || '').replace(/^.*\//, '').replace('.html', '');
+      if (lbl) lbl.textContent = L[k] || '';
+      pt.classList.remove('arr'); void pt.offsetWidth; pt.classList.add('out');
+      setTimeout(() => { a.dataset.go = '1'; a.click(); setTimeout(() => { delete a.dataset.go; pt.classList.remove('out'); }, 1500); }, 920);
+    }, true);
+  }
+  componentDidMount(){
+    { const N = 60; let cur = 0, last = null;
+      const L = () => document.querySelector('[data-palb]');
+      const show = (k) => { const lb = L(); if (!lb) return; cur = (k + N) % N; const n = String(cur + 1).padStart(2, '0'); const img = lb.querySelector('[data-paimg]'); img.src = 'assets/pawapp/scr_' + n + '.webp'; img.alt = 'Pawssible app screen ' + (cur + 1); lb.querySelector('[data-pacap]').textContent = n + ' / ' + N; };
+      const open = (k) => { const lb = L(); if (!lb) return; last = document.activeElement; show(k); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; const x = lb.querySelector('[data-pax]'); if (x) x.focus(); };
+      const close = () => { const lb = L(); if (!lb) return; lb.hidden = true; document.documentElement.style.overflow = ''; if (last && last.focus) last.focus(); };
+      this._paClick = (e) => { const t = e.target.closest && e.target.closest('[data-pk]'); if (t) { open(+t.dataset.pk); return; }
+        const lb = L(); if (!lb || lb.hidden || !lb.contains(e.target)) return;
+        if (e.target.closest('[data-pax]') || e.target === lb) close(); else if (e.target.closest('[data-pap]')) show(cur - 1); else if (e.target.closest('[data-pan]')) show(cur + 1); };
+      document.addEventListener('click', this._paClick);
+      this._paKey = (e) => { const lb = L(); if (!lb || lb.hidden) return; if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') show(cur + 1); else if (e.key === 'ArrowLeft') show(cur - 1); };
+      window.addEventListener('keydown', this._paKey); }
+
+    this._backH = (e) => { const a = e.target.closest && e.target.closest('[data-back]'); if (!a) return;
+      if (/Explorations|projects/i.test(document.referrer || '') && history.length > 1) { e.preventDefault(); e.stopImmediatePropagation(); history.back(); return; }
+      const __b = 'Case-PawssibleApp.html'; window.__backTo = __b; try { sessionStorage.setItem('pf_back', __b); } catch (err) {} };
+    document.addEventListener('click', this._backH, true);
+    if (!this.root) return;
+    this.startTransitions();
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); } }), { threshold: 0.06 });
+      this.root.querySelectorAll('.rv').forEach(el => this.io.observe(el));
+      this.vio = new IntersectionObserver((es) => es.forEach(e => { const v = e.target; v.muted = true; if (e.isIntersecting && !reduce) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }), { threshold: 0.2 });
+      this.root.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; this.vio.observe(v); });
+    } else this.root.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+  }
+  componentWillUnmount(){ [this.io, this.vio].forEach(o => o && o.disconnect()); }
+  renderVals(){ return {}; }
+}
+</script>
+</body>
+</html>
