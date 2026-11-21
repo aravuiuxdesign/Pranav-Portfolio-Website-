@@ -321,13 +321,38 @@ html[data-theme="dark"] .ptx i{background:#0F1119!important}
 html[data-theme="dark"] .ag{--soft:#0F1119;--mut:#A4ABBE;--line:rgba(255,255,255,.09);--ink:#F3F5FA;--bt:rgba(61,85,255,.18)}
 html[data-theme="dark"] .ag .nextp{background:#FFFFFF!important;color:#07080D!important}
 html[data-theme="dark"] .ag .lpx,html[data-theme="dark"] .lpx{fill:#FFF!important}
+/* unified case-study navigation (v50) */
+.csn{position:fixed;top:20px;left:0;right:0;z-index:95;display:flex;justify-content:center;padding:0 14px;pointer-events:none}
+.csn-bar{pointer-events:auto;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid #E6EAF2;box-shadow:0 14px 40px -18px rgba(11,13,20,.35);font-family:'Geist',system-ui,sans-serif;max-width:100%}
+.csn a{text-decoration:none}
+.csn-back{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;background:#0B0D14;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-back svg{transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.csn-back:hover{background:#2D5BFF}.csn-back:hover svg{transform:translateX(-3px)}
+.csn-div{width:1px;height:22px;background:#E1E5EE;margin:0 6px}
+.csn-logo{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 14px 0 10px;color:#0B0D14!important;font-weight:500;font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+.csn-logo svg{fill:currentColor}
+.csn-lsep{width:1px;height:18px;background:#D5DBE8}
+.csn-nl{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font-size:14.5px;font-weight:500;color:#3A4052!important;white-space:nowrap;transition:background .25s}
+.csn-nl:hover{background:#F1F3F8}
+.csn-count{padding:0 10px;font:500 11.5px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#6B7186;white-space:nowrap}
+.csn .thm{position:static!important;margin:0 2px}
+.csn-cta{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#2D5BFF;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-cta:hover{background:#1F47E0}
+html[data-theme="dark"] .csn-bar{background:rgba(20,23,36,.9);border-color:rgba(255,255,255,.09)}
+html[data-theme="dark"] .csn-back{background:#FFF;color:#07080D!important}
+html[data-theme="dark"] .csn-back:hover{background:#2D5BFF;color:#FFF!important}
+html[data-theme="dark"] .csn-div,html[data-theme="dark"] .csn-lsep{background:rgba(255,255,255,.14)}
+html[data-theme="dark"] .csn-logo{color:#F3F5FA!important}
+html[data-theme="dark"] .csn-nl{color:#A9B0C2!important}
+html[data-theme="dark"] .csn-nl:hover{background:#1A1E2C}
+html[data-theme="dark"] .csn-count{color:#8B92A7}
+@media (max-width:860px){.csn-lg{display:none}}
+@media (max-width:560px){.csn{top:12px}.csn-pt,.csn-lsep{display:none}.csn-logo{padding:0 10px}.csn-back{padding:0 14px 0 12px}.csn-cta{padding:0 16px}}
 </style>
 </helmet>
 <div ref="{{setRoot}}" class="pfroot ag" style="width: 100%; background: #FFFFFF; color: #0B1530; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
-<button type="button" class="thm thm-fx" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
-<a href="index.html" class="pg-back" aria-label="Back to the Augle project on the home page"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a>
-<a href="index.html" class="ag-hdr pg-back-home"><span style="color:#0B1530;font-size:15px">Pranav<span style="color:#2D5BFF;font-size:15px">.</span>G</span><span>/ Augle AI</span></a>
 <div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Augle AI</span></div></div></div>
+<header class="csn"><nav class="csn-bar" aria-label="Case study navigation"><a href="index.html" class="csn-back" data-back aria-label="Back to where you were"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a><span class="csn-div" aria-hidden="true"></span><a href="index.html" class="csn-logo" aria-label="Pranav Gadekar portfolio, home"><svg width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4"/><rect x="3.4" y="0.0" width="3.4" height="3.4"/><rect x="6.8" y="0.0" width="3.4" height="3.4"/><rect x="0.0" y="3.4" width="3.4" height="3.4"/><rect x="10.2" y="3.4" width="3.4" height="3.4"/><rect x="0.0" y="6.8" width="3.4" height="3.4"/><rect x="10.2" y="6.8" width="3.4" height="3.4"/><rect x="0.0" y="10.2" width="3.4" height="3.4"/><rect x="3.4" y="10.2" width="3.4" height="3.4"/><rect x="6.8" y="10.2" width="3.4" height="3.4"/><rect x="0.0" y="13.6" width="3.4" height="3.4"/><rect x="0.0" y="17.0" width="3.4" height="3.4"/></svg><span class="csn-lsep" aria-hidden="true"></span><span class="csn-pt">Portfolio</span></a><a href="index.html" class="csn-nl csn-lg" data-back>All work</a><span class="csn-count csn-lg">Case 01 / 07</span><button type="button" class="thm" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button><a href="https://wa.me/918459347942" class="csn-cta">Let’s talk</a></nav></header>
 <main>
 <div class="hero"><div class="wrap">
 <span class="pill-k rv"><b>01</b>Case study · Augle AI</span>
@@ -528,7 +553,6 @@ class Component extends DCLogic {
     this.root.addEventListener('click', (e) => {
       const a = e.target.closest && e.target.closest('a[href$=".html"]');
       if (!a) return;
-      if (a.classList.contains('pg-back') || a.classList.contains('pg-back-home')) { const __b = 'Case-Augle.html'; window.__backTo = __b; try { sessionStorage.setItem('pf_back', __b); } catch (err) {} }
       if (!pt || a.dataset.go) return;
       if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       e.preventDefault(); e.stopPropagation();
@@ -558,6 +582,10 @@ class Component extends DCLogic {
   }
 
   componentDidMount(){
+    this._backH = (e) => { const a = e.target.closest && e.target.closest('[data-back]'); if (!a) return;
+      if (/Explorations|projects/i.test(document.referrer || '') && history.length > 1) { e.preventDefault(); e.stopImmediatePropagation(); history.back(); return; }
+      const __b = 'Case-Augle.html'; window.__backTo = __b; try { sessionStorage.setItem('pf_back', __b); } catch (err) {} };
+    document.addEventListener('click', this._backH, true);
     this.startTheme();
     if (!this.root) return;
     this.startTransitions();
