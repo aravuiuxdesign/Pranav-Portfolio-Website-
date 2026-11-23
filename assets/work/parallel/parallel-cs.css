@@ -614,3 +614,4 @@
 .px .solo .tpi{--rz:-14deg;--w:min(clamp(250px,21vw,360px),calc((100vh - 170px) / 2.45))}
 @media (max-width:1000px){.px .solo{padding:40px 0 24px}.px .solo .tpi{--w:260px}}
 @media (max-width:760px){.px .solo .tpi{--w:220px}}
+.px .solo .tpi{--rz:-24deg;--w:min(clamp(260px,22vw,390px),calc((100vh - 140px) / 2.4))}.px .hero-ph{max-width:none}@media (max-width:1000px){.px .solo .tpi{--w:270px}}@media (max-width:760px){.px .solo{padding:60px 0 50px}.px .solo .tpi{--w:230px}}
