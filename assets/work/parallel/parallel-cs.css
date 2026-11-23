@@ -169,7 +169,7 @@
 .px .cta-card h3{font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.1}
 .px .pair{display:flex;gap:clamp(16px,2.4vw,32px);justify-content:center;align-items:center}
 .px .pair .ph{width:clamp(180px,20vw,250px)}
-.px .pair.c{margin-top:56px}
+.px .pair.pc{margin-top:56px}
 .px .pair .chat{width:clamp(220px,26vw,320px);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 30px 50px -30px rgba(0,0,0,.8)}
 
 /* player */
@@ -263,4 +263,91 @@
  .px .jt{margin-left:calc(-1*clamp(20px,5vw,48px));margin-right:calc(-1*clamp(20px,5vw,48px));border-radius:0;border-left:0;border-right:0}
  .px .lb{padding:12px;gap:8px}.px .lb .lb-p,.px .lb .lb-n{position:absolute;bottom:20px}.px .lb .lb-p{left:calc(50% - 60px)}.px .lb .lb-n{right:calc(50% - 60px)}
  .px .lb img{max-height:calc(100vh - 140px)}
+}
+
+/* ===== v2: crisp 3D tilted phones (real screens in CSS frames) ===== */
+.px .hero-ph,.px .band-ph,.px .sc-ph,.px .pr-ph,.px .full-ph{filter:none!important;position:relative;display:flex;justify-content:center;align-items:center}
+.px .hero-ph{justify-self:center;width:100%;max-width:560px;padding:56px 0 24px;margin:0}
+.px .band-ph{justify-self:end;width:100%;max-width:420px;padding:48px 0;margin:0}
+.px .sc-ph{grid-column:1/-1;width:100%;padding:24px 0}
+.px .pr-ph{justify-self:end;width:100%;padding:12px 0;margin:0}
+.px .full-ph{width:100%;padding:24px 0}
+.px .tp{perspective:1800px;display:flex;justify-content:center}
+.px .tpi{--rx:0deg;--ry:0deg;--rz:0deg;--w:300px;display:block;width:var(--w);max-width:100%;border:0;padding:7px;border-radius:42px;cursor:zoom-in;
+ background:linear-gradient(150deg,#3A455E,#111726 45%,#0A0E17);
+ transform:rotateX(calc(var(--rx) + var(--my,0deg))) rotateY(calc(var(--ry) + var(--mx,0deg))) rotateZ(var(--rz));transform-style:preserve-3d;
+ transition:transform .7s cubic-bezier(.22,1,.36,1),box-shadow .5s;will-change:transform;
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 1px #04060B,2px 3px 0 #1D2434,4px 6px 0 #171C29,6px 9px 0 #11151F,8px 12px 0 #0B0E16,40px 70px 90px -30px rgba(0,0,0,.8),0 0 140px -40px rgba(79,124,255,.55)}
+.px .tpi img{display:block;width:100%;height:auto;aspect-ratio:1176/2540;border-radius:35px;background:#05070D}
+.px .tpi:after{content:"";position:absolute;inset:7px;border-radius:35px;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.05));mix-blend-mode:screen}
+.px .tpi:focus-visible{outline:2px solid var(--cyan);outline-offset:6px}
+.px .tp-hero .tpi{--w:clamp(250px,25vw,340px);--rx:26deg;--ry:-8deg;--rz:-24deg}
+.px .tp-b .tpi{--w:clamp(220px,21vw,290px);--rx:16deg;--ry:-16deg;--rz:14deg}
+.px .tp-c .tpi{--w:clamp(220px,21vw,290px);--rx:14deg;--ry:18deg;--rz:-10deg}
+.px .sc-ph .tpi{--w:clamp(210px,19vw,260px)}
+.px .pr-ph .tpi{--w:clamp(190px,17vw,240px)}
+.px .full-ph .tpi{--w:clamp(250px,26vw,330px)}
+.px .tp.lift .tpi{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 0 0 1px #04060B,2px 3px 0 #1D2434,4px 6px 0 #171C29,6px 9px 0 #11151F,8px 12px 0 #0B0E16,50px 80px 100px -30px rgba(0,0,0,.85),0 0 160px -30px rgba(79,124,255,.75)}
+
+/* hero floating chips */
+.px .chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 15px;border-radius:999px;background:rgba(9,14,28,.78);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(148,170,220,.22);font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;box-shadow:0 18px 40px -16px rgba(0,0,0,.8);animation:pxfloat 6s ease-in-out infinite}
+.px .chip b{color:var(--cyan);font-weight:600}
+.px .chip .dot{width:8px;height:8px;border-radius:50%;background:#F43F5E;box-shadow:0 0 0 0 rgba(244,63,94,.6);animation:pxping 1.8s ease-out infinite}
+.px .chip .dot.g{background:#34D399;box-shadow:0 0 0 0 rgba(52,211,153,.6)}
+.px .chip .dot.r{}
+.px .c1{left:2%;top:22%}.px .c2{right:0;top:12%;animation-delay:-1.5s}.px .c3{left:-4%;bottom:22%;animation-delay:-3s}.px .c4{right:4%;bottom:12%;animation-delay:-4.5s}
+@keyframes pxfloat{50%{transform:translateY(-10px)}}
+@keyframes pxping{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.px .chip .dot{color:rgba(244,63,94,.55)}.px .chip .dot.g{color:rgba(52,211,153,.55)}
+
+/* player: kept at a size the source stays sharp at */
+.px .player{max-width:640px;position:relative}
+.px .rx{position:absolute;right:36px;bottom:24%;width:60px;height:40%;pointer-events:none;overflow:visible}
+.px .rx span{position:absolute;bottom:0;left:50%;font-size:24px;opacity:0;animation:pxrise 6s ease-in infinite}
+.px .rx span:nth-child(2){animation-delay:1s;left:20%}.px .rx span:nth-child(3){animation-delay:2s;left:70%}.px .rx span:nth-child(4){animation-delay:3s;left:35%}.px .rx span:nth-child(5){animation-delay:4s;left:60%}.px .rx span:nth-child(6){animation-delay:5s;left:10%}
+@keyframes pxrise{0%{opacity:0;transform:translate(-50%,0) scale(.6)}12%{opacity:1;transform:translate(-50%,-30px) scale(1)}80%{opacity:.9}100%{opacity:0;transform:translate(-50%,-150px) scale(1.1) rotate(12deg)}}
+/* sync lanes */
+.px .lanes{max-width:640px;margin:24px auto 0;padding:20px 22px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.px .ln-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.px .ln-h .mini{margin:0}
+.px .ln-t{font:500 15px 'Geist Mono',monospace;color:var(--cyan);font-variant-numeric:tabular-nums}
+.px .ln{display:grid;grid-template-columns:28px 64px 1fr 64px;align-items:center;gap:12px;padding:6px 0}
+.px .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 10px 'Geist',sans-serif;color:#04060C;font-style:normal}
+.px .nm{font-size:14px;color:var(--ink)}
+.px .bar{position:relative;height:4px;border-radius:4px;background:rgba(148,170,220,.16);overflow:hidden}
+.px .bar i{position:absolute;left:0;top:0;bottom:0;width:var(--p,43.6%);border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width 1s linear}
+.px .bar i:after{content:"";position:absolute;right:-1px;top:-3px;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 12px var(--cyan)}
+.px .st{font:500 11px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#34D399;text-align:right}
+
+/* gallery filters */
+.px .flt{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 28px}
+.px .flt button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mut);font:500 14px 'Geist',sans-serif;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.px .flt button:hover{color:var(--ink);border-color:rgba(148,170,220,.35)}
+.px .flt button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.px .grid .ph{transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1),filter .35s}
+.px .grid.filtered .ph:not(.hit){opacity:.16;filter:grayscale(1);transform:scale(.96);pointer-events:none}
+
+/* journey table: column focus */
+.px .jt td,.px .jt th{transition:background .2s,color .2s}
+.px .jt .colon{background:rgba(79,124,255,.12)!important;color:var(--ink)!important}
+
+/* scroll reveal (only once JS is running) */
+.px.px-js [data-rv]{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform 1s cubic-bezier(.22,1,.36,1)}
+.px.px-js [data-rv].on{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){.px .chip,.px .rx span,.px .chip .dot{animation:none}.px .rx{display:none}.px.px-js [data-rv]{opacity:1;transform:none}.px .tpi{transition:none}}
+@media (max-width:1000px){.px .hero-ph{max-width:460px}.px .band-ph{justify-self:center}}
+@media (max-width:760px){
+ .px .c1{left:0}.px .c3{left:0}.px .c2{right:0}.px .c4{right:0}
+ .px .chip{height:32px;font-size:12px;padding:0 12px}
+ .px .band-ph{padding:24px 0 56px}.px .pr-ph{justify-self:center}
+ .px .ln{grid-template-columns:28px 52px 1fr}.px .st{display:none}
+ .px .flt{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.px .flt button{flex:none}
+}
+@media (max-width:760px){
+ .px .tp-hero .tpi{--w:210px;--rx:22deg;--ry:-6deg;--rz:-16deg}
+ .px .hero-ph{padding:48px 0 16px}
+ .px .tp-b .tpi,.px .tp-c .tpi,.px .full-ph .tpi{--w:210px}
+ .px .rx{right:10px;bottom:30%;height:28%;width:40px}.px .rx span{font-size:17px}
+ .px .ln-h{gap:12px;align-items:flex-start}
 }
