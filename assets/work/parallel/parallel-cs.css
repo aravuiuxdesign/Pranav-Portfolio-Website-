@@ -439,3 +439,42 @@
 }
 .px .cin h1{white-space:nowrap}@media (max-width:420px){.px .cin h1{white-space:normal}}
 @media (max-width:760px){.px .ticket .stub{grid-column:auto;border-top:0;border-left:2px dashed rgba(148,170,220,.3)}.px .ticket{display:grid;width:100%}.px .ticket dd{white-space:normal}}
+
+/* ===== v5 polish ===== */
+/* hero extras (buttons + scroll cue) */
+.px .h-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,3.4vh,34px)}
+.px .hero .btn-play,.px .hero .btn-ghost{height:clamp(46px,6vh,52px)}
+.px .hero .btn-ghost{background:rgba(5,8,26,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.px .cue{position:absolute;left:50%;bottom:clamp(14px,2.6vh,26px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font:500 11px 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,242,255,.55);text-decoration:none;z-index:3}
+.px .cue i{width:22px;height:34px;border-radius:12px;border:1.5px solid rgba(238,242,255,.4);position:relative}
+.px .cue i:after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--cyan);animation:pxcue 1.8s ease-in-out infinite}
+@keyframes pxcue{0%{opacity:0;transform:translateY(-3px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+.px .cue:hover{color:#fff}
+@media (max-height:700px){.px .cue{display:none}}
+@media (max-width:1000px){.px .cue{display:none}}
+
+/* chapter headers */
+.px .lbl{display:flex;align-items:center;gap:18px;padding:0;border:0;margin-bottom:clamp(36px,4.5vw,60px);font:inherit;letter-spacing:normal;text-transform:none}
+.px .l-n{font-size:clamp(40px,4.2vw,60px);line-height:1;font-weight:600;letter-spacing:-.04em;background:linear-gradient(160deg,#9DB6FF 0%,#4F7CFF 45%,#22D3EE 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.px .l-t{font-size:clamp(17px,1.5vw,21px);font-weight:500;letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.px .l-l{flex:1;height:1px;background:linear-gradient(90deg,rgba(148,170,220,.32),rgba(148,170,220,0))}
+
+/* section rhythm: alternating tinted panels with a soft glow */
+.px #approach,.px #people,.px #structure,.px #visual,.px #home,.px #toroom,.px #watch,.px #invites,.px #all{background:radial-gradient(60% 50% at 100% 0%,rgba(79,124,255,.10),transparent 70%),radial-gradient(50% 40% at 0% 100%,rgba(34,211,238,.06),transparent 70%),#060A16;border-top:1px solid rgba(148,170,220,.07);border-bottom:1px solid rgba(148,170,220,.07)}
+.px #toroom.glow{background:radial-gradient(70% 60% at 85% 40%,rgba(79,124,255,.18),transparent 70%),#060A16}
+
+/* cards: subtle lift + border light on hover */
+.px .c,.px .callout,.px .sum,.px .n-card,.px .type,.px .lanes{transition:transform .5s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s}
+.px .c:hover,.px .callout:hover,.px .n-card:hover{transform:translateY(-4px);border-color:rgba(79,124,255,.38);box-shadow:0 30px 60px -36px rgba(79,124,255,.55)}
+.px .sw div{transition:transform .4s cubic-bezier(.22,1,.36,1)}.px .sw div:hover{transform:translateY(-4px)}
+.px .strip4 img,.px .comp img,.px .sc,.px .hc{transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.px .strip4 img:hover,.px .comp img:hover{transform:translateY(-4px)}
+.px .m-col li{transition:border-color .3s,background .3s}.px .m-col li:hover{border-color:rgba(79,124,255,.45);background:#13203C}
+
+/* steady type scale for notes and headings */
+.px .nt h3{font-size:clamp(20px,1.7vw,24px)}
+.px .nt p{font-size:16px;line-height:1.6}
+.px .r{max-width:920px}
+.px .sec{padding:clamp(80px,9vw,128px) 0}
+@media (max-width:760px){.px .l-n{font-size:40px}.px .l-t{white-space:normal}}
+@media (max-width:760px){.px .hero-top dl{display:grid;grid-template-columns:1.4fr 1fr .6fr;gap:12px;width:100%}.px .hero-top dd{font-size:12.5px}}
