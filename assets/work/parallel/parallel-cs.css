@@ -501,3 +501,110 @@
 @media (max-width:1000px){.px .hero-ph{height:auto}.px .fan3{height:clamp(440px,70vw,560px)}.px .fan3 .tpi{--w:230px}}
 @media (max-width:760px){.px .fan3{height:440px}.px .fan3 .tpi{--w:190px}.px .fan3 .f-l{transform:translate(-50%,-50%) translateX(-46%) translateY(5%) rotate(-8deg) scale(.82)}.px .fan3 .f-r{transform:translate(-50%,-50%) translateX(46%) translateY(5%) rotate(8deg) scale(.82)}}
 .px .hero-copy,.px .hero-ph{grid-row:2}.px .hero-ph{align-self:stretch;min-height:420px}@media (max-width:1000px){.px .hero-copy{grid-row:2}.px .hero-ph{grid-row:3;min-height:0}}
+
+/* ===================== v7 design pass ===================== */
+/* --- feature rows → bento cards --- */
+.px .rows{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px);grid-auto-flow:row dense;counter-reset:ft}
+.px .r,.px .r.rev{counter-increment:ft;position:relative;display:flex;flex-direction:column;align-items:stretch;gap:0;max-width:none;margin:0;text-align:left;border-radius:28px;overflow:hidden;
+ background:linear-gradient(180deg,#0B1428 0%,#070D1D 100%);border:1px solid rgba(148,170,220,.12);transition:border-color .4s,transform .6s cubic-bezier(.22,1,.36,1),box-shadow .4s}
+.px .r:hover{border-color:rgba(79,124,255,.38);transform:translateY(-4px);box-shadow:0 40px 80px -50px rgba(79,124,255,.6)}
+/* stage: everything that is not the note */
+.px .r>.ph,.px .r>.ph3,.px .r>.cta-st{align-self:stretch}
+.px .r{--stage:clamp(420px,40vw,560px)}
+.px .r>.nt{order:2;padding:26px clamp(24px,2.6vw,36px) 32px;border-top:1px solid rgba(148,170,220,.1);background:rgba(4,7,16,.35)}
+.px .r>.nt:before{content:counter(ft,decimal-leading-zero);display:inline-block;margin-bottom:14px;font:500 12px 'Geist Mono',monospace;letter-spacing:.1em;color:var(--cyan);padding:5px 10px;border-radius:999px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.22)}
+.px .r>.nt p{max-width:46ch;margin-left:0!important}
+.px .r:before{content:"";position:absolute;left:50%;top:0;width:100%;height:var(--stage);transform:translateX(-50%);background:radial-gradient(55% 55% at 50% 55%,rgba(79,124,255,.26),transparent 70%),repeating-linear-gradient(0deg,rgba(148,170,220,.05) 0 1px,transparent 1px 40px),repeating-linear-gradient(90deg,rgba(148,170,220,.05) 0 1px,transparent 1px 40px);pointer-events:none;-webkit-mask:linear-gradient(180deg,#000 60%,transparent);mask:linear-gradient(180deg,#000 60%,transparent)}
+/* phones in the stage (single, pair, trio) */
+.px .r{padding-top:0}
+.px .r>.ph{width:clamp(200px,17vw,240px)!important;margin:clamp(36px,4vw,52px) auto 36px;align-self:center;order:1}
+.px .r:has(>.ph+.ph){flex-direction:row;flex-wrap:wrap;justify-content:center;gap:0 clamp(14px,1.6vw,22px)}
+.px .r:has(>.ph+.ph)>.ph{margin:clamp(36px,4vw,52px) 0 36px;width:clamp(170px,14vw,210px)!important}
+.px .r:has(>.ph+.ph)>.nt{flex:0 0 100%}
+.px .r>.ph3{order:1;justify-content:center;margin:clamp(36px,4vw,52px) auto 36px;padding:0 20px;flex:none}
+.px .r>.ph3 .ph{width:clamp(150px,13vw,200px)}
+.px .r>.ph3.two .ph{width:clamp(160px,14vw,210px)}
+/* three-phone cards span both columns and sit side by side with their note */
+.px .r:has(>.ph3:not(.two)){grid-column:1/-1;flex-direction:row;align-items:center}
+.px .r:has(>.ph3:not(.two))>.ph3{order:1;margin:clamp(36px,4vw,52px) 0 clamp(36px,4vw,52px) clamp(24px,4vw,56px)}
+.px .r:has(>.ph3:not(.two))>.nt{order:2;flex:1;border-top:0;border-left:1px solid rgba(148,170,220,.1);background:transparent;align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:32px clamp(28px,4vw,56px)}
+.px .r:has(>.ph3:not(.two)):before{width:62%;left:0;transform:none;height:100%}
+/* cta card in the grid */
+.px .cta-r .cta-st{order:1;padding:clamp(36px,4vw,52px) clamp(24px,3vw,40px) 36px;display:flex;justify-content:center}
+.px .cta-r .cta-st img{width:100%;max-width:420px;border-radius:18px;box-shadow:0 0 0 1px rgba(148,170,220,.14),0 40px 70px -40px rgba(0,0,0,.9)}
+.px .callout{margin-top:24px;border-radius:24px;background:linear-gradient(110deg,rgba(79,124,255,.16),rgba(34,211,238,.06) 60%,rgba(11,18,34,.6));display:flex;gap:28px;align-items:center}
+.px .callout:before{content:"+";flex:none;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:linear-gradient(140deg,#5A86FF,#22D3EE);color:#fff;font-size:30px;font-weight:300;box-shadow:0 14px 30px -10px rgba(79,124,255,.8)}
+
+/* --- full-bleed showcases: giant outlined word behind the phone --- */
+.px .full{padding:clamp(56px,6vw,96px) 20px;background:radial-gradient(50% 60% at 50% 50%,rgba(79,124,255,.22),transparent 70%),#05080F}
+.px .full:before{content:attr(data-ghost);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(140px,24vw,380px);font-weight:700;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(148,170,220,.16);white-space:nowrap;pointer-events:none}
+.px .full .full-ph{position:relative;z-index:1}
+.px .full-k{color:#8A96B5}
+
+/* --- bands: same motif, ghost type --- */
+.px .band{position:relative;background:linear-gradient(120deg,#07102A,#0B1E4E 55%,#1438A0)}
+.px .band:after{content:"";position:absolute;right:-5%;top:0;bottom:0;width:55%;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 22px,transparent 22px 44px);-webkit-mask:linear-gradient(90deg,transparent,#000 40%);mask:linear-gradient(90deg,transparent,#000 40%);pointer-events:none}
+.px .band-in{position:relative;z-index:1}
+.px .band h2.xl{font-weight:600}
+
+/* --- presentation cards pick up the hero stripes --- */
+.px .pr-card:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(79,124,255,.10) 0 18px,transparent 18px 36px);clip-path:polygon(55% 0,100% 0,100% 100%,80% 100%);pointer-events:none}
+.px .pr-card>*{position:relative}
+.px .pr-wm{background:linear-gradient(95deg,#fff,#9DB6FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* --- pull quotes --- */
+.px .quote{position:relative;max-width:820px;margin:clamp(56px,6vw,88px) auto 0;padding-top:46px;font-size:clamp(24px,2.8vw,38px);line-height:1.2;font-weight:500;letter-spacing:-.03em;background:linear-gradient(95deg,#fff 0%,#BFD0FF 50%,#7FE6F5 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.px .quote:before{content:"\201C";position:absolute;left:50%;top:-18px;transform:translateX(-50%);font-size:96px;line-height:1;font-family:Georgia,serif;-webkit-text-fill-color:var(--blue);opacity:.9}
+
+/* --- sign-in & safe exits: connected steps --- */
+.px .flow3{position:relative;counter-reset:st}
+.px .flow3:before{content:"";position:absolute;left:16%;right:16%;top:clamp(150px,13vw,210px);border-top:2px dashed rgba(79,124,255,.35);z-index:0}
+.px .fc{position:relative;z-index:1;counter-increment:st}
+.px .fc:before{content:"Step " counter(st);font:500 11.5px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#9DB6FF;padding:6px 12px;border-radius:999px;background:#0C1630;border:1px solid rgba(79,124,255,.35)}
+.px #exits .fc:before{content:"Path " counter(st)}
+
+/* --- journey table --- */
+.px .jt{border-radius:22px;background:linear-gradient(180deg,#0B1428,#070D1D)}
+.px .jt thead th{background:transparent;font-size:13px;padding-top:20px;padding-bottom:16px;border-bottom:1px solid rgba(148,170,220,.18);position:relative}
+.px .jt thead th:not(:first-child):before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.75}
+.px .jt tbody th{font-size:12px;font-family:'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#8A96B5;font-weight:500}
+.px .jt tr.hl td{color:#E8F7FF;background:linear-gradient(180deg,rgba(34,211,238,.10),rgba(79,124,255,.08));font-weight:500}
+.px .jt tr.hl th{color:var(--cyan)}
+
+/* --- approach steps & role cards --- */
+.px .steps b{background:linear-gradient(120deg,#fff,#DCE6FF)}
+.px .cards3 .c,.px .roles .c{background:linear-gradient(180deg,#0B1428,#070D1D);position:relative;overflow:hidden}
+.px .cards3 .c:after,.px .roles .c:after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(closest-side,rgba(79,124,255,.25),transparent);pointer-events:none}
+
+/* --- thanks: cinematic credits ending --- */
+.px .thanks{position:relative;overflow:hidden;padding:clamp(100px,12vw,180px) 0 clamp(48px,6vw,72px);background:#03050B;text-align:center}
+.px .th-bg{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(79,124,255,.12) 0 26px,transparent 26px 52px);clip-path:polygon(0 0,100% 0,100% 18%,0 58%);-webkit-mask:linear-gradient(180deg,#000,transparent 80%);mask:linear-gradient(180deg,#000,transparent 80%)}
+.px .thanks .wrap{position:relative}
+.px .th-k{display:inline-block;font:500 12px 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8A96B5;padding:8px 16px;border-radius:999px;border:1px solid rgba(148,170,220,.2)}
+.px .th-h{margin:28px auto 0;max-width:none;font-size:clamp(44px,7vw,112px);line-height:.98;font-weight:600;letter-spacing:-.05em;color:#fff}
+.px .th-h em{font-style:normal;background:linear-gradient(95deg,#7EA2FF,#4F7CFF 40%,#22D3EE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.px .credits{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:980px;margin:clamp(48px,6vw,80px) auto 0;border-top:1px solid rgba(148,170,220,.16);border-bottom:1px solid rgba(148,170,220,.16)}
+.px .credits>div{padding:24px 16px;border-right:1px solid rgba(148,170,220,.12)}.px .credits>div:last-child{border-right:0}
+.px .credits dt{font:500 11px 'Geist Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#7F8BAA}
+.px .credits dd{margin:8px 0 0;font-size:15px;color:#EEF2FF}
+.px .th-act{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:40px}
+.px .th-notes{margin-top:clamp(56px,7vw,96px);padding-top:20px;border-top:1px solid rgba(148,170,220,.1);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.px .th-notes p{font-size:13px;color:#66728F}
+
+/* --- responsive --- */
+@media (max-width:1000px){.px .rows{grid-template-columns:1fr}.px .r:has(>.ph3:not(.two)){flex-direction:column}.px .r:has(>.ph3:not(.two))>.ph3{margin:40px auto 32px}.px .r:has(>.ph3:not(.two))>.nt{border-left:0;border-top:1px solid rgba(148,170,220,.1)}.px .r:has(>.ph3:not(.two)):before{width:100%;height:var(--stage);left:50%;transform:translateX(-50%)}.px .credits{grid-template-columns:1fr 1fr}.px .credits>div:nth-child(2){border-right:0}}
+@media (max-width:760px){
+ .px .r>.ph3{width:100%;padding:0 16px;margin:32px 0 28px}.px .r>.ph3 .ph{flex:0 0 58%}
+ .px .r:has(>.ph+.ph){flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:0 16px}.px .r:has(>.ph+.ph)>.nt{flex:0 0 100%}
+ .px .flow3:before{display:none}
+ .px .callout{flex-direction:column;align-items:flex-start}
+ .px .full:before{font-size:34vw}
+ .px .credits{grid-template-columns:1fr}.px .credits>div{border-right:0;border-bottom:1px solid rgba(148,170,220,.12)}
+}
+/* invites as bento */
+.px .inv{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(16px,2vw,24px);align-items:stretch}
+.px .i-main,.px .i-states{border-radius:28px;border:1px solid rgba(148,170,220,.12);background:radial-gradient(60% 50% at 50% 30%,rgba(79,124,255,.2),transparent 70%),linear-gradient(180deg,#0B1428,#070D1D);padding:clamp(28px,3vw,44px)}
+.px .i-main{align-items:center;text-align:center}.px .i-main .nt p{margin:10px auto 0}
+.px .i-states .ph3{justify-content:center}
+.px .two-notes{padding-top:28px;border-top:1px solid rgba(148,170,220,.1)}
+@media (max-width:1000px){.px .inv{grid-template-columns:1fr}}
