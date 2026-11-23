@@ -1866,7 +1866,7 @@ class Component extends DCLogic {
     });
     const p = { ...p0, facts, trio, statement: (ov && ov.text) || (p0.tldr || [''])[0], hasStLink: !!(ov && ov.link), stLink: (ov && ov.link) || { href: '#', label: '' },
       hasBand: !!p0.band, bandText: (p0.tldr || [])[2] || p0.intro,
-      ptLabel: ({hotel:'Hotel Inspection',ainaa:'Ainaa',studypal:'StudyPal',parallel:'Parallel',nomnom:'Nom Nom',pawssible:'Pawssible'})[this.props.pid] || 'Case study' };
+      ptLabel: ({hotel:'Q100',ainaa:'Ainaa',studypal:'StudyPal',parallel:'Parallel',nomnom:'Nom Nom',pawssible:'Pawssible'})[this.props.pid] || 'Case study' };
     return { p, sections, total, setRoot: this.setRoot };
   }
 }

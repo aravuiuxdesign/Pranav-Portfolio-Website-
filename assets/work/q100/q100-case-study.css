@@ -1,0 +1,23 @@
+@font-face{font-family:"Q100Urbanist";src:url("fonts/Urbanist.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Q100Inter";src:url("fonts/Inter.woff2") format("woff2");font-weight:100 900;font-display:swap}
+.q100cs-wrap{width:100%;max-width:1920px;margin:0 auto;overflow:hidden;background:#fff;position:relative}
+.q100cs-wrap .q100cs{transform-origin:0 0;position:absolute;left:0;top:0}
+.q100cs .s{display:block}
+.q100cs-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.q100cs *{margin:0;padding:0;box-sizing:border-box}
+.q100cs{width:1920px;margin:0;background:#fff;font-family:"Q100Urbanist",system-ui,sans-serif;color:#101828;-webkit-font-smoothing:antialiased;letter-spacing:0}
+.q100cs .m{width:1920px;position:relative;overflow:hidden;clip-path:inset(0);background:#fff;padding:140px 150px}
+.q100cs .lbl{display:inline-flex;align-items:center;height:46px;padding:0 22px;border:1.5px solid #E4E7EC;border-radius:23px;font-size:22px;font-weight:500;color:#2152E6}
+.q100cs .intro p{font-family:"Q100Urbanist",system-ui,sans-serif;font-size:27px;line-height:1.6;color:#475467;margin-top:26px;max-width:760px}
+.q100cs .card{background:#F2F4F7;border-radius:44px;position:relative;overflow:hidden}
+.q100cs .chip{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:24px;border:1.5px solid #E4E7EC;background:#fff;font-size:21px;font-weight:500;color:#475467;font-family:"Q100Inter",system-ui,sans-serif}
+.q100cs .chip.on{background:#2152E6;border-color:#2152E6;color:#fff}
+.q100cs .bub{width:60px;height:60px;border-radius:30px;background:radial-gradient(circle at 35% 30%,#8DB2FF,#2152E6 70%);box-shadow:0 8px 18px -6px rgba(33,82,230,.6),inset 0 2px 0 rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex:none}
+.q100cs .h3{font-size:38px;font-weight:600;letter-spacing:-.02em}
+.q100cs .body{font-family:"Q100Urbanist",system-ui,sans-serif;font-size:26px;line-height:1.6;color:#475467}
+.q100cs .scr{border-radius:34px;display:block;box-shadow:0 30px 60px -30px rgba(16,40,110,.35),0 0 0 1px rgba(16,24,40,.06)}
+.q100cs .bt{font-size:64px;font-weight:600;color:#2152E6;letter-spacing:-.03em;line-height:1.05}
+.q100cs .s{width:1920px;height:1080px;position:relative;overflow:hidden;clip-path:inset(0);background:#fff;padding:96px 140px}
+.q100cs .s .intro p{font-size:27px;margin-top:20px;max-width:760px;line-height:1.55}
+.q100cs .body,.q100cs .intro p{color:#344054!important;font-weight:450}
+.q100cs .intro p{max-width:860px!important}
