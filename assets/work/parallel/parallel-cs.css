@@ -478,3 +478,26 @@
 .px .sec{padding:clamp(80px,9vw,128px) 0}
 @media (max-width:760px){.px .l-n{font-size:40px}.px .l-t{white-space:normal}}
 @media (max-width:760px){.px .hero-top dl{display:grid;grid-template-columns:1.4fr 1fr .6fr;gap:12px;width:100%}.px .hero-top dd{font-size:12.5px}}
+
+/* ===== v6: true-proportion phones (no foreshortening), hero fan of three ===== */
+.px .tpi{transform:perspective(1600px) rotateY(var(--mx,0deg)) rotateX(var(--my,0deg)) rotateZ(var(--rz,0deg))!important}
+.px .tp-hero .tpi{--rz:0deg}
+.px .tp-b .tpi{--rz:7deg}
+.px .tp-c .tpi{--rz:-7deg}
+.px .hero-ph{height:100%;max-width:640px}
+.px .fan3{position:relative;width:100%;height:100%;min-height:0;display:flex;align-items:center;justify-content:center}
+.px .fan3 .tp{position:absolute;left:50%;top:50%;transition:transform .8s cubic-bezier(.22,1,.36,1),filter .5s}
+.px .fan3 .tpi{--w:min(clamp(210px,17vw,300px),calc((100vh - 250px) / 2.25))}
+.px .fan3 .f-c{z-index:3;transform:translate(-50%,-50%)}
+.px .fan3 .f-l,.px .fan3 .f-r{z-index:2;filter:brightness(.72) saturate(.9)}
+.px .fan3 .f-l{transform:translate(-50%,-50%) translateX(-58%) translateY(5%) rotate(-9deg) scale(.86)}
+.px .fan3 .f-r{transform:translate(-50%,-50%) translateX(58%) translateY(5%) rotate(9deg) scale(.86)}
+.px .fan3:hover .f-l{transform:translate(-50%,-50%) translateX(-72%) translateY(3%) rotate(-12deg) scale(.88);filter:brightness(.9)}
+.px .fan3:hover .f-r{transform:translate(-50%,-50%) translateX(72%) translateY(3%) rotate(12deg) scale(.88);filter:brightness(.9)}
+.px .fan3 .tp:hover{filter:none!important;z-index:4}
+.px .fan-glow{position:absolute;z-index:1;left:50%;top:55%;width:90%;aspect-ratio:1.4;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(79,124,255,.42),rgba(34,211,238,.10) 60%,transparent);filter:blur(18px);pointer-events:none}
+.px .tpi{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 1px #04060B,0 2px 0 1px #1B2232,0 50px 90px -30px rgba(0,0,0,.85),0 0 120px -50px rgba(79,124,255,.6)!important}
+.px .tp.lift .tpi{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 0 0 1px #04060B,0 2px 0 1px #1B2232,0 60px 100px -30px rgba(0,0,0,.9),0 0 140px -40px rgba(79,124,255,.8)!important}
+@media (max-width:1000px){.px .hero-ph{height:auto}.px .fan3{height:clamp(440px,70vw,560px)}.px .fan3 .tpi{--w:230px}}
+@media (max-width:760px){.px .fan3{height:440px}.px .fan3 .tpi{--w:190px}.px .fan3 .f-l{transform:translate(-50%,-50%) translateX(-46%) translateY(5%) rotate(-8deg) scale(.82)}.px .fan3 .f-r{transform:translate(-50%,-50%) translateX(46%) translateY(5%) rotate(8deg) scale(.82)}}
+.px .hero-copy,.px .hero-ph{grid-row:2}.px .hero-ph{align-self:stretch;min-height:420px}@media (max-width:1000px){.px .hero-copy{grid-row:2}.px .hero-ph{grid-row:3;min-height:0}}

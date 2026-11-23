@@ -103,7 +103,7 @@ html[data-theme="dark"] .csn-count{color:#8B92A7}
  <div class="wrap hero-in">
   <div class="hero-top"><span class="wm">PARALLEL</span><dl><div><dt>Project</dt><dd>Watch-together movie app<br>Mobile UI/UX concept</dd></div><div><dt>Designer</dt><dd>Pranav Gadekar</dd></div><div><dt>Year</dt><dd>2026</dd></div></dl></div>
   <div class="hero-copy"><h1 id="px-h">Same film.<br>Same moment.</h1><p>A movie night, even miles apart.</p><div class="h-cta"><a href="#about" class="btn-play"><span aria-hidden="true">▶</span>Start the night</a><a href="#all" class="btn-ghost">See all 29 screens</a></div></div>
-  <div class="hero-ph"><div class="tp tp-hero " data-tilt><button type="button" class="tpi" data-s="5" aria-label="Open screen 5: Home with live room and hero film"><img fetchpriority="high" decoding="async" src="assets/work/parallel/hd/05-home.webp" width="1176" height="2540" alt="Home with live room and hero film"></button></div><span class="chip c1"><i class="dot r"></i>Live room</span><span class="chip c2"><i class="dot g"></i>6 in sync</span><span class="chip c3">🍿 Friday Night Crew</span><span class="chip c4"><b>97%</b> crew match</span></div>
+  <div class="hero-ph"><div class="fan3" data-fan3><div class="tp tp-hero f-l" data-tilt><button type="button" class="tpi" data-s="14" aria-label="Open screen 14: Lobby: crew and invite link"><img loading="lazy" decoding="async" src="assets/work/parallel/hd/14-lobby.webp" width="1176" height="2540" alt="Lobby: crew and invite link"></button></div><div class="tp tp-hero f-c" data-tilt><button type="button" class="tpi" data-s="5" aria-label="Open screen 5: Home with live room and hero film"><img fetchpriority="high" decoding="async" src="assets/work/parallel/hd/05-home.webp" width="1176" height="2540" alt="Home with live room and hero film"></button></div><div class="tp tp-hero f-r" data-tilt><button type="button" class="tpi" data-s="17" aria-label="Open screen 17: Watching with live chat"><img loading="lazy" decoding="async" src="assets/work/parallel/hd/17-watching-chat.webp" width="1176" height="2540" alt="Watching with live chat"></button></div><span class="fan-glow" aria-hidden="true"></span></div></div>
  </div>
  <a href="#about" class="cue" aria-label="Scroll to the case study"><i></i>Scroll</a>
 </section>
@@ -390,7 +390,7 @@ class Component extends DCLogic {
       const reset = (b) => { if (!b) return; b.style.removeProperty('--mx'); b.style.removeProperty('--my'); b.parentElement.classList.remove('lift'); };
       if (fine && !reduce) on(document, 'pointermove', (e) => { const t = e.target.closest && e.target.closest('.px [data-tilt]'); const b = t && t.querySelector('.tpi');
         if (act && act !== b) { reset(act); act = null; } if (!b) return; act = b; const r = t.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-        b.style.setProperty('--mx', (x * 16).toFixed(2) + 'deg'); b.style.setProperty('--my', (-y * 12).toFixed(2) + 'deg'); t.classList.add('lift'); }, { passive: true });
+        b.style.setProperty('--mx', (x * 8).toFixed(2) + 'deg'); b.style.setProperty('--my', (-y * 6).toFixed(2) + 'deg'); t.classList.add('lift'); }, { passive: true });
       // live sync clock + lanes
       let sec = 1 * 3600 + 12 * 60 + 34; const TOT = 2 * 3600 + 46 * 60 + 5;
       const tick = () => { const c = document.querySelector('.px [data-clock]'); if (!c) return; const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s2 = sec % 60;
