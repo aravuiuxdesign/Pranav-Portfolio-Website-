@@ -2,42 +2,316 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Pawssible — Case study — Pranav Gadekar</title>
+<title>Pawssible — Animal Welfare Website · UX Case Study | Pranav Gadekar</title>
+<meta name="description" content="Pawssible website redesign concept: five pages on desktop and mobile that give visitors a clear route to adopt, support, volunteer or contact an animal welfare foundation.">
+<meta property="og:title" content="Pawssible — Animal Welfare Website · UX Case Study">
+<meta property="og:description" content="Animal welfare. A clearer path from care to action. Website redesign concept by Pranav Gadekar.">
+<meta property="og:image" content="../assets/work/pawssible-web/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="../assets/work/pawssible-web/pawssible-web.css">
 <style>
-body{margin:0;background:#FFFFFF}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-a:hover{opacity:.8}
-a:focus-visible,button:focus-visible{outline:2px solid #2D5BFF;outline-offset:3px;border-radius:6px}
-.arrive{position:fixed;inset:0;z-index:300;background:#000;display:flex;align-items:center;justify-content:center;animation:lift 1s cubic-bezier(.76,0,.24,1) .4s forwards;pointer-events:none}
-.arrive-mark{width:14px;height:14px;background:#FFF;box-shadow:14px 0 #FFF,28px 0 #FFF,0 14px #FFF,42px 14px #FFF,0 28px #FFF,42px 28px #FFF,0 42px #FFF,14px 42px #FFF,28px 42px #FFF,0 56px #FFF,0 70px #FFF;transform:translate(-21px,-35px)}
-@keyframes lift{to{transform:translateY(-100%)}}
-@media (prefers-reduced-motion:reduce){.arrive{display:none}}
-.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;letter-spacing:.02em;text-transform:uppercase}
-.meta-row{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid #EAECF2}
-.h-hero{font-size:clamp(56px,10.4vw,210px);line-height:.92;letter-spacing:-.055em;font-weight:400}
-.h-cta{font-size:clamp(64px,10vw,190px);line-height:.92;letter-spacing:-.055em;font-weight:400}
-.hero-info{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:32px;margin-top:clamp(32px,3.4vw,64px);padding-top:18px;border-top:1px solid #EAECF2;align-items:start}
-.hdr{transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
-.hdr.scrolled{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:#EAECF2}
-.ul{position:relative}.ul::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}.ul:hover::after{transform:scaleX(1);transform-origin:left}
-.fl{display:block;font-size:clamp(16px,1.2vw,20px);line-height:1.8;color:#FFFFFF}
-.wordmark{font-size:clamp(56px,13.2vw,280px);line-height:.85;letter-spacing:-.06em;font-weight:500;white-space:nowrap;margin:clamp(56px,6vw,120px) 0 22px;color:#FFFFFF}
-.fade-in{animation:fadein 1.2s ease .4s both}@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (max-width:820px){.hero-info{grid-template-columns:1fr}.hero-info>div{justify-content:flex-start !important}.h-hero .ln{padding-left:0 !important}}
+body{margin:0;background:#fff}
+.pf-root{width:100%;font-family:'Geist',system-ui,sans-serif}
+/* ===== page transition v2 ===== */
+.pt{position:fixed;inset:0;z-index:320;pointer-events:none;overflow:hidden}
+.pt-a,.pt-b{position:absolute;inset:0;transform:translateY(112%);will-change:transform}
+.pt-a{background:linear-gradient(135deg,#4F7BFF 0%,#2D5BFF 50%,#5B4BFF 100%)}
+.pt-b{background:#0B0D14;display:flex;align-items:center;justify-content:center}
+.pt-a::before,.pt-b::before,.pt-a::after,.pt-b::after{content:"";position:absolute;left:-15%;right:-15%;height:22vh;border-radius:50%;background:inherit}
+.pt-a::before,.pt-b::before{top:-11vh}
+.pt-a::after,.pt-b::after{bottom:-11vh}
+.pt-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:26px;color:#FFF;opacity:0;transform:translateY(18px)}
+.pt-mark{width:10px;height:10px;background:#FFF;transform:translate(-15px,-25px);box-shadow:10px 0 #FFF,20px 0 #FFF,0 10px #FFF,30px 10px #FFF,0 20px #FFF,30px 20px #FFF,0 30px #FFF,10px 30px #FFF,20px 30px #FFF,0 40px #FFF,0 50px #FFF;margin-bottom:-30px}
+.pt-lbl{font-family:'Geist',system-ui,sans-serif;font-size:clamp(28px,3.2vw,54px);font-weight:400;letter-spacing:-.04em;line-height:1;margin-top:26px}
+.pt.out{pointer-events:auto}
+.pt.out .pt-a{animation:ptIn .8s cubic-bezier(.76,0,.24,1) forwards}
+.pt.out .pt-b{animation:ptIn .8s cubic-bezier(.76,0,.24,1) .1s forwards}
+.pt.out .pt-in{opacity:1;transform:none;transition:opacity .45s ease .5s,transform .7s cubic-bezier(.22,1,.36,1) .5s}
+@keyframes ptIn{from{transform:translateY(112%)}to{transform:translateY(0)}}
+.pt.arr .pt-a,.pt.arr .pt-b{transform:translateY(0)}
+.pt.arr .pt-in{opacity:1;transform:none;animation:ptFade .4s ease .2s forwards}
+.pt.arr .pt-b{animation:ptOut 1s cubic-bezier(.76,0,.24,1) .45s forwards}
+.pt.arr .pt-a{animation:ptOut 1s cubic-bezier(.76,0,.24,1) .58s forwards}
+@keyframes ptOut{to{transform:translateY(-112%)}}
+@keyframes ptFade{to{opacity:0;transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.pt{display:none}}
+/* ===== v26 page transition = preloader style ===== */
+.pt{display:block!important}
+.pt-a{display:none!important}
+.pt-b{background:#000!important}
+.pt-a::before,.pt-b::before,.pt-a::after,.pt-b::after{display:none!important}
+.pt-in{display:none!important}
+.pt .ptx{display:grid;grid-template-columns:repeat(4,22px);grid-auto-rows:22px}
+.pt .ptx i{background:#FFF;opacity:0}
+.pt.out .ptx i,.pt.arr .ptx i{animation:ptpx .4s steps(1) forwards}
+@keyframes ptpx{to{opacity:1}}
+.pt .ptc{position:absolute;left:clamp(20px,3.4vw,48px);bottom:12px;color:#FFF;font:300 clamp(64px,10vw,150px)/1 'Geist',sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.pt .ptn{position:absolute;right:clamp(20px,3.4vw,48px);bottom:28px;color:#FFF;font:500 12px 'Geist',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.pt.out .pt-b{animation-duration:.75s!important;animation-delay:0s!important}
+.pt.arr .pt-b{animation-delay:.55s!important}
+/* unified case-study navigation */
+.csn{position:fixed;top:20px;left:0;right:0;z-index:95;display:flex;justify-content:center;padding:0 14px;pointer-events:none}
+.csn-bar{pointer-events:auto;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid #E6EAF2;box-shadow:0 14px 40px -18px rgba(11,13,20,.35);font-family:'Geist',system-ui,sans-serif;max-width:100%}
+.csn a{text-decoration:none}
+.csn-back{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;background:#0B0D14;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-back svg{transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.csn-back:hover{background:#2D5BFF}.csn-back:hover svg{transform:translateX(-3px)}
+.csn-div{width:1px;height:22px;background:#E1E5EE;margin:0 6px}
+.csn-logo{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 14px 0 10px;color:#0B0D14!important;font-weight:500;font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+.csn-logo svg{fill:currentColor}
+.csn-lsep{width:1px;height:18px;background:#D5DBE8}
+.csn-nl{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font-size:14.5px;font-weight:500;color:#3A4052!important;white-space:nowrap;transition:background .25s}
+.csn-nl:hover{background:#F1F3F8}
+.csn-count{padding:0 10px;font:500 11.5px 'Geist Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#6B7186;white-space:nowrap}
+.csn .thm{position:static!important;margin:0 2px}
+.csn-cta{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#2D5BFF;color:#FFF!important;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .25s}
+.csn-cta:hover{background:#1F47E0}
+html[data-theme="dark"] .csn-bar{background:rgba(20,23,36,.9);border-color:rgba(255,255,255,.09)}
+html[data-theme="dark"] .csn-back{background:#FFF;color:#07080D!important}
+html[data-theme="dark"] .csn-back:hover{background:#2D5BFF;color:#FFF!important}
+html[data-theme="dark"] .csn-div,html[data-theme="dark"] .csn-lsep{background:rgba(255,255,255,.14)}
+html[data-theme="dark"] .csn-logo{color:#F3F5FA!important}
+html[data-theme="dark"] .csn-nl{color:#A9B0C2!important}
+html[data-theme="dark"] .csn-nl:hover{background:#1A1E2C}
+html[data-theme="dark"] .csn-count{color:#8B92A7}
+@media (max-width:860px){.csn-lg{display:none}}
+@media (max-width:560px){.csn{top:12px}.csn-pt,.csn-lsep{display:none}.csn-logo{padding:0 10px}.csn-back{padding:0 14px 0 12px}.csn-cta{padding:0 16px}}
+.pf-end{padding:clamp(72px,8vw,140px) clamp(20px,5vw,112px);text-align:center;background:#F6F8FB;border-top:1px solid #E7EBF2;color:#0B0D14}
+.pf-end .pf-k{display:block;font:500 11.5px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5E6372}
+.pf-end h2{margin:16px auto 0;font-size:clamp(48px,7vw,124px);line-height:1;letter-spacing:-.04em;font-weight:400;color:#0B0D14}
+.pf-end h2 i{font-family:'Instrument Serif',Georgia,serif;font-weight:400;color:#2D5BFF}
+.pf-end .pf-next{display:inline-flex;align-items:center;gap:12px;margin-top:32px;height:56px;padding:0 10px 0 26px;border-radius:999px;background:#0B0D14;color:#FFF;font:500 15px 'Geist',sans-serif;text-decoration:none;transition:background .3s}
+.pf-end .pf-next span{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#FFF;color:#0B0D14}
+.pf-end .pf-next:hover{background:#2D5BFF}
 </style>
 </helmet>
-<dc-import name="CaseStudy" pid="pawssible" hint-size="100%,6400px"></dc-import>
+<div ref="{{setRoot}}" class="pf-root">
+<div class="pt arr" data-pt aria-hidden="true"><div class="pt-a"></div><div class="pt-b"><div class="pt-in"><span class="pt-mark"></span><span class="pt-lbl" data-ptl>Pawssible</span></div></div></div>
+<header class="csn"><nav class="csn-bar" aria-label="Case study navigation"><a href="Main.dc.html" class="csn-back" data-back aria-label="Back to where you were"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a><span class="csn-div" aria-hidden="true"></span><a href="Main.dc.html" class="csn-logo" aria-label="Pranav Gadekar portfolio, home"><svg width="13.6" height="20.4" viewBox="0 0 13.6 20.4" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.0" y="0.0" width="3.4" height="3.4"/><rect x="3.4" y="0.0" width="3.4" height="3.4"/><rect x="6.8" y="0.0" width="3.4" height="3.4"/><rect x="0.0" y="3.4" width="3.4" height="3.4"/><rect x="10.2" y="3.4" width="3.4" height="3.4"/><rect x="0.0" y="6.8" width="3.4" height="3.4"/><rect x="10.2" y="6.8" width="3.4" height="3.4"/><rect x="0.0" y="10.2" width="3.4" height="3.4"/><rect x="3.4" y="10.2" width="3.4" height="3.4"/><rect x="6.8" y="10.2" width="3.4" height="3.4"/><rect x="0.0" y="13.6" width="3.4" height="3.4"/><rect x="0.0" y="17.0" width="3.4" height="3.4"/></svg><span class="csn-lsep" aria-hidden="true"></span><span class="csn-pt">Portfolio</span></a><a href="Main.dc.html" class="csn-nl csn-lg" data-back>All work</a><span class="csn-count csn-lg">Case 07 / 08</span><a href="https://wa.me/918459347942" class="csn-cta">Let’s talk</a></nav></header>
+<main class="pw2" aria-label="Pawssible website case study">
+
+<section class="hero">
+ <div class="wrap">
+  <div class="h-top"><span>Pranav Gadekar</span><span>Pawssible</span><span>Website / UI UX</span></div>
+  <div class="h-grid">
+   <h1 data-rv>Pawssible</h1>
+   <p class="h-tag" data-rv>Animal welfare. A clearer path from care to action.</p>
+  </div>
+  <p class="h-meta" data-rv>Website redesign concept / Portfolio draft. Role and contribution to be confirmed.</p>
+  <div class="devices" data-rv>
+   <div class="lap"><div class="lap-scr"><img class="" decoding="async" src="../assets/work/pawssible-web/hero-home.webp" alt="Pawssible home page hero on a laptop: Every stray deserves care and a home"></div><div class="lap-base"></div></div>
+   <div class="ph ph-hero"><div class="ph-in"><img class="" decoding="async" src="../assets/work/pawssible-web/m-home.webp" alt="Pawssible home page on a phone"></div></div>
+   <div class="float-card"><img class="" decoding="async" src="../assets/work/pawssible-web/adopt-cards.webp" alt="Adoptable pets section with demo listings"></div>
+  </div>
+  <p class="cap">Five pages / Desktop + mobile / Not a live or user-tested release</p>
+ </div>
+</section>
+
+<section class="sec" id="system">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Font & colour scheme</span></div><p class="intro" data-rv>A restrained website system: clear hierarchy, familiar navigation and visible next steps. Colours reproduced from the supplied design, not official brand standards.</p></div>
+  <div class="type" data-rv>
+   <div class="t-name">Plus Jakarta<br>Sans</div>
+   <div class="t-side"><div class="t-w"><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span></div>
+    <div class="t-sample" aria-hidden="true">Aa Bb Cc 123 — Every stray deserves care.</div>
+    <p>The website uses one type family. Weight and scale separate headlines, body copy and action labels.</p></div>
+  </div>
+  <div class="pal" data-rv><span class="sub">Website palette</span><div class="sw"><button type="button" class="s" data-hex="#10241F" style="--c:#10241F" aria-label="Copy Ink #10241F"><i></i><b>Ink</b><span>#10241F</span></button><button type="button" class="s" data-hex="#0B3D33" style="--c:#0B3D33" aria-label="Copy Forest #0B3D33"><i></i><b>Forest</b><span>#0B3D33</span></button><button type="button" class="s" data-hex="#0F6B57" style="--c:#0F6B57" aria-label="Copy Green #0F6B57"><i></i><b>Green</b><span>#0F6B57</span></button><button type="button" class="s" data-hex="#F4A62A" style="--c:#F4A62A" aria-label="Copy Amber #F4A62A"><i></i><b>Amber</b><span>#F4A62A</span></button><button type="button" class="s" data-hex="#56655F" style="--c:#56655F" aria-label="Copy Slate #56655F"><i></i><b>Slate</b><span>#56655F</span></button><button type="button" class="s" data-hex="#E4F2EE" style="--c:#E4F2EE" aria-label="Copy Mint #E4F2EE"><i></i><b>Mint</b><span>#E4F2EE</span></button><button type="button" class="s" data-hex="#F6F3EC" style="--c:#F6F3EC" aria-label="Copy Cream #F6F3EC"><i></i><b>Cream</b><span>#F6F3EC</span></button><button type="button" class="s" data-hex="#FFFFFF" style="--c:#FFFFFF" aria-label="Copy White #FFFFFF"><i></i><b>White</b><span>#FFFFFF</span></button></div><span class="copied" role="status" aria-live="polite"></span></div>
+ </div>
+</section>
+
+<section class="sec tint" id="about">
+ <div class="wrap">
+  <div class="lbl" data-rv><span>About the project</span></div>
+  <div class="ab">
+   <figure class="desk" data-rv><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/desk-photo.webp" alt="Pawssible home page shown on a desktop monitor in a home office"><figcaption>Monitor photo: Vlastimil Vavra / CC BY 4.0. Screen replaced; photo cropped.</figcaption></figure>
+   <div class="ab-t" data-rv><p class="lead">Pawssible brings rescue, adoption and community support together. This website concept gives visitors a clear route to adopt, support, volunteer or contact the team.</p><p>Design logic: make the next step visible, keep page roles distinct and use a consistent system across desktop and mobile.</p></div>
+  </div>
+  <p class="note" data-rv>Scope: website only. The Pawssible adoption app is a separate project. No interview findings or measured outcomes are claimed here.</p>
+ </div>
+</section>
+
+<section class="sec" id="explore">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Explore the five pages</span></div><p class="intro" data-rv>Switch pages and devices to see how one system carries the whole site. Scroll inside the window to read each page.</p></div>
+  <div class="ex" data-rv>
+   <div class="ex-ctl"><div class="tabs" role="tablist" aria-label="Pages"><button type="button" role="tab" data-pg="home" aria-selected="true">Home</button><button type="button" role="tab" data-pg="about" aria-selected="false">About</button><button type="button" role="tab" data-pg="adoption" aria-selected="false">Adoption</button><button type="button" role="tab" data-pg="support" aria-selected="false">Support</button><button type="button" role="tab" data-pg="contact" aria-selected="false">Contact</button></div>
+    <div class="dev" role="group" aria-label="Device"><button type="button" data-dev="d" aria-pressed="true">Desktop</button><button type="button" data-dev="m" aria-pressed="false">Mobile</button></div></div>
+   <div class="ex-stage" data-dev-now="d">
+    <figure class="br big"><div class="br-bar"><i></i><i></i><i></i><span class="br-url" data-exurl>pawssible-india/</span><button type="button" class="br-open" data-exopen aria-label="Open the full page">Full page ↗</button></div><div class="br-vp" tabindex="0" data-exvp aria-label="Page preview, scrollable"><img loading="lazy" decoding="async" class="br-img ex-img on" data-ex="home" src="../assets/work/pawssible-web/page-home.webp" alt="Home page: mission, work areas, stories and ways to help"><img loading="lazy" decoding="async" class="br-img ex-img" data-ex="about" src="../assets/work/pawssible-web/page-about.webp" alt="About page: mission, story, areas of work and team"><img loading="lazy" decoding="async" class="br-img ex-img" data-ex="adoption" src="../assets/work/pawssible-web/page-adoption.webp" alt="Adoption page: four steps and demo adoptable pets"><img loading="lazy" decoding="async" class="br-img ex-img" data-ex="support" src="../assets/work/pawssible-web/page-support.webp" alt="Support page: three ways to support and donation panel"><img loading="lazy" decoding="async" class="br-img ex-img" data-ex="contact" src="../assets/work/pawssible-web/page-contact.webp" alt="Contact page: talk to the team and enquiry form"></div></figure>
+    <div class="ph ex-ph"><div class="ph-in" data-exmvp><img loading="lazy" decoding="async" class="ex-m on" data-exm="home" src="../assets/work/pawssible-web/m-home.webp" alt="Home page on mobile"><img loading="lazy" decoding="async" class="ex-m" data-exm="about" src="../assets/work/pawssible-web/m-about.webp" alt="About page on mobile"><img loading="lazy" decoding="async" class="ex-m" data-exm="adoption" src="../assets/work/pawssible-web/m-adoption.webp" alt="Adoption page on mobile"><img loading="lazy" decoding="async" class="ex-m" data-exm="support" src="../assets/work/pawssible-web/m-support.webp" alt="Support page on mobile"><img loading="lazy" decoding="async" class="ex-m" data-exm="contact" src="../assets/work/pawssible-web/m-contact.webp" alt="Contact page on mobile"></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="home">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Home page</span></div><p class="intro" data-rv>A complete long-form page, from mission and work areas to ways to help. The two phone frames are unchanged website excerpts.</p></div>
+  <div class="pg">
+   <figure class="br tall" data-rv><div class="br-bar"><i></i><i></i><i></i><span class="br-url">pawssible-india/</span><button type="button" class="br-open" data-open="page-home" aria-label="Open the full Home page">Full page ↗</button></div><div class="br-vp" tabindex="0" aria-label="Home page preview, scrollable"><img class="br-img" loading="lazy" decoding="async" src="../assets/work/pawssible-web/page-home.webp" alt="Home page: mission, work areas, stories and ways to help"></div><span class="br-hint" aria-hidden="true">Scroll to explore</span></figure>
+   <div class="pg-side"><div class="ph " data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-home.webp" alt="Home page hero on mobile"></div></div><div class="ph off" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-home-long.webp" alt="Home page stats and work on mobile"></div></div>
+    <div class="callout" data-rv><h3>One site. Three ways to help.</h3><p>Adopt: meet the animals and start a conversation. Support: understand how help is used. Volunteer: find an approachable way to join.</p><p class="sm">Audience groups are design assumptions, not interview-derived personas. Impact counts, stories and names inside the existing screen still need verification.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec tint" id="aboutpage">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>About page</span></div><p class="intro" data-rv>The mission, areas of work and people behind the foundation. Mission, team and ways to help form one continuous reading flow.</p></div>
+  <div class="pg rev">
+   <figure class="br tall" data-rv><div class="br-bar"><i></i><i></i><i></i><span class="br-url">pawssible-india/about</span><button type="button" class="br-open" data-open="page-about" aria-label="Open the full About page">Full page ↗</button></div><div class="br-vp" tabindex="0" aria-label="About page preview, scrollable"><img class="br-img" loading="lazy" decoding="async" src="../assets/work/pawssible-web/page-about.webp" alt="About page: mission, story, areas of work and team"></div><span class="br-hint" aria-hidden="true">Scroll to explore</span></figure>
+   <div class="pg-side"><figure class="crop" data-rv><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/hero-about.webp" alt="About page hero: A shared vision of students who stood up for the voiceless"></figure>
+    <div class="callout" data-rv><h3>Trust needs specific evidence.</h3><p>Confirm foundation-owned photography, team details and registration wording before publication. The source includes stock placeholders; the visual revision does not verify their provenance.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="adoption">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Adoption page</span></div><p class="intro" data-rv>Demo listings make the page structure visible. They do not show pets currently available for adoption. The adoption-interest route is proposed.</p></div>
+  <div class="pg">
+   <figure class="br tall" data-rv><div class="br-bar"><i></i><i></i><i></i><span class="br-url">pawssible-india/adoption</span><button type="button" class="br-open" data-open="page-adoption" aria-label="Open the full Adoption page">Full page ↗</button></div><div class="br-vp" tabindex="0" aria-label="Adoption page preview, scrollable"><img class="br-img" loading="lazy" decoding="async" src="../assets/work/pawssible-web/page-adoption.webp" alt="Adoption page: four steps and demo adoptable pets"></div><span class="br-hint" aria-hidden="true">Scroll to explore</span></figure>
+   <div class="pg-side">
+    <div class="callout" data-rv><h3>A predictable first step.</h3><p>Four proposed stages explain the route from interest to a conversation. Confirm that route with the team before implementation.</p>
+     <ol class="steps"><li><b>1</b><span><em>Meet</em>Find an animal at a drive or in the listings.</span></li><li><b>2</b><span><em>Enquire</em>Send a message or call the team.</span></li><li><b>3</b><span><em>Talk it through</em>The team checks the match with you.</span></li><li><b>4</b><span><em>Welcome home</em>The animal goes home with you.</span></li></ol></div>
+    <figure class="crop" data-rv><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/adopt-cards.webp" alt="Adoptable pets grid with demo listings"><figcaption>Unchanged listing detail / demo content</figcaption></figure></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec tint" id="mobile">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Mobile website</span></div><p class="intro" data-rv>Narrow-screen reading, separate from the Pawssible app. These are excerpts of the approved mobile layouts; responsive behaviour still needs implementation testing.</p></div>
+  <div class="mob">
+   <div class="mob-nav" data-rv><ul><li>Adopt</li><li>Support</li><li>Contact</li></ul><p>Consistent navigation and plain-language actions across the website.</p></div>
+   <div class="mob-row"><div class="ph p1" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-adoption.webp" alt="Adoption page on mobile"></div></div><div class="ph p2" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-home.webp" alt="Home page on mobile"></div></div><div class="ph p3" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-support.webp" alt="Support page on mobile"></div></div><div class="ph p4" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-contact.webp" alt="Contact page on mobile"></div></div><div class="ph p5" data-rv><div class="ph-in"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/m-about.webp" alt="About page on mobile"></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="support">
+ <div class="wrap">
+  <div class="two"><div class="lbl" data-rv><span>Support & contact</span></div><p class="intro" data-rv>Separate routes for money, time and conversation. The donation panel is a placeholder. Forms, consent, delivery and response ownership are not demonstrated.</p></div>
+  <div class="duo"><figure class="br mid" data-rv><div class="br-bar"><i></i><i></i><i></i><span class="br-url">pawssible-india/support</span><button type="button" class="br-open" data-open="page-support" aria-label="Open the full Support page">Full page ↗</button></div><div class="br-vp" tabindex="0" aria-label="Support page preview, scrollable"><img class="br-img" loading="lazy" decoding="async" src="../assets/work/pawssible-web/page-support.webp" alt="Support page: three ways to support and donation panel"></div><span class="br-hint" aria-hidden="true">Scroll to explore</span></figure><figure class="br mid" data-rv><div class="br-bar"><i></i><i></i><i></i><span class="br-url">pawssible-india/contact</span><button type="button" class="br-open" data-open="page-contact" aria-label="Open the full Contact page">Full page ↗</button></div><div class="br-vp" tabindex="0" aria-label="Contact page preview, scrollable"><img class="br-img" loading="lazy" decoding="async" src="../assets/work/pawssible-web/page-contact.webp" alt="Contact page: talk to the team and enquiry form"></div><span class="br-hint" aria-hidden="true">Scroll to explore</span></figure></div>
+  <div class="duo crops">
+   <figure class="crop" data-rv><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/support-donate.webp" alt="Donation panel: Every contribution counts, with a placeholder for the donation QR"><figcaption>Donation detail / not a working payment service</figcaption></figure>
+   <figure class="crop" data-rv><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/contact-form.webp" alt="Contact form: How can we help?"><figcaption>Form detail / proposed interface</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section class="thanks">
+ <div class="wrap">
+  <div class="h-top"><span>Pranav Gadekar</span><span>Pawssible / Website</span></div>
+  <div class="th">
+   <div><h2 data-rv>Thank you<br>for watching</h2><p class="th-l" data-rv>A website that makes care easier to act on.</p>
+    <p data-rv>Portfolio draft. Exact role and contribution remain unconfirmed. This is a design concept, not a live or user-tested release. No user-research findings, launch results or conversion gains are claimed.</p>
+    <p data-rv>Before publication: confirm role, content and image permissions, pet availability, payment beneficiary and QR, contact and registration details. Test accessibility, forms and the adoption route with real visitors.</p></div>
+   <div class="th-dev" data-rv><div class="lap sm"><div class="lap-scr"><img class="" loading="lazy" decoding="async" src="../assets/work/pawssible-web/hero-home.webp" alt="Pawssible home page on a laptop"></div><div class="lap-base"></div></div></div>
+  </div>
+  <div class="th-foot"><p>Presentation reference: Election Training Organization (CICDE) redesign website, PNA Software and Olga Bajura / Behance. Layout adapted for Pawssible in a white, green-accented treatment. Website UI remains unchanged.</p><p>Website concept / November 2026</p></div>
+ </div>
+</section>
+
+<div class="lb" data-pwlb hidden role="dialog" aria-modal="true" aria-label="Full page viewer">
+ <div class="lb-bar"><span data-lbt></span><button type="button" data-lbx aria-label="Close">Close ×</button></div>
+ <div class="lb-sc" tabindex="0"><img data-lbi alt=""></div>
+</div>
+
+</main>
+<div class="pf-end"><span class="pf-k">Next project</span><h2>Pawssible <i>App</i></h2><a class="pf-next" href="Case-PawssibleApp.dc.html">View case study <span aria-hidden="true">→</span></a></div>
+</div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":12000}}'>
 class Component extends DCLogic {
-  renderVals() { return {}; }
+  constructor(p){ super(p); this.setRoot = (el) => { this.root = el; }; }
+  startTransitions(){
+    if (!this.root) return;
+    (() => { const pt = this.root.querySelector('[data-pt]'); if (!pt || pt._cnt) return; pt._cnt = 1;
+      const pb = pt.querySelector('.pt-b'); if (!pb) return;
+      const vis = [1,1,1,0, 1,0,0,1, 1,0,0,1, 1,1,1,0, 1,0,0,0, 1,0,0,0];
+      const g = document.createElement('div'); g.className = 'ptx'; let d = 0;
+      vis.forEach(v => { const i = document.createElement('i'); if (v) { i.style.animationDelay = (0.04 + d * 0.045).toFixed(3) + 's'; d++; } else i.style.visibility = 'hidden'; g.appendChild(i); });
+      const c = document.createElement('span'); c.className = 'ptc'; c.textContent = '000';
+      const nm = document.createElement('span'); nm.className = 'ptn'; nm.textContent = 'Loading';
+      pb.appendChild(g); pb.appendChild(c); pb.appendChild(nm);
+      const lb = pt.querySelector('[data-ptl]');
+      const run = (from, to, dur) => { const t0 = performance.now(); const st = (t) => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); c.textContent = String(Math.round(from + (to - from) * e)).padStart(3, '0'); if (k < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); };
+      const restart = () => { g.querySelectorAll('i').forEach(i => { i.style.animation = 'none'; void i.offsetWidth; i.style.animation = ''; }); };
+      const sync = () => { if (lb && lb.textContent) nm.textContent = lb.textContent; if (pt.classList.contains('out')) { restart(); run(0, 100, 880); } else if (pt.classList.contains('arr')) { run(72, 100, 500); } };
+      new MutationObserver(sync).observe(pt, { attributes: true, attributeFilter: ['class'] });
+      sync();
+    })();
+    const q = (s) => this.root.querySelector(s);
+    const pt = q('[data-pt]'), lbl = q('[data-ptl]');
+    const L = { 'Main': 'Home', 'About': 'About', 'Explorations': 'Projects', 'Case-Augle': 'Augle AI', 'Case-Hotel': 'Q100', 'Case-Ainaa': 'Ainaa', 'Case-StudyPal': 'StudyPal', 'Case-Parallel': 'Parallel', 'Case-NomNom': 'Nom Nom', 'Case-Pawssible': 'Pawssible' };
+    window.__pgSeen = true;
+    this.root.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a[href$=".dc.html"]');
+      if (!a) return;
+      if (!pt || a.dataset.go) return;
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      e.preventDefault(); e.stopPropagation();
+      const k = (a.getAttribute('href') || '').replace(/^.*\//, '').replace('.dc.html', '');
+      if (lbl) lbl.textContent = L[k] || '';
+      pt.classList.remove('arr'); void pt.offsetWidth; pt.classList.add('out');
+      setTimeout(() => { a.dataset.go = '1'; a.click(); setTimeout(() => { delete a.dataset.go; pt.classList.remove('out'); }, 1500); }, 920);
+    }, true);
+  }
+  componentDidMount(){
+    this._pw = [];
+    { const on = (t, ev, fn, o) => { t.addEventListener(ev, fn, o); this._pw.push(() => t.removeEventListener(ev, fn, o)); };
+      const P = [{k:'home',n:'Home',u:'pawssible-india/',f:'page-home'},{k:'about',n:'About',u:'pawssible-india/about',f:'page-about'},{k:'adoption',n:'Adoption',u:'pawssible-india/adoption',f:'page-adoption'},{k:'support',n:'Support',u:'pawssible-india/support',f:'page-support'},{k:'contact',n:'Contact',u:'pawssible-india/contact',f:'page-contact'}]; let curPg = 'home', last = null;
+      const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const LB = () => document.querySelector('[data-pwlb]');
+      const openFull = (f, title, from) => { const lb = LB(); if (!lb) return; last = from; const i = lb.querySelector('[data-lbi]'); i.src = '../assets/work/pawssible-web/' + f + '.webp'; i.alt = title + ' — full page';
+        lb.querySelector('[data-lbt]').textContent = title + ' · full page'; lb.querySelector('.lb-sc').scrollTop = 0; lb.hidden = false; document.documentElement.style.overflow = 'hidden'; lb.querySelector('[data-lbx]').focus(); };
+      const closeFull = () => { const lb = LB(); if (!lb || lb.hidden) return; lb.hidden = true; document.documentElement.style.overflow = ''; last && last.focus && last.focus(); };
+      on(document, 'click', (e) => { const t = e.target; if (!t.closest) return;
+        const o = t.closest('.pw2 [data-open]'); if (o) { const p = P.find(x => x.f === o.dataset.open); return openFull(o.dataset.open, p ? p.n : 'Page', o); }
+        if (t.closest('.pw2 [data-exopen]')) { const p = P.find(x => x.k === curPg); return openFull(p.f, p.n, t.closest('[data-exopen]')); }
+        if (t.closest('[data-lbx]')) return closeFull(); if (t.matches && t.matches('[data-pwlb]')) return closeFull();
+        const tab = t.closest('.pw2 [data-pg]'); if (tab) { curPg = tab.dataset.pg; const p = P.find(x => x.k === curPg);
+          document.querySelectorAll('.pw2 [data-pg]').forEach(b => b.setAttribute('aria-selected', b === tab ? 'true' : 'false'));
+          document.querySelectorAll('.pw2 [data-ex]').forEach(i => i.classList.toggle('on', i.dataset.ex === curPg));
+          document.querySelectorAll('.pw2 [data-exm]').forEach(i => i.classList.toggle('on', i.dataset.exm === curPg));
+          const u = document.querySelector('.pw2 [data-exurl]'); if (u) u.textContent = p.u; const vp = document.querySelector('.pw2 [data-exvp]'); if (vp) vp.scrollTop = 0; const mv = document.querySelector('.pw2 [data-exmvp]'); if (mv) mv.scrollTop = 0; return; }
+        const dv = t.closest('.pw2 [data-dev]'); if (dv) { document.querySelectorAll('.pw2 [data-dev]').forEach(b => b.setAttribute('aria-pressed', b === dv ? 'true' : 'false')); const st = document.querySelector('.pw2 .ex-stage'); if (st) st.dataset.devNow = dv.dataset.dev; return; }
+        const sw = t.closest('.pw2 [data-hex]'); if (sw) { const hx = sw.dataset.hex; const done = () => { const c = document.querySelector('.pw2 .copied'); if (!c) return; c.textContent = 'Copied ' + hx; c.classList.add('on'); clearTimeout(this._cpT); this._cpT = setTimeout(() => c.classList.remove('on'), 1600); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(hx).then(done, done); else done(); } });
+      on(window, 'keydown', (e) => { if (e.key === 'Escape') closeFull(); });
+      // hide the scroll hint once a window has been scrolled
+      on(document, 'scroll', (e) => { const vp = e.target; if (vp && vp.classList && vp.classList.contains('br-vp') && vp.scrollTop > 40) { const b = vp.closest('.br'); b && b.classList.add('scrolled'); } }, true);
+      // reveal (re-queried each check so a re-render cannot leave anything hidden)
+      const check = () => { const root = document.querySelector('main.pw2'); if (!root) return; if (!root.classList.contains('pw-js')) root.classList.add('pw-js'); const vh = innerHeight;
+        root.querySelectorAll('[data-rv]:not(.on)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add('on'); }); };
+      let raf = 0; const sched = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; check(); }); };
+      on(window, 'scroll', sched, { passive: true }); on(window, 'resize', sched); check();
+      const iv = setInterval(check, 600); const iv2 = setTimeout(() => clearInterval(iv), 6000);
+      this._pw.push(() => { clearInterval(iv); clearTimeout(iv2); clearTimeout(this._cpT); document.documentElement.style.overflow = ''; }); }
+    this._backH = (e) => { const a = e.target.closest && e.target.closest('[data-back]'); if (!a) return;
+      if (/Explorations|projects/i.test(document.referrer || '') && history.length > 1) { e.preventDefault(); e.stopImmediatePropagation(); history.back(); return; }
+      const __b = 'Case-Pawssible.dc.html'; window.__backTo = __b; try { sessionStorage.setItem('pf_back', __b); } catch (err) {} };
+    document.addEventListener('click', this._backH, true);
+    if (!this.root) return;
+    this.startTransitions();
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); } }), { threshold: 0.06 });
+      this.root.querySelectorAll('.rv').forEach(el => this.io.observe(el));
+      this.vio = new IntersectionObserver((es) => es.forEach(e => { const v = e.target; v.muted = true; if (e.isIntersecting && !reduce) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }), { threshold: 0.2 });
+      this.root.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; this.vio.observe(v); });
+    } else this.root.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+  }
+  componentWillUnmount(){ (this._pw || []).forEach(f => f()); document.removeEventListener('click', this._backH, true); [this.io, this.vio].forEach(o => o && o.disconnect()); }
+  renderVals(){ return {}; }
 }
 </script>
 </body>
