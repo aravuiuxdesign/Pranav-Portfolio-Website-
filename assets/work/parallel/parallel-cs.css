@@ -615,3 +615,17 @@
 @media (max-width:1000px){.px .solo{padding:40px 0 24px}.px .solo .tpi{--w:260px}}
 @media (max-width:760px){.px .solo .tpi{--w:220px}}
 .px .solo .tpi{--rz:-24deg;--w:min(clamp(260px,22vw,390px),calc((100vh - 140px) / 2.4))}.px .hero-ph{max-width:none}@media (max-width:1000px){.px .solo .tpi{--w:270px}}@media (max-width:760px){.px .solo{padding:60px 0 50px}.px .solo .tpi{--w:230px}}
+/* hero phone like the PDF: big, ~30° slant, bleeding off the bottom edge */
+.px .hero{overflow:hidden}
+.px .solo{align-items:flex-start;justify-content:center;height:100%}
+.px .solo .tp{margin-top:clamp(0px,2vh,24px);transform:translateX(4%)}
+.px .solo .tpi{--rz:-30deg;--w:clamp(300px,23vw,450px)}
+.px .solo .fan-glow{top:70%}
+@media (max-width:1000px){.px .solo{height:auto;padding:30px 0 0;max-height:620px;overflow:visible}.px .solo .tp{transform:none}.px .solo .tpi{--w:300px}.px .hero-ph{overflow:hidden;margin:0 calc(-1*clamp(20px,3.4vw,56px));padding:0}}
+@media (max-width:760px){.px .solo{max-height:520px}.px .solo .tpi{--w:250px}}
+.px .solo{position:relative;display:block}
+.px .solo .tp{position:absolute;left:50%;top:clamp(0px,3vh,30px);margin:0;transform:translateX(-44%)}
+@media (max-width:1000px){.px .solo{height:clamp(440px,90vw,600px)}.px .solo .tp{top:24px;transform:translateX(-50%)}}
+@media (min-width:1001px) and (max-width:1639px){.px .solo .tp{top:56px}}
+@media (max-width:760px){.px .solo .tpi{--w:205px}.px .solo{height:500px}}
+@media (max-width:1000px){.px .hero-ph{overflow:visible;margin:0}}
